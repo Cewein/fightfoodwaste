@@ -6,7 +6,7 @@
  * Time: 23:04
  */
 
-require_once "database.php";
+require_once __DIR__."/includes.php";
 
 function set_particulier($name,$mail){
     $bdd=connection();
