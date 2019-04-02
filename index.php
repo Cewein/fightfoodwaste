@@ -7,7 +7,7 @@
  */
 
 require_once __DIR__.'/includes.php';
-set_particulier('Yunie','sardine0099@gmail.com');
+//set_particulier('Yunie','sardine0099@gmail.com');
 
 ?>
 
@@ -19,12 +19,15 @@ set_particulier('Yunie','sardine0099@gmail.com');
         <meta charset="utf-8" />
         <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/header.css" rel="stylesheet">
+        <link href="css/general.css" rel="stylesheet">
         <title>Page Principale</title>
     </head>
 
     <body>
        <?php require_once __DIR__.'/header.php'; ?>
+        <div class="content">
 
+        </div>
 
         <footer></footer>
     </body>
