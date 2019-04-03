@@ -9,7 +9,15 @@ typedef struct {
 	unsigned int size;
 } MemoryStruct;
 
+struct Arti {
+	unsigned long int barcode;
+	size_t number;
+
+	struct Article * next;
+};
+
 const unsigned int WriteMemoryCallback(void *contents, unsigned int size, unsigned int nmemb, void *userp);
 void printInfo(char * memory);
 char * setUrl();
 MemoryStruct performCurl(char * url);
+
