@@ -36,28 +36,37 @@ require_once __DIR__ . '/../includes.php';
            </div>
 
            <div>
-               <form>
+               <form method="POST" id="inscription">
                    <div class="form-group">
                        <label for="nom">Nom</label>
-                       <input type="text" class="form-control" id="input_nom" aria-describedby="Nom de famille" placeholder="Votre nom">
+                       <input type="text" class="form-control" id="input_nom" name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
                    </div>
                    <div class="form-group">
                        <label for="prenom">Prénom</label>
-                       <input type="text" class="form-control" id="input_prenom" aria-describedby="Prenom" placeholder="Votre prénom">
+                       <input type="text" class="form-control" id="input_prenom" name="prenom" aria-describedby="Prenom" placeholder="Votre prénom">
                    </div>
                    <div class="form-group">
                        <label for="input_email">Adresse Email</label>
-                       <input type="email" class="form-control" id="input_email_p" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
+                       <input type="email" class="form-control" id="input_email_p" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
                        <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>
                    </div>
                    <div class="form-group">
                        <label for="input_password1">Entrez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_p1" placeholder="Password">
+                       <input type="password" class="form-control" id="input_password_p1" name="pwd" placeholder="Password">
                    </div>
                    <div class="form-group">
                        <label for="input_password1">Vérifiez votre mot de passe</label>
                        <input type="password" class="form-control" id="input_password_p2" placeholder="Password">
                    </div>
+                   <div class="form-group">
+                       <label for="input_adresse">Adresse</label>
+                       <input type="password" class="form-control" id="input_adresse_p" name="adresse" placeholder="Adresse">
+                   </div>
+                   <div class="form-group">
+                       <label for="input_ville">Ville</label>
+                       <input type="password" class="form-control" id="input_ville_p" name="ville" placeholder="Ville">
+                   </div>
+                   <input type="hidden" name="type_inscription" value="particulier">
                    <button type="submit" class="btn btn-primary">Valider</button>
                </form>
            </div>
@@ -68,16 +77,24 @@ require_once __DIR__ . '/../includes.php';
                <form>
                    <div class="form-group">
                        <label for="input_email">Adresse Email</label>
-                       <input type="email" class="form-control" id="input_email_c" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
+                       <input type="email" class="form-control" id="input_email_c" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
                        <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>
                    </div>
                    <div class="form-group">
                        <label for="input_password1">Entrez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_c1" placeholder="Password">
+                       <input type="password" class="form-control" id="input_password_c1" name="pwd" placeholder="Password">
                    </div>
                    <div class="form-group">
                        <label for="input_password1">Vérifiez votre mot de passe</label>
                        <input type="password" class="form-control" id="input_password_c2" placeholder="Password">
+                   </div>
+                   <div class="form-group">
+                       <label for="input_adresse">Adresse</label>
+                       <input type="password" class="form-control" id="input_adresse_c" name="adresse" placeholder="Adresse">
+                   </div>
+                   <div class="form-group">
+                       <label for="input_ville">Ville</label>
+                       <input type="password" class="form-control" id="input_ville_c" name="ville" placeholder="Ville">
                    </div>
                    <button type="submit" class="btn btn-primary">Valider</button>
                </form>
