@@ -7,24 +7,22 @@
  */
 
 require_once __DIR__.'/../includes.php';
-$nom=htmlspecialchars($_POST['nom']);
-$prenom=htmlspecialchars($_POST['prenom']);
-$email=htmlspecialchars($_POST['email']);
-set_particulier($nom,$prenom,$email);
-if(isset($_POST['particulier'])){
-    if(isset($_POST['nom'])===true&&isset($_POST['prenom'])===true&&isset($_POST['email'])===true&&isset($_POST['password'])===true&&isset($_POST['adresse'])===true&&isset($_POST['ville'])===true){ //Si toutes les variables sont set
 
-        $nom=htmlspecialchars($_POST['nom']);
-        $prenom=htmlspecialchars($_POST['prenom']);
-        $email=htmlspecialchars($_POST['email']);
-        //$password=htmlspecialchars($_POST['pwd']);
-        //$adresse=htmlspecialchars($_POST['adresse']);
-        //$ville=htmlspecialchars($_POST['ville']);
+if(isset($_POST['particulier'])===true){
+    if(isset($_POST['nom'])===true&&isset($_POST['prenom'])===true&&isset($_POST['email'])===true&&isset($_POST['pwd'])===true&&isset($_POST['adresse'])===true&&isset($_POST['ville'])===true){ //Si toutes les variables sont set
+        $name = htmlspecialchars($_POST['nom']);
+        $pname = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['pwd']);
+        $adress = htmlspecialchars($_POST['adresse']);
+        $city = htmlspecialchars($_POST['ville']);
+
+
 
         $verif=true;
 
         if($verif===true){
-            set_particulier($nom,$prenom,$email);
+            set_particulier($name, $pname, $email, $password, $adress, $city);
 
         }
         else{
@@ -55,11 +53,5 @@ elseif (isset($_POST['commerçant'])===true){
         echo "Error : Variables not set";
     }
 }
-
-
-
-
-
-
 
 print_r($_POST);

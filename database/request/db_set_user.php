@@ -9,14 +9,14 @@
 require_once __DIR__ . "/../../includes.php";
 require_once __DIR__.'/../database.php';
 
-function set_particulier($nom,$prenom,$mail){
+function set_particulier($nom,$prenom,$mail,$pwd,$adress,$city){
 
     $db=DatabaseManager::getManager();
 
-    $request="INSERT INTO `utilisateur`(`nom`,`prenom`,`adresse_mail`) VALUES (?,?,?)";
+    $request="INSERT INTO `utilisateur`(`nom`,`prenom`,`adresse_mail`,`password`,`adresse`,`ville`) VALUES (?,?,?,?,?,?)";
     echo $request;
     echo $nom;
-    $db->exec($request,[$nom,$prenom,$mail]);
+    $db->exec($request,[$nom,$prenom,$mail,$pwd,$adress,$city]);
 
 
 }
