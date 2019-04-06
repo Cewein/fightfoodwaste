@@ -17,12 +17,12 @@ if(isset($_POST['particulier'])===true){
         $adress = htmlspecialchars($_POST['adresse']);
         $city = htmlspecialchars($_POST['ville']);
 
-
+        $state=1;
 
         $verif=true;
 
         if($verif===true){
-            set_particulier($name, $pname, $email, $password, $adress, $city);
+            set_particulier($name, $pname, $email, $password, $adress, $city,$state);
 
         }
         else{
@@ -34,15 +34,21 @@ if(isset($_POST['particulier'])===true){
     }
 
 }
-elseif (isset($_POST['commerçant'])===true){
-      if(isset($_POST['email'])===true&&isset($_POST['password'])===true&&isset($_POST['adresse'])===true&&isset($_POST['ville'])===true){
+elseif (isset($_POST['commercant'])===true){
+      if(isset($_POST['name'])===true&&isset($_POST['Siret'])===true&&isset($_POST['email'])===true&&isset($_POST['pwd'])===true&&isset($_POST['adress'])===true&&isset($_POST['city'])===true){
+          $nameShop=htmlspecialchars($_POST['name']);
+          $SIRET=htmlspecialchars($_POST['Siret']);
           $email=htmlspecialchars($_POST['email']);
           $password=htmlspecialchars($_POST['pwd']);
-          $adresse=htmlspecialchars($_POST['adresse']);
-          $ville=htmlspecialchars($_POST['ville']);
+          $adress=htmlspecialchars($_POST['adress']);
+          $city=htmlspecialchars($_POST['city']);
+
+          $state=1;
+
+          $verif=true;
 
           if($verif===true){
-            //set_commercant($nom,$prenom,$email);
+            set_commercant($nameShop,$SIRET,$email,$password,$adress,$city,$state);
 
         }
         else{
@@ -54,4 +60,3 @@ elseif (isset($_POST['commerçant'])===true){
     }
 }
 
-print_r($_POST);

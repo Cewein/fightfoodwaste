@@ -13,7 +13,7 @@ require_once __DIR__ . '/../includes.php';
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@ require_once __DIR__ . '/../includes.php';
                <button class="btn btn-info" onclick="visible('commercant')">Commerçant</button>
            </div>
 
-           <div id="form_particulier" style="display: block">
+           <div id="form_particulier">
                <p>En tant que particulier, vous disposerez un dispositif permettant de nous signaler que vous avez des produits à collecter.</p>
                <form method="POST" id="inscription">
 
@@ -77,6 +77,7 @@ require_once __DIR__ . '/../includes.php';
                        <label for="input_adresse">Adresse</label>
                        <input type="text" class="form-control" id="input_adresse_p" name="adresse" placeholder="Adresse">
                    </div>
+
                    <div class="form-group">
                        <label for="input_ville">Ville</label>
                        <input type="text" class="form-control" id="input_ville_p" name="ville" placeholder="Ville">
@@ -86,29 +87,41 @@ require_once __DIR__ . '/../includes.php';
                </form>
            </div>
 
-           <div id="form_commercant" style="display: none">
+           <div id="form_commercant">
                <p>En tant que commerçant, nous viendrons collecter vos produit avec un rythme d'une fois par semaine. Vous aurez la possibilité de nous signaler si vous n'avez rien a collecter afin de gagner du temps.</p>
-               <form>
+               <form method="POST" id="inscription_shop">
+                   <div class="form-group">
+                       <label for="inputNameShop">Nom du commerce</label>
+                       <input type="text" class="form-control" id="inputNameShop" name="nameShop" placeholder="Nom du commerce">
+                       <small id="nameShopError" class="form-text text-muted">Contient 2-100 caractères</small>
+                   </div>
+                   <div class="form-group">
+                       <label for="inputSiret">Numero de SIRET</label>
+                       <input type="text" class="form-control" id="inputSiret" name="name_shop" placeholder="Numero de SIRET">
+                       <small id="SIRETError" class="form-text text-muted">Contient 11 chiffres</small>
+                   </div>
                    <div class="form-group">
                        <label for="input_email">Adresse Email</label>
-                       <input type="email" class="form-control" id="input_email_c" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
+                       <input type="email" class="form-control" id="inputEmailC" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
                        <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>
                    </div>
                    <div class="form-group">
-                       <label for="input_password1">Entrez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_c1" name="pwd" placeholder="Password">
+                       <label for="inputPwd1">Entrez votre mot de passe</label>
+                       <input type="password" class="form-control" id="inputPwdC1" name="pwd" placeholder="Password">
+                       <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères</small>
                    </div>
                    <div class="form-group">
-                       <label for="input_password1">Vérifiez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_c2" placeholder="Password">
+                       <label for="inputPwd2">Vérifiez votre mot de passe</label>
+                       <input type="password" class="form-control" id="inputPwdC2" placeholder="Password">
+                       <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent être identiques</small>
                    </div>
                    <div class="form-group">
-                       <label for="input_adresse">Adresse</label>
-                       <input type="text" class="form-control" id="input_adresse_c" name="adresse" placeholder="Adresse">
+                       <label for="inputAdresse">Adresse</label>
+                       <input type="text" class="form-control" id="inputAdressC" name="adresse" placeholder="Adresse">
                    </div>
                    <div class="form-group">
-                       <label for="input_ville">Ville</label>
-                       <input type="text" class="form-control" id="input_ville_c" name="ville" placeholder="Ville">
+                       <label for="inputVille">Ville</label>
+                       <input type="text" class="form-control" id="inputCityC" name="ville" placeholder="Ville">
                    </div>
                    <button type="submit" class="btn btn-primary">Valider</button>
                </form>

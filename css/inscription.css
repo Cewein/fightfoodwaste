@@ -3,7 +3,11 @@
     margin: 1%;
 }
 
-#nameError, #PNameError, #emailError{
+#form_commercant{
+    display: none;
+}
+
+#nameError, #PNameError, #emailError,#nameShopError{
     display: none;
     color: rgb(255,0,0);
 }
