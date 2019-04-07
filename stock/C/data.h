@@ -9,15 +9,27 @@ typedef struct {
 	unsigned int size;
 } MemoryStruct;
 
-struct Arti {
+struct Article {
 	unsigned long int barcode;
 	size_t number;
 
+	const char * name;
+	const char * descriptiopn;
+
 	struct Article * next;
 };
+
+/* ------ curl ----- */
 
 const unsigned int WriteMemoryCallback(void *contents, unsigned int size, unsigned int nmemb, void *userp);
 void printInfo(char * memory);
 char * setUrl();
 MemoryStruct performCurl(char * url);
+
+/* - Chained  list - */
+
+struct Article * newArticle(struct Article ** head);
+void printAll(struct Article * list);
+void fillArticle(struct Article * list, char * url, char * data);
+
 

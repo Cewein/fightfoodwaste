@@ -71,3 +71,39 @@ MemoryStruct performCurl(char * url)
 	}
 	else return chunk;
 }
+
+struct Article * newArticle(struct Article ** head)
+{
+	struct Article * new = (struct Article *)malloc(sizeof(struct Article));
+	new->next = (*head);
+	return new;
+}
+
+void printAll(struct Article * list)
+{
+	int number = 1;
+	while (list != NULL)
+	{
+		printf("---- Article numero %d ----\n", number);
+		printf("Barcode: %ld\n", list->barcode);
+		printf("Name : %s\n", list->name);
+		printf("Description : %s\n", list->descriptiopn);
+		list = list->next;
+		number++;
+	}
+}
+
+void fillArticle(struct Article * list, char * url, char * data)
+{
+	char * token = strtok(url, "=");
+	token = strtok(NULL, "=");
+	long barcode = atol(token);
+
+	list->barcode = barcode;
+
+	char * dataString = strtok(data, "\n");
+	list->name = dataString;
+	dataString = strtok(NULL, "");
+
+	list->descriptiopn = dataString;
+}
