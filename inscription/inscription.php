@@ -23,10 +23,12 @@ if(isset($_POST['particulier'])===true){
 
         if($verif===true){
             set_particulier($name, $pname, $email, $password, $adress, $city,$state);
-
+            set_role($email,'particulier');
+            echo "Variables set";
         }
         else{
             http_response_code(400);
+            echo ("Error : Verification Error");
         }
     }
     else{
@@ -48,15 +50,28 @@ elseif (isset($_POST['commercant'])===true){
           $verif=true;
 
           if($verif===true){
-            set_commercant($nameShop,$SIRET,$email,$password,$adress,$city,$state);
+                set_commercant($nameShop,$SIRET,$email,$password,$adress,$city,$state);
+                set_role($email,'commercant');
 
-        }
-        else{
-            echo ("Error : Verification Error");
-        }
+          }
+          else{
+                http_response_code(400);
+                echo ("Error : Verification Error");
+          }
     }
     else{
         echo "Error : Variables not set";
     }
+}
+
+
+
+function set_role($mail,$roleToSet){
+    echo ("\"".$mail."\"");
+    echo $roleToSet;
+    $idUser=getUserIdByMail("\"".$mail."\"");
+    $idRole=getRoleId($roleToSet);
+
+    setRoleUser($idUser['identifiant'],$idRole['identifiant']);
 }
 

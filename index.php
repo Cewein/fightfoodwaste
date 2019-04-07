@@ -24,7 +24,7 @@ require_once __DIR__.'/includes.php';
     </head>
 
     <body>
-       <?php require_once __DIR__.'/header.php'; ?>
+       <?php require_once __DIR__ . '/headerFront.php'; ?>
         <div class="content">
 
         </div>

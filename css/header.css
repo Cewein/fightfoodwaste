@@ -1,6 +1,11 @@
-header
+headerFront
 {
     background-color: #A2DD71;
+}
+
+headerBack
+{
+    background-color: #A33131;
 }
 
 .header

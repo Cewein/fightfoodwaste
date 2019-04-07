@@ -7,7 +7,7 @@
  */
 
 require_once __DIR__ . "/../../includes.php";
-require_once __DIR__.'/../database.php';
+
 
 function set_particulier($name,$pname,$mail,$pwd,$adress,$city,$state){
 

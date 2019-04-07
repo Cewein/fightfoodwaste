@@ -7,7 +7,7 @@
  */
 ?>
 
-<header>
+<header id="headerFront">
     <div class="row header">
         <h1 class="nav-bar brand col-md-6">Fight Food Waste</h1>
 
@@ -24,3 +24,5 @@
         </nav>
     </div>
 </header>
+
+
