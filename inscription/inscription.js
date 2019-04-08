@@ -56,7 +56,7 @@ document.getElementById('inscription').addEventListener('submit', function(e) {
     }
 
     if(check===true){
-        sendRequest(check,`nom=${name_checked}&prenom=${pname_checked}&email=${email_checked}&pwd=${pwd_checked}&adresse=${adress}&ville=${city}&particulier='particulier'`);
+        sendRequest(`nom=${name_checked}&prenom=${pname_checked}&email=${email_checked}&pwd=${pwd_checked}&adresse=${adress}&ville=${city}&particulier='particulier'`);
     }
 
 });
