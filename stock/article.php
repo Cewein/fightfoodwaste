@@ -7,15 +7,20 @@ class Article
     //variable
     private $barcode;
     private $name;
+    private $descritpion;
     private $picture;
 
     //constuctor
     public function __construct($bc)
     {
+        $illegal = ["à","â","é","è","ê","ç","œ","ï","î"];
+        $legal = ["a","a","e","e","e","c","oe","i","i"];
+
         $this->barcode = new Barcode($bc);
-        $tmpJson = $this->barcode->getJson();                   //make a tmp json for safey
-        $this->picture = $tmpJson->product->image_front_url;    //get stuff from that json
-        $this->name = $tmpJson->product->product_name;          //EVERYTHING is public in the praised JSON
+        $tmpJson = $this->barcode->getJson();                                                   //make a tmp json for safey
+        $this->picture = $tmpJson->product->image_front_url;                                    //get stuff from that json
+        $this->name = str_replace($illegal,$legal,$tmpJson->product->product_name);             //EVERYTHING is public in the praised JSON
+        $this->description = str_replace($illegal,$legal,$tmpJson->product->generic_name);
     }
 
     //getter
@@ -34,6 +39,6 @@ class Article
     {
         echo $this->name;
         echo "\n";
-        echo $this->picture;
+        echo $this->description;
     }
 }

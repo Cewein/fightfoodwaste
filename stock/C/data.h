@@ -4,6 +4,7 @@
 #include <string.h>
 #include <curl/curl.h>
 
+
 typedef struct {
 	char *memory;
 	unsigned int size;

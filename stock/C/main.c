@@ -17,10 +17,10 @@ int main(void)
 		fillArticle(list, url, reponse.memory);
 		printAll(list);
 		printf("###############################################\n");
-		printf("Voulez-vous ajouter un nouveau article ?\n 1: \t Oui\n 0: \t non");
-		char num = "0";
-		fgets(num, 1, stdin);
-		loop = atoi(num);
+		printf("Voulez-vous ajouter un nouveau article ?\n 1: \t Oui\n 0: \t non\n\n");
+		loop = 0;
+		scanf_s("%d", &loop);
+		int c; while ((c = getchar()) != '\n');
 
 	} while (loop);
 	system("pause");
