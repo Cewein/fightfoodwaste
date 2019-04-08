@@ -31,9 +31,9 @@ require_once __DIR__.'/../includes.php';
 
             <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
                 <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs" onclick="allUsers()">
-                <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="user('particulier')">
-                <input class="btn btn-secondary" type="button" value="Afficher comemrcants" onclick="user('commercant')">
-                <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="user('salary')">
+                <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="users('particulier')">
+                <input class="btn btn-secondary" type="button" value="Afficher commercants" onclick="users('commercant')">
+                <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
             </div>
 
             <div class="table">
@@ -48,24 +48,7 @@ require_once __DIR__.'/../includes.php';
                     </tr>
                     </thead>
                     <tbody id="tbody">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>

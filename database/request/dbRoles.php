@@ -26,3 +26,10 @@ function getAllRoles(){
     $request="SELECT * FROM `role`";
     return ($db->getAll($request));
 }
+
+function getAllIdByIdRole($idRole){
+    $db=DatabaseManager::getManager();
+
+    $request="SELECT `id_utilisateur` FROM `posseder` WHERE `id_role`=".$idRole;
+    return ($db->getAll($request));
+}
