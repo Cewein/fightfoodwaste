@@ -15,3 +15,10 @@ function getUserIdByMail($mail){
     return ($db->findOne($request,[$mail]));
 
 }
+
+function getAllUsers(){
+    $db=DatabaseManager::getManager();
+
+    $request="SELECT * FROM `utilisateur`";
+    return ($db->getAll($request));
+}

@@ -19,3 +19,10 @@ function getRoleId($nameRole){
     $request="SELECT `identifiant` FROM `role` WHERE `nom`= ?";
     return ($db->findOne($request,[$nameRole]));
 }
+
+function getAllRoles(){
+    $db=DatabaseManager::getManager();
+
+    $request="SELECT * FROM `role`";
+    return ($db->getAll($request));
+}

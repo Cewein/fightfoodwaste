@@ -1,11 +1,11 @@
-headerFront
+#headerFront
 {
     background-color: #A2DD71;
 }
 
-headerBack
+#headerBack
 {
-    background-color: #A33131;
+    background-color: #c03131;
 }
 
 .header

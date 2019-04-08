@@ -15,8 +15,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                    
+                    <li class="nav-item"><a class="nav-link" href="#">Utilisateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Stock</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tournées</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Collectes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>

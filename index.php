@@ -7,14 +7,12 @@
  */
 
 require_once __DIR__.'/includes.php';
-//set_particulier('Yunie','sardine0099@gmail.com');
-
 ?>
 
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +22,14 @@ require_once __DIR__.'/includes.php';
     </head>
 
     <body>
-       <?php require_once __DIR__ . '/headerFront.php'; ?>
+       <?php
+       if($_SESSION['role']=='salary'){
+            require_once __DIR__.'/headerBack.php';
+       }
+       else{
+           require_once __DIR__ . '/headerFront.php';
+       }
+       ?>
         <div class="content">
 
         </div>
