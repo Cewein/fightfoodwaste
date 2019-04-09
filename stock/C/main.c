@@ -17,10 +17,22 @@ int main(void)
 		fillArticle(list, url, reponse.memory);
 		printAll(list);
 		printf("###############################################\n");
-		printf("Voulez-vous ajouter un nouveau article ?\n 1: \t Oui\n 0: \t non\n\n");
+		printf("\n\n 0: \t Quiter \n 1: \t Ajouter un article \n 2: \t supprimer un article\n\n");
 		loop = 0;
 		scanf_s("%d", &loop);
 		int c; while ((c = getchar()) != '\n');
+		if (loop == 2)
+		{
+			system("cls");
+			printAll(list);
+			printf("numero : ");
+			int num = 0;
+			scanf_s("%d", &num);
+			deleteArticle(&list, num);
+			printAll(list);
+			system("pause");
+		}
+		system("cls");
 
 	} while (loop);
 	system("pause");
