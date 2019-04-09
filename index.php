@@ -23,7 +23,7 @@ require_once __DIR__.'/includes.php';
 
     <body>
        <?php
-       if($_SESSION['role']=='salary'){
+       if(isset($_SESSION['role'])===true&&$_SESSION['role']=='salary'){
             require_once __DIR__.'/headerBack.php';
        }
        else{

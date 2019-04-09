@@ -24,13 +24,9 @@ function getAllUsers(){
 }
 
 function getUsersByIdList($list){
-    $where=" ";
     $db=DatabaseManager::getManager();
 
-    for($i=0;$i<count($list)-1;$i++){
-        $where.=$list[$i].", ";
-    }
-    $where.=$list[$i];
+    $where=$list;
 
     $request="SELECT * FROM `utilisateur` WHERE `identifiant` IN (".$where.")";
     return ($db->getAll($request));

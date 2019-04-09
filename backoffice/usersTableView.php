@@ -44,6 +44,8 @@ require_once __DIR__.'/../includes.php';
                         <th scope="col">Nom</th>
                         <th scope="col">Prenom</th>
                         <th scope="col">Adresse Email</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Ville</th>
                         <th scope="col">Role(s)</th>
                     </tr>
                     </thead>

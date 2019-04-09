@@ -10,11 +10,14 @@ require_once __DIR__.'/../includes.php';
 $role=getRoleId($_POST['role']);
 $List=getAllIdByIdRole($role['identifiant']);
 $idList="";
-foreach($List as $id){
-    $idList.=$id['id_utilisateur'];
-}
-$users=getUsersByIdList($idList);
 
+for($i=0;$i<count($List)-1;$i++){
+    $idList.=$List[$i]['id_utilisateur'].",";
+}
+
+$idList.=$List[$i]['id_utilisateur'];
+
+$users=getUsersByIdList($idList);
 foreach($users as $user){
     $row="<tr><th scope=\"row\">".$user['identifiant']."</th>";
     $row.="<td>".$user['nom']."</td>";
@@ -22,6 +25,7 @@ foreach($users as $user){
     $row.="<td>".$user['adresse_mail']."</td>";
     $row.="<td>".$user['adresse']."</td>";
     $row.="<td>".$user['ville']."</td>";
+    $row.="<td>".$_POST['role']."</td>";
 
     echo $row;
 }
