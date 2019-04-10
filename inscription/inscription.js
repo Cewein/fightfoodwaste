@@ -52,7 +52,7 @@ document.getElementById('inscription').addEventListener('submit', function (e) {
     }
 
     if (check === true) {
-        sendRequest(`nom=${name_checked}&prenom=${pname_checked}&email=${email_checked}&pwd=${pwd_checked}&adresse=${adress}&ville=${city}&particulier='particulier'`, 'inscription.php');
+        sendRequest(`nom=${name_checked}&prenom=${pname_checked}&email=${email_checked}&pwd=${pwd_checked}&adresse=${adress}&ville=${city}&particulier='particulier'`, 'inscription.php', 'particulier');
     }
 
 });
@@ -116,16 +116,29 @@ document.getElementById('inscription_shop').addEventListener('submit', function 
 
 
     if (check === true) {
-        sendRequest(`name=${nameShopChecked}&Siret=${SiretChecked}&email=${emailChecked}&pwd=${pwdChecked}&adress=${adress}&city=${city}&commercant='commercant'`, 'inscription.php');
+        sendRequest(`name=${nameShopChecked}&Siret=${SiretChecked}&email=${emailChecked}&pwd=${pwdChecked}&adress=${adress}&city=${city}&commercant='commercant'`, 'inscription.php', 'commercant');
     }
 
 });
 
-function sendRequest(textRequest, script) {
+function sendRequest(textRequest, script, type = false) {
     console.log(textRequest);
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            if (type !== false) {
+                errorEmailPrint = document.getElementById("emailSetError");
+                type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";
+                emailInput = document.getElementById(inputName);
+                console.log(emailInput);
+                if (request.responseText === "mail already set") {
+                    errorEmailPrint.style.display = "block";
+                    emailInput.style.borderColor="red";
+
+                } else {
+                    window.location.replace("index.php");
+                }
+            }
             console.log(request.responseText);
         }
     };

@@ -28,7 +28,7 @@ class DatabaseManager
         return self::$manager;
     }
 
-    private function internalExec(string $sql, array $params = []): PDOStatement
+    private function internalExec(string $sql, array $params = [])//: PDOStatement
     {
         $stmt = $this->pdo->prepare($sql);
         if ($stmt !== false) {

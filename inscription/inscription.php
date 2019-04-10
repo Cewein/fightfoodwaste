@@ -6,8 +6,6 @@
  * Time: 11:01
  */
 
-$_POST['commercant'] = 'commercant';
-$_POST['email'] = 'patin@free.fr';
 
 
 require_once __DIR__ . '/../includes.php';
@@ -30,8 +28,8 @@ if (isset($_POST['particulier']) === true) {
 
         //Email unicity check
         $result = getUserIdByMail($email);
-        if ($result !== [0]) {
-            echo "mail already set";
+        if ($result !== []) {
+            $error= "mail already set";
             $verif = false;
         }
 
@@ -41,7 +39,13 @@ if (isset($_POST['particulier']) === true) {
             echo "Variables set";
         } else {
             http_response_code(400);
-            echo("Error : Verification Error");
+            if(isset($error)===true){
+                echo $error;
+            }
+            else{
+                echo("Error : Verification Error");
+            }
+
         }
     } else {
         echo "Error : Variables not set";
