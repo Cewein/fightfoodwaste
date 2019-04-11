@@ -128,9 +128,10 @@ require_once __DIR__ . '/../includes.php';
            </div>
        </div>
         <footer></footer>
+        <script src="inscription.js"></script>
+        <script src="page_inscription.js"></script>
     </body>
 
-    <script src="inscription.js"></script>
-    <script src="page_inscription.js"></script>
+  
 
 </html>
