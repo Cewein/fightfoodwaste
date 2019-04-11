@@ -22,9 +22,9 @@
                     <li class="nav-item">
                     <img src="pictures/user.png"><a class="nav-link" href="connection/php/connection.php">Connexion</a></li>
                     <?php } else { ?>
-                    <img src="/pictures/user.png">
+                    <img src="pictures/user.png">
                     <a class="nav-link" href="/connection/disconnection.php">Déconnexion</a></li>
-                        <?php switch(role) {
+                        <?php switch($role) {
                                     case 'salary' : ?>
                              <a class="nav-link" href="#">Espace de travail</a></li> <!-- nom à revoir-->
                              <?php   case 'volunteer' : ?>

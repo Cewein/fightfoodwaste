@@ -5,30 +5,35 @@
  * Date: 08/04/2019
  * Time: 23:09
  */
+
 require_once __DIR__ . '/../includes.php';
 
 $role = getRoleId($_POST['role']);
-$List = getAllIdByIdRole($role['identifiant']);
-$idList = "";
+if (isset($role) === true) {
+    $List = getAllIdByIdRole($role['identifiant']);
+    $idList = "";
 
-for ($i = 0; $i < count($List) - 1; $i++) {
-    if (isset($List[$i]['id_utilisateur']) === true) {
-        $idList .= $List[$i]['id_utilisateur'] . ",";
+    for ($i = 0; $i < count($List) - 1; $i++) {
+        if (isset($List[$i]['id_utilisateur']) === true) {
+            $idList .= $List[$i]['id_utilisateur'] . ",";
+        }
+
     }
 
-}
+    $idList .= $List[$i]['id_utilisateur'];
 
-$idList .= $List[$i]['id_utilisateur'];
+    $users = getUsersByIdList($idList);
+    foreach ($users as $user) {
+        $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
+        $row .= "<td>" . $user['nom'] . "</td>";
+        if (isset($user['prenom']) === true) {
+            $row .= "<td>" . $user['prenom'] . "</td>";
+        }
+        $row .= "<td>" . $user['adresse_mail'] . "</td>";
+        $row .= "<td>" . $user['adresse'] . "</td>";
+        $row .= "<td>" . $user['ville'] . "</td>";
+        $row .= "<td>" . $_POST['role'] . "</td>";
 
-$users = getUsersByIdList($idList);
-foreach ($users as $user) {
-    $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
-    $row .= "<td>" . $user['nom'] . "</td>";
-    $row .= "<td>" . $user['prenom'] . "</td>";
-    $row .= "<td>" . $user['adresse_mail'] . "</td>";
-    $row .= "<td>" . $user['adresse'] . "</td>";
-    $row .= "<td>" . $user['ville'] . "</td>";
-    $row .= "<td>" . $_POST['role'] . "</td>";
-
-    echo $row;
+        echo $row;
+    }
 }
