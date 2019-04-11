@@ -11,3 +11,8 @@
     display: none;
     color: rgb(255,0,0);
 }
+
+#emailSetError{
+    display: none;
+    color: red;
+}

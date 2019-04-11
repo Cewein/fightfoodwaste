@@ -42,7 +42,7 @@ require_once __DIR__ . '/../includes.php';
            <div id="form_particulier">
                <p>En tant que particulier, vous disposerez un dispositif permettant de nous signaler que vous avez des produits à collecter.</p>
                <form method="POST" id="inscription">
-
+                    <p id="emailSetError">Cette adresse email est déjà utilisée</p>
                    <div class="form-group">
                        <label for="nom">Nom</label>
                        <input type="text" class="form-control" id="input_name" name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
@@ -55,7 +55,7 @@ require_once __DIR__ . '/../includes.php';
                        <small id="PNameError" class="form-text text-muted">Contient 1-100 caractères</small>
                    </div>
 
-                   <div class="form-group">
+                   <div class="form-group" id="email">
                        <label for="input_email">Adresse Email</label>
                        <input type="email" class="form-control" id="input_email_p" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
                        <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>

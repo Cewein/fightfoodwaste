@@ -85,8 +85,8 @@ void printAll(struct Article * list)
 	while (list != NULL)
 	{
 		printf("---- Article numero %d ----\n", number);
-		printf("Barcode: %ld\n", list->barcode);
-		printf("Name : %s\n", list->name);
+		printf("Barcode: %ld\t", list->barcode);
+		printf("Name : %s\t", list->name);
 		printf("Description : %s\n", list->descriptiopn);
 		list = list->next;
 		number++;
@@ -106,4 +106,35 @@ void fillArticle(struct Article * list, char * url, char * data)
 	dataString = strtok(NULL, "");
 
 	list->descriptiopn = dataString;
+}
+
+void deleteArticle(struct Article **head, int artNum)
+{
+
+	struct  Article* temp = *head;
+	struct  Article* prev = NULL;
+
+	// If head node itself holds the key to be deleted 
+	int chooser = 1;
+	if (temp != NULL && artNum == chooser)
+	{
+		*head = temp->next;   // Changed head 
+		free(temp);           // free old head 
+		return;
+	}
+	
+	while (temp != NULL && chooser != artNum)
+	{
+		prev = temp;
+		temp = temp->next;
+		chooser++;
+	}
+
+	// If key was not present in linked list 
+	if (temp == NULL) return;
+
+	// Unlink the node from linked list 
+	prev->next = temp->next;
+
+	free(temp);  // Free memory 
 }

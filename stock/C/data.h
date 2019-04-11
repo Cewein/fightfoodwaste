@@ -32,5 +32,7 @@ MemoryStruct performCurl(char * url);
 struct Article * newArticle(struct Article ** head);
 void printAll(struct Article * list);
 void fillArticle(struct Article * list, char * url, char * data);
+void deleteArticle(struct Article **head, int artNum);
+
 
 
