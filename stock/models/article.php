@@ -13,6 +13,7 @@ class Article
     //constuctor
     public function __construct($bc)
     {
+        //this is needed because thoses letter mess up the C program
         $illegal = ["à","â","é","è","ê","ç","œ","ï","î"];
         $legal = ["a","a","e","e","e","c","oe","i","i"];
 
