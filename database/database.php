@@ -6,7 +6,7 @@
  * Time: 10:30
  */
 
-require_once __DIR__ . '/conf.php';
+require_once(__DIR__.'/conf.php');
 
 class DatabaseManager
 {

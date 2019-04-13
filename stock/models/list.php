@@ -7,7 +7,7 @@ class ArticleList
     private $list; 
     private $size;
     
-    public function __constructor()
+    public function __construct()
     {
         $this->list = array();
         $this->size = 0;
@@ -30,11 +30,21 @@ class ArticleList
         }
     }
 
+    public function getArticle($num)
+    {
+        return $this->list[$num];
+    }
+
     /**
      * Get the value of list
      */ 
     public function getList()
     {
         return $this->list;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
     }
 }

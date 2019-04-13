@@ -20,7 +20,7 @@ int main(void)
 		printf("\n\n 0: \t Quiter \n 1: \t Ajouter un article \n 2: \t supprimer un article\n\n");
 		loop = 0;
 		scanf_s("%d", &loop);
-		int c; while ((c = getchar()) != '\n');
+		CLEAN_STDIN
 		if (loop == 2)
 		{
 			system("cls");
@@ -31,6 +31,7 @@ int main(void)
 			deleteArticle(&list, num);
 			printAll(list);
 			system("pause");
+			CLEAN_STDIN
 		}
 		system("cls");
 

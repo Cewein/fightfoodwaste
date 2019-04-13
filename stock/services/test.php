@@ -1,13 +1,8 @@
 <?php
 
-require_once(__DIR__.'/../models/list.php');
+require_once(__DIR__.'./../manager/sendList.php');
 
-$a = new Article(3029330003533);
-$b = new Article(5449000133328);
+$json = file_get_contents("php://input");
+$tmp = new SendList($json);
+echo $tmp->send();
 
-$list = new ArticleList();
-
-$list->add($a);
-$list->add($b);
-
-$list->show();

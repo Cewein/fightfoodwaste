@@ -34,7 +34,7 @@ char * setUrl()
 	printf("Rentrez un code barre : \n");
 	char buffer[60];
 	memset(url, '\0', sizeof(url));
-	strcpy(url, "http://localhost/API/main.php/?barcode=");
+	strcpy(url, "http://localhost/fightfoodwaste/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
 	fgets(buffer, 60, stdin);
 	strtok(buffer, "\n");
 	strcat(url, buffer);
@@ -54,16 +54,20 @@ MemoryStruct performCurl(char * url)
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 	curl = curl_easy_init();
 
+	//perform curl
 	if (curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 
+		//set callback and where to write the data
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
 
+		//perform curl and clean it
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 	}
 
+	//check is the responce code is ok
 	if (res != CURLE_OK)
 	{
 		fprintf(stderr, "curl_easy_perfm() failed: %s\n", curl_easy_strerror(res));
@@ -95,12 +99,14 @@ void printAll(struct Article * list)
 
 void fillArticle(struct Article * list, char * url, char * data)
 {
+	//set the barcode
 	char * token = strtok(url, "=");
 	token = strtok(NULL, "=");
 	long barcode = atol(token);
 
 	list->barcode = barcode;
-
+	
+	//set Name and desciption
 	char * dataString = strtok(data, "\n");
 	list->name = dataString;
 	dataString = strtok(NULL, "");
@@ -118,8 +124,8 @@ void deleteArticle(struct Article **head, int artNum)
 	int chooser = 1;
 	if (temp != NULL && artNum == chooser)
 	{
-		*head = temp->next;   // Changed head 
-		free(temp);           // free old head 
+		*head = temp->next;   
+		free(temp);           
 		return;
 	}
 	
@@ -136,5 +142,5 @@ void deleteArticle(struct Article **head, int artNum)
 	// Unlink the node from linked list 
 	prev->next = temp->next;
 
-	free(temp);  // Free memory 
+	free(temp);
 }
