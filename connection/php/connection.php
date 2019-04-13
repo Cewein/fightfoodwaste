@@ -6,6 +6,7 @@
  * Time: 22:43
  */
 
+<<<<<<< HEAD
 //require_once __DIR__ . '/../includes.php';
 
 session_start();
@@ -32,17 +33,24 @@ if (isset($_POST['formconnexion'])) {
         $erreur = "Tous les champs doivent être complétés !";
     }
 }
+=======
+require_once __DIR__ . '/../../includes.php';
+>>>>>>> cd2ea04cd90aeaa7bdc8955e8ee75b7b522d2e9c
 
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd2ea04cd90aeaa7bdc8955e8ee75b7b522d2e9c
 <head>
     <title>Se connecter</title>
     <meta charset="utf-8">
     <meta name="connection" description="formulaire de description">
 </head>
+<<<<<<< HEAD
 
 <body>
     <center>
@@ -66,3 +74,21 @@ if (isset($_POST['formconnexion'])) {
 </body>
 
 </html>
+=======
+<body>
+<center>
+    <h1>Fight Food Waste</h1>
+    <form action="checkConnection.php" method="post" enctype="">
+        <legend>
+            <fieldset>Soyez les bienvenue !!
+                <input type="mail" name="adresseMail" placeholder="Adresse email" id="mail" required="required">
+                <input type="password" name="password" placeholder="Mot de passe" id="pwd" required="required">
+                <input type="button" value="Se connecter" onclick="checkConnection()">
+            </fieldset>
+        </legend>
+    </form>
+</center>
+<script src="../js/connection.js"></script>
+</body>
+</html>
+>>>>>>> cd2ea04cd90aeaa7bdc8955e8ee75b7b522d2e9c
