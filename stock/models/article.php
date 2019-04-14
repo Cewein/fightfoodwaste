@@ -7,7 +7,7 @@ class Article
     //variable
     private $barcode;
     private $name;
-    private $descritpion;
+    private $description;
     private $picture;
     private $number;
 
@@ -34,6 +34,7 @@ class Article
 
     //getter
     public function getName() { return $this->name;}
+    public function getDescription() { return $this->description; }
     public function getBarcode() { return $this->barcode;}
     public function getPicture() { return $this->getPicture;}
     public function getNumber() { return $this->number; }
