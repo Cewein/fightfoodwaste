@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'./../models/list.php');
+require_once(__DIR__.'/../models/list.php');
 require_once(__DIR__.'/../../database/database.php');
 
 class SendList {

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'./barcode.php');
+require_once(__DIR__.'/barcode.php');
 
 class Article
 {
