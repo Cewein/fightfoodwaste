@@ -42,6 +42,32 @@ function users(usersType) {
     request.send(`role=${usersType}`);
 }
 
+function updateAdmin(id) {
+    sendRequestUser(id, 'admin');
+
+}
+
+function updateUser(id) {
+
+
+}
+
+function deleteUser(id) {
+    sendRequestUser(id, 'delete');
+}
+
+function sendRequestUser(id, type) {
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            console.log(request.responseText);//Réponse à afficher
+        }
+    };
+    request.open('POST', 'updateUsers.php');
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(`type=${type}&id=${id}`);
+}
+
 //Modal d'inscription
 document.getElementById('add_user').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -53,7 +79,6 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
     const adress = document.getElementById('inputAdress').value;
     const city = document.getElementById('inputCity').value;
 
-    const admin= document.getElementById('admin').value;
 
     //Récupération des champs d'erreur
     const nameError = document.getElementById("nameError");
@@ -70,7 +95,6 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
     let check = true;
 
     //Vérification des inputs
-    console.log(name.value);
     if (checkName(name, nameError) === true) { //Check name
         nameChecked = name.value;
     } else {
@@ -96,34 +120,29 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
         emailChecked = email.value;
     }
 
-    if(type==='Particulier'){
-        type='particulier';
+    if (type === 'Particulier') {
+        type = 'particulier';
+    } else {
+        type = (type === 'Commerçant' ? 'commercant' : 'salary');
     }
-    else{
-        type=(type==='Commerçant'?'commercant':'salary');
-    }
-    console.log(type);
 
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&administrateur=${admin}'`, '../inscription/inscription.php', type);
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}'`, '../inscription/inscription.php', type);
     }
-
 
 
 });
 
 function sendRequest(textRequest, script, type = false) {
-    console.log(textRequest);
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log("Yay on est arrivés jsq ici");
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 emailInput = document.getElementById('inputEmail');
                 if (request.responseText === "mail already set") {
                     errorEmailPrint.style.display = "block";
-                    emailInput.style.borderColor="red";
+                    emailInput.style.borderColor = "red";
 
                 }
             }
@@ -136,7 +155,6 @@ function sendRequest(textRequest, script, type = false) {
 }
 
 function checkName(name, nameError) {
-    console.log(name.value);
     if (name.value.length < 2 || name.value.length > 100) {
         unvalid_info(name, nameError);
         return false;

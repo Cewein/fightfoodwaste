@@ -8,17 +8,7 @@
 
 require_once __DIR__."/includes.php";
 
-print_r(getUserIdByMail("sandrine.patin@free.fr"));
 
-print_r(getRoleId('particulier'));
-
-$idUser=getUserIdByMail("lelapin@mangeur.fr");
-$idRole=getRoleId('particulier');
-setRoleUser($idUser['identifiant'],$idRole['identifiant']);
-
-echo "<br>";
-$list=[20,21];
-print_r(getUsersByIdList($list));
 
 
 

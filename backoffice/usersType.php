@@ -7,25 +7,44 @@
  */
 
 require_once __DIR__ . '/../includes.php';
+require_once __DIR__ . '/UpdateButtons.php';
 
 $role = getRoleId($_POST['role']); //Role need to be exactly the same as the db
+
 if (isset($role) === true) {
     $List = getAllIdByIdRole($role['identifiant']);
     $idList = "";
 
-    if(isset($List)===true&&count($List)>0){
+    if (isset($List) === true && count($List) > 0) {
 
         for ($i = 0; $i < count($List); $i++) {
             if (isset($List[$i]['id_utilisateur']) === true) {
                 $idList .= $List[$i]['id_utilisateur'];
             }
-            if (isset($List[$i + 1]['id_utilisateur']) === true) {
+            if (isset($List[$i - 1]['id_utilisateur']) === true && isset($List[$i + 1]['id_utilisateur']) === true) {
                 $idList .= ",";
             }
         }
-
         $users = getUsersByIdList($idList);
+
+        $allUsersRoles = getAllUsersRoles();
+        $allRoles = getAllRoles();
+
+        //Print all users + informations
         foreach ($users as $user) {
+            $userRoles = "";
+            //Get roles of the user
+            foreach ($allUsersRoles as $role1User) {
+                if (isset($role1User['id_utilisateur']) === true && $role1User['id_utilisateur'] === $user['identifiant']) {
+                    foreach ($allRoles as $role) {
+                        if (isset($role1User['id_role']) === true && $role1User['id_role'] === $role['identifiant']) {
+                            $userRoles .= $role['nom'] . " ";
+                        }
+                    }
+                }
+            }
+
+            //Print user infos
             $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
             $row .= "<td>" . $user['nom'] . "</td>";
             if (isset($user['prenom']) === true) {
@@ -36,10 +55,11 @@ if (isset($role) === true) {
             $row .= "<td>" . $user['ville'] . "</td>";
             $row .= "<td>" . $_POST['role'] . "</td>";
 
+            $row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+
             echo $row;
         }
-    }
-    else{
+    } else {
         echo "Pas d'utilisateurs de ce rôle";
     }
 

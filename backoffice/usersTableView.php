@@ -20,7 +20,8 @@ require_once __DIR__ . '/../includes.php';
     <link href="../css/header.css" rel="stylesheet">
     <link href="../css/general.css" rel="stylesheet">
     <link href="../css/backoffice.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Administration : </title>
 </head>
 
@@ -44,7 +45,8 @@ require_once __DIR__ . '/../includes.php';
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog .modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -55,7 +57,7 @@ require_once __DIR__ . '/../includes.php';
                     </div>
                     <div class="modal-body">
                         <form method="POST" id="add_user">
-                            <p id="emailSetError">Cette adresse email est déjà utilisée</p>
+                            <label id="emailSetError">Cette adresse email est déjà utilisée</label>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Type utilisateur</label>
                                 <select class="form-control" id="typeUser">
@@ -66,17 +68,20 @@ require_once __DIR__ . '/../includes.php';
                             </div>
                             <div class="form-group">
                                 <label for="InputNom">Nom</label>
-                                <input type="text" class="form-control" id="inputName" aria-describedby="nom" placeholder="Nom / Nom commerce">
+                                <input type="text" class="form-control" id="inputName" aria-describedby="nom"
+                                       placeholder="Nom / Nom commerce">
                                 <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
                             </div>
                             <div class="form-group">
                                 <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
-                                <input type="text" class="form-control" id="inputPname" aria-describedby="prenom" placeholder="Prenom">
+                                <input type="text" class="form-control" id="inputPname" aria-describedby="prenom"
+                                       placeholder="Prenom">
                                 <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
                             </div>
                             <div class="form-group">
                                 <label for="InputEmail1">Adresse Email</label>
-                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                       placeholder="Enter email">
                                 <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
                             </div>
                             <div class="form-group">
@@ -86,15 +91,13 @@ require_once __DIR__ . '/../includes.php';
                             </div>
                             <div class="form-group">
                                 <label for="InputNom">Adresse</label>
-                                <input type="text" class="form-control" id="inputAdress" aria-describedby="adress" placeholder="Adresse">
+                                <input type="text" class="form-control" id="inputAdress" aria-describedby="adress"
+                                       placeholder="Adresse">
                             </div>
                             <div class="form-group">
                                 <label for="InputNom">Ville</label>
-                                <input type="text" class="form-control" id="inputCity" aria-describedby="city" placeholder="Ville">
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="admin">
-                                <label class="form-check-label" for="CheckAdmin">Administrateur</label>
+                                <input type="text" class="form-control" id="inputCity" aria-describedby="city"
+                                       placeholder="Ville">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
