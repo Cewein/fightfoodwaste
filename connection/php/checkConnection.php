@@ -7,7 +7,8 @@
  */
 
 require_once __DIR__.'/../includes.php';
-require_once __DIR__.'/../database/database.php';
+require_once __DIR__.'/../database/request/database.php';
+require_once __DIR__.'/../databse/request/conf.php'; 
 
 $fieldsConnection=array('email','pwd');
 
