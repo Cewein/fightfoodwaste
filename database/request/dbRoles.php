@@ -6,11 +6,6 @@
  * Time: 22:46
  */
 
-
-
-
-
-
 function setRoleUser($idUser,$idRole){
     $db=DatabaseManager::getManager();
 
@@ -36,5 +31,12 @@ function getAllIdByIdRole($idRole){
     $db=DatabaseManager::getManager();
 
     $request="SELECT `id_utilisateur` FROM `posseder` WHERE `id_role`=".$idRole;
+    return ($db->getAll($request));
+}
+
+function getAllUsersRoles(){
+    $db=DatabaseManager::getManager();
+
+    $request="SELECT * FROM `posseder`";
     return ($db->getAll($request));
 }

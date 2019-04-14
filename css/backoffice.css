@@ -5,3 +5,8 @@
 .table{
     padding-top: 1%;
 }
+
+#nameError, #pnameError, #emailError, #pwdError{
+    display: none;
+    color: rgb(255,0,0);
+}

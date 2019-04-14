@@ -130,16 +130,15 @@ function sendRequest(textRequest, script, type = false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";
                 emailInput = document.getElementById(inputName);
-                console.log(emailInput);
                 if (request.responseText === "mail already set") {
                     errorEmailPrint.style.display = "block";
                     emailInput.style.borderColor="red";
 
                 } else {
-                    window.location.replace("index.php");
+                    finishInscription(email,type);
                 }
             }
-            console.log(request.responseText);
+
         }
     };
     request.open('POST', script);
@@ -181,3 +180,7 @@ function valid_input(input, inputError) {
     inputError.style.display = "none";
 }
 
+function finishInscription(email,type) {
+    document.location.href = "../checkEmail/checkEmailPage.php"
+
+}
