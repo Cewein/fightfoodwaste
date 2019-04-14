@@ -4,6 +4,8 @@
 #include <string.h>
 #include <curl/curl.h>
 
+#include "libFull.h"
+
 #define CLEAN_STDIN int c; while ((c = getchar()) != '\n');
 
 typedef struct {
@@ -12,7 +14,7 @@ typedef struct {
 } MemoryStruct;
 
 struct Article {
-	unsigned long int barcode;
+	long long barcode;
 	size_t number;
 
 	const char * name;
@@ -37,6 +39,8 @@ char * setUrl();
 //perform a curl and return is respond
 MemoryStruct performCurl(char * url);
 
+int performPost(char * data);
+
 /* - Chained  list - */
 
 // add a Article node to the chained list
@@ -53,5 +57,5 @@ void fillArticle(struct Article * list, char * url, char * data);
 
 void deleteArticle(struct Article **head, int artNum);
 
-
+char * listToJson(struct Article * list);
 
