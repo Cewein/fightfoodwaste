@@ -120,8 +120,7 @@ function sendRequest(textRequest, script, type = false) {
             console.log("Yay on est arrivés jsq ici");
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
-                type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";
-                emailInput = document.getElementById(inputName);
+                emailInput = document.getElementById('inputEmail');
                 if (request.responseText === "mail already set") {
                     errorEmailPrint.style.display = "block";
                     emailInput.style.borderColor="red";

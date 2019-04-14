@@ -6,8 +6,6 @@
  * Time: 11:01
  */
 
-
-
 require_once __DIR__ . '/../includes.php';
 
 if (isset($_POST['particulier']) === true) {
@@ -29,20 +27,20 @@ if (isset($_POST['particulier']) === true) {
         //Email unicity check
         $result = getUserIdByMail($email);
         if ($result !== []) {
-            $error= "mail already set";
+            $error = "mail already set";
             $verif = false;
         }
 
         if ($verif === true) {
             set_particulier($name, $pname, $email, $password, $adress, $city, $state);
-            set_role($email, 'particulier');
+            setRole($email, 'particulier');
+
             echo "Variables set";
         } else {
             http_response_code(400);
-            if(isset($error)===true){
+            if (isset($error) === true) {
                 echo $error;
-            }
-            else{
+            } else {
                 echo("Error : Verification Error");
             }
 
@@ -76,7 +74,7 @@ if (isset($_POST['particulier']) === true) {
 
         if ($verif === true) {
             set_commercant($nameShop, $SIRET, $email, $password, $adress, $city, $state);
-            set_role($email, 'commercant');
+            setRole($email, 'commercant');
 
         } else {
             http_response_code(400);
@@ -85,14 +83,55 @@ if (isset($_POST['particulier']) === true) {
     } else {
         echo "Error : Variables not set";
     }
+} elseif (isset($_POST['salary']) === true) {
+    if (isset($_POST['nom']) === true && isset($_POST['prenom']) === true && isset($_POST['email']) === true && isset($_POST['pwd']) === true && isset($_POST['adresse']) === true && isset($_POST['ville']) === true) {
+        $name = htmlspecialchars($_POST['nom']);
+        $pname = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $adress = htmlspecialchars($_POST['adresse']);
+        $city = htmlspecialchars($_POST['ville']);
+
+        $state = 1;
+        $verif = true;
+        //Password hash
+        $password = password_hash(htmlspecialchars($_POST['pwd']), PASSWORD_DEFAULT);
+        if ($password === false) {
+            $verif = false;
+        }
+
+        //Email unicity check
+        $result = getUserIdByMail($email);
+        if ($result !== []) {
+            $error = "mail already set";
+            $verif = false;
+        }
+
+        if ($verif === true) {
+            set_particulier($name, $pname, $email, $password, $adress, $city, $state);
+            setRole($email, 'salary');
+
+            echo "Variables set";
+        } else {
+            http_response_code(400);
+            if (isset($error) === true) {
+                echo $error;
+            } else {
+                echo("Error : Verification Error");
+            }
+
+        }
+    } else {
+        echo "Error : Variables not set";
+    }
 }
 
 
-function set_role($mail, $roleToSet)
+function setRole($mail, $roleToSet)
 {
-    $idUser = getUserIdByMail("\"" . $mail . "\"");
+    $idUser = getUserIdByMail($mail);
     $idRole = getRoleId($roleToSet);
 
     setRoleUser($idUser['identifiant'], $idRole['identifiant']);
+
 }
 

@@ -10,7 +10,9 @@ function setRoleUser($idUser,$idRole){
     $db=DatabaseManager::getManager();
 
     $request="INSERT INTO `posseder`(`id_role`,`id_utilisateur`) VALUES (?,?)";
+
     $db->exec($request,[$idRole,$idUser]);
+    return $request;
 }
 
 function getRoleId($nameRole){
