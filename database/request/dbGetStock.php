@@ -28,3 +28,10 @@ function getProductByIdList($list)
     $request = "SELECT * FROM `produit` WHERE `identifiant` IN (" . $where . " )";
     return ($db->getAll($request));
 }
+
+function deleteProductById($id){
+    $db = DatabaseManager::getManager();
+
+    $request = "DELETE FROM `produit` WHERE `identifiant`=?";
+    return ($db->exec($request,[$id]));
+}

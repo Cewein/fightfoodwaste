@@ -20,6 +20,8 @@ require_once __DIR__ . '/../includes.php';
     <link href="../css/header.css" rel="stylesheet">
     <link href="../css/general.css" rel="stylesheet">
     <link href="../css/backoffice.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -36,6 +38,8 @@ require_once __DIR__ . '/../includes.php';
                     <th scope="col" id="name">Nom</th>
                     <th scope="col" id="pname">Description</th>
                     <th scope="col">ID demande</th>
+                    <th scope="col">DLC</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody id="tbody">
@@ -47,6 +51,7 @@ require_once __DIR__ . '/../includes.php';
     <div class="col-md-1"></div>
 </div>
 <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="updateProduct.js"></script>
 <footer></footer>
 </body>
 </html>
