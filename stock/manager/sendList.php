@@ -32,7 +32,6 @@ class SendList {
         { 
             $tmpArticle = $this->listArti->getArticle($i);
             $tmpBarcode = $tmpArticle->getBarcode();
-            var_dump($tmpBarcode);
             $db->exec("INSERT INTO `produit`(`code_barre`, `quantite`,`id_demande`) VALUES (?,?,?)",[$tmpBarcode->getCode(), $tmpArticle->getNumber(), $demandID]);
         }
         return 1;
