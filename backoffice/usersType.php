@@ -10,6 +10,7 @@ require_once __DIR__ . '/../includes.php';
 require_once __DIR__ . '/UpdateButtons.php';
 
 $role = getRoleId($_POST['role']); //Role need to be exactly the same as the db
+
 if (isset($role) === true) {
     $List = getAllIdByIdRole($role['identifiant']);
     $idList = "";
@@ -25,7 +26,25 @@ if (isset($role) === true) {
             }
         }
         $users = getUsersByIdList($idList);
+
+        $allUsersRoles = getAllUsersRoles();
+        $allRoles = getAllRoles();
+
+        //Print all users + informations
         foreach ($users as $user) {
+            $userRoles = "";
+            //Get roles of the user
+            foreach ($allUsersRoles as $role1User) {
+                if (isset($role1User['id_utilisateur']) === true && $role1User['id_utilisateur'] === $user['identifiant']) {
+                    foreach ($allRoles as $role) {
+                        if (isset($role1User['id_role']) === true && $role1User['id_role'] === $role['identifiant']) {
+                            $userRoles .= $role['nom'] . " ";
+                        }
+                    }
+                }
+            }
+
+            //Print user infos
             $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
             $row .= "<td>" . $user['nom'] . "</td>";
             if (isset($user['prenom']) === true) {

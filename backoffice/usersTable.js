@@ -43,7 +43,7 @@ function users(usersType) {
 }
 
 function updateAdmin(id) {
-
+    sendRequestUser(id, 'admin');
 
 }
 
@@ -53,7 +53,10 @@ function updateUser(id) {
 }
 
 function deleteUser(id) {
+    sendRequestUser(id, 'delete');
+}
 
+function sendRequestUser(id, type) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
@@ -62,8 +65,7 @@ function deleteUser(id) {
     };
     request.open('POST', 'updateUsers.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(`type=delete&id=${id}`);
-
+    request.send(`type=${type}&id=${id}`);
 }
 
 //Modal d'inscription

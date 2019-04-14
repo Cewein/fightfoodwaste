@@ -7,27 +7,51 @@
  */
 require_once __DIR__ . '/../includes.php';
 
-//$_POST['type']='delete';
-//$_POST['id']=;
 
-if(isset($_POST['type'])===true&&isset($_POST['id'])===true){
-    $type=$_POST['type'];
-    var_dump($type);
-    $id=$_POST['id'];
-    if($type=='delete'){
-        $role=getRoleByUserId($id);
-        if(count($role)>0){
-            deleteRoleByIdUserId($role['id_role'],$id);
+if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
+    $type = $_POST['type'];
+    $id = $_POST['id'];
+
+    if ($type === 'delete') {
+        $role = getRoleByUserId($id);
+
+        if (count($role) > 0) {
+            deleteRoleByIdUserId($role['id_role'], $id);
         }
 
         deleteUser($id);
         echo 'User deleted';
-    }
-    else{
-        echo 'Error type';
+
+    } elseif ($type === 'admin') {
+        $roles = getRoleByUserId($id);
+        $allRoles = getAllRoles();
+
+        if (count($allRoles) > 0 && count($roles) > 0) {
+            $isAdmin=false;
+            foreach ($allRoles as $uniqueRole) {
+                if ($uniqueRole['nom'] == 'administrateur') {
+                    $idAdmin = $uniqueRole['identifiant'];
+                }
+            }
+
+            foreach ($roles as $role) {
+                if ($role['id_role'] == $idAdmin) {
+                    $isAdmin = true;
+                }
+            }
+
+            if ($isAdmin === true) {//On retire le droit d'administration
+                deleteRoleByIdUserId($idAdmin, $id);
+                echo "Utilisateur dégradé";
+            } else {
+                setRoleUser($id, $idAdmin);
+                echo "Utilisateur upgradé";
+            }
+        }
+    } else {
+        echo "Error: there's no roles";
     }
 
-}
-else{
+} else {
     echo "Missing Value";
 }

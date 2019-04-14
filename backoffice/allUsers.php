@@ -19,7 +19,7 @@ foreach ($allUsers as $user) {
         if (isset($role1User['id_utilisateur']) === true && $role1User['id_utilisateur'] === $user['identifiant']) {
             foreach ($allRoles as $role) {
                 if (isset($role1User['id_role']) === true && $role1User['id_role'] === $role['identifiant']) {
-                    $userRoles .= $role['nom'];
+                    $userRoles .= $role['nom'] ." ";
                 }
             }
         }

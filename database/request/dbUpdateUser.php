@@ -6,9 +6,10 @@
  * Time: 19:12
  */
 
-function deleteUser($id){
-    $db=DatabaseManager::getManager();
+function deleteUser($id)
+{
+    $db = DatabaseManager::getManager();
 
-    $request="DELETE FROM `utilisateur` WHERE `identifiant`=?";
-    $db->exec($request,[$id]);
+    $request = "DELETE FROM `utilisateur` WHERE `identifiant`=?";
+    $db->exec($request, [$id]);
 }
