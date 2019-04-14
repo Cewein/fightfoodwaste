@@ -38,7 +38,7 @@ char * setUrl()
 	printf("Rentrez un code barre : \n");
 	char buffer[60];
 	memset(url, '\0', sizeof(url));
-	strcpy(url, "http://localhost/fightfoodwaste/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
+	strcpy(url, "http://vps664303.ovh.net/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
 	fgets(buffer, 60, stdin);
 	strtok(buffer, "\n");
 	strcat(url, buffer);
@@ -101,7 +101,7 @@ int performPost(char * data)
 	curl = curl_easy_init();
 	if (curl) {
 
-		curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/fightfoodwaste/stock/services/putListe.php");
+		curl_easy_setopt(curl, CURLOPT_URL, "http://vps664303.ovh.net/stock/services/putListe.php");
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 
 		res = curl_easy_perform(curl);
