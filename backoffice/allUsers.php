@@ -6,6 +6,7 @@
  * Time: 15:59
  */
 require_once __DIR__ . '/../includes.php';
+require_once __DIR__ . '/UpdateButtons.php';
 
 $allUsers = getAllUsers();
 $allUsersRoles = getAllUsersRoles();
@@ -13,7 +14,7 @@ $allRoles = getAllRoles();
 
 
 foreach ($allUsers as $user) {
-    $userRoles="";
+    $userRoles = "";
     foreach ($allUsersRoles as $role1User) {
         if (isset($role1User['id_utilisateur']) === true && $role1User['id_utilisateur'] === $user['identifiant']) {
             foreach ($allRoles as $role) {
@@ -31,6 +32,8 @@ foreach ($allUsers as $user) {
     $row .= "<td>" . $user['adresse'] . "</td>";
     $row .= "<td>" . $user['ville'] . "</td>";
     $row .= "<td>" . $userRoles . "</td>";
+
+    $row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
 
     echo $row;
 }

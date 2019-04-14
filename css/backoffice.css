@@ -10,3 +10,15 @@
     display: none;
     color: rgb(255,0,0);
 }
+
+.fa-times{
+    color: red;
+}
+
+.fa-caret-square-up{
+    color: orangered;
+}
+
+.fa-hammer{
+    color: rgb(48, 47, 230);
+}

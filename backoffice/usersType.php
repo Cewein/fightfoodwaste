@@ -7,23 +7,23 @@
  */
 
 require_once __DIR__ . '/../includes.php';
+require_once __DIR__ . '/UpdateButtons.php';
 
 $role = getRoleId($_POST['role']); //Role need to be exactly the same as the db
 if (isset($role) === true) {
     $List = getAllIdByIdRole($role['identifiant']);
     $idList = "";
 
-    if(isset($List)===true&&count($List)>0){
+    if (isset($List) === true && count($List) > 0) {
 
         for ($i = 0; $i < count($List); $i++) {
             if (isset($List[$i]['id_utilisateur']) === true) {
                 $idList .= $List[$i]['id_utilisateur'];
             }
-            if (isset($List[$i + 1]['id_utilisateur']) === true) {
+            if (isset($List[$i - 1]['id_utilisateur']) === true && isset($List[$i + 1]['id_utilisateur']) === true) {
                 $idList .= ",";
             }
         }
-
         $users = getUsersByIdList($idList);
         foreach ($users as $user) {
             $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
@@ -36,10 +36,11 @@ if (isset($role) === true) {
             $row .= "<td>" . $user['ville'] . "</td>";
             $row .= "<td>" . $_POST['role'] . "</td>";
 
+            $row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+
             echo $row;
         }
-    }
-    else{
+    } else {
         echo "Pas d'utilisateurs de ce rôle";
     }
 

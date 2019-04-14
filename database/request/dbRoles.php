@@ -42,3 +42,18 @@ function getAllUsersRoles(){
     $request="SELECT * FROM `posseder`";
     return ($db->getAll($request));
 }
+
+function getRoleByUserId($idUser){
+    $db=DatabaseManager::getManager();
+
+    $request="SELECT `id_role` FROM `posseder` WHERE `id_utilisateur`=?";
+    return ($db->getAll($request,[$idUser]));
+
+}
+
+function deleteRoleByIdUserId($idRole,$idUser){
+    $db=DatabaseManager::getManager();
+
+    $request="DELETE FROM `posseder` WHERE `id_role`=? AND `id_utilisateur`=?";
+    return ($db->getAll($request,[$idRole,$idUser]));
+}
