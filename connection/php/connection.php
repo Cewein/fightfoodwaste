@@ -15,7 +15,7 @@ $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membres', 'root', '');
 
 if (isset($_POST['formconnexion'])) {
     $mailConnect = htmlspecialchars($_POST['mailConnect']);
-    $mdpConnect = sha1($_POST['mdpConnect']);
+    $mdpConnect = chiffrer($_POST['mdpConnect']);
     if (!empty($mailConnect) and !empty($mdpConnect)) {
         $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
         $requser->execute(array($mailConnect, $mdpConnect));
