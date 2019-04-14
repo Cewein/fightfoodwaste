@@ -1,0 +1,19 @@
+#headerFront
+{
+    background-color: #A2DD71;
+}
+
+#headerBack
+{
+    background-color: #c03131;
+}
+
+.header
+{
+    text-align: center;
+}
+
+img{
+    width:15%;
+    height: auto;
+}

@@ -1,0 +1,13 @@
+.btn-secondary, .btn-info{
+    padding: 1%;
+    margin: 1%;
+}
+
+#form_commercant{
+    display: none;
+}
+
+#nameError, #PNameError, #emailError,#nameShopError,#emailSetError{
+    display: none;
+    color: rgb(255,0,0);
+}
