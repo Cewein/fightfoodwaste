@@ -7,12 +7,7 @@
     display: none;
 }
 
-#nameError, #PNameError, #emailError,#nameShopError{
+#nameError, #PNameError, #emailError,#nameShopError,#emailSetError{
     display: none;
     color: rgb(255,0,0);
-}
-
-#emailSetError{
-    display: none;
-    color: red;
 }

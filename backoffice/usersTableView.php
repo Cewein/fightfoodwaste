@@ -30,12 +30,12 @@ require_once __DIR__ . '/../includes.php';
     <div class="col-md-1"></div>
     <div class="content col-md-10">
 
+        <!--Navbar Infos Users -->
         <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
             <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs" onclick="allUsers()">
             <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="users('particulier')">
             <input class="btn btn-secondary" type="button" value="Afficher commercants" onclick="users('commercant')">
             <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
-            <input class="btn btn-secondary" type="button" value="Ajouter un utilisateur" onclick="printAddUser()">
         </div>
 
         <!-- Button trigger modal -->
@@ -55,6 +55,7 @@ require_once __DIR__ . '/../includes.php';
                     </div>
                     <div class="modal-body">
                         <form method="POST" id="add_user">
+                            <p id="emailSetError">Cette adresse email est déjà utilisée</p>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Type utilisateur</label>
                                 <select class="form-control" id="typeUser">

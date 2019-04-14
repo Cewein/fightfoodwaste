@@ -6,7 +6,7 @@
     padding-top: 1%;
 }
 
-#nameError, #pnameError, #emailError, #pwdError{
+#nameError, #pnameError, #emailError, #pwdError,#emailSetError{
     display: none;
     color: rgb(255,0,0);
 }

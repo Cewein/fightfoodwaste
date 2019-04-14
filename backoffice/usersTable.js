@@ -49,7 +49,7 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
     const pname = document.getElementById('inputPname');
     const email = document.getElementById('inputEmail');
     const pwd = document.getElementById('inputPwd');
-    const type = document.getElementById('typeUser').value;
+    let type = document.getElementById('typeUser').value;
     const adress = document.getElementById('inputAdress').value;
     const city = document.getElementById('inputCity').value;
 
@@ -96,6 +96,13 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
         emailChecked = email.value;
     }
 
+    if(type==='Particulier'){
+        type='particulier';
+    }
+    else{
+        type=(type==='Commerçant'?'commercant':'salary');
+    }
+    console.log(type);
 
     if (check === true) {
         sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&administrateur=${admin}'`, '../inscription/inscription.php', type);
@@ -110,6 +117,7 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log("Yay on est arrivés jsq ici");
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";
