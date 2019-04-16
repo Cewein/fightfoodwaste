@@ -9,6 +9,16 @@
 
 mail('sandrine.patin@free.fr','test','test');
 
+$to = "sandrine.patin@free.fr";
+$subject = "Essai de mail";
+$body = "Coucou";
+$headers = "From: sardine0099@gmail.com" . "\r\n";
+if (mail($to, $subject, $body, $headers)) {
+    echo ("Message envoyé !");
+} else {
+    echo ("Message non envoyé...");
+}
+
 /*
 $mail = 'sardine0099@gmail.com'; // Déclaration de l'adresse de destination.
 if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.

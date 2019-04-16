@@ -35,6 +35,9 @@ if (isset($_POST['particulier']) === true) {
             set_particulier($name, $pname, $email, $password, $adress, $city, $state);
             setRole($email, 'particulier');
 
+            $id=getUserIdByMail($email);
+            setUsersSession($id,$name,$email,'particulier',"null");
+
             echo "Variables set";
         } else {
             http_response_code(400);
@@ -75,6 +78,8 @@ if (isset($_POST['particulier']) === true) {
         if ($verif === true) {
             set_commercant($nameShop, $SIRET, $email, $password, $adress, $city, $state);
             setRole($email, 'commercant');
+            $id=getUserIdByMail($email);
+            setUsersSession($id,$nameShop,$email,'commercant',"null");
 
         } else {
             http_response_code(400);
@@ -109,6 +114,9 @@ if (isset($_POST['particulier']) === true) {
         if ($verif === true) {
             set_particulier($name, $pname, $email, $password, $adress, $city, $state);
             setRole($email, 'salary');
+
+            $id=getUserIdByMail($email);
+            setUsersSession($id,$name,$email,'salary',"null");
 
             echo "Variables set";
         } else {

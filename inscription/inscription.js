@@ -181,6 +181,6 @@ function valid_input(input, inputError) {
 }
 
 function finishInscription(email,type) {
-    document.location.href = "../checkEmail/checkEmailPage.php"
+    document.location.href = "../index.php"
 
 }
