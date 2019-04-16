@@ -45,7 +45,7 @@ if (isset($role) === true) {
                         }
                     }
                 }
-                
+
                 //Print user infos
                 $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
                 $row .= "<td>" . $user['nom'] . "</td>";

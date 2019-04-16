@@ -12,3 +12,4 @@ define('DB_USER','root');
 define('DB_PWD','');
 define('DB_NAME','fight_food_waste');
 define('DB_LOG',true);
+

@@ -6,6 +6,8 @@
  * Time: 14:38
  */
 
+session_start();
+
 //Get th connection
 require_once __DIR__.'/database/database.php';
 
