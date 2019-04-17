@@ -10,34 +10,36 @@ require_once __DIR__.'/../../includes.php';
 
 //verification de l'envoi du form
 if (isset($_POST['connexionForm'])) {
-  echo "ok pour l'envoi du form"; 
- /* if(isset($_POST['adresseMail'])) {
+  if(isset($_POST['adresseMail']) AND isset($_POST['password'])) {
+    if (!empty($adresseMail) and !empty($password)) {
     $adresseMail = htmlspecialchars($_POST['adresseMail']);
 
-    $state = 1;
     $checkConnect = true;
 
     $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
-    if ($password === false) {
+      if ($password === false) {
       $verif = false;
-    }
-    //analyse des données reçues et retour
-    $resultLogin = getConnection($mail, $pwd);
-    if ($resultLogin !== []) {
-      $errorLogin = "Adresse mail ou mot de passe incorrects!";
-      $checkConnect = false;
+      }
+      //analyse des données reçues et retour
+      $resultLogin = getConnection($request, [$mail, $pwd]);
+      if ($resultLogin !== [$mail, $pwd]) {
+        $errorLogin = "Adresse mail ou mot de passe incorrects!";
+        $checkConnect = false; 
+      }
+
+      if($checkConnect == true) {
+        getConnection($mail, $pwd);
+        $session = setUsersSession($id,$name,$email,$type,$admin); 
+
+      } else {
+        http_response_code(400);
+        echo ("Erreur lors de la connexion");
+      }
     }
 
-    if($checkConnect == true) {
-      getConnection($mail, $pwd); 
     } else {
-      http_response_code(400);
-      echo ("Erreur lors de la connexion");
+      $errorLogin = "Merci de compléter tous les champs de ce formulaire !";
     }
-
-  } else {
-    $errorLogin = "Merci de compléter tous les champs de ce formulaire !";
-  }
 }
 
 
@@ -57,10 +59,10 @@ if (isset($_POST['connexionForm'])) {
         }
     } else {
         $erreur = "Tous les champs doivent être complétés !";
-    } */
-}
+    } 
+}*/
 
-
+/*
     //Email unicity check
     $result = getUserIdByMail($email);
     if ($result !== []) {
@@ -175,3 +177,4 @@ function setRole($mail, $roleToSet)
 	//Redirection
 	header("Location:index.php");//page d'accueil???
 	exit;
+*/

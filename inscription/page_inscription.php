@@ -7,9 +7,8 @@
  */
 
 require_once __DIR__ . '/../includes.php';
-
+$actualDirectory=__DIR__;
 ?>
-
 
 <!DOCTYPE html>
 
@@ -24,7 +23,7 @@ require_once __DIR__ . '/../includes.php';
     </head>
 
     <body>
-       <?php require_once __DIR__ . '/../headerFront.php'; ?>
+       <?php require_once __DIR__ . '/../header/adaptHeader.php'; ?>
 
        <div class="content">
             <div>
@@ -40,7 +39,7 @@ require_once __DIR__ . '/../includes.php';
            </div>
 
            <div id="form_particulier">
-               <p>En tant que particulier, vous disposerez un dispositif permettant de nous signaler que vous avez des produits à collecter.</p>
+               <p>En tant que particulier, vous disposerez d'un dispositif permettant de nous signaler que vous avez des produits à collecter.</p>
                <form method="POST" id="inscription">
                     <p id="emailSetError">Cette adresse email est déjà utilisée</p>
                    <div class="form-group">

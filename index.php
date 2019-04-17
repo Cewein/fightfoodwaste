@@ -7,6 +7,7 @@
  */
 
 require_once __DIR__.'/includes.php';
+$actualDirectory=__DIR__;
 ?>
 
 
@@ -23,17 +24,10 @@ require_once __DIR__.'/includes.php';
 
     <body>
        <?php
-       if(isset($_SESSION['role'])===true&&$_SESSION['role']=='salary'){
-            require_once __DIR__.'/headerBack.php';
-       }
-       else{
-           require_once __DIR__ . '/headerFront.php';
-       }
+       require_once __DIR__.'/header/adaptHeader.php';
        ?>
         <div class="content">
-        <?php if(isset($_SESSION['role'])===true&&$_SESSION['role']==='particulier'){
-            echo "pfiou";
-        } ?>
+
         </div>
 
         <footer></footer>

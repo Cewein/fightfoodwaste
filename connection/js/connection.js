@@ -1,53 +1,93 @@
 //fonction qui créé une requête sur tous les naviateurs
-function newXmlHttpRequest() {
+/*function newXmlHttpRequest() {
     if (window.XMLHttpRequest) {
         return new XMLHttpRequest();
         return new ActiveXObject("Microsoft.XMLHTTP"); // pour tous les navigateurs sauf IE6 et les versions antérieures
     }
-}
+} */
 
-function Alert(input, error) { // Fonction d'encadrement d'un champ
-    if (error == 1) {
-        input.style.borderColor = "red"; // Encadrement d'un champ en rouge
+
+
+document.getElementById('connection').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    //Récupération des champs
+    const mail = document.getElementById('mail');
+    const pwd = document.getElementById('pwd');
+    
+
+    //Récupération des champs d'erreur
+   
+    const mailError = document.getElementById("mailError");
+    const pwdError = document.getElementById("pwdError");
+    
+
+    //Déclaration des variables
+    let mail_checked;
+    let pwd_checked;
+
+    let check = true;
+
+    //Vérifications du contenu des inputs
+
+    if (mail.value.length < 2 || mail.value.length > 80) {
+        check = unvalid_info(mail, mailError);
     } 
-}
 
-function showAlert(input, error, message) { // Fonction d'affichage d'un message d'erreur
-    if (error == 1) {
-        input.innerHTML = "<div class='alert alert-danger' role='alert' >" + message + "</div>";       // Alerte d'erreur
-    } 
-
-}
-
-function checkEmail() { //Fonction de vérification de l'Email
-
-    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-    var inputEmail = document.getElementById('email');
-    var inputAlert = document.getElementById('emailAlert');
-
-    if (!inputEmail.value.match(regex)) {
-        Alert(inputEmail, 1); // On encadre le champ en rouge
-        showAlert(inputAlert, 1, "Veuillez saisir une adresse email valide !");// On affiche un message d'erreur
-        return false;
+    if (checkPassword(pwd, pwdError) === true) { //Check password
+        pwd_checked = pwd.value;
+    } else {
+        check = false;
     }
-}
+
+    if (check === true) {
+        sendRequest(`mail=${mail_checked}&pwd=${pwd_checked}`, 'connection.php');
+    }
+
+});
 
 
+function sendRequest(textRequest, script, type = false) {
+    console.log(textRequest);
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            if (type !== false) {
+                errorEmailPrint = document.getElementById("emailSetError");
+                type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";
+                emailInput = document.getElementById(inputName);
+                if (request.responseText === "mail already set") {
+                    errorEmailPrint.style.display = "block";
+                    emailInput.style.borderColor="red";
 
-function checkConnection() {
-    var mail = document.getElementById('mail').value;
-    var password = document.getElementById('pwd').value;
+                } else {
+                    finishConnection(mail,type);
+                }
+            }
 
-    var connect = mail + password;
-
-    var request = newXmlHttpRequest();
-    request.onreadstatechange = function () {
-        if (request.readyState === 4 && request.status === 200)
-        {
-            alert(request.responseText);
         }
     };
-    request.open("POST", 'checConnection.php');
-    request.send(`mail=${mail}&password=${password}`);
+    request.open('POST', script);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(textRequest);
+}
+
+
+
+function checkPassword(pwd1, pwd2, pwd1Error, pwd2Error) {
+    if (pwd1.value === pwd2.value) {
+        if (pwd1.value.length < 8 || pwd1.value.length > 50) {
+            return unvalid_info(pwd1, pwd1Error);
+        } else {
+            valid_input(pwd1, pwd1Error);
+            return true;
+        }
+    }
+    
+}
+
+
+function finishConnection(email,type) {
+    document.location.href = "/../../index.php"
 
 }
