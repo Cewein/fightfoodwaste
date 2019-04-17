@@ -35,6 +35,12 @@ if (isset($_POST['particulier']) === true) {
             set_particulier($name, $pname, $email, $password, $adress, $city, $state);
             setRole($email, 'particulier');
 
+            if (isset($_POST['connection']) === false) {
+                $id = getUserIdByMail($email);
+                setUsersSession($id, $name, $email, 'particulier', "null");
+            }
+
+
             echo "Variables set";
         } else {
             http_response_code(400);
@@ -76,6 +82,11 @@ if (isset($_POST['particulier']) === true) {
             set_commercant($nameShop, $SIRET, $email, $password, $adress, $city, $state);
             setRole($email, 'commercant');
 
+            if (isset($_POST['connection']) === false) {
+                $id = getUserIdByMail($email);
+                setUsersSession($id, $nameShop, $email, 'commercant', "null");
+            }
+
         } else {
             http_response_code(400);
             echo("Error : Verification Error");
@@ -109,6 +120,11 @@ if (isset($_POST['particulier']) === true) {
         if ($verif === true) {
             set_particulier($name, $pname, $email, $password, $adress, $city, $state);
             setRole($email, 'salary');
+
+            if (isset($_POST['connection']) === false) {
+                $id = getUserIdByMail($email);
+                setUsersSession($id, $name, $email, 'salary', "null");
+            }
 
             echo "Variables set";
         } else {

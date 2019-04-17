@@ -31,7 +31,9 @@ require_once __DIR__.'/includes.php';
        }
        ?>
         <div class="content">
-
+        <?php if(isset($_SESSION['role'])===true&&$_SESSION['role']==='particulier'){
+            echo "pfiou";
+        } ?>
         </div>
 
         <footer></footer>
