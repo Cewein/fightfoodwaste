@@ -6,52 +6,166 @@
  * Time: 23:01
  */
 
-require_once __DIR__.'/../includes.php';
-require_once __DIR__.'/../database/request/database.php';
-require_once __DIR__.'/../databse/request/conf.php'; 
+require_once __DIR__.'/../../includes.php';
 
-$fieldsConnection=array('email','pwd');
+//verification de l'envoi du form
+if (isset($_POST['connexionForm'])) {
+  echo "ok pour l'envoi du form"; 
+ /* if(isset($_POST['adresseMail'])) {
+    $adresseMail = htmlspecialchars($_POST['adresseMail']);
 
-	foreach ($champs as $value) {
-		if(!isset($_POST[$value]) || empty($_POST[$value])){
-			header("Location:index.php?error=".$value); //page d'accueil???
-			exit;
-		} else {
-			echo 'Merci de remplir les champs de connexion<br>';  
-		}
-	}
+    $state = 1;
+    $checkConnect = true;
 
-    
-$req=$database->prepare('SELECT identifiant, nom, prenom, adresse_mail, password, n_SIRET INTO UTILISATEUR WHERE adresse_mail=:email AND password=:pwd'); 
-
-$req->execute(array(
-  "email" =>htmlspecialchars($_POST['email']),
-  "pwd" => chiffrer($_POST['pwd']),
-));
-
-$arrayUsers = array ();
-
-while ($user = $req->fetch()) {
-  $arrayUsers[] = $user;
-}
-$req->closeCursor();
-
-  if (count($arrayUsers) == 0) {
-    header('Location: index.php?error=motdepasseErrone');
-    echo '<script type="text/javascript">window.alert("Le login ou mot de passe incorrect.");</script>';
-    exit;
-  } else if (count($arrayUsers) == 1) {
-    session_start();
-    $_SESSION["id"] = $arrayUsers[0]["id"];
-    $_SESSION["prenom"] = $arrayUsers[0]["prenom"];
-    $_SESSION["nom"] = $arrayUsers[0]["nom"];
-    $_SESSION["right"] = $arrayUsers[0]["right"];//sous entendu le rôle 
-    header('Location: index.php');//page d"accueuil??
-    exit;
+    $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
+    if ($password === false) {
+      $verif = false;
+    }
+    //analyse des données reçues et retour
+    $resultLogin = getConnection($mail, $pwd);
+    if ($resultLogin !== []) {
+      $errorLogin = "Adresse mail ou mot de passe incorrects!";
+      $checkConnect = false;
     }
 
-  
-		
+    if($checkConnect == true) {
+      getConnection($mail, $pwd); 
+    } else {
+      http_response_code(400);
+      echo ("Erreur lors de la connexion");
+    }
+
+  } else {
+    $errorLogin = "Merci de compléter tous les champs de ce formulaire !";
+  }
+}
+
+
+ /*
+    if (!empty($adresseMail) and !empty($password)) {
+        $requser = $conn->prepare( "SELECT * FROM `utilisateur` WHERE `adresse_mail` = ? AND `motdepasse` = ?");
+        $requser->execute(array($adresseMail, $password));
+        $userexist = $requser->rowCount();
+        if ($userexist == 1) {
+           $userinfo = $requser->fetch();
+            $_SESSION['id'] = $userinfo['id'];
+            $_SESSION['nom'] = $userinfo['nom'];
+            $_SESSION['prenom'] = $userinfo['prenom'];
+            header("Location: index.php?id=" . $_SESSION['id']); 
+        }  else {
+            $erreur = "Mauvais mail ou mot de passe !";
+        }
+    } else {
+        $erreur = "Tous les champs doivent être complétés !";
+    } */
+}
+
+
+    //Email unicity check
+    $result = getUserIdByMail($email);
+    if ($result !== []) {
+      $error = "mail already set";
+      $verif = false;
+    }
+
+    if ($verif === true) {
+      set_particulier($name, $pname, $email, $password, $adress, $city, $state);
+      setRole($email, 'particulier');
+
+      echo "Variables set";
+    } else {
+      http_response_code(400);
+      if (isset($error) === true) {
+        echo $error;
+      } else {
+        echo ("Error : Verification Error");
+      }
+    }
+  } else {
+    echo "Error : Variables not set";
+  }
+} elseif (isset($_POST['commercant']) === true) {
+  if (isset($_POST['name']) === true && isset($_POST['Siret']) === true && isset($_POST['email']) === true && isset($_POST['pwd']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true) {
+    $nameShop = htmlspecialchars($_POST['name']);
+    $SIRET = htmlspecialchars($_POST['Siret']);
+    $email = htmlspecialchars($_POST['email']);
+    $adress = htmlspecialchars($_POST['adress']);
+    $city = htmlspecialchars($_POST['city']);
+
+    $state = 1;
+    $verif = true;
+
+    //Password hash
+    $password = password_hash(htmlspecialchars($_POST['pwd']), PASSWORD_DEFAULT);
+    if ($password === false) {
+      $verif = false;
+    }
+
+    //Email unicity check
+    $result = getUserIdByMail($email);
+    if ($result !== [0]) {
+      $verif = false;
+    }
+
+    if ($verif === true) {
+      set_commercant($nameShop, $SIRET, $email, $password, $adress, $city, $state);
+      setRole($email, 'commercant');
+    } else {
+      http_response_code(400);
+      echo ("Error : Verification Error");
+    }
+  } else {
+    echo "Error : Variables not set";
+  }
+} elseif (isset($_POST['salary']) === true) {
+  if (isset($_POST['nom']) === true && isset($_POST['prenom']) === true && isset($_POST['email']) === true && isset($_POST['pwd']) === true && isset($_POST['adresse']) === true && isset($_POST['ville']) === true) {
+    $name = htmlspecialchars($_POST['nom']);
+    $pname = htmlspecialchars($_POST['prenom']);
+    $email = htmlspecialchars($_POST['email']);
+    $adress = htmlspecialchars($_POST['adresse']);
+    $city = htmlspecialchars($_POST['ville']);
+
+    $state = 1;
+    $verif = true;
+    //Password hash
+    $password = password_hash(htmlspecialchars($_POST['pwd']), PASSWORD_DEFAULT);
+    if ($password === false) {
+      $verif = false;
+    }
+
+    //Email unicity check
+    $result = getUserIdByMail($email);
+    if ($result !== []) {
+      $error = "mail already set";
+      $verif = false;
+    }
+
+    if ($verif === true) {
+      set_particulier($name, $pname, $email, $password, $adress, $city, $state);
+      setRole($email, 'salary');
+
+      echo "Variables set";
+    } else {
+      http_response_code(400);
+      if (isset($error) === true) {
+        echo $error;
+      } else {
+        echo ("Error : Verification Error");
+      }
+    }
+  } else {
+    echo "Error : Variables not set";
+  }
+}
+
+
+function setRole($mail, $roleToSet)
+{
+  $idUser = getUserIdByMail($mail);
+  $idRole = getRoleId($roleToSet);
+
+  setRoleUser($idUser['identifiant'], $idRole['identifiant']);
+}
 
 
 // Création de la session

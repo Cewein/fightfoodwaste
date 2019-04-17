@@ -11,9 +11,7 @@ require_once __DIR__ . '/database/request/dbGetUser.php';
 require_once __DIR__ . '/database/request/dbRoles.php';
 require_once __DIR__ . '/database/request/dbGetStock.php';
 require_once __DIR__ . '/database/request/dbDemande.php';
-<<<<<<< HEAD
-require_once __DIR__ . '/database/request/dbUserConnection.php';
-=======
+//require_once __DIR__ . '/database/request/dbUserConnection.php';
 require_once __DIR__ . '/database/request/dbUpdateUser.php';
 
->>>>>>> 26e029209bb0f1302bd6d6900bc2979ea0fcae8c
+

@@ -2,8 +2,15 @@
 
 require_once __DIR__ . "/../../includes.php";
 
-$db=DatabaseManager::getManager();
+function getConnection($mail,$pwd) {
+    $db = DatabaseManager::getManager();
 
+    $request = "SELECT * FROM `utilisateur` WHERE `adresse_mail`= ? AND `motdepasse` = ?";
+    return ($db->findOne($request, [$mail, $pwd]));
+}
+
+
+/*
 if (isset($_POST['connexionForm'])) {
     $adresseMail = htmlspecialchars($_POST['adresseMail']);
     $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
@@ -23,4 +30,4 @@ if (isset($_POST['connexionForm'])) {
     } else {
         $erreur = "Tous les champs doivent être complétés !";
     }
-}
+} */
