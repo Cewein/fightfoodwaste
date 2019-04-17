@@ -28,3 +28,4 @@ require_once __DIR__ . '/database/request/dbUpdateUser.php';
 
 //Get other functions
 require_once __DIR__ . '/connection/php/connectionSession.php';
+require_once __DIR__ . '/database/conf.php';
