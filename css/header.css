@@ -5,15 +5,13 @@
 
 #headerBack
 {
+    color :white;
     background-color: #c03131;
 }
 
-.header
+header
 {
+    font-min-size: 15px;
     text-align: center;
 }
 
-img{
-    width:15%;
-    height: auto;
-}

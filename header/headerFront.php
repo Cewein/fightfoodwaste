@@ -25,8 +25,10 @@ if ($pathEnd === 'connection') {
     $pathConnection = $directory . "connection/php/connection.php";
     $pathDisconnection = $directory . "connection/php/disconnection.php";
 }
+if(isset($_SESSION['role'])===true){
+    $role = $_SESSION['role'];
+}
 
-$role = $_SESSION['role'];
 ?>
 
 <header id="headerFront">
@@ -46,8 +48,8 @@ $role = $_SESSION['role'];
                             <a class="nav-link" href=<?php echo $pathConnection ?>>Connexion</a>
                         </li>
                     <?php } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link"><img src="<?php echo $pathImg ?>" alt="accédez à votre compte"></a>
+                        <li class="nav-item ">
+                            <a class="nav-link fas fa-user-circle"><li class=""></li></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a></li>
@@ -70,9 +72,6 @@ $role = $_SESSION['role'];
                                 break; ?>
                             <?php } ?>
                     <?php } ?>
-
-
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
         </nav>
