@@ -10,37 +10,44 @@ require_once __DIR__.'/../../includes.php';
 
 //verification de l'envoi du form
 if (isset($_POST['connexionForm'])) {
-  if(isset($_POST['adresseMail']) AND isset($_POST['password'])) {
-    if (!empty($adresseMail) and !empty($password)) {
-    $adresseMail = htmlspecialchars($_POST['adresseMail']);
+  //echo "ok_pour l'envoi du form"; 
+     $mailAddress = htmlspecialchars($_POST['mailAddress']);
 
-    $checkConnect = true;
+     $checkConnect = true;
 
-    $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
-      if ($password === false) {
+     $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
+ /*    if ($password === false) {
+      echo "Mauvais password"
       $verif = false;
-      }
-      //analyse des données reçues et retour
-      $resultLogin = getConnection($request, [$mail, $pwd]);
-      if ($resultLogin !== [$mail, $pwd]) {
-        $errorLogin = "Adresse mail ou mot de passe incorrects!";
-        $checkConnect = false; 
-      }
+     }  */
 
-      if($checkConnect == true) {
-        getConnection($mail, $pwd);
-        $session = setUsersSession($id,$name,$email,$type,$admin); 
+     if(!empty($mailAddress) && !empty($password)) {
+     
 
+     
+        //analyse des données reçues et retour
+         $request = "SELECT * FROM `utilisateur` WHERE `adresse_mail`= ? AND `motdepasse` = ?";
+        $resultLogin = DatabaseManager::getManager()->findOne($request, [$mailAddress, $password]);
+        if ($resultLogin !== [$mailAddress, $password]) {
+          $errorLogin = "Adresse mail ou mot de passe incorrects!";
+           $checkConnect = false; 
+            echo "champs remplis";
+        }
+
+        if($checkConnect == true) {
+          getConnection($mailAddress, $password);
+          $session = setUsersSession($id,$name,$mailAddress,$type,$admin); 
+
+        } 
       } else {
         http_response_code(400);
-        echo ("Erreur lors de la connexion");
+      
       }
-    }
-
+    
     } else {
       $errorLogin = "Merci de compléter tous les champs de ce formulaire !";
     }
-}
+
 
 
  /*

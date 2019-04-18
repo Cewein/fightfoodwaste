@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../includes.php';
-include('checkConnection.php');
+//include('checkConnection.php');
 
 /**
  * Created by SublimeText3.
@@ -9,6 +9,31 @@ include('checkConnection.php');
  * Date: 08/04/2019
  * Time: 22:43
  */
+
+/* PHP NORMAL
+
+if(isset($_POST['connectionForm'])) {
+   $mailAddress = htmlspecialchars($_POST['mailAddress']);
+   $password = sha1($_POST['password']);
+   if(!empty($mailAddress) AND !empty($password)) {
+      $requser = $bdd->prepare("SELECT * FROM utilisateur WHERE mail = ? AND motdepasse = ?");
+      $requser->execute(array($mailAddress, $password));
+      $userIsFound = $requser->rowCount();
+      if($userIsFound == 1) {
+         $userinfo = $requser->fetch();
+         $_SESSION['id'] = $userinfo['id'];
+         $_SESSION['name'] = $userinfo['name'];
+         $_SESSION['firstname'] = $userinfo['firstname'];
+         header("Location: index.php?id=".$_SESSION['id']);
+      } else {
+         $erreur = "Adresse mail ou mot de passe incorrects!";
+      }
+   } else {
+      $erreur = "Merci de compléter tous les champs de ce formulaire !";
+   }
+}
+
+*/
 
 ?>
 
@@ -25,7 +50,7 @@ include('checkConnection.php');
 <body>
     <center>
         <h1>Fight Food Waste</h1>
-        <form method="POST" action="" id="connection" enctype="application/x-www-form-urlencoded">
+        <form method="POST" action="checkConnection.php" id="connection" enctype="application/x-www-form-urlencoded">
             <legend>
                 <fieldset>Soyez les bienvenues !!<br><br><br>
                     <label for="mail">Votre adresse mail :</label><br>
