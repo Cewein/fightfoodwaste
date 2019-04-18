@@ -7,3 +7,12 @@ body{
     padding-left: 5%;
     padding-right: 5%;
 }
+
+@font-face {
+    font-family: 'lane_-_narrowregular';
+    src: url('lanenar_-webfont.woff2') format('woff2'),
+    url('lanenar_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
