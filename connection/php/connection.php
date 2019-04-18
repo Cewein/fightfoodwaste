@@ -67,7 +67,7 @@ if(isset($_POST['connectionForm'])) {
             ?>  
         </form>
     </center>
-   <!-- <script src="/../js/connection.js"></script>  -->
+    <script src="/../js/connection.js"></script> 
 </body>
 
 </html>

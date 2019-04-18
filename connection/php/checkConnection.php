@@ -8,35 +8,35 @@
 
 require_once __DIR__.'/../../includes.php';
 
+var_dump($_POST);
 //verification de l'envoi du form
-if (isset($_POST['connexionForm'])) {
-  //echo "ok_pour l'envoi du form"; 
+if (isset($_POST['connexionForm'])===true&&isset($_POST['mailAddress'])===true&& isset($_POST['password']) === true&&$_POST['mailAddress']!=='') {
+      echo "ok_pour l'envoi du form"; 
      $mailAddress = htmlspecialchars($_POST['mailAddress']);
 
      $checkConnect = true;
 
      $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
- /*    if ($password === false) {
-      echo "Mauvais password"
+   if ($password === false) {
+      echo "Mauvais password";
       $verif = false;
-     }  */
+     }  
 
      if(!empty($mailAddress) && !empty($password)) {
      
-
-     
         //analyse des données reçues et retour
-         $request = "SELECT * FROM `utilisateur` WHERE `adresse_mail`= ? AND `motdepasse` = ?";
-        $resultLogin = DatabaseManager::getManager()->findOne($request, [$mailAddress, $password]);
-        if ($resultLogin !== [$mailAddress, $password]) {
+        /*if ($resultLogin !== [$mailAddress, $password]) {
           $errorLogin = "Adresse mail ou mot de passe incorrects!";
            $checkConnect = false; 
-            echo "champs remplis";
-        }
+            echo $errorLogin;
+        }*/
 
         if($checkConnect == true) {
           getConnection($mailAddress, $password);
-          $session = setUsersSession($id,$name,$mailAddress,$type,$admin); 
+         // echo "ok succès";
+      //$session = setUsersSession($id,$name,$mailAddress,$type,$admin); 
+        /*  header('Location: /../../fightfoodwaste/index.php');
+          exit;  */
 
         } 
       } else {
@@ -44,9 +44,9 @@ if (isset($_POST['connexionForm'])) {
       
       }
     
-    } else {
-      $errorLogin = "Merci de compléter tous les champs de ce formulaire !";
-    }
+} else {
+  echo "Merci de compléter tous les champs de ce formulaire !";
+}
 
 
 

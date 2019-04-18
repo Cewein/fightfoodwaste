@@ -41,7 +41,7 @@ document.getElementById('connection').addEventListener('submit', function (e) {
     }
 
     if (check === true) {
-        sendRequest(`mail=${mail_checked}&pwd=${pwd_checked}`, 'connection.php');
+        sendRequest(`mail=${mail_checked}&pwd=${pwd_checked}`, 'checkConnection.php');
     }
 
 });
@@ -87,7 +87,7 @@ function checkPassword(pwd1, pwd2, pwd1Error, pwd2Error) {
 }
 
 
-function finishConnection(email,type) {
+function finishConnection($mail,$type) {
     document.location.href = "/../../index.php"
 
 }

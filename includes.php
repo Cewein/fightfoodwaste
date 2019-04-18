@@ -34,8 +34,3 @@ require_once __DIR__ . '/database/request/dbUpdateUser.php';
 
 //Get other functions
 require_once __DIR__ . '/connection/php/connectionSession.php';
-<<<<<<< HEAD
-
-=======
-require_once __DIR__ . '/database/conf.php';
->>>>>>> 2b2fec7140e30aa0e62fcf7f76009306e9c7c3ad

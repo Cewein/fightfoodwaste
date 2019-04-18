@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../includes.php";
 function getConnection($mail,$pwd) {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `utilisateur` WHERE `adresse_mail`= ? AND `motdepasse` = ?";
+    $request = "SELECT * FROM `utilisateur` WHERE `adresse_mail`= ? AND `password` = ?";
     return ($db->findOne($request, [$mail, $pwd]));
 }
 
