@@ -5,7 +5,7 @@
  * Date: 02/04/2019 et 08/04/2019
  * Time: 16:00 et 1:10
  */
-echo $directory;
+
 if ($pathEnd === DIR_HOME) {
     $pathIndex = "";
     $pathImg = "pictures/user.png";
