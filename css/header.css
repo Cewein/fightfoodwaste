@@ -9,6 +9,10 @@
     background-color: #c03131;
 }
 
+.brandBack{
+    background: url("../pictures/zoneHeaderPropre.png") ;
+}
+
 header
 {
     font-min-size: 15px;
