@@ -35,8 +35,8 @@ if (isset($_POST['connexionForm'])===true&&isset($_POST['mailAddress'])===true&&
           getConnection($mailAddress, $password);
          // echo "ok succès";
       //$session = setUsersSession($id,$name,$mailAddress,$type,$admin); 
-        /*  header('Location: /../../fightfoodwaste/index.php');
-          exit;  */
+         header('Location: /../../fightfoodwaste/index.php');
+          exit; 
 
         } 
       } else {
