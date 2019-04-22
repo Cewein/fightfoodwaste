@@ -88,6 +88,6 @@ function checkPassword(pwd1, pwd2, pwd1Error, pwd2Error) {
 
 
 function finishConnection($mail,$type) {
-    document.location.href = "/../../index.php"
+    document.location.href = "/../index.php"
 
 }

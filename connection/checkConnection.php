@@ -6,7 +6,7 @@
  * Time: 23:01
  */
 
-require_once __DIR__ . '/../../includes.php';
+require_once __DIR__ . '/../includes.php';
 
 var_dump($_POST);
 //verification de l'envoi du form
