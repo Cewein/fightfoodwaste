@@ -22,8 +22,8 @@ if ($pathEnd === 'connection') {
     $pathConnection = "";
     $pathDisconnection = "disconnection.php";
 } else {
-    $pathConnection = $directory . "connection/php/connection.php";
-    $pathDisconnection = $directory . "connection/php/disconnection.php";
+    $pathConnection = $directory . "connection/connection.php";
+    $pathDisconnection = $directory . "connection/disconnection.php";
 }
 if(isset($_SESSION['role'])===true){
     $role = $_SESSION['role'];
