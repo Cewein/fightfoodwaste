@@ -3,8 +3,9 @@ function updateProduct(id) {
 
 }
 
-function deleteProduct(id) {
+function deleteProduct(id, number) {
     sendRequestProduct(id, 'delete');
+    hide(document.getElementById(number));
 }
 
 function sendRequestProduct(id, type) {
@@ -17,4 +18,8 @@ function sendRequestProduct(id, type) {
     request.open('POST', 'updateProduct.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(`type=${type}&id=${id}`);
+}
+
+function hide(element) {
+   element.style.display = 'none';
 }

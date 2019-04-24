@@ -5,14 +5,14 @@ require_once __DIR__ . '/../stock/models/article.php';
 $allProduct = getAllProduct();
 $allDemande = getAllDemande();
 
-
+$number = 0;
 foreach ($allProduct as $product) {
 
     $article = new Article($product['code_barre']);
 
-    $buttons=buttons($product['identifiant']);
+    $buttons=buttons($product['identifiant'],$number);
 
-    $row = "<tr><th scope=\"row\">" . $product['code_barre'] . "</th>";
+    $row = "<tr id=".$number."><th scope=\"row\">" . $product['code_barre'] . "</th>";
     $row .= "<td>" . $article->getName() . "</td>";
     $row .= "<td>" . $article->getDescription() . "</td>";
     $row .= "<td>" . $product['id_demande'] . "</td>";
@@ -21,10 +21,12 @@ foreach ($allProduct as $product) {
     $row .= "</tr>";
 
     echo $row;
+
+    $number++;
 }
 
-function buttons($id){
-    $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteProduct($id)'></button>";
+function buttons($id, $num){
+    $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteProduct($id,".$num.")'></button>";
     $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateUser($id)'></button>";
     $buttons = $buttonUpdate . " " . $buttonDelete;
     return $buttons;
