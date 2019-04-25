@@ -6,13 +6,9 @@
  * Time: 17:10
  */
 
-function setUsersSession($id,$name,$email,$type,$admin){
+function setUsersSession($id,$name,$email,$roles){
     $_SESSION['id']=$id;
     $_SESSION['name']=$name;
     $_SESSION['email']=$email;
-    $_SESSION['role']=$type;
-    if(isset($admin)===true){
-        $_SESSION['admin']=$admin;
-    }
-
+    $_SESSION['roles']=$roles;
 }

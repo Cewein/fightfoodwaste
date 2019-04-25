@@ -8,10 +8,8 @@
 
 require_once __DIR__ . '/../includes.php';
 
-var_dump($_POST);
 //verification de l'envoi du form
 if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === true && isset($_POST['password']) === true && $_POST['mailAddress'] !== '') {
-    echo "ok_pour l'envoi du form";
     $mailAddress = htmlspecialchars($_POST['mailAddress']);
 
     $checkConnect = true;
@@ -27,15 +25,19 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
         if ($checkConnect == true) {
 
             $user = getConnection($mailAddress);
-            //Chack password
+            //Check password
             if (isset($user) === true && password_verify($password, $user['password']) === true) {
                 $id = $user['identifiant'];
                 $name = $user['nom'];
                 //Définition des rôles
-                $role = getRoleByUserId($id);
-                $type = $role[0]['id_role'];
+                $allRoles = getRoleByUserId($id);
+                $i=0;
+                foreach ($allRoles as $uniqueRole){
+                    $roles[$i]=$uniqueRole['id_role'];
+                    $i++;
+                }
 
-                setUsersSession($id, $name, $mailAddress, $type, "");
+                setUsersSession($id, $name, $mailAddress, $roles);
                 header('Location: /../../fightfoodwaste/index.php');
                 exit;
             } else {

@@ -25,8 +25,60 @@ if ($pathEnd === 'connection') {
     $pathConnection = $directory . "connection/connection.php";
     $pathDisconnection = $directory . "connection/disconnection.php";
 }
-if(isset($_SESSION['role'])===true){
-    $role = $_SESSION['role'];
+
+//Get all roles
+$allRoles = getAllRoles();
+
+
+//Get all user's roles in 1 array
+if (isset($_SESSION['roles']) === true && $_SESSION['roles'] !== null) {
+    $allUsersRoles = $_SESSION['roles'];
+} else {
+    $allUsersRoles = [];
+}
+
+$roleLinks = "";
+
+//Set links for navbar according to user's roles
+foreach ($allUsersRoles as $role) {
+
+    //get role's name from role's id
+    foreach ($allRoles as $uniqueRole) {
+        if (isset($role) === true && $role === $uniqueRole['identifiant']) {
+            $roleName = $uniqueRole['nom'];
+        }
+    }
+
+    switch ($roleName) {
+        case 'particulier':
+            $linkName = "Espace Particulier";
+            $path = "#";
+            break;
+        case 'commercant':
+            $linkName = "Espace Commerçant";
+            $path = "#";
+            break;
+        case 'salary':
+            $linkName = "Espace de travail";
+            $path = "#";
+            break;
+        case 'benevole':
+            $linkName = "Espace bénévole";
+            $path = "#";
+            break;
+        case 'administrateur':
+            $linkName = "Administration";
+            $path = "#";
+            break;
+        default:
+            break;
+    }
+
+    $roleLinks .= "<li class=\"nav-item\">
+                        <a class=\"nav-link \" href=" . $path . ">
+                            <p class=\"fas fa-user-circle\"></p>" . $linkName .
+                        "</a>
+                  </li>";
 }
 
 ?>
@@ -40,38 +92,22 @@ if(isset($_SESSION['role'])===true){
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href=<?php echo $pathIndex ?>>Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href=<?php echo $pathInscription ?>>Inscription</a>
-                    </li>
                     <!-- Personnalisation de la barre de navigation en fonction du rôle -->
                     <?php if (isset($_SESSION["id"]) === false) { ?>
+                        <li class="nav-item"><a class="nav-link" href=<?php echo $pathInscription ?>>Inscription</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href=<?php echo $pathConnection ?>>Connexion</a>
                         </li>
                     <?php } else { ?>
-                        <li class="nav-item ">
-                            <a class="nav-link fas fa-user-circle"><li class=""></li></a>
-                        </li>
+
+                        <?php echo $roleLinks ?>
+
                         <li class="nav-item">
-                            <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a></li>
-                        <?php switch ($role) {
-                            case 'salary': ?>
-                                <li class="nav-item"><a class="nav-link" href="#">Espace de travail</a>
-                                </li> <!-- nom à revoir-->
-                            <?php case 'volunteer': ?>
-                                <li class="nav-item"><a class="nav-link" href="#">Espace des bénévoles</a>
-                                </li> <!-- nom à revoir-->
-                            <?php case 'merchant': ?>
-                                <!-- pour les commerçants -->
-                                <li class="nav-item"><a class="nav-link" href="#">Espace commerçant</a></li>
-                            <?php case 'subscriber': ?>
-                                <!-- pour les adherents -->
-                                <li class="nav-item"><a class="nav-link" href="#">Espace adhérent</a></li>
-                            <?php case 'administrator': ?>
-                                <li class="nav-item"><a class="nav-link" href="#">Espace administrateur</a></li>
-                            <?php default:
-                                break; ?>
-                            <?php } ?>
+                            <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
+                        </li>
                     <?php } ?>
+
                 </ul>
             </div>
         </nav>
