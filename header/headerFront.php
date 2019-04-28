@@ -9,9 +9,11 @@
 if ($pathEnd === DIR_HOME) {
     $pathIndex = "";
     $pathImg = "pictures/user.png";
+    $pathAdmin = "backoffice/BackHome.php";
 } else {
     $pathIndex = $directory . 'index.php';
     $pathImg = $directory . 'pictures/users.png';
+    $pathAdmin = $directory . "/backoffice/BackHome.php";
 }
 if ($pathEnd === 'inscription') {
     $pathInscription = "";
@@ -68,7 +70,7 @@ foreach ($allUsersRoles as $role) {
             break;
         case 'administrateur':
             $linkName = "Administration";
-            $path = "#";
+            $path = $pathAdmin;
             break;
         default:
             break;
@@ -76,7 +78,7 @@ foreach ($allUsersRoles as $role) {
 
     $roleLinks .= "<li class=\"nav-item\">
                         <a class=\"nav-link \" href=" . $path . ">
-                            <p class=\"fas fa-user-circle\"></p>" . $linkName .
+                            <p class=\"fas fa-user-circle\"></p>    " . $linkName .
                         "</a>
                   </li>";
 }
@@ -85,7 +87,8 @@ foreach ($allUsersRoles as $role) {
 
 <header id="headerFront">
     <div class="row header">
-        <h1 class="nav-bar brand col-md-6">Fight Food Waste</h1>
+        <div class="col-md-1"></div>
+        <h1 class="nav-bar brand col-md-4">Fight Food Waste</h1>
 
         <nav class="navbar navbar-expand-lg navbar-light col-md-6">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

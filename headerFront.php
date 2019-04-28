@@ -7,11 +7,22 @@
  */
 ?>
 
-<header id="headerFront">
-    <div class="row header">
-        <h1 class="nav-bar brand col-md-6">Fight Food Waste</h1>
+<header>
+    <div class="row header" id="headerFront">
+        <div class="col-md-1 bar"></div>
+        <div class="nav-bar col-md-3 container">
+            <div class="name col-md-12 container">
+                <div class="row brand">
+                    <img id="logo" src="../pictures/logo_fight_food_waste.png" >
+                    <h2 id="name" class="">     Fight Food Waste</h2>
+                </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light col-md-6">
+            </div>
+            <div class="brandFront col-md-12"></div>
+        </div>
+        <div class="col-md-2 bar"></div>
+
+        <nav class="navbar navbar-expand-lg navbar-light col-md-5">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
