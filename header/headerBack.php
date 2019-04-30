@@ -28,6 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="../backoffice/usersTableView.php">Utilisateurs</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../backoffice/allStockView.php">Stock</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../backoffice/demandesView.php">Demandes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Tournées</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Collectes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>

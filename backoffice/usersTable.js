@@ -15,7 +15,7 @@ function allUsers() {
 }
 
 function users(usersType) {
-    const name = document.getElementById('name');
+    const name = document.getElementById('userName');
     const pname = document.getElementById('pname');
     const container = document.getElementById('tbody');
     container.innerText = "";

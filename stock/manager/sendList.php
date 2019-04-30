@@ -5,6 +5,7 @@ require_once(__DIR__.'/../../database/database.php');
 class SendList {
 
     private $listArti;
+    private $userId;
 
     //to construct the list it need to send all barcode in a .json to the webpage
     public function __construct($json)
@@ -13,10 +14,18 @@ class SendList {
         $decoded = json_decode($json, true);
         foreach($decoded as &$value)
         {
-            $article = new Article($value["barcode"], $value["size"]);
-            $this->listArti->add($article);
+            if(isset($value['barcode'])===true){
+                $article = new Article($value["barcode"], $value["size"]);
+                $this->listArti->add($article);
+            }
+            else{
+                $this->userId=$value["id"];
+            }
+
         }
     }
+
+    public function getUserId(){return $this->userId;}
 
     public function send()
     {
@@ -34,6 +43,11 @@ class SendList {
             $tmpBarcode = $tmpArticle->getBarcode();
             $db->exec("INSERT INTO `produit`(`code_barre`, `quantite`,`id_demande`) VALUES (?,?,?)",[$tmpBarcode->getCode(), $tmpArticle->getNumber(), $demandID]);
         }
+
+        //Create interraction User / Request
+        $idRequest=$db->findOne("SELECT MAX(`identifiant`) FROM `demande`");
+        $db->exec("INSERT INTO `interagir`(`id_utilisateur`,`id_demande`) VALUES (?,?)",[$this->userId,$idRequest['MAX(`identifiant`)']]);
+
         return 1;
     }
 }

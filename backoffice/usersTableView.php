@@ -115,7 +115,7 @@ $actualDirectory = __DIR__;
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col" id="name">Nom</th>
+                        <th scope="col" id="userName">Nom</th>
                         <th scope="col" id="pname">Prenom</th>
                         <th scope="col">Adresse Email</th>
                         <th scope="col">Adresse</th>
