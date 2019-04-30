@@ -127,7 +127,7 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
     }
 
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&connection=false`, '../inscription/inscription.php', type);
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&connection=false`, '../../inscription/inscription.php', type);
     }
 
 

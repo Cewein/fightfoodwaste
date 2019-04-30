@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../includes.php';
-require_once __DIR__ . '/../stock/models/article.php';
+require_once __DIR__ . '/../../includes.php';
+require_once __DIR__ . '/../../stock/models/article.php';
 
 $allProduct = getAllProduct();
 $allDemande = getAllDemande();

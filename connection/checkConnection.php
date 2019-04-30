@@ -46,7 +46,6 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
         }
     } else {
         http_response_code(400);
-
     }
 
 } else {

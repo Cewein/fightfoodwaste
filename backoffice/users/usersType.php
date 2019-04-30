@@ -6,8 +6,8 @@
  * Time: 23:09
  */
 
-require_once __DIR__ . '/../includes.php';
-require_once __DIR__ . '/UpdateButtons.php';
+require_once __DIR__ . '/../../includes.php';
+require_once __DIR__ . '/../UpdateButtons.php';
 
 $role = getRoleId($_POST['role']); //Role need to be exactly the same as the db
 

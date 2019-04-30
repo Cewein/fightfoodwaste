@@ -132,7 +132,7 @@ $actualDirectory = __DIR__;
         </div>
         <div class="col-md-1"></div>
     </div>
-    <script src="usersTable.js"></script>
+    <script src="users/usersTable.js"></script>
     <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
     <footer></footer>
     </body>

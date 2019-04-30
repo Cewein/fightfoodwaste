@@ -5,7 +5,7 @@
  * Date: 14/04/2019
  * Time: 19:19
  */
-require_once __DIR__ . '/../includes.php';
+require_once __DIR__ . '/../../includes.php';
 
 
 if (isset($_POST['type']) === true && isset($_POST['id']) === true) {

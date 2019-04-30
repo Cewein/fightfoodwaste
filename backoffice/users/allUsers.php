@@ -5,8 +5,8 @@
  * Date: 08/04/2019
  * Time: 15:59
  */
-require_once __DIR__ . '/../includes.php';
-require_once __DIR__ . '/UpdateButtons.php';
+require_once __DIR__ . '/../../includes.php';
+require_once __DIR__ . '/../UpdateButtons.php';
 
 $allUsers = getAllUsers();
 $allUsersRoles = getAllUsersRoles();

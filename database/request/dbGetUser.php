@@ -14,7 +14,6 @@ function getUserIdByMail($mail)
 
     $request = "SELECT `identifiant` FROM `utilisateur` WHERE `adresse_mail`= ?";
     return ($db->findOne($request, [$mail]));
-
 }
 
 function getAllUsers()
