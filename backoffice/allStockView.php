@@ -43,7 +43,7 @@ $actualDirectory=__DIR__;
                     </tr>
                     </thead>
                     <tbody id="tbody">
-                        <?php require_once __DIR__ . '/allStock.php'; ?>
+                        <?php require_once __DIR__ . '/stock/allStock.php'; ?>
                     </tbody>
                 </table>
             </div>
@@ -51,7 +51,7 @@ $actualDirectory=__DIR__;
         <div class="col-md-1"></div>
     </div>
     <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="updateProduct.js"></script>
+    <script src="stock/updateProduct.js"></script>
     <footer></footer>
     </body>
 </html>
