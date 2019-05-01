@@ -6,24 +6,44 @@
  * Time: 16:16
  */
 
-require_once __DIR__."/../../includes.php";
-require_once __DIR__."/Request.php";
+require_once __DIR__ . "/../../includes.php";
+require_once __DIR__ . "/Request.php";
 
-$allRequests=getAllRequests();
+$allRequests = getAllRequests();
 
-$i=0;
+$i = 0;
+$idRequestList = "";
+foreach ($allRequests as $singleRequest) {
+    $requests[$i] = new Request($singleRequest['identifiant'], $singleRequest['statut'], $singleRequest['id_collecte']);
+    $idRequestList .= $requests[$i]->getId();
+    if(isset($allRequests[$i+1])===true){
+        $idRequestList .= ",";
+    }
+    $i++;
+}
 
-foreach ($allRequests as $singleRequest){
-    $request =  new Request($singleRequest['identifiant'],$singleRequest['statut'],$singleRequest['id_collecte']);
+$allCreators = getInteractionsCreationByIdRequestList($idRequestList);
 
-    $row = "<tr><th scope=\"row\">" . $request->getId() . "</th>";
-    $row .= "<td>" . "pas encore". "</td>";
-    $row .= "<td>" . $request->getStatut() . "</td>";
-    $row .= "<td>" . $request->getCollecte() . "</td>";
+foreach ($requests as $request){
+    foreach ($allCreators as $creator){
 
-    //$row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+        if($creator['id_demande']=$request->getId()){
+            $request->setCreator($creator['id_utilisateur']);
+        }
+    }
 
-    echo $row;
+    if($request->getCreator()==NULL){
+        $request->setCreator("No Info");
+    }
+
+        $row = "<tr><th scope=\"row\">" . $request->getId() . "</th>";
+        $row .= "<td>" . $request->getCreator() . "</td>";
+        $row .= "<td>" . $request->getStatut() . "</td>";
+        $row .= "<td>" . $request->getCollecte() . "</td>";
+
+        //$row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+        echo $row;
+
 }
 
 

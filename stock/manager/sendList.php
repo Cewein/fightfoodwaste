@@ -32,7 +32,7 @@ class SendList {
     {
         $db = DatabaseManager::getManager();
 
-        $db->exec("INSERT INTO `demande`(`statut`) VALUES (?)",[0]);
+        $db->exec("INSERT INTO `demande`(`statut`) VALUES (?)",["En attente"]);
         $demandID = $db->findOne("SELECT last_insert_id()");
         $demandID = $demandID["last_insert_id()"];
 
@@ -46,8 +46,7 @@ class SendList {
         }
 
         //Create interraction User / Request
-        $idRequest=$db->findOne("SELECT MAX(`identifiant`) FROM `demande`");
-        setInteraction($this->userId,$idRequest['MAX(`identifiant`)'],"creation", time());
+        setInteraction($this->userId,$demandID,"creation", time());
 
         return 1;
     }

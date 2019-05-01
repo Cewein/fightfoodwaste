@@ -11,7 +11,7 @@ class Request
 {
     private $identifiant;
     private $statut;
-    private $owner;
+    private $creator;
     private $idCollecte;
     private $dateLastAction;
 
@@ -26,5 +26,8 @@ class Request
     public function getId(){ return $this->identifiant; }
     public function getStatut(){ return $this->statut; }
     public function getCollecte(){ return $this->idCollecte; }
+    public function getCreator(){ return $this->creator; }
+
+    public function setCreator($creator){ $this->creator=$creator; }
 
 }
