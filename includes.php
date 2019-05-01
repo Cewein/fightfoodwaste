@@ -23,7 +23,7 @@ require_once __DIR__ . '/database/request/dbGetStock.php';
 require_once __DIR__ . '/database/request/dbUsersRequests.php';
 
     /*Users Requests Requests (yeah it's a normal name !)*/
-require_once __DIR__ . 'database/request/dbSetInteractions.php';
+require_once __DIR__ . '/database/request/dbSetInteractions.php';
 
 
 require_once __DIR__ . '/database/request/dbGetConnection.php'; 
