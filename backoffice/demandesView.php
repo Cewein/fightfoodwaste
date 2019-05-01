@@ -37,7 +37,7 @@ $actualDirectory = __DIR__;
                 <input class="btn btn-secondary" type="button" value="Demandes à valider" onclick="usersRequests('tocheck')">
                 <input class="btn btn-secondary" type="button" value="Demandes validées" onclick="usersRequests('checkedTrue')">
                 <input class="btn btn-secondary" type="button" value="Demandes refusées" onclick="usersRequests('checkedFalse')">
-                <input class="btn btn-secondary" type="button" value="Demandes refusées" onclick="usersRequests('completed')">
+                <input class="btn btn-secondary" type="button" value="Demandes Terminées" onclick="usersRequests('completed')">
             </div>
 
 

@@ -32,7 +32,7 @@ class SendList {
     {
         $db = DatabaseManager::getManager();
 
-        $db->exec("INSERT INTO `demande`(`statut`) VALUES (?)",["En attente"]);
+        $db->exec("INSERT INTO `demande`(`statut`) VALUES (?)",["tocheck"]);
         $demandID = $db->findOne("SELECT last_insert_id()");
         $demandID = $demandID["last_insert_id()"];
 
