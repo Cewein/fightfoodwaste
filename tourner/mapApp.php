@@ -44,8 +44,13 @@
 
                 frame.newDropoff(coords);
             }
+            function reload()
+            {
+                window.map.location.reload(true);
+            }
         </script>
         <button type="button" class="btn btn-outline-primary" onclick="testAddPoint()">Versailles</button>
         <button type="button" class="btn btn-outline-primary" onclick="testAddPoint2()">Etampes</button>
+        <button type="button" class="btn btn-outline-warning" onclick="reload()">reload</button>
     </body>
 </html>
