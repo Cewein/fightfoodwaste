@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__.'/../models/list.php');
 require_once(__DIR__.'/../../database/database.php');
+require_once (__DIR__.'../../includes.php');
 
 class SendList {
 
@@ -46,7 +47,7 @@ class SendList {
 
         //Create interraction User / Request
         $idRequest=$db->findOne("SELECT MAX(`identifiant`) FROM `demande`");
-        $db->exec("INSERT INTO `interagir`(`id_utilisateur`,`id_demande`) VALUES (?,?)",[$this->userId,$idRequest['MAX(`identifiant`)']]);
+        setInteraction($this->userId,$idRequest['MAX(`identifiant`)'],"creation",getdate());
 
         return 1;
     }
