@@ -35,54 +35,53 @@ $allRoles = getAllRoles();
 //Get all user's roles in 1 array
 if (isset($_SESSION['roles']) === true && $_SESSION['roles'] !== null) {
     $allUsersRoles = $_SESSION['roles'];
-} else {
-    $allUsersRoles = [];
 }
 
 $roleLinks = "";
 
-//Set links for navbar according to user's roles
-foreach ($allUsersRoles as $role) {
+if(isset($allUsersRoles)===true){
+    //Set links for navbar according to user's roles
+    foreach ($allUsersRoles as $role) {
 
-    //get role's name from role's id
-    foreach ($allRoles as $uniqueRole) {
-        if (isset($role) === true && $role === $uniqueRole['identifiant']) {
-            $roleName = $uniqueRole['nom'];
+        //get role's name from role's id
+        foreach ($allRoles as $uniqueRole) {
+            if (isset($role) === true && $role === $uniqueRole['identifiant']) {
+                $roleName = $uniqueRole['nom'];
+            }
         }
-    }
 
-    switch ($roleName) {
-        case 'particulier':
-            $linkName = "Espace Particulier";
-            $path = "#";
-            break;
-        case 'commercant':
-            $linkName = "Espace Commerçant";
-            $path = "#";
-            break;
-        case 'salary':
-            $linkName = "Espace de travail";
-            $path = "#";
-            break;
-        case 'benevole':
-            $linkName = "Espace bénévole";
-            $path = "#";
-            break;
-        case 'administrateur':
-            $linkName = "Administration";
-            $path = $pathAdmin;
-            break;
-        default:
-            break;
-    }
+        switch ($roleName) {
+            case 'particulier':
+                $linkName = "Espace Particulier";
+                $path = "#";
+                break;
+            case 'commercant':
+                $linkName = "Espace Commerçant";
+                $path = "#";
+                break;
+            case 'salary':
+                $linkName = "Espace de travail";
+                $path = "#";
+                break;
+            case 'benevole':
+                $linkName = "Espace bénévole";
+                $path = "#";
+                break;
+            case 'administrateur':
+                $linkName = "Administration";
+                $path = $pathAdmin;
+                break;
+            default:
+                break;
+        }
 
-    $roleLinks .= "<li class=\"nav-item\">
+        $roleLinks .= "<li class=\"nav-item\">
                         <a class=\"nav-link \" href=" . $path . ">
                             <p class=\"fas fa-user-circle\"></p>    " . $linkName .
-                        "</a>
+            "</a>
                   </li>";
+    }
 }
-
 ?>
 
 <header id="headerFront">

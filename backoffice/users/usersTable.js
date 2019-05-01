@@ -1,15 +1,15 @@
 function allUsers() {
     const container = document.getElementById('tbody');
+    console.log(container);
     container.innerText = "";
     const textRequest = true;
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-
             container.innerHTML = request.responseText;//Réponse à afficher
         }
     };
-    request.open('POST', 'allUsers.php');
+    request.open('POST', '../backoffice/users/allUsers.php'); //path from home directory
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(textRequest);
 }
@@ -37,7 +37,7 @@ function users(usersType) {
             container.innerHTML = request.responseText;//Réponse à afficher
         }
     };
-    request.open('POST', 'usersType.php');
+    request.open('POST', '../backoffice/users/usersType.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(`role=${usersType}`);
 }
@@ -63,7 +63,7 @@ function sendRequestUser(id, type) {
             console.log(request.responseText);//Réponse à afficher
         }
     };
-    request.open('POST', 'updateUsers.php');
+    request.open('POST', '../backoffice/users/updateUsers.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(`type=${type}&id=${id}`);
 }

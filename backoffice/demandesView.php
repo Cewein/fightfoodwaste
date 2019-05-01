@@ -46,13 +46,9 @@ $actualDirectory = __DIR__;
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col" id="userName">Nom</th>
-                        <th scope="col" id="pname">Prenom</th>
-                        <th scope="col">Adresse Email</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Ville</th>
-                        <th scope="col">Role(s)</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Propriétaire</th>
+                        <th scope="col">Statut</th>
+                        <th scope="col">Collecte</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">
@@ -62,5 +58,5 @@ $actualDirectory = __DIR__;
             </div>
         </div>
     </div>
-<script src="demandes/demandesView.js"></script>
+<script src="request/demandesView.js"></script>
 </body>

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../includes.php';
 
-function getAllDemande()
+function getAllRequests()
 {
     $db = DatabaseManager::getManager();
 
