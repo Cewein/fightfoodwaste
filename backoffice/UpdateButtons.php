@@ -14,3 +14,10 @@ function getUpdateButtons($id)
     $buttons = $buttonUpdate . " " . $buttonAdmin . " " . $buttonDelete;
     return $buttons;
 }
+
+function getRequestButtons($id)
+{
+    $buttonModal = "<button class=\"btn fas fa-clipboard-list\" type=\"button\"  data-toggle=\"modal\" data-target=\"#addModal\" onclick='displayProducts(". $id .")'></button>";
+    $buttons = $buttonModal;
+    return $buttons;
+}

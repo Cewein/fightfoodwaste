@@ -26,37 +26,74 @@ $actualDirectory = __DIR__;
 </head>
 
 <body>
-    <?php require_once __DIR__ . '/../header/adaptHeader.php'; ?>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="content col-md-10">
+<?php require_once __DIR__ . '/../header/adaptHeader.php'; ?>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="content col-md-10">
 
-            <!--Navbar Infos Users -->
-            <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                <input class="btn btn-secondary" type="button" value="Toutes les demandes" onclick="allUsersRequests()">
-                <input class="btn btn-secondary" type="button" value="Demandes à valider" onclick="usersRequests('tocheck')">
-                <input class="btn btn-secondary" type="button" value="Demandes validées" onclick="usersRequests('checkedTrue')">
-                <input class="btn btn-secondary" type="button" value="Demandes refusées" onclick="usersRequests('checkedFalse')">
-                <input class="btn btn-secondary" type="button" value="Demandes Terminées" onclick="usersRequests('completed')">
-            </div>
+        <!--Navbar Infos Users -->
+        <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
+            <input class="btn btn-secondary" type="button" value="Toutes les demandes" onclick="allUsersRequests()">
+            <input class="btn btn-secondary" type="button" value="Demandes à valider" onclick="usersRequests('tocheck')">
+            <input class="btn btn-secondary" type="button" value="Demandes validées" onclick="usersRequests('checkedTrue')">
+            <input class="btn btn-secondary" type="button" value="Demandes refusées" onclick="usersRequests('checkedFalse')">
+            <input class="btn btn-secondary" type="button" value="Demandes Terminées" onclick="usersRequests('completed')">
+        </div>
 
 
-            <div class="table">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Propriétaire</th>
-                        <th scope="col">Statut</th>
-                        <th scope="col">Collecte</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tbody">
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct" aria-hidden="true">
+            <div class="modal-dialog .modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Produits de la demande</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div><h3 id="title"></h3></div>
+                        <div class="table">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Code Barre</th>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">DLC</th>
+                                    <th scope="col">Quantité</th>
+                                </tr>
+                                </thead>
+                                <tbody id="productBody">
 
-                    </tbody>
-                </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Propriétaire</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Collecte</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 <script src="request/demandesView.js"></script>
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../../includes.php';
 
-function getProductIdByDemande($demande)
+function getProductsByDemandeId($demande)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT `identifiant` FROM `produit` WHERE `id_demande`= ?";
-    return ($db->findOne($request, [$demande]));
+    $request = "SELECT * FROM `produit` WHERE `id_demande`= ?";
+    return ($db->getAll($request, [$demande]));
 
 }
 

@@ -105,8 +105,6 @@ int performPost(char * data)
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 
 		res = curl_easy_perform(curl);
-		
-		system("pause");
 
 		/* Check for errors */
 		if (res != CURLE_OK)
@@ -216,7 +214,6 @@ char * listToJson(struct Article * list, int userId)
 	appendJson("userId\": { \"id\":",json);
 	sprintf(buf, "%d", userId);
 	appendJson(buf, json);
-	printf("miam");
 	appendJson("},\"", json);
 
 	//Add list to json

@@ -27,3 +27,19 @@ function allUsersRequests() {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(textRequest);
 }
+
+function  displayProducts(idDemande) {
+    const title = document.getElementById("title");
+    title.innerText= "Demande n°"+idDemande;
+    const container = document.getElementById("productBody");
+    container.innerText = "";
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            container.innerHTML = request.responseText;//Réponse à afficher
+        }
+    };
+    request.open('POST', '../backoffice/request/displayProducts.php');
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(`demande=${idDemande}`);
+}

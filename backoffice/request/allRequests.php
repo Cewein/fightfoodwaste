@@ -8,6 +8,7 @@
 
 require_once __DIR__ . "/../../includes.php";
 require_once __DIR__ . "/Request.php";
+require_once __DIR__ . "/../UpdateButtons.php";
 
 $allRequests = getAllRequests();
 
@@ -36,12 +37,12 @@ foreach ($requests as $request){
         $request->setCreator("No Info");
     }
 
-    $row = "<tr><th scope=\"row\">" . $request->getId() . "</th>";
+    $row = "<tr id=\"" . $request->getId() . " \"><th scope=\"row\">" . $request->getId() . "</th>";
     $row .= "<td>" . $request->getCreator() . "</td>";
     $row .= "<td>" . $request->getStatut() . "</td>";
     $row .= "<td>" . $request->getCollecte() . "</td>";
 
-    //$row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+    $row .= "<td>" . getRequestButtons($request->getId()) . "</td>";
     echo $row;
 
 }

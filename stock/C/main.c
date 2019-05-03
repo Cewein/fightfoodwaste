@@ -11,11 +11,13 @@ int main(void)
 	//User Connection
 	idUser = connection();
 	while (idUser>0) {
-
+		system("cls");
 
 		logInFile("##### NEW LIST #####", "START", 0);
+		
 		do
 		{
+			
 			if (list == NULL) printf("Votre liste est vide merci d'ajouter des articles \n\n");
 			else printAll(list);
 			printf("\n\n 0: \t Quiter \n 1: \t Ajouter un article \n 2: \t supprimer un article\n 3: \t Envoyer la liste\n\n");

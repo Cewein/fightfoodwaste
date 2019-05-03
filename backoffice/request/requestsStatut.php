@@ -8,6 +8,7 @@
 
 require_once __DIR__ . "/../../includes.php";
 require_once __DIR__ . "/Request.php";
+require_once __DIR__ . "/../UpdateButtons.php";
 
 $requestsStatut=getRequestsByStatut($_POST['type']);
 
@@ -43,7 +44,7 @@ if(isset($requests)===true){
         $row .= "<td>" . $request->getStatut() . "</td>";
         $row .= "<td>" . $request->getCollecte() . "</td>";
 
-        //$row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+        $row .= "<td>" . getRequestButtons($user['identifiant']) . "</td>";
         echo $row;
 
     }
