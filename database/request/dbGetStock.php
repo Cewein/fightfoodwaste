@@ -8,7 +8,6 @@ function getProductsByDemandeId($demande)
 
     $request = "SELECT * FROM `produit` WHERE `id_demande`= ?";
     return ($db->getAll($request, [$demande]));
-
 }
 
 function getAllProduct()

@@ -14,7 +14,7 @@ function getRequestsByStatut($statut)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `demande` WHERE `statut` = \"" . $statut ."\"";
+    $request = "SELECT * FROM `demande` WHERE `statut` = \"" . $statut . "\"";
     return ($db->getAll($request));
 }
 
@@ -24,4 +24,12 @@ function getDemandeByIdList($status)
 
     $request = "SELECT * FROM `produit` WHERE `identifiant` =" . $status;
     return ($db->getAll($request));
+}
+
+function setRequestStatut($idRequest, $statut)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `demande` SET `statut`=? WHERE `identifiant` = ?";
+    $db->exec($request, [$statut, $idRequest]);
 }

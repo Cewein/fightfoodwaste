@@ -8,15 +8,18 @@
 
 require_once __DIR__ . '/../../includes.php';
 
-function setInteraction($idUser,$idRequest,$type){
+function setInteraction($idUser, $idRequest, $type)
+{
     $db = DatabaseManager::getManager();
-    $db->exec("INSERT INTO `interagir`(`id_utilisateur`,`id_demande`,`action`) VALUES (?,?,?)",[$idUser,$idRequest,$type]);
+    $db->exec("INSERT INTO `interagir`(`id_utilisateur`,`id_demande`,`action`) VALUES (?,?,?)",
+        [$idUser, $idRequest, $type]);
 }
 
-function getInteractionsCreationByIdRequestList($list){
+function getInteractionsCreationByIdRequestList($list)
+{
     $db = DatabaseManager::getManager();
     $where = $list;
 
     $request = "SELECT `id_utilisateur`,`id_demande` FROM `interagir` WHERE `id_demande` IN (" . $where . " )";
-    return ($db->getAll($request,[]));
+    return ($db->getAll($request, []));
 }

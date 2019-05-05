@@ -9,11 +9,11 @@
 require_once __DIR__ . "/../../includes.php";
 require_once __DIR__ . "/../../stock/models/article.php";
 
-if(isset($_POST['demande']) === true) {
-    $idDemande=$_POST['demande'];
+if (isset($_POST['demande']) === true) {
+    $idDemande = $_POST['demande'];
     $allProduct = getProductsByDemandeId($idDemande);
 
-
+    $row = "No products to display";
     foreach ($allProduct as $product) {
         $article = new Article($product['code_barre']);
 

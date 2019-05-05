@@ -44,15 +44,16 @@ $actualDirectory = __DIR__;
         <!-- Modal -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct" aria-hidden="true">
             <div class="modal-dialog .modal-dialog-centered" role="document">
-                <div class="modal-content">
+                <div class="modal-content" id="body">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Produits de la demande</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
+                        <h5 class="modal-title" id="demandeId"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div><h3 id="title"></h3></div>
+                        <div id="modal-body"></div>
                         <div class="table">
                             <table class="table table-striped">
                                 <thead>
@@ -67,6 +68,10 @@ $actualDirectory = __DIR__;
 
                                 </tbody>
                             </table>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-success" id="buttonValidate">Valider</button>
+                            <button type="button" class="btn btn-danger" id="buttonRefuse">Refuser</button>
                         </div>
                     </div>
                     <div class="modal-footer">
