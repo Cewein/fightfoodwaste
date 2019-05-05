@@ -23,6 +23,7 @@ $actualDirectory=__DIR__;
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>Administration : </title>
     </head>
 
     <body>
@@ -35,7 +36,7 @@ $actualDirectory=__DIR__;
                     <thead>
                     <tr>
                         <th scope="col">Code barre</th>
-                        <th scope="col" id="name">Nom</th>
+                        <th scope="col">Nom</th>
                         <th scope="col" id="pname">Description</th>
                         <th scope="col">ID demande</th>
                         <th scope="col">DLC</th>
