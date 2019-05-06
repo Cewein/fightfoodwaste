@@ -41,7 +41,7 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
                 header('Location: /../../fightfoodwaste/index.php');
                 exit;
             } else {
-                echo "Error : Password incorrect";
+                echo "Erreur, mot de passe incorrect";
             }
         }
     } else {
