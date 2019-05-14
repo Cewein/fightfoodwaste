@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Sandrine
- * Date: 09/05/2019
- * Time: 16:46
+ * Date: 14/05/2019
+ * Time: 15:56
  */
 ?>
 
@@ -82,11 +82,9 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Affichage :</h6>
-                    <a class="collapse-item" href="usersTableView.php">Tous les utilisateurs</a>
-                    <a class="collapse-item" href="usersTableView.php">Particuliers</a>
-                    <a class="collapse-item" href="usersTableView.php">Commerçants</a>
-                    <a class="collapse-item" href="usersTableView.php">Salariés</a>
+                    <h6 class="collapse-header">Actions :</h6>
+                    <a class="collapse-item" href="usersTableView.php">Affichage des utilisateurs</a>
+                    <a class="collapse-item" href="usersTableView.php">Ajout d'un utilisateur</a>
                 </div>
             </div>
         </li>
@@ -182,7 +180,6 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -216,38 +213,49 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                <p class="mb-4">Introduction au tableau</p>
+                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
+                <p class="mb-4"><!--Navbar Infos Users -->
+                <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
+                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs" onclick="allUsers()">
+                    <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="users('particulier')">
+                    <input class="btn btn-secondary" type="button" value="Afficher commercants" onclick="users('commercant')">
+                    <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
+                </div>
+                </p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>#</th>
+                                    <th id="userName">Nom</th>
+                                    <th id="pname">Prenom</th>
+                                    <th>Adresse Email</th>
+                                    <th>Adresse</th>
+                                    <th>Ville</th>
+                                    <th>Role(s)</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>#</th>
+                                    <th id="userName">Nom</th>
+                                    <th id="pname">Prenom</th>
+                                    <th>Adresse Email</th>
+                                    <th>Adresse</th>
+                                    <th>Ville</th>
+                                    <th>Role(s)</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
-                                <tbody>
+                                <tbody id="tbody">
 
                                 </tbody>
                             </table>
@@ -301,6 +309,9 @@
         </div>
     </div>
 </div>
+
+<!-- Script to display users-->
+<script src="users/usersTable.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
