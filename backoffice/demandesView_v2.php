@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Sandrine
  * Date: 15/05/2019
- * Time: 15:56
+ * Time: 16:13
  */
 require_once __DIR__ . '/../includes.php';
 ?>
@@ -20,7 +20,7 @@ require_once __DIR__ . '/../includes.php';
     <meta name="author" content="">
 
 
-    <title>Administration : Stock</title>
+    <title>Administration : Demandes</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -141,15 +141,69 @@ require_once __DIR__ . '/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Contenu du stock</h1>
+                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
                 <p class="mb-4">
+                    <!--Navbar Infos Users -->
+                <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
+                    <input class="btn btn-secondary" type="button" value="Toutes les demandes"
+                           onclick="allUsersRequests()">
+                    <input class="btn btn-secondary" type="button" value="Demandes à valider"
+                           onclick="usersRequests('tocheck')">
+                    <input class="btn btn-secondary" type="button" value="Demandes validées"
+                           onclick="usersRequests('checkedTrue')">
+                    <input class="btn btn-secondary" type="button" value="Demandes refusées"
+                           onclick="usersRequests('checkedFalse')">
+                    <input class="btn btn-secondary" type="button" value="Demandes Terminées"
+                           onclick="usersRequests('completed')">
+                </div>
 
+
+                <!-- Modal -->
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct"
+                     aria-hidden="true">
+                    <div class="modal-dialog .modal-dialog-centered" role="document">
+                        <div class="modal-content" id="body">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
+                                <h5 class="modal-title" id="demandeId"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="modal-body"></div>
+                                <div class="table">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Code Barre</th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">DLC</th>
+                                            <th scope="col">Quantité</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="productBody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-success" id="buttonValidate">Valider</button>
+                                    <button type="button" class="btn btn-danger" id="buttonRefuse">Refuser</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Contenu du Stock</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -174,8 +228,8 @@ require_once __DIR__ . '/../includes.php';
                                     <th>Actions</th>
                                 </tr>
                                 </tfoot>
-                                <tbody>
-                                <?php require_once __DIR__ . '/stock/allStock.php'; ?>
+                                <tbody id="tbody">
+
                                 </tbody>
                             </table>
                         </div>
@@ -184,7 +238,6 @@ require_once __DIR__ . '/../includes.php';
 
             </div>
             <!-- /.container-fluid -->
-
 
         </div>
         <!-- End of Main Content -->
@@ -210,28 +263,9 @@ require_once __DIR__ . '/../includes.php';
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Script to display users-->
-<script src="stock/updateProduct.js"></script>
+<!-- Script to display requests-->
+<script src="request/demandesView.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -253,5 +287,3 @@ require_once __DIR__ . '/../includes.php';
 </body>
 
 </html>
-
-

@@ -62,7 +62,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions :</h6>
                 <a class="collapse-item" href="allStockView_v2.php">Affichage du stock</a>
-                <a class="collapse-item" href="demandesView.php">Gestion des demandes</a>
+                <a class="collapse-item" href="demandesView_v2.php">Gestion des demandes</a>
             </div>
         </div>
     </li>

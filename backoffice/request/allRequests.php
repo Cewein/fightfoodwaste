@@ -41,7 +41,7 @@ foreach ($requests as $request){
     $row .= "<td>" . $request->getCreator() . "</td>";
     $row .= "<td>" . $request->getStatut() . "</td>";
     $row .= "<td>" . $request->getCollecte() . "</td>";
-
+    $row .= "<td>" . "NULL" . "</td>";
     $row .= "<td>" . getRequestButtons($request->getId()) . "</td>";
     echo $row;
 
