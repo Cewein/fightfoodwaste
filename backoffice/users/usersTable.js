@@ -1,6 +1,5 @@
 function allUsers() {
     const container = document.getElementById('tbody');
-    console.log(container);
     container.innerText = "";
     const textRequest = true;
     const request = new XMLHttpRequest();
@@ -60,7 +59,7 @@ function sendRequestUser(id, type) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log(request.responseText);//Réponse à afficher
+            //console.log(request.responseText);//Réponse à afficher
         }
     };
     request.open('POST', '../backoffice/users/updateUsers.php');
