@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - materials - grass</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				background:rgb(218, 218, 218);
+				color:#fff;
+				padding:0;
+				margin:0;
+				overflow:hidden;
+				font-family:georgia;
+				text-align:center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="three.min.js"></script>
+
+		<script src="webGL.js"></script>
+
+		<script src="ammo.js"></script>
+
+		<script>
+			//SEE CUSTOM JS SCRIPT, CHECK IF WEBGL IS AVALIBLE
+			if ( WEBGL.isWebGLAvailable() === false ) {
+				document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+            }
+		</script>
+		
+		<script src="physics.js"></script>
+    </body>
+</html>
