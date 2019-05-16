@@ -2,10 +2,15 @@
 var camera, scene, renderer;
 var mesh;
 
+//utils variable
 var clock = new THREE.Clock();
+var loader = new THREE.GLTFLoader();
+
+//light variable
+var ambiante;
 
 //Physics variables
-var gravityConstant = -10;
+var gravityConstant = -100;
 var collisionConfiguration;
 var dispatcher;
 var broadphase;
@@ -37,6 +42,11 @@ function initGraphics() {
     scene.background = new THREE.Color( 0x2C2C2C );
     scene.fog = new THREE.Fog( 0x010101, 0, 750 );
 
+    ambiante = new THREE.AmbientLight( 0x404040, 15 );
+    scene.add(ambiante);
+
+
+
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -66,10 +76,12 @@ function initObjects()
     var quat = new THREE.Quaternion();
 
     // Ground
-    pos.set( 0, 0, 0 );
+    pos.set( 0, -100, 0 );
     quat.set( 0, 0, 0, 1 );
 
-    createParalellepiped( 100, 100, 100, 2, pos, quat, new THREE.MeshBasicMaterial( { wireframe: true } ));
+    createParalellepiped( 50, 50, 50, 0, pos, quat, new THREE.MeshBasicMaterial( { wireframe: true } ));
+
+    createFood( 50, 50, 50, 0, pos, quat, '../model/apple/scene.gltf');
 }
 
 function onWindowResize() {
@@ -102,7 +114,36 @@ function createParalellepiped( sx, sy, sz, mass, pos, quat, material ) {
 
 }
 
+function createFood( sx, sy, sz, mass, pos, quat, GLTFLink ) {
+
+    var food;
+
+    loader.load(GLTFLink, 
+    function(gltf){
+
+        food = gltf.scene;
+        food.scale.set(10,10,10);
+        food.position.set(pos.x, pos.y-50,pos.z);
+
+        var threeObject = food;
+        var shape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
+        shape.setMargin( margin );
+    
+        createRigidBody( threeObject, shape, mass, pos, quat );
+
+    },
+    function(xhr){
+        console.log( (xhr.loaded/xhr.total * 100) + '% loaded');
+    },
+    function(error){
+        console.error('GLTF loading had an happened');
+    });
+
+}
+
 function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
+
+    console.log(threeObject);
 
     threeObject.position.copy( pos );
     threeObject.quaternion.copy( quat );
