@@ -12,7 +12,6 @@ function usersRequests(type) {
     request.send(`type=${type}`);
 }
 
-
 function allUsersRequests() {
     const container = document.getElementById('tbody');
     container.innerText = "";

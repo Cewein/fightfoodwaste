@@ -23,7 +23,7 @@ class Article
         $this->barcode = new Barcode($bc);                                                      //EVERYTHING is public in the praised JSO
         $tmpJson = $this->barcode->getJson();                                                   //make a tmp json for safey
 
-        // can be rework with a singleton for removing the isset and isempty use, look on github issue service
+        // can be rework with a singleton for removing the isset and is empty use, look on github issue service
         if(isset($tmpJson->product->image_front_url)) $this->picture = $tmpJson->product->image_front_url;                                    
         else $this->picture = "";
         if(isset($tmpJson->product->product_name)) $this->name = str_replace($illegal,$legal,$tmpJson->product->product_name);

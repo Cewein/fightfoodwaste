@@ -33,3 +33,6 @@ require_once __DIR__ . '/database/request/dbGetConnection.php';
 
 //Get other functions
 require_once __DIR__ . '/connection/connectionSession.php';
+
+      //Get users'adress for foodCollection 
+      require_once __DIR__ . '/database/request/dbGetUsersAddress.php';
