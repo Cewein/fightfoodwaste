@@ -72,16 +72,17 @@ function initPhysics() {
 
 function initObjects()
 {
-    var pos = new THREE.Vector3();
     var quat = new THREE.Quaternion();
 
     // Ground
-    pos.set( 0, -100, 0 );
     quat.set( 0, 0, 0, 1 );
 
-    createParalellepiped( 50, 50, 50, 0, pos, quat, new THREE.MeshBasicMaterial( { wireframe: true } ));
+    for(var i = -1; i < 1; i++)
+    {
+        createParalellepiped( 2, 50, 2, 0, new THREE.Vector3(70 * i, -100, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true } ));
 
-    createFood( 50, 50, 50, 0, pos, quat, '../model/apple/scene.gltf');
+        createFood( 50, 50, 50, 10, new THREE.Vector3(60 * i, 100, 0), new THREE.Quaternion(), '../model/apple/scene.gltf');
+    }
 }
 
 function onWindowResize() {
@@ -123,7 +124,6 @@ function createFood( sx, sy, sz, mass, pos, quat, GLTFLink ) {
 
         food = gltf.scene;
         food.scale.set(10,10,10);
-        food.position.set(pos.x, pos.y-50,pos.z);
 
         var threeObject = food;
         var shape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
@@ -142,9 +142,6 @@ function createFood( sx, sy, sz, mass, pos, quat, GLTFLink ) {
 }
 
 function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
-
-    console.log(threeObject);
-
     threeObject.position.copy( pos );
     threeObject.quaternion.copy( quat );
 
@@ -161,6 +158,8 @@ function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
     var body = new Ammo.btRigidBody( rbInfo );
 
     threeObject.userData.physicsBody = body;
+
+    //threeObject.position.set(pos.x,pos.y - 50, pos.z)
 
     scene.add( threeObject );
     //objects.push(threeObject);
@@ -195,6 +194,11 @@ function updatePhysics( deltaTime ) {
             var p = transformAux1.getOrigin();
             var q = transformAux1.getRotation();
             objThree.position.set( p.x(), p.y(), p.z() );
+            if (p.y() < -200){
+                console.log(p);
+                objThree.position.set( p.x(), p.y() + 400, p.z() );
+                p.setY(p.y() + 400);
+            }
             objThree.quaternion.set( q.x(), q.y(), q.z(), q.w() );
 
         }
