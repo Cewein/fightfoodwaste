@@ -141,9 +141,12 @@ require_once __DIR__ . '/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Contenu du stock</h1>
+                <h1 class="h3 mb-2 text-gray-800">Gestion du stock</h1>
                 <p class="mb-4">
-
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
+                        Ajouter un produit
+                    </button>
                 </p>
 
                 <!-- DataTales Example -->
@@ -185,6 +188,54 @@ require_once __DIR__ . '/../includes.php';
             </div>
             <!-- /.container-fluid -->
 
+            <!-- Modal -->
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog .modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un produit</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" id="add_product">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="inputBarcode"
+                                           aria-describedby="code-barre"
+                                           placeholder="Code Barre">
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="inputQuantity"
+                                           aria-describedby="quantite"
+                                           placeholder="Quantité">
+                                    <small id="quantityError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" id="inputDLC"
+                                           aria-describedby="emailHelp"
+                                           placeholder="">
+                                    <small id="DLCError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputStock">Stock</label>
+                                    <input type="text" class="form-control" id="inputNStock" placeholder="Stock">
+                                    <small id="StockError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- End of Main Content -->
@@ -253,5 +304,3 @@ require_once __DIR__ . '/../includes.php';
 </body>
 
 </html>
-
-

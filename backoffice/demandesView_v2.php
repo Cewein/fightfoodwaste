@@ -28,8 +28,7 @@ require_once __DIR__ . '/../includes.php';
           rel="stylesheet">
 
     <!-- Icons Link -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
@@ -141,7 +140,7 @@ require_once __DIR__ . '/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
+                <h1 class="h3 mb-2 text-gray-800">Demandes utilisateur</h1>
                 <p class="mb-4">
                     <!--Navbar Infos Users -->
                 <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
@@ -188,8 +187,8 @@ require_once __DIR__ . '/../includes.php';
                                     </table>
                                 </div>
                                 <div>
-                                    <button type="button" class="btn btn-success" id="buttonValidate">Valider</button>
-                                    <button type="button" class="btn btn-danger" id="buttonRefuse">Refuser</button>
+                                    <button type="button" class="btn btn-success" id="buttonValidate" data-dismiss="modal">Valider</button>
+                                    <button type="button" class="btn btn-danger" id="buttonRefuse" data-dismiss="modal">Refuser</button>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -203,33 +202,31 @@ require_once __DIR__ . '/../includes.php';
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Toutes les demandes</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Code barre</th>
-                                    <th>Nom</th>
-                                    <th id="pname">Description</th>
-                                    <th>ID demande</th>
-                                    <th>DLC</th>
+                                    <th>Id</th>
+                                    <th>Createur</th>
+                                    <th id="pname">Statut</th>
+                                    <th>ID collecte</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Code barre</th>
-                                    <th>Nom</th>
-                                    <th id="pname">Description</th>
-                                    <th>ID demande</th>
-                                    <th>DLC</th>
+                                    <th>Id</th>
+                                    <th>Createur</th>
+                                    <th id="pname">Statut</th>
+                                    <th>ID collecte</th>
                                     <th>Actions</th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
-
+                                <?php require_once __DIR__ . '/request/allRequests.php'; ?>
                                 </tbody>
                             </table>
                         </div>

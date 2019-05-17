@@ -23,3 +23,8 @@ function sendRequestProduct(id, type) {
 function hide(element) {
    element.style.display = 'none';
 }
+
+document.getElementById('add_product').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const barcode = document.getElementById('inputBarcode');
+});
