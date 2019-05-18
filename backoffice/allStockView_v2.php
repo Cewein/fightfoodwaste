@@ -37,6 +37,7 @@ require_once __DIR__ . '/../includes.php';
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
+    <link href="../css/backoffice.css" rel="stylesheet">
 
 </head>
 
@@ -205,27 +206,24 @@ require_once __DIR__ . '/../includes.php';
                                     <input type="text" class="form-control" id="inputBarcode"
                                            aria-describedby="code-barre"
                                            placeholder="Code Barre">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères
-                                    </small>
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="inputQuantity"
                                            aria-describedby="quantite"
                                            placeholder="Quantité">
-                                    <small id="quantityError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <small id="quantityError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="inputDLC"
                                            aria-describedby="emailHelp"
                                            placeholder="">
-                                    <small id="DLCError" class="form-text text-muted">Contient 1-100 caractères
-                                    </small>
+                                    <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputStock">Stock</label>
                                     <input type="text" class="form-control" id="inputNStock" placeholder="Stock">
-                                    <small id="StockError" class="form-text text-muted">Contient 1-100 caractères
-                                    </small>
+                                    <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
