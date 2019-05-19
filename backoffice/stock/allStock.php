@@ -27,7 +27,7 @@ foreach ($allProduct as $product) {
 
 function buttons($id, $num){
     $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteProduct($id,".$num.")'></button>";
-    $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateUser($id)'></button>";
+    $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateProduct($id)'></button>";
     $buttons = $buttonUpdate . " " . $buttonDelete;
     return $buttons;
 }
