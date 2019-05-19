@@ -77,11 +77,19 @@ function initObjects()
     // Ground
     quat.set( 0, 0, 0, 1 );
 
-    for(var i = -1; i < 1; i++)
-    {
-        createParalellepiped( 2, 50, 2, 0, new THREE.Vector3(70 * i, -100, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true } ));
+    createParalellepiped( 1400, 3000, 2, 0, new THREE.Vector3(0, 0, -100), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true , visible: false} ));
 
-        createFood( 50, 50, 50, 10, new THREE.Vector3(60 * i, 100, 0), new THREE.Quaternion(), '../model/apple/scene.gltf');
+    createParalellepiped( 1400, 3000, 2, 0, new THREE.Vector3(0, 0, 100), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true , visible: false} ));
+
+    createParalellepiped( 2, 3000, 200, 0, new THREE.Vector3(-700, 0, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true , visible: false} ));
+    createParalellepiped( 2, 3000, 200, 0, new THREE.Vector3(700, 0, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true, visible: false } ));
+
+    for(var i = -4; i <= 4; i++)
+    {
+        createParalellepiped( 2, 50, 2, 0, new THREE.Vector3(140 * i,  -200 + Math.random() * 600, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true , visible: false} ));
+    
+        createFood( 100, 100, 100, 100, new THREE.Vector3(120 * i, -450 + Math.random() * 1000, 0), new THREE.Quaternion(), '../model/apple/scene.gltf');
+        createFood( 100, 100, 100, 100, new THREE.Vector3(120 * i, -450 + Math.random() * 1000, 0), new THREE.Quaternion(), '../model/apple/scene.gltf');
     }
 }
 
@@ -123,7 +131,7 @@ function createFood( sx, sy, sz, mass, pos, quat, GLTFLink ) {
     function(gltf){
 
         food = gltf.scene;
-        food.scale.set(10,10,10);
+        food.scale.set(20,20,20);
 
         var threeObject = food;
         var shape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
@@ -193,14 +201,27 @@ function updatePhysics( deltaTime ) {
             ms.getWorldTransform( transformAux1 );
             var p = transformAux1.getOrigin();
             var q = transformAux1.getRotation();
-            objThree.position.set( p.x(), p.y(), p.z() );
-            if (p.y() < -200){
-                console.log(p);
-                objThree.position.set( p.x(), p.y() + 400, p.z() );
-                p.setY(p.y() + 400);
+            
+            if (p.y() < -500){
+                var newp = new Ammo.btVector3(-650 + Math.random() * 1300, 700 ,0);
+                console.log(i);
+                console.log(rigidBodies[ i ]);
+                //rigidBodies[ i ].position.set(0,200,0);
+                objThree.position.set( newp.x(), newp.y(), newp.z() );
+
+                transformAux1.setOrigin(newp);
+                ms.setWorldTransform(transformAux1);
+                objPhys.setMotionState(ms);
+                
+            }
+            else
+            {
+                objThree.position.set( p.x(), p.y(), p.z() );
             }
             objThree.quaternion.set( q.x(), q.y(), q.z(), q.w() );
 
         }
+
+
     }
 }
