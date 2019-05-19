@@ -22,6 +22,7 @@ else{
 
 if($check===true){
     addProduct($barcode,$quantity,$DLC,$stock,$_SESSION['id']);
+    echo 'Produit ajouté !';
 }
 else{
     echo 'Error : missing Value';

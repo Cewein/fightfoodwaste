@@ -200,7 +200,7 @@ require_once __DIR__ . '/../includes.php';
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" id="modal-body">
                             <form method="POST" id="add_product">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="inputBarcode"
@@ -229,7 +229,7 @@ require_once __DIR__ . '/../includes.php';
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
                         </div>
                     </div>
                 </div>

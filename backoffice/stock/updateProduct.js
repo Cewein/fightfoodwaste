@@ -62,12 +62,36 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
         const request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
-                console.log(request.responseText);//Réponse à afficher
+                const form = document.getElementById('add_product');
+                const container = document.getElementById('modal-body');
+
+                const alert = document.createElement("p");
+                alert.innerHTML=request.responseText;
+                container.appendChild(alert);
+
+                form.style.display="none";
+
             }
         };
         request.open('POST', '../backoffice/stock/addProduct.php');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send(`barcode=${barcode}&quantity=${quantity}&DLC=${DLC}&stock=${stock}`);
+        request.send(`barcode=${barcode.value}&quantity=${quantity.value}&DLC=${DLC.value}&stock=${stock.value}`);
     }
 
 });
+
+function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau produit
+    const form = document.getElementById('add_product');
+    form.style.display="block";
+
+    const barcode = document.getElementById('inputBarcode');
+    const quantity = document.getElementById('inputQuantity');
+    const DLC = document.getElementById('inputDLC');
+    const stock = document.getElementById('inputNStock');
+
+    barcode.value="";
+    quantity.value="";
+    DLC.value="";
+    stock.value="";
+
+}
