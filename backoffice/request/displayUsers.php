@@ -19,7 +19,7 @@ require_once ( "../foodCollection/tour.php");
 
 if (isset($_POST['demande']) === true) {
     $idDemande = $_POST['demande'];
-    $allProduct = getUserId($idDemande);
+    $allUser = getUserId($idDemande);
 
 /*if (isset($_POST['type']) === true) {
     $status = $_POST['type'];
@@ -27,13 +27,20 @@ if (isset($_POST['demande']) === true) {
 }
 
 
-    if(isset($allStatus)) {
+    if(isset($_POST['statut']) && isset($_POST['demande'])) {
+       $requestsStatut = getRequestsByStatut($_POST['type']);
+       
+       
         echo ('ok');
+        
+        if(isset($idDemande)) {
+
+        }
     }
 
     $row = "Aucune demande n\'a été validée"; 
 
-    foreach($allUsers as $user) {
+    foreach($allUser as $user) {
         $viewLine = new Tour(); 
 
         $row = "<tr><th scope=\"row\">" . $viewLine->getUserId(). "</th>";

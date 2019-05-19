@@ -26,6 +26,15 @@ class Tour {
         $this->address = $addr; 
         $this->city = $city; 
         $this->idTour + $idTour; 
+                                 }  
+
+    public function hydrate2(array $tourData) {
+        foreach($tourData as $key => $value) {
+            $method = 'set'.ucfirst($key);
+            if(method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     //getters
@@ -38,13 +47,37 @@ class Tour {
     public function getIdTour(): int { return $this->idTour; }
 
     //setters
-    public function setIdUser($id) {$this->idUser = $id; }
-    public function setLastName($lName) {$this->lastName = $lName; }
-    public function setFirstName($fName) {$this->firstName = $fName; }
-    public function setSirenNumber($siren) {$this->sirenNumber = $siren; }
-    public function setAddr($address) {$this->addr = $address; }    
-    public function setCity($city) {$this->city = $city; }
-    public function setIdTour($idTour){$this->idTour = $idTour;
+
+
+
+    public function hydrate (array $tourData) {
+        foreach ($tourData as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function setIdUser($id) {$this->idUser = (int) $id; }
+
+    public function setLastName($lName) {
+
+        if(is_string($lName) && strlen($lName) <=255) {
+            $this->lastName = (string) $lName; 
+        }
+    }
+
+    public function setFirstName($fName) {
+        if(is_string($fName) && strlen($fName) <= 255) {
+            $this->firstName = (string) $fName;
+        }
+    }
+
+    public function setSirenNumber($siren) {$this->sirenNumber = (int) $siren; }
+    public function setAddr($address) {$this->addr = (string) $address; }    
+    public function setCity($city) {$this->city = (string) $city; }
+    public function setIdTour($idTour){$this->idTour = (int) $idTour;
     }
 
     public function __toString() {
