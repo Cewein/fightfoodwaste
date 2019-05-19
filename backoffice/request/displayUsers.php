@@ -17,13 +17,14 @@ require_once ( "../foodCollection/tour.php");
 
 */
 
-if (isset($_POST['demande']) === true) {
-    $idDemande = $_POST['demande'];
-    $allUser = getUserId($idDemande);
+if (isset($_POST['statut'])) {
+    $validatedWonder = $_POST['statut'];
+    $allValidatedWonder = getAllValidatedWonder()($idDemande);
+     
+    echo "ouf";
 
-/*if (isset($_POST['type']) === true) {
-    $status = $_POST['type'];
-    $allStatus = getRequestsByStatut($status); */
+} else {
+    echo "not ok"; 
 }
 
 
@@ -36,7 +37,7 @@ if (isset($_POST['demande']) === true) {
         if(isset($idDemande)) {
 
         }
-    }
+    
 
     $row = "Aucune demande n\'a été validée"; 
 
@@ -112,4 +113,4 @@ $requestsStatut = getRequestsByStatut($_POST['type']);
         echo "Aucune demande n'a été validée";
     }
     */
-//}
+    }

@@ -28,14 +28,6 @@ class Tour {
         $this->idTour + $idTour; 
                                  }  
 
-    public function hydrate2(array $tourData) {
-        foreach($tourData as $key => $value) {
-            $method = 'set'.ucfirst($key);
-            if(method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
 
     //getters
     public function getIdUser(): int { return $this->idUser; }
@@ -47,18 +39,6 @@ class Tour {
     public function getIdTour(): int { return $this->idTour; }
 
     //setters
-
-
-
-    public function hydrate (array $tourData) {
-        foreach ($tourData as $key => $value) {
-            $method = 'set' . ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
     public function setIdUser($id) {$this->idUser = (int) $id; }
 
     public function setLastName($lName) {
@@ -81,16 +61,22 @@ class Tour {
     }
 
     public function __toString() {
-        return 'Voici les coordonnées de l\'utilisateur N°'. $this->idUser . ':' ;
-        echo "\n" ;
-        'Nom : ' . $this->lastName;
-        echo "\n";
-        'Prénom : ' . $this->firstName;
-        echo "\n";
-        'Nom : ' . $this->lastName;  
-
+        return 
+            'IdUser :'.$this->idUser;
+         
+            'Nom : ' . $this->lastName;
         
+            'Prénom : ' . $this->firstName;
+           
+            'Numéro de siren : ' . $this->siren;
+          
+            'Adresse : ' . $this->address;
+        
+            'Ville : ' . $this->city;
+          
+            'Collecte : ' . $this->idTour;
+
 
     }
 
-        }
+}

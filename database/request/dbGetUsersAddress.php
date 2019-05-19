@@ -2,15 +2,15 @@
 
 require_once __DIR__ . '/../../includes.php';
 
-/*function getAllValidatedWonder($statut) {
+function getAllValidatedWonder($statut) {
 
     $db = DatabaseManager::getManager();
 
     $request = "SELECT 'identifiant' FROM DEMANDE WHERE 'statut=checkedTrue'";
 
-    return($db -> getAll($request)); 
+    return($db -> getAll($request, [$statut])); 
 
-}  */
+}  
 
 
 function getUserId($idDemande) {
