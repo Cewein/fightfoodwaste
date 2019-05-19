@@ -20,6 +20,7 @@ require_once __DIR__ . '/database/request/dbUpdateUser.php';
 
     /*Stock Requests*/
 require_once __DIR__ . '/database/request/dbGetStock.php';
+require_once __DIR__ . '/database/request/dbUpdateProducts.php';
 require_once __DIR__ . '/database/request/dbUsersRequests.php';
 
     /*Users Requests Requests (yeah it's a normal name !)*/

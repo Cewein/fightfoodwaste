@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../includes.php';
 require_once __DIR__ . '/../../stock/models/article.php';
 
-$allProduct = getAllProduct();
+$allProduct = getAllProductStocked();
 $allDemande = getAllRequests();
 
 $number = 0;

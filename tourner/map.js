@@ -130,7 +130,7 @@ map.on('load', function()
         'text-halo-width': 3
     }
     }, 'waterway-label');
-
+    
     map.addLayer({
     id: 'warehouse',
     type: 'circle',

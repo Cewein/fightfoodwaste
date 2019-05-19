@@ -2,10 +2,15 @@
 var camera, scene, renderer;
 var mesh;
 
+//utils variable
 var clock = new THREE.Clock();
+var loader = new THREE.GLTFLoader();
+
+//light variable
+var ambiante;
 
 //Physics variables
-var gravityConstant = -10;
+var gravityConstant = -100;
 var collisionConfiguration;
 var dispatcher;
 var broadphase;
@@ -37,6 +42,11 @@ function initGraphics() {
     scene.background = new THREE.Color( 0x2C2C2C );
     scene.fog = new THREE.Fog( 0x010101, 0, 750 );
 
+    ambiante = new THREE.AmbientLight( 0x404040, 15 );
+    scene.add(ambiante);
+
+
+
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -62,14 +72,17 @@ function initPhysics() {
 
 function initObjects()
 {
-    var pos = new THREE.Vector3();
     var quat = new THREE.Quaternion();
 
     // Ground
-    pos.set( 0, 0, 0 );
     quat.set( 0, 0, 0, 1 );
 
-    createParalellepiped( 100, 100, 100, 2, pos, quat, new THREE.MeshBasicMaterial( { wireframe: true } ));
+    for(var i = -1; i < 1; i++)
+    {
+        createParalellepiped( 2, 50, 2, 0, new THREE.Vector3(70 * i, -100, 0), new THREE.Quaternion(), new THREE.MeshBasicMaterial( { wireframe: true } ));
+
+        createFood( 50, 50, 50, 10, new THREE.Vector3(60 * i, 100, 0), new THREE.Quaternion(), '../model/apple/scene.gltf');
+    }
 }
 
 function onWindowResize() {
@@ -102,8 +115,33 @@ function createParalellepiped( sx, sy, sz, mass, pos, quat, material ) {
 
 }
 
-function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
+function createFood( sx, sy, sz, mass, pos, quat, GLTFLink ) {
 
+    var food;
+
+    loader.load(GLTFLink, 
+    function(gltf){
+
+        food = gltf.scene;
+        food.scale.set(10,10,10);
+
+        var threeObject = food;
+        var shape = new Ammo.btBoxShape( new Ammo.btVector3( sx * 0.5, sy * 0.5, sz * 0.5 ) );
+        shape.setMargin( margin );
+    
+        createRigidBody( threeObject, shape, mass, pos, quat );
+
+    },
+    function(xhr){
+        console.log( (xhr.loaded/xhr.total * 100) + '% loaded');
+    },
+    function(error){
+        console.error('GLTF loading had an happened');
+    });
+
+}
+
+function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
     threeObject.position.copy( pos );
     threeObject.quaternion.copy( quat );
 
@@ -120,6 +158,8 @@ function createRigidBody( threeObject, physicsShape, mass, pos, quat ) {
     var body = new Ammo.btRigidBody( rbInfo );
 
     threeObject.userData.physicsBody = body;
+
+    //threeObject.position.set(pos.x,pos.y - 50, pos.z)
 
     scene.add( threeObject );
     //objects.push(threeObject);
@@ -154,6 +194,11 @@ function updatePhysics( deltaTime ) {
             var p = transformAux1.getOrigin();
             var q = transformAux1.getRotation();
             objThree.position.set( p.x(), p.y(), p.z() );
+            if (p.y() < -200){
+                console.log(p);
+                objThree.position.set( p.x(), p.y() + 400, p.z() );
+                p.setY(p.y() + 400);
+            }
             objThree.quaternion.set( q.x(), q.y(), q.z(), q.w() );
 
         }

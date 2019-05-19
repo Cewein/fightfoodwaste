@@ -23,14 +23,12 @@ foreach ($requestsStatut as $singleRequest) {
     }
     $i++;
 }
-echo $idRequestList;
 
 if(isset($requests)===true){
     $allCreators = getInteractionsCreationByIdRequestList($idRequestList);
 
     foreach ($requests as $request){
         foreach ($allCreators as $creator){
-            echo $creator;
             if($creator['id_demande']=$request->getId()){
                 $request->setCreator($creator['id_utilisateur']);
             }
@@ -44,8 +42,7 @@ if(isset($requests)===true){
         $row .= "<td>" . $request->getCreator() . "</td>";
         $row .= "<td>" . $request->getStatut() . "</td>";
         $row .= "<td>" . $request->getCollecte() . "</td>";
-
-        $row .= "<td>" . getRequestButtons($request->getId()) . "</td>";
+        $row .= "<td>" . getRequestButtons($request->getId()) . "</td></tr>";
         echo $row;
 
     }

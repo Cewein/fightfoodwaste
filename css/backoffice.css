@@ -30,3 +30,7 @@
 #modal-body{
     color: dodgerblue;
 }
+
+#barcodeError, #quantityError, #DLCError, #stockError{
+    display: none;
+}

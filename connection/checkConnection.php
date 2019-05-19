@@ -37,7 +37,6 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
                     $roles[$i]=$uniqueRole['id_role'];
                     $i++;
                 }
-
                 setUsersSession($id, $name, $mailAddress, $roles);
                 header('Location: /../../fightfoodwaste/index.php');
                 exit;

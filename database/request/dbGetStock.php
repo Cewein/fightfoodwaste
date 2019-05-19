@@ -10,11 +10,11 @@ function getProductsByDemandeId($demande)
     return ($db->getAll($request, [$demande]));
 }
 
-function getAllProduct()
+function getAllProductStocked()
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `produit`";
+    $request = "SELECT * FROM `produit` WHERE `n_stock`!='NULL'";
     return ($db->getAll($request));
 }
 
