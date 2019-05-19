@@ -2,30 +2,32 @@
 
 require_once __DIR__ . "/../../includes.php";
 require_once ( "../foodCollection/tour.php");
+require_once __DIR__ . "/../../stock/models/article.php";
 //require_once ("Request.php");
 //require_once ("requestsStatut.php");
 
 
 
 /*if(isset($_POST['demande'])==true) { 
+   
+*/
+
+/* if (isset($_POST['demande'])) {
     $idDemande = $_POST['demande'];
     $allProduct = getProductsByDemandeId($idDemande);
 
 
-    $allUsersId = getUserId($idDemande); 
+    $allUsersId = getUserId($idDemande);
     echo $allUsersId; 
 
-*/
-
-if (isset($_POST['statut'])) {
-    $validatedWonder = $_POST['statut'];
-    $allValidatedWonder = getAllValidatedWonder()($idDemande);
+ /*   $validatedWonder = $_POST['statut'];
+    $allValidatedWonder = getAllValidatedWonder($statut); */
      
-    echo "ouf";
+  /*  echo "ouf";
 
-} else {
+ } else {
     echo "not ok"; 
-}
+} */
 
 
     if(isset($_POST['statut']) && isset($_POST['demande'])) {
@@ -42,7 +44,9 @@ if (isset($_POST['statut'])) {
     $row = "Aucune demande n\'a été validée"; 
 
     foreach($allUser as $user) {
-        $viewLine = new Tour(); 
+        $viewLine = new Tour(NULL,
+                             $userId, 
+                             $fir); 
 
         $row = "<tr><th scope=\"row\">" . $viewLine->getUserId(). "</th>";
         $row .= "<td>" . $viewLine->getLastName() . "</td>";
@@ -57,7 +61,7 @@ if (isset($_POST['statut'])) {
     echo $row;
 
         
-    
+}    
 
 
 
@@ -113,4 +117,4 @@ $requestsStatut = getRequestsByStatut($_POST['type']);
         echo "Aucune demande n'a été validée";
     }
     */
-    }
+    
