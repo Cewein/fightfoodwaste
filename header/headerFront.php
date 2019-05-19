@@ -38,9 +38,7 @@ if (isset($_SESSION['roles']) === true && $_SESSION['roles'] !== null) {
 }
 
 $roleLinks = "";
-var_dump($_SESSION);
 if(isset($allUsersRoles)===true){
-    var_dump($allUsersRoles);
     //Set links for navbar according to user's roles
     foreach ($allUsersRoles as $role) {
 
