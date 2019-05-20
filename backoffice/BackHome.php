@@ -259,9 +259,6 @@ $actualDirectory=__DIR__;
     </div>
 </div>
 
-<!-- Script to display users-->
-<script src="stock/updateProduct.js"></script>
-
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>

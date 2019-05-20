@@ -17,9 +17,16 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
 
         deleteProductById($id);
 
-        deleteUser($id);
         echo 'Product deleted';
 
+    } elseif ($type === 'update') {
+        $barcode = $_POST['barcode'];
+        $quantity = $_POST['quantity'];
+        $DLC = $_POST['DLC'];
+        $stock = $_POST['stock'];
+
+        updateProductbyId($id, $barcode, $quantity, $DLC, $stock);
+        echo 'Product updated';
     } else {
         echo "Error: there's no roles";
     }
