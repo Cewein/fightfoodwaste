@@ -218,7 +218,7 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
 
     console.log(check);
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&${type}=${type}&id=${userId}`, '../../backoffice/users/updateUsers.php');
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&type=${type}&id=${userId}`, '../backoffice/users/updateUsers.php');
         console.log(userId);
     }
 
