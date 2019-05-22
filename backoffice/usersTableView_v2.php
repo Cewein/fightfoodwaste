@@ -5,6 +5,7 @@
  * Date: 14/05/2019
  * Time: 15:56
  */
+require_once __DIR__. "/../includes.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
     <meta name="author" content="">
 
 
-    <title>Administration : Utilisatuers</title>
+    <title>Administration : Utilisateurs</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -156,7 +157,7 @@
 
                 </p>
 
-                <!-- DataTales Example -->
+                <!-- Users table -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
@@ -179,8 +180,8 @@
                                 <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th id="userName">Nom</th>
-                                    <th id="pname">Prenom</th>
+                                    <th id="userNameBot">Nom</th>
+                                    <th id="pnameBot">Prenom</th>
                                     <th>Adresse Email</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>
@@ -189,7 +190,7 @@
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
-
+                                <?php require_once __DIR__.'/users/allUsers.php'; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -199,7 +200,7 @@
             </div>
             <!-- /.container-fluid -->
 
-            <!-- Modal -->
+            <!-- Modal Add User -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog .modal-dialog-centered" role="document">
@@ -254,6 +255,67 @@
                                     <input type="text" class="form-control" id="inputCity" aria-describedby="city"
                                            placeholder="Ville">
                                 </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Modify User -->
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog .modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" id="update_user">
+                                <label id="emailSetError">Cette adresse email est déjà utilisée</label>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Type utilisateur</label>
+                                    <select class="form-control" id="modiftypeUser">
+                                        <option>Particulier</option>
+                                        <option>Commerçant</option>
+                                        <option>Salarié</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputNom">Nom</label>
+                                    <input type="text" class="form-control" id="modifName" aria-describedby="nom"
+                                           placeholder="Nom / Nom commerce">
+                                    <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
+                                    <input type="text" class="form-control" id="modifPname" aria-describedby="prenom"
+                                           placeholder="Prenom">
+                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputEmail1">Adresse Email</label>
+                                    <input type="email" class="form-control" id="modifEmail" aria-describedby="emailHelp"
+                                           placeholder="Enter email">
+                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputNom">Adresse</label>
+                                    <input type="text" class="form-control" id="modifAdress" aria-describedby="adress"
+                                           placeholder="Adresse">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputNom">Ville</label>
+                                    <input type="text" class="form-control" id="modifCity" aria-describedby="city"
+                                           placeholder="Ville">
+                                </div>
+                                <input type="hidden" id="userId" value="">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>

@@ -12,7 +12,6 @@ $allUsers = getAllUsers();
 $allUsersRoles = getAllUsersRoles();
 $allRoles = getAllRoles();
 
-
 foreach ($allUsers as $user) {
     $userRoles = "";
     foreach ($allUsersRoles as $role1User) {
@@ -25,7 +24,7 @@ foreach ($allUsers as $user) {
         }
     }
 
-    $row = "<tr><th scope=\"row\">" . $user['identifiant'] . "</th>";
+    $row = "<tr id=".$user['identifiant']."><th scope=\"row\">" . $user['identifiant'] . "</th>";
     $row .= "<td>" . $user['nom'] . "</td>";
     $row .= "<td>" . $user['prenom'] . "</td>";
     $row .= "<td>" . $user['adresse_mail'] . "</td>";
@@ -34,6 +33,7 @@ foreach ($allUsers as $user) {
     $row .= "<td>" . $userRoles . "</td>";
 
     $row .= "<td>" . getUpdateButtons($user['identifiant']) . "</td>";
+    $row .= "</tr>";
 
     echo $row;
 }

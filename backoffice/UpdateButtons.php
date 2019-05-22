@@ -10,7 +10,7 @@ function getUpdateButtons($id)
 {
     $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteUser($id)'></button>";
     $buttonAdmin = "<button class=\"btn far fa-caret-square-up\" onclick='updateAdmin($id)'></button>";
-    $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateUser($id)'></button>";
+    $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateUser($id)' data-toggle=\"modal\" data-target=\"#updateModal\"></button>";
     $buttons = $buttonUpdate . " " . $buttonAdmin . " " . $buttonDelete;
     return $buttons;
 }
