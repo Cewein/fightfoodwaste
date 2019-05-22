@@ -1,36 +1,71 @@
 <?php
 
 require_once __DIR__ . "/../../includes.php";
-require_once ( "../foodCollection/tour.php");
-require_once __DIR__ . "/../../stock/models/article.php";
-//require_once ("Request.php");
-//require_once ("requestsStatut.php");
+require_once ("demandesView.js");
+require_once ("request.php");
+require_once ("requestsStatut.php");
+require_once ("../foodCollection/tour.php");
 
 
 
-/*if(isset($_POST['demande'])==true) { 
+/*$requestsStatut = getRequestsByStatut($_POST['type']);
+
+$i = 0;
+$idRequestList = "";
+
+foreach ($requestsStatut as $singleRequest) {
+    $requests[$i] = new Request($singleRequest['identifiant'], $singleRequest['statut'], $singleRequest['id_collecte']);
+    $idRequestList .= $requests[$i]->getId();
+    if (isset($requestsStatut[$i + 1]) === true) {
+        $idRequestList .= ",";
+    }
+    $i++;
+}
+//if($requestsStatut =='checkedTrue') { 
+if($singleRequest['statut'] == 'checkedTrue') { 
    
+    echo "ok"; 
+} else {
+    echo "ko"; 
+}
 */
+$requestsStatut = getAllValidatedWonder($_POST['statut']);
+var_dump($requestsStatut);
 
-/* if (isset($_POST['demande'])) {
-    $idDemande = $_POST['demande'];
+/*$i = 0;
+$idRequestList = "";
+
+foreach ($requestsStatut as $singleRequest) {
+    $requests[$i] = new Request($singleRequest['identifiant'], $singleRequest['statut'], $singleRequest['id_collecte']);
+    $idRequestList .= $requests[$i]->getId();
+    if (isset($requestsStatut[$i + 1]) === true) {
+        $idRequestList .= ",";
+    }
+    $i++;
+}
+
+    if (isset($requests)) {
+    echo ('ok pour la condition'); 
+     $idDemande = $_POST['demande'];
     $allProduct = getProductsByDemandeId($idDemande);
 
 
-    $allUsersId = getUserId($idDemande);
+/*  $allUsersId = getUserId($idDemande);
     echo $allUsersId; 
 
- /*   $validatedWonder = $_POST['statut'];
+   $validatedWonder = $_POST['statut'];
     $allValidatedWonder = getAllValidatedWonder($statut); */
      
-  /*  echo "ouf";
+  /* echo "ouf";
 
  } else {
     echo "not ok"; 
-} */
+    var_dump($requests);
+}
 
-
-    if(isset($_POST['statut']) && isset($_POST['demande'])) {
+/*
+    if(isset($_POST['demande'])) {
+        echo('ok pour la condition'); 
        $requestsStatut = getRequestsByStatut($_POST['type']);
        
        
@@ -44,9 +79,14 @@ require_once __DIR__ . "/../../stock/models/article.php";
     $row = "Aucune demande n\'a été validée"; 
 
     foreach($allUser as $user) {
-        $viewLine = new Tour(NULL,
-                             $userId, 
-                             $fir); 
+        $viewLine = new Tour ($id, 
+                             $fName,
+                             $lName,
+                             $siren,
+                             $addr, 
+                             $city, 
+                             $idTour)
+                            ;
 
         $row = "<tr><th scope=\"row\">" . $viewLine->getUserId(). "</th>";
         $row .= "<td>" . $viewLine->getLastName() . "</td>";
