@@ -143,18 +143,18 @@ require_once __DIR__ . '/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion du stock</h1>
+                <h1 class="h3 mb-2 text-gray-800">Gestion des bénéficiaires</h1>
                 <p class="mb-4">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                        Ajouter un produit
+                        Ajouter un bénéficiaire
                     </button>
                 </p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Contenu du Stock</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Liste des bénéficiaires</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -164,7 +164,8 @@ require_once __DIR__ . '/../includes.php';
                                     <th>Nom</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>
-                                    <th>type bénéficaire</th>
+                                    <th>Type bénéficaire</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -173,6 +174,7 @@ require_once __DIR__ . '/../includes.php';
                                     <th>Adresse</th>
                                     <th>Ville</th>
                                     <th>type bénéficaire</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -192,34 +194,34 @@ require_once __DIR__ . '/../includes.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabel">Ajouter un produit</h5>
+                            <h5 class="modal-title" id="ModalLabel">Ajouter un bénéficiaire</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body" id="modal-body">
-                            <form method="POST" id="add_product">
+                            <form method="POST" id="add_beneficiaire">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="inputBarcode"
-                                           aria-describedby="code-barre"
-                                           placeholder="Code Barre">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <input type="text" class="form-control" id="inputNom"
+                                           aria-describedby="nom"
+                                           placeholder="Nom">
+                                    <small id="nomError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="inputQuantity"
-                                           aria-describedby="quantite"
-                                           placeholder="Quantité">
-                                    <small id="quantityError" class="form-text text-muted">Nombre entier</small>
+                                    <input type="text" class="form-control" id="inputAdress"
+                                           aria-describedby="adresse"
+                                           placeholder="Adresse">
+                                    <small id="adressError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" id="inputDLC"
-                                           aria-describedby="emailHelp"
-                                           placeholder="">
-                                    <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
+                                    <input type="text" class="form-control" id="inputCity"
+                                           aria-describedby="ville"
+                                           placeholder="Ville">
+                                    <small id="cityError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputStock">Stock</label>
-                                    <input type="text" class="form-control" id="inputNStock" placeholder="Stock">
+                                    <label for="InputType">Type Bénéficiaire</label>
+                                    <input type="text" class="form-control" id="inputType" placeholder="Type bénéficiaire">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Valider</button>
@@ -246,28 +248,28 @@ require_once __DIR__ . '/../includes.php';
                         <div class="modal-body" id="modal-body">
                             <form method="POST" id="update_product">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifBarcode"
-                                           aria-describedby="code-barre"
-                                           placeholder="Code Barre">
+                                    <input type="text" class="form-control" id="modifNom"
+                                           aria-describedby="nom"
+                                           placeholder="Nom">
                                     <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifQuantity"
-                                           aria-describedby="quantite"
-                                           placeholder="Quantité">
+                                    <input type="text" class="form-control" id="modifAdress"
+                                           aria-describedby="adresse"
+                                           placeholder="Adresse">
                                     <small id="quantityError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" id="modifDLC"
-                                           aria-describedby="emailHelp"
-                                           placeholder="">
+                                    <input type="date" class="form-control" id="modifCity"
+                                           aria-describedby="Ville"
+                                           placeholder="Ville">
                                     <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifNStock" placeholder="Stock">
+                                    <input type="text" class="form-control" id="modifType" placeholder="Type bénéficiaire">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
-                                <input type="hidden" class="form-control" id="productId" value="">
+                                <input type="hidden" class="form-control" id="beneficiaireId" value="">
                                 <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
                         </div>
@@ -324,7 +326,7 @@ require_once __DIR__ . '/../includes.php';
 </div>
 
 <!-- Script to display users-->
-<script src="stock/updateProduct.js"></script>
+<script src="beneficiaires/beneficiaireTable.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

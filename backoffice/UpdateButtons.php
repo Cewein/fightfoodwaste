@@ -21,3 +21,9 @@ function getRequestButtons($id)
     $buttons = $buttonModal;
     return $buttons;
 }
+
+function getBeneficiairesButtons($id){
+    $buttonModal = "<button class=\"btn fas fa-clipboard-list\" type=\"button\"  data-toggle=\"modal\" data-target=\"#addModal\" onclick='updateBeneficiaire(". $id .")'></button>";
+    $buttons = $buttonModal;
+    return $buttons;
+}

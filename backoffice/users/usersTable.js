@@ -218,7 +218,7 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
 
     console.log(check);
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&type=${type}&id=${userId}`, '../backoffice/users/updateUsers.php');
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&role=${type}&id=${userId}&type=update`, '../backoffice/users/updateUsers.php');
         console.log(userId);
     }
 
@@ -229,7 +229,6 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log(request.responseText);
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 emailInput = document.getElementById('inputEmail');
