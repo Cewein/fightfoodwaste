@@ -77,6 +77,7 @@
                 <a class="collapse-item" href="utilities-color.html">Gérer les tournées</a>
                 <a class="collapse-item" href="utilities-border.html">Afficher les tournées prévues</a>
                 <a class="collapse-item" href="utilities-animation.html">Afficher les tournées passées</a>
+                <a class="collapse-item" href="beneficiairesView.php">Liste des bénéficiaires</a>
             </div>
         </div>
     </li>

@@ -2,10 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Sandrine
- * Date: 14/05/2019
- * Time: 15:56
+ * Date: 22/05/2019
+ * Time: 22:49
  */
-require_once __DIR__. "/../includes.php";
+
+require_once __DIR__ . '/../includes.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ require_once __DIR__. "/../includes.php";
     <meta name="author" content="">
 
 
-    <title>Administration : Utilisateurs</title>
+    <title>Administration : Stock</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -37,6 +38,7 @@ require_once __DIR__. "/../includes.php";
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
+    <link href="../css/backoffice.css" rel="stylesheet">
 
 </head>
 
@@ -141,56 +143,40 @@ require_once __DIR__. "/../includes.php";
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
-                <p class="mb-4"><!--Navbar Infos Users -->
-                <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs" onclick="allUsers()">
-                    <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="users('particulier')">
-                    <input class="btn btn-secondary" type="button" value="Afficher commercants" onclick="users('commercant')">
-                    <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
-                </div>
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                    Inscrire un utilisateur
-                </button>
-
+                <h1 class="h3 mb-2 text-gray-800">Gestion du stock</h1>
+                <p class="mb-4">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
+                        Ajouter un produit
+                    </button>
                 </p>
 
-                <!-- Users table -->
+                <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Contenu du Stock</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th id="userName">Nom</th>
-                                    <th id="pname">Prenom</th>
-                                    <th>Adresse Email</th>
+                                    <th>Nom</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th>type bénéficaire</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>#</th>
-                                    <th id="userNameBot">Nom</th>
-                                    <th id="pnameBot">Prenom</th>
-                                    <th>Adresse Email</th>
+                                    <th>Nom</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th>type bénéficaire</th>
                                 </tr>
                                 </tfoot>
-                                <tbody id="tbody">
-                                <?php require_once __DIR__.'/users/allUsers.php'; ?>
+                                <tbody>
+                                <?php require_once __DIR__ . '/beneficiaires/allBeneficiaires.php'; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -200,131 +186,98 @@ require_once __DIR__. "/../includes.php";
             </div>
             <!-- /.container-fluid -->
 
-            <!-- Modal Add User -->
+            <!-- Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="ModalLabel">Ajouter un produit</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <form method="POST" id="add_user">
-                                <label id="emailSetError">Cette adresse email est déjà utilisée</label>
+                        <div class="modal-body" id="modal-body">
+                            <form method="POST" id="add_product">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Type utilisateur</label>
-                                    <select class="form-control" id="typeUser">
-                                        <option>Particulier</option>
-                                        <option>Commerçant</option>
-                                        <option>Salarié</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="inputBarcode"
+                                           aria-describedby="code-barre"
+                                           placeholder="Code Barre">
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Nom</label>
-                                    <input type="text" class="form-control" id="inputName" aria-describedby="nom"
-                                           placeholder="Nom / Nom commerce">
-                                    <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <input type="text" class="form-control" id="inputQuantity"
+                                           aria-describedby="quantite"
+                                           placeholder="Quantité">
+                                    <small id="quantityError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
-                                    <input type="text" class="form-control" id="inputPname" aria-describedby="prenom"
-                                           placeholder="Prenom">
-                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <input type="date" class="form-control" id="inputDLC"
+                                           aria-describedby="emailHelp"
+                                           placeholder="">
+                                    <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputEmail1">Adresse Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                                           placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <label for="InputStock">Stock</label>
+                                    <input type="text" class="form-control" id="inputNStock" placeholder="Stock">
+                                    <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
-                                <div class="form-group">
-                                    <label for="InputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="inputPwd" placeholder="Password">
-                                    <small id="pwdError" class="form-text text-muted">Contient 1-100 caractères</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="InputNom">Adresse</label>
-                                    <input type="text" class="form-control" id="inputAdress" aria-describedby="adress"
-                                           placeholder="Adresse">
-                                </div>
-                                <div class="form-group">
-                                    <label for="InputNom">Ville</label>
-                                    <input type="text" class="form-control" id="inputCity" aria-describedby="city"
-                                           placeholder="Ville">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Modal Modify User -->
+            <!-- Modal -->
             <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="ModalLabelUpdate">Modifier un produit</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <form method="POST" id="update_user">
-                                <label id="emailSetError">Cette adresse email est déjà utilisée</label>
+                        <div class="modal-body" id="modal-body">
+                            <form method="POST" id="update_product">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Type utilisateur</label>
-                                    <select class="form-control" id="modiftypeUser">
-                                        <option>Particulier</option>
-                                        <option>Commerçant</option>
-                                        <option>Salarié</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="modifBarcode"
+                                           aria-describedby="code-barre"
+                                           placeholder="Code Barre">
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Nom</label>
-                                    <input type="text" class="form-control" id="modifName" aria-describedby="nom"
-                                           placeholder="Nom / Nom commerce">
-                                    <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <input type="text" class="form-control" id="modifQuantity"
+                                           aria-describedby="quantite"
+                                           placeholder="Quantité">
+                                    <small id="quantityError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
-                                    <input type="text" class="form-control" id="modifPname" aria-describedby="prenom"
-                                           placeholder="Prenom">
-                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <input type="date" class="form-control" id="modifDLC"
+                                           aria-describedby="emailHelp"
+                                           placeholder="">
+                                    <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputEmail1">Adresse Email</label>
-                                    <input type="email" class="form-control" id="modifEmail" aria-describedby="emailHelp"
-                                           placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <input type="text" class="form-control" id="modifNStock" placeholder="Stock">
+                                    <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
-                                <div class="form-group">
-                                    <label for="InputNom">Adresse</label>
-                                    <input type="text" class="form-control" id="modifAdress" aria-describedby="adress"
-                                           placeholder="Adresse">
-                                </div>
-                                <div class="form-group">
-                                    <label for="InputNom">Ville</label>
-                                    <input type="text" class="form-control" id="modifCity" aria-describedby="city"
-                                           placeholder="Ville">
-                                </div>
-                                <input type="hidden" id="userId" value="">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <input type="hidden" class="form-control" id="productId" value="">
+                                <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
+
 
         </div>
         <!-- End of Main Content -->
@@ -371,7 +324,7 @@ require_once __DIR__. "/../includes.php";
 </div>
 
 <!-- Script to display users-->
-<script src="users/usersTable.js"></script>
+<script src="stock/updateProduct.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -393,4 +346,3 @@ require_once __DIR__. "/../includes.php";
 </body>
 
 </html>
-

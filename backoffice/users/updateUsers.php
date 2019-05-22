@@ -27,7 +27,7 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
         $allRoles = getAllRoles();
 
         if (count($allRoles) > 0 && count($roles) > 0) {
-            $isAdmin=false;
+            $isAdmin = false;
             foreach ($allRoles as $uniqueRole) {
                 if ($uniqueRole['nom'] == 'administrateur') {
                     $idAdmin = $uniqueRole['identifiant'];
@@ -47,6 +47,10 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
                 setRoleUser($id, $idAdmin);
                 echo "Utilisateur upgradé";
             }
+        }
+    } elseif ($type === 'update') {
+        if (isset($_POST['name'])===true){
+            echo "presque";
         }
     } else {
         echo "Error: there's no roles";

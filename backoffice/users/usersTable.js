@@ -15,7 +15,10 @@ function allUsers() {
 
 function users(usersType) {
     const name = document.getElementById('userName');
+    const nameBot = document.getElementById('userNameBot');
     const pname = document.getElementById('pname');
+    const pnameBot = document.getElementById('pnameBot');
+
     const container = document.getElementById('tbody');
     container.innerText = "";
     $request = `role=${usersType}`;
@@ -23,10 +26,14 @@ function users(usersType) {
     //Change the thead with right names
     if (usersType === 'commercant') {
         name.innerHTML = 'Nom commerce';
+        nameBot.innerHTML = 'Nom commerce';
         pname.style.display = "none";
+        pnameBot.style.display = "none";
     } else {
         name.innerHTML = 'Nom';
+        nameBot.innerHTML = 'Nom';
         pname.style.display = "block";
+        pnameBot.style.display = "block";
 
     }
 
@@ -47,7 +54,27 @@ function updateAdmin(id) {
 }
 
 function updateUser(id) {
+    //Display modal with users infos
+    const userId = document.getElementById('userId');
+    const name = document.getElementById('modifName');
+    const pname = document.getElementById('modifPname');
+    const email = document.getElementById('modifEmail');
+    let type = document.getElementById('modiftypeUser');
+    const adress = document.getElementById('modifAdress');
+    const city = document.getElementById('modifCity');
 
+    const user = document.getElementById(id);
+    const userInfos = user.childNodes;
+
+    name.value = userInfos[1].innerHTML;
+    pname.value = userInfos[2].innerHTML;
+    email.value = userInfos[3].innerHTML;
+    adress.value = userInfos[4].innerHTML;
+    city.value = userInfos[5].innerHTML;
+    userId.value = id;
+
+    console.log(user);
+    console.log(userInfos);
 
 }
 
@@ -132,10 +159,77 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
 
 });
 
+//Modal de modification
+document.getElementById('update_user').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('modifName');
+    const pname = document.getElementById('modifPname');
+    const email = document.getElementById('modifEmail');
+    let type = document.getElementById('modiftypeUser').value;
+    const adress = document.getElementById('modifAdress').value;
+    const city = document.getElementById('modifCity').value;
+    const userId = document.getElementById('userId').value;
+
+    //Récupération des champs d'erreur
+    const nameError = document.getElementById("nameError");
+    const pnameError = document.getElementById("pnameError");
+    const emailError = document.getElementById("emailError");
+
+    //Déclaration des variables
+    let nameChecked;
+    let pnameChecked;
+    let emailChecked;
+
+    let check = true;
+
+    //Vérification des inputs
+    if (type === 'Particulier') {
+        type = 'particulier';
+    } else {
+        type = (type === 'Commerçant' ? 'commercant' : 'salary');
+    }
+
+    if (checkName(name, nameError) === true) { //Check name
+        nameChecked = name.value;
+    } else {
+        check = false;
+    }
+    console.log(check);
+    console.log(type);
+    console.log(type==='commercant');
+
+
+    if(type!=='commercant'){
+        if (checkName(pname, pnameError) === true) { //Check pname (=surname)
+            pnameChecked = pname.value;
+        } else {
+            check = false;
+        }
+    }
+
+    console.log(check);
+    if (email.value.length < 2 || email.value.length > 80) { //Check email
+        check = unvalid_info(email, emailError);
+    } else {
+        valid_input(email, emailError);
+        emailChecked = email.value;
+    }
+
+
+    console.log(check);
+    if (check === true) {
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&type=${type}&id=${userId}`, '../backoffice/users/updateUsers.php');
+        console.log(userId);
+    }
+
+
+});
+
 function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log(request.responseText);
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 emailInput = document.getElementById('inputEmail');
@@ -144,6 +238,9 @@ function sendRequest(textRequest, script, type = false) {
                     emailInput.style.borderColor = "red";
 
                 }
+            }
+            else{
+                console.log(request.responseText);
             }
 
         }

@@ -41,7 +41,6 @@ $roleLinks = "";
 
 
 if (isset($allUsersRoles) === true) {
-
     //Set links for navbar according to user's roles
     foreach ($allUsersRoles as $role) {
 
