@@ -194,10 +194,6 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
     } else {
         check = false;
     }
-    console.log(check);
-    console.log(type);
-    console.log(type==='commercant');
-
 
     if(type!=='commercant'){
         if (checkName(pname, pnameError) === true) { //Check pname (=surname)
@@ -207,7 +203,6 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
         }
     }
 
-    console.log(check);
     if (email.value.length < 2 || email.value.length > 80) { //Check email
         check = unvalid_info(email, emailError);
     } else {
@@ -215,11 +210,8 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
         emailChecked = email.value;
     }
 
-
-    console.log(check);
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&adresse=${adress}&ville=${city}&role=${type}&id=${userId}&type=update`, '../backoffice/users/updateUsers.php');
-        console.log(userId);
+        sendRequest(`name=${nameChecked}&pname=${pnameChecked}&email=${emailChecked}&adress=${adress}&city=${city}&role=${type}&id=${userId}&type=update`, '../backoffice/users/updateUsers.php');
     }
 
 

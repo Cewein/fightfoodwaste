@@ -56,7 +56,6 @@ document.getElementById('add_beneficiaire').addEventListener('submit', function 
         request.onreadystatechange = function () {
 
             if (request.readyState === 4) {
-                
                 const form = document.getElementById('add_beneficiaire');
                 const container = document.getElementById('modal-body');
 

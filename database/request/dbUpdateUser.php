@@ -13,3 +13,11 @@ function deleteUser($id)
     $request = "DELETE FROM `utilisateur` WHERE `identifiant`=?";
     $db->exec($request, [$id]);
 }
+
+function updateUser($id, $name, $pname, $email, $adress, $city)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`email`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
+    $db->exec($request, [$name, $pname, $email, $adress, $city, $id]);
+}
