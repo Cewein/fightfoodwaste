@@ -24,6 +24,7 @@ function getRequestButtons($id)
 
 function getBeneficiairesButtons($id){
     $buttonModal = "<button class=\"btn fas fa-clipboard-list\" type=\"button\"  data-toggle=\"modal\" data-target=\"#addModal\" onclick='updateBeneficiaire(". $id .")'></button>";
-    $buttons = $buttonModal;
+    $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteBeneficiaire($id)'></button>";
+    $buttons = $buttonModal . " " . $buttonDelete;
     return $buttons;
 }

@@ -161,6 +161,7 @@ require_once __DIR__ . '/../includes.php';
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Nom</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>
@@ -170,6 +171,7 @@ require_once __DIR__ . '/../includes.php';
                                 </thead>
                                 <tfoot>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Nom</th>
                                     <th>Adresse</th>
                                     <th>Ville</th>

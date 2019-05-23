@@ -6,16 +6,26 @@
  * Time: 23:18
  */
 
-function getAllBeneficiaires(){
+function getAllBeneficiaires()
+{
     $db = DatabaseManager::getManager();
 
     $request = "SELECT * FROM `beneficiaire`";
     return ($db->getAll($request));
 }
 
-function addBeneficiaire($name, $adress, $city, $type){
+function addBeneficiaire($name, $adress, $city, $type)
+{
     $db = DatabaseManager::getManager();
 
     $request = "INSERT INTO `beneficiaire`(nom,adresse,ville,type_beneficiaire) VALUES (?,?,?,?)";
     $db->exec($request, [$name, $adress, $city, $type]);
+}
+
+function deleteBeneficiaireById($id)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "DELETE FROM `beneficiaire` WHERE `identifiant`=?";
+    return ($db->exec($request, [$id]));
 }

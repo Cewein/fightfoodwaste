@@ -19,7 +19,6 @@ if (count($allBeneficiaires) > 0) {
         $i++;
     }
 
-
     foreach ($beneficiaires as $beneficiaire) {
 
         $row = "<tr id=\"" . $beneficiaire->getId() . " \"><th scope=\"row\">" . $beneficiaire->getId() . "</th>";
@@ -28,7 +27,7 @@ if (count($allBeneficiaires) > 0) {
         $row .= "<td>" . $beneficiaire->getCity() . "</td>";
         $row .= "<td>" . $beneficiaire->getType() . "</td>";
 
-        //$row .= "<td>" . getBeneficiaireButtons($beneficiaire->getId()) . "</td>";
+        $row .= "<td>" . getBeneficiairesButtons($beneficiaire->getId()) . "</td>";
         $row .= "</tr>";
         echo $row;
 
