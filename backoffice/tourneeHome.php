@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sandrine
- * Date: 25/04/2019
- * Time: 15:52
- */
+
 require_once __DIR__.'/../includes.php';
 
 ?>
@@ -21,7 +16,7 @@ require_once __DIR__.'/../includes.php';
     <meta name="author" content="">
 
 
-    <title>Administration : Accueil</title>
+    <title>Administration : Tournées</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -142,30 +137,20 @@ require_once __DIR__.'/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Accueil Administration</h1>
+                <h1 class="h3 mb-2 text-gray-800">Gestion des tournées</h1>
                 <p class="mb-4">
 
                 </p>
 
                 <div class="col-lg-6">
 
-                    <!-- Default Card Example -->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            Default Card Example
-                        </div>
-                        <div class="card-body">
-                            This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
-                        </div>
-                    </div>
-
                     <!-- Basic Card Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Création d'une tournée</h6>
                         </div>
                         <div class="card-body">
-                            The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
+                            Menu permettant d'accèder à la génération d'une tournée, avec selection des bénéficiaires et des produits qu'ils recevront. <a href="tourneeGenerateView.php">Générer une tournée</a>
                         </div>
                     </div>
 
@@ -211,70 +196,70 @@ require_once __DIR__.'/../includes.php';
                         </div>
                     </div>
 
-            </div>
-            <!-- /.container-fluid -->
+                </div>
+                <!-- /.container-fluid -->
 
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; FightFoodWaste 2019</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; FightFoodWaste 2019</span>
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="../css/BackOffice/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../css/BackOffice/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="../css/BackOffice/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../css/BackOffice/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="../css/BackOffice/jquery.dataTables.min.js"></script>
-<script src="../css/BackOffice/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../css/BackOffice/jquery.dataTables.min.js"></script>
+    <script src="../css/BackOffice/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="../css/BackOffice/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="../css/BackOffice/datatables-demo.js"></script>
 
 </body>
 

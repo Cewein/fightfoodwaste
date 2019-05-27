@@ -31,6 +31,6 @@
     color: dodgerblue;
 }
 
-#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError{
+#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError{
     display: none;
 }

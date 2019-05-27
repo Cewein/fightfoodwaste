@@ -74,9 +74,9 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tournées</h6>
-                <a class="collapse-item" href="utilities-color.html">Gérer les tournées</a>
-                <a class="collapse-item" href="utilities-border.html">Afficher les tournées prévues</a>
-                <a class="collapse-item" href="utilities-animation.html">Afficher les tournées passées</a>
+                <a class="collapse-item" href="tourneeHome.php">Gérer les tournées</a>
+                <a class="collapse-item" href="utilities-border.html">Tournées prévues</a>
+                <a class="collapse-item" href="utilities-animation.html">Tournées passées</a>
                 <a class="collapse-item" href="beneficiairesView.php">Liste des bénéficiaires</a>
             </div>
         </div>
