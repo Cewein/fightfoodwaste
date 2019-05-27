@@ -54,7 +54,7 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
     let check = true;
 
 
-    if (barcode.value.length !== 14) {
+    if (barcode.value.length < 3) {
         barcodeError.style.display = "block";
         check = false;
     }
@@ -111,7 +111,7 @@ document.getElementById('update_product').addEventListener('submit', function (e
     let check = true;
 
 
-    if (barcode.value.length !== 14) {
+    if (barcode.value.length < 3) {
         barcodeError.style.display = "block";
         check = false;
     }

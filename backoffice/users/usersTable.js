@@ -202,6 +202,9 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
             check = false;
         }
     }
+    else{
+        pnameChecked='null';
+    }
 
     if (email.value.length < 2 || email.value.length > 80) { //Check email
         check = unvalid_info(email, emailError);

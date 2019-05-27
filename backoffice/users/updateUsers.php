@@ -9,8 +9,8 @@ require_once __DIR__ . '/../../includes.php';
 
 
 if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
-    $type = $_POST['type'];
-    $id = $_POST['id'];
+    $type = htmlspecialchars($_POST['type']);
+    $id = htmlspecialchars($_POST['id']);
     var_dump($type);
     if ($type === 'delete') {
         $role = getRoleByUserId($id);
@@ -51,6 +51,15 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     } elseif ($type === 'update') {
 
         if (isset($_POST['name']) === true && isset($_POST['pname']) === true && isset($_POST['email']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true && isset($_POST['type']) === true) {
+            $name=htmlspecialchars($_POST['name']);
+
+            $pname=htmlspecialchars($_POST['pname']);
+            echo strlen($pname);
+            echo $pname;
+            $email=htmlspecialchars($_POST['email']);
+            $adress=htmlspecialchars($_POST['adress']);
+            $city=htmlspecialchars($_POST['city']);
+            updateUser($id,$name,$pname,$email,$adress,$city);
 
             echo "presque";
         }

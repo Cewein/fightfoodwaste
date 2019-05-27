@@ -18,6 +18,6 @@ function updateUser($id, $name, $pname, $email, $adress, $city)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`email`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
+    $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse_mail`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
     $db->exec($request, [$name, $pname, $email, $adress, $city, $id]);
 }
