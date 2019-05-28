@@ -16,7 +16,7 @@ require_once __DIR__ . '/../includes.php';
     <meta name="author" content="">
 
 
-    <title>Administration : Accueil</title>
+    <title>Administration : Tournées</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -143,7 +143,7 @@ require_once __DIR__ . '/../includes.php';
                     Sélection des bénéficiaires
                 </p>
                 <p id="beneficiaireError">Aucun bénéficiaire sélectionné !</p>
-                <form id="selectBeneficiaires">
+                <form id="select_beneficiaires">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -217,6 +217,9 @@ require_once __DIR__ . '/../includes.php';
                 </div>
             </div>
         </div>
+
+        <!-- Page custom Javascript-->
+        <script src="tournees/tourneeView.js"></script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

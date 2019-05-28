@@ -1,15 +1,29 @@
-document.getElementById('select_beneficiaire').addEventListener('submit', function (e) {
+document.getElementById('select_beneficiaires').addEventListener('submit', function (e) {
     e.preventDefault();
-    const beneficiaire = document.getElementsByClassName('inputBeneficiaire');
+    const beneficiaires = document.getElementsByClassName('inputBeneficiaire');
 
     const beneficiaireError = document.getElementById('beneficiaireError');
+
     let check = true;
 
+    let i=0;
+    let j=0;
+    const beneficiairesChecked=[];
 
-    if (beneficiaire == undefined) {
-        beneficiaireError.style.display = "block";
-        check = false;
+    while(typeof beneficiaires[i] !== 'undefined'){
+        if(beneficiaires[i].checked===true){
+            beneficiairesChecked[j]=beneficiaires[i].value;
+            j++;
+        }
+        i++;
     }
+
+    console.log(beneficiairesChecked);
+
+    if(j===0){ // = No beneficiaire checked
+        check=false;
+    }
+
 
     if (check === true) {
         sendRequestTournee('../backoffice/tournee/displayProducts.php','');
