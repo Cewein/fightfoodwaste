@@ -34,3 +34,7 @@
 #barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError{
     display: none;
 }
+
+#displayProducts{
+    display: none;
+}

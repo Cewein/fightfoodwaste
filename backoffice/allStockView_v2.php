@@ -162,7 +162,7 @@ require_once __DIR__ . '/../includes.php';
                                 <tr>
                                     <th>Code barre</th>
                                     <th>Nom</th>
-                                    <th id="pname">Description</th>
+                                    <th>Description</th>
                                     <th>Quantite</th>
                                     <th>DLC</th>
                                     <th>Stock</th>
@@ -174,7 +174,7 @@ require_once __DIR__ . '/../includes.php';
                                 <tr>
                                     <th>Code barre</th>
                                     <th>Nom</th>
-                                    <th id="pname">Description</th>
+                                    <th>Description</th>
                                     <th>Quantite</th>
                                     <th>DLC</th>
                                     <th>Stock</th>

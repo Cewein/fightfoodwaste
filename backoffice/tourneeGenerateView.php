@@ -18,6 +18,8 @@ require_once __DIR__ . '/../includes.php';
 
     <title>Administration : Tournées</title>
 
+    <link href="../css/backoffice.css" rel="stylesheet">
+
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -33,7 +35,7 @@ require_once __DIR__ . '/../includes.php';
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
-    <link href="../css/backoffice.css">
+
 
 </head>
 
@@ -173,6 +175,34 @@ require_once __DIR__ . '/../includes.php';
                     </div>
                     <input type="submit" class="btn btn-success btn-icon-split" value="Valider ces bénéficiaires">
                 </form>
+
+                <div class="table-responsive" id="displayProducts">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Code barre</th>
+                            <th>Nom</th>
+                            <th>Quantite</th>
+                            <th>DLC</th>
+                            <th>Stock</th>
+                            <th>Selection</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Code barre</th>
+                            <th>Nom</th>
+                            <th>Quantite</th>
+                            <th>DLC</th>
+                            <th>Stock</th>
+                            <th>Selection</th>
+                        </tr>
+                        </tfoot>
+                        <tbody id="productsTable">
+
+                        </tbody>
+                    </table>
+                </div>
 
 
                 <!-- End of Main Content -->
