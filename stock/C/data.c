@@ -38,7 +38,7 @@ char * setUrl()
 	printf("Rentrez un code barre : \n");
 	char buffer[60];
 	memset(url, '\0', sizeof(url));
-	strcpy(url, "http://vps664303.ovh.net/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
+	strcpy(url, "http://localhost/fightfoodwaste/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
 	fgets(buffer, 60, stdin);
 	strtok(buffer, "\n");
 	strcat(url, buffer);
@@ -101,10 +101,11 @@ int performPost(char * data)
 	curl = curl_easy_init();
 	if (curl) {
 
-		curl_easy_setopt(curl, CURLOPT_URL, "http://vps664303.ovh.net/stock/services/putListe.php");
+		curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/fightfoodwaste/stock/services/putListe.php");
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 
 		res = curl_easy_perform(curl);
+
 		/* Check for errors */
 		if (res != CURLE_OK)
 		{
@@ -200,7 +201,7 @@ void deleteArticle(struct Article **head, int artNum)
 	free(temp);
 }
 
-char * listToJson(struct Article * list)
+char * listToJson(struct Article * list, int userId)
 {
 	logInFile("Making a json", "json", 1);
 	FILE * json = fopen("list.json", "w");
@@ -208,7 +209,14 @@ char * listToJson(struct Article * list)
 
 	int num = 1;
 	char buf[50];
+	
+	//Add user id to json
+	appendJson("userId\": { \"id\":",json);
+	sprintf(buf, "%d", userId);
+	appendJson(buf, json);
+	appendJson("},\"", json);
 
+	//Add list to json
 	while (list->next != NULL)
 	{
 		appendJson(itoa(num, buf, 10),json);
@@ -237,4 +245,65 @@ char * listToJson(struct Article * list)
 
 	logInFile("json maked", "json", 1);
 	return freadInArray(json);
+}
+
+int connection() {
+	int check = 0;
+	int data;
+	char * email;
+	email = malloc(sizeof(char) * 80);
+	if (email != NULL)
+	{
+		char * password;
+		password = malloc(sizeof(char) * 255);
+		if (password != NULL) {
+			printf("Connexion à un compte: \n Email : ");
+			fgets(email, 81, stdin);
+			if (email[strlen(email) - 1] == '\n') {
+				email[strlen(email) - 1] = '\0';
+			}
+			printf("\nMot de passe: ");
+			fgets(password, 255, stdin);
+			if (password[strlen(password) - 1] == '\n') {
+				password[strlen(password) - 1] = '\0';
+			}
+
+			char * urlConnection = setConnectionUrl(email,password);
+			MemoryStruct response = performCurl(urlConnection);
+			char * dataString = strtok(response.memory, "\n");
+			
+			data = atoi(dataString);
+			
+			if (strcmp(dataString, "<br >") == 0) {
+				check = 0;
+			}
+			else {
+				check = data;
+			}
+
+			free(password);
+		}
+		free (email);
+	}
+	return check;
+	
+}
+
+char * setConnectionUrl(char * email, char * passwd)
+{
+	FILE * fp = NULL;
+
+	logInFile("setting the connection url", "url", 0);
+
+	char * url = calloc(150, sizeof(char));
+
+	memset(url, '\0', sizeof(url));
+	strcpy(url, "http://localhost/fightfoodwaste/connection/checkConnectionAppli.php/?email="); //if you have trouble with the setUrl change the address here
+	strcat(url, email);
+	strcat(url, "&passwd=");
+	strcat(url, passwd);
+
+	logInFile("url succesfully set", "url", 0);
+
+	return (url);
 }

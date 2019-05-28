@@ -10,3 +10,27 @@
     display: none;
     color: rgb(255,0,0);
 }
+
+.fa-times{
+    color: red;
+}
+
+.fa-caret-square-up{
+    color: orangered;
+}
+
+.fa-hammer{
+    color: rgb(48, 47, 230);
+}
+
+.fa-clipboard-list{
+    color: black;
+}
+
+#modal-body{
+    color: dodgerblue;
+}
+
+#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError{
+    display: none;
+}

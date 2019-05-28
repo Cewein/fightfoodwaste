@@ -7,9 +7,11 @@ class Article
     //variable
     private $barcode;
     private $name;
-    private $descritpion;
+    private $description;
     private $picture;
     private $number;
+    private $quantity;
+    private $DLC;
 
     //constuctor
     public function __construct($bc, $nb = 1)
@@ -23,8 +25,8 @@ class Article
         $this->barcode = new Barcode($bc);                                                      //EVERYTHING is public in the praised JSO
         $tmpJson = $this->barcode->getJson();                                                   //make a tmp json for safey
 
-        // can be rework with a singleton for removing the isset and isempty use, look on github issue service
-        if(isset($tmpJson->product->image_front_url)) $this->picture = $tmpJson->product->image_front_url;                                    
+        // can be rework with a singleton for removing the isset and is empty use, look on github issue service
+        if(isset($tmpJson->product->image_front_url)) $this->picture = $tmpJson->product->image_front_url;
         else $this->picture = "";
         if(isset($tmpJson->product->product_name)) $this->name = str_replace($illegal,$legal,$tmpJson->product->product_name);
         else $this->name = "";
@@ -34,9 +36,15 @@ class Article
 
     //getter
     public function getName() { return $this->name;}
+    public function getDescription() { return $this->description; }
     public function getBarcode() { return $this->barcode;}
     public function getPicture() { return $this->getPicture;}
     public function getNumber() { return $this->number; }
+    public function getQuantity() { return $this->quantity; }
+
+    //setter
+    public function setQuantity($quantity) { $this->quantity=$quantity;}
+    public function setDLC($DLC) { $this->DLC=$DLC;}
 
     public function toString()
     {
@@ -44,7 +52,7 @@ class Article
         <br>
         <img src="'.$this->picture.'" />';
     }
-    
+
     public function displayInfo()
     {
         echo $this->name;

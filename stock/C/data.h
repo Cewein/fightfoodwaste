@@ -59,3 +59,5 @@ void deleteArticle(struct Article **head, int artNum);
 
 char * listToJson(struct Article * list);
 
+char * setConnectionUrl(char * email, char * passwd);
+
