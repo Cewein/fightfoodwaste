@@ -1,136 +1,200 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sandrine
- * Date: 02/04/2019
- * Time: 15:59
- */
-
 require_once __DIR__ . '/../includes.php';
-$actualDirectory=__DIR__;
+$actualDirectory = __DIR__;
 ?>
-
 <!DOCTYPE html>
-
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/header.css" rel="stylesheet">
-        <link href="../css/general.css" rel="stylesheet">
-        <link href="../css/inscription.css" rel="stylesheet">
-        <title>Inscription</title>
-    </head>
 
-    <body>
-       <?php require_once __DIR__ . '/../header/adaptHeader.php'; ?>
+<head>
 
-       <div class="content">
-            <div>
-                <p>En vous inscrivant, vous avez la possibilité de participer a nos collectes et donc de limiter le gaspillage alimentaire en plus de venir en aide à des personnes qui en ont besoin.</p>
-                <p>Deux types d'inscriptions sont donc disponibles, soit en tant que particulier soit en tant que commerçant.</p>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inscription</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/inscription.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-front">
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Créez un compte!</h1>
+                            <p>En vous inscrivant, vous avez la possibilité de participer a nos collectes et donc de
+                                limiter le gaspillage alimentaire en plus de venir en aide à des personnes qui en ont
+                                besoin.</p>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <button class="btn btn-secondary btn-user btn-block"
+                                            onclick="visible('particulier')">
+                                        Particulier
+                                    </button>
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <button class="btn btn-info btn-user btn-block" onclick="visible('commercant')">
+                                        Commerçant
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="form_particulier">
+                            <p>En tant que particulier, vous disposerez d'un dispositif permettant de nous signaler que
+                                vous avez des produits à collecter.</p>
+                            <form class="user" method="POST" id="inscription">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="input_name"
+                                               name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
+                                        <small id="nameError" class="form-text text-muted">Contient 1-100 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="input_pname"
+                                               name="prenom" aria-describedby="Prenom" placeholder="Votre prénom">
+                                        <small id="PNameError" class="form-text text-muted">Contient 1-100 caractères
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="input_email_p"
+                                           name="email" aria-describedby="Adresse Mail"
+                                           placeholder="Votre adresse mail">
+                                    <small id="emailError" class="form-text text-muted">Contient 3-80 caractères</small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="input_password_p1" name="pwd"
+                                               placeholder="Entrez votre mot de passe">
+                                        <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="input_password_p2" placeholder="Confirmez votre mot de passe">
+                                        <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent
+                                            être identiques
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="input_adresse_p"
+                                           name="adresse" placeholder="Adresse">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="input_ville_p"
+                                           name="ville" placeholder="Ville">
+                                </div>
+                                <input type="hidden" name="type_inscription" value="particulier">
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <hr>
+
+                            </form>
+                        </div>
+                        <div id="form_commercant">
+                            <p>En tant que commerçant, nous viendrons collecter vos produit avec un rythme d'une fois
+                                par semaine. Vous aurez la possibilité de nous signaler si vous n'avez rien a collecter
+                                afin de gagner du temps.</p>
+                            <form class="user" method="POST" id="inscription_shop">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="inputNameShop"
+                                               name="nameShop"
+                                               placeholder="Nom du commerce">
+                                        <small id="nameShopError" class="form-text text-muted">Contient 2-100
+                                            caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="inputSiret"
+                                               name="name_shop"
+                                               placeholder="Numero de SIRET">
+                                        <small id="SIRETError" class="form-text text-muted">Contient 11 chiffres</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="inputEmailC"
+                                           name="email"
+                                           aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
+                                    <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera
+                                        transmise a personne.
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="inputPwdC1" name="pwd"
+                                               placeholder="Entrez votre mot de passe">
+                                        <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="inputPwdC2"
+                                               placeholder="Confirmez votre mot de passe">
+                                        <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent
+                                            être
+                                            identiques
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="inputAdressC" name="adresse"
+                                           placeholder="Adresse">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="inputCityC" name="ville"
+                                           placeholder="Ville">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </form>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="../connection/connection.php">Déjà un compte? Se connecter!</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="../index.php">Retour au menu!</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-           <div><h2>Inscription en tant que</h2></div>
+</div>
 
-           <div class="row">
-               <button class="btn btn-secondary" onclick="visible('particulier')">Particulier</button>
-               <button class="btn btn-info" onclick="visible('commercant')">Commerçant</button>
-           </div>
+<!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-           <div id="form_particulier">
-               <p>En tant que particulier, vous disposerez d'un dispositif permettant de nous signaler que vous avez des produits à collecter.</p>
-               <form method="POST" id="inscription">
-                    <p id="emailSetError">Cette adresse email est déjà utilisée</p>
-                   <div class="form-group">
-                       <label for="nom">Nom</label>
-                       <input type="text" class="form-control" id="input_name" name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
-                       <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
-                   </div>
+<!-- Core plugin JavaScript-->
+<script src="../css/BackOffice/jquery.easing.min.js"></script>
 
-                   <div class="form-group">
-                       <label for="prenom">Prénom</label>
-                       <input type="text" class="form-control" id="input_pname" name="prenom" aria-describedby="Prenom" placeholder="Votre prénom">
-                       <small id="PNameError" class="form-text text-muted">Contient 1-100 caractères</small>
-                   </div>
+<!-- Custom scripts for all pages-->
+<script src="../css/BackOffice/sb-admin-2.min.js"></script>
 
-                   <div class="form-group" id="email">
-                       <label for="input_email">Adresse Email</label>
-                       <input type="email" class="form-control" id="input_email_p" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
-                       <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>
-                       <small id="emailError" class="form-text text-muted">Contient 3-80 caractères</small>
-                   </div>
-
-                   <div class="form-group">
-                       <label for="input_password1">Entrez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_p1" name="pwd" placeholder="Password">
-                       <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="input_password1">Confirmez votre mot de passe</label>
-                       <input type="password" class="form-control" id="input_password_p2" placeholder="Password">
-                       <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent être identiques</small>
-                   </div>
-
-                   <div class="form-group">
-                       <label for="input_adresse">Adresse</label>
-                       <input type="text" class="form-control" id="input_adresse_p" name="adresse" placeholder="Adresse">
-                   </div>
-
-                   <div class="form-group">
-                       <label for="input_ville">Ville</label>
-                       <input type="text" class="form-control" id="input_ville_p" name="ville" placeholder="Ville">
-                   </div>
-                   <input type="hidden" name="type_inscription" value="particulier">
-                   <button type="submit" class="btn btn-primary">Valider</button>
-               </form>
-           </div>
-
-           <div id="form_commercant">
-               <p>En tant que commerçant, nous viendrons collecter vos produit avec un rythme d'une fois par semaine. Vous aurez la possibilité de nous signaler si vous n'avez rien a collecter afin de gagner du temps.</p>
-               <form method="POST" id="inscription_shop">
-                   <div class="form-group">
-                       <label for="inputNameShop">Nom du commerce</label>
-                       <input type="text" class="form-control" id="inputNameShop" name="nameShop" placeholder="Nom du commerce">
-                       <small id="nameShopError" class="form-text text-muted">Contient 2-100 caractères</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="inputSiret">Numero de SIRET</label>
-                       <input type="text" class="form-control" id="inputSiret" name="name_shop" placeholder="Numero de SIRET">
-                       <small id="SIRETError" class="form-text text-muted">Contient 11 chiffres</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="input_email">Adresse Email</label>
-                       <input type="email" class="form-control" id="inputEmailC" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
-                       <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera transmise a personne.</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="inputPwd1">Entrez votre mot de passe</label>
-                       <input type="password" class="form-control" id="inputPwdC1" name="pwd" placeholder="Password">
-                       <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="inputPwd2">Vérifiez votre mot de passe</label>
-                       <input type="password" class="form-control" id="inputPwdC2" placeholder="Password">
-                       <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent être identiques</small>
-                   </div>
-                   <div class="form-group">
-                       <label for="inputAdresse">Adresse</label>
-                       <input type="text" class="form-control" id="inputAdressC" name="adresse" placeholder="Adresse">
-                   </div>
-                   <div class="form-group">
-                       <label for="inputVille">Ville</label>
-                       <input type="text" class="form-control" id="inputCityC" name="ville" placeholder="Ville">
-                   </div>
-                   <button type="submit" class="btn btn-primary">Valider</button>
-               </form>
-           </div>
-       </div>
-        <footer></footer>
-        <script src="inscription.js"></script>
-        <script src="page_inscription.js"></script>
-    </body>
-
-  
+<!-- Scripts functions of page -->
+<script src="inscription.js"></script>
+<script src="page_inscription.js"></script>
+</body>
 
 </html>
+

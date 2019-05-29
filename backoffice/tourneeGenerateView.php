@@ -202,6 +202,7 @@ require_once __DIR__ . '/../includes.php';
 
                         </tbody>
                     </table>
+                    <button class="btn btn-primary" id="validateBenef" onclick="">Valider cette livraison</button>
                 </div>
 
 

@@ -22,38 +22,51 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
 
     if (j === 0) { // = No beneficiaire checked
         check = false;
+        //Afficher les vérifications & messages d'erreur
     } else {
         const form = document.getElementById('select_beneficiaires');
         const productsTable = document.getElementById('displayProducts');
+
         form.style.display = 'none';
         productsTable.style.display = 'block';
 
-        generateTournee(beneficiairesChecked);
-    }
-
-
-    if (check === true) {
-        //sendRequestTournee('../backoffice/tournee/displayProducts.php', '');
-        sendRequestTournee('../backoffice/tournee/getLivraison.php', '');
+        nextBeneficiaire(beneficiairesChecked, 0);
 
     }
+
 
 });
 
-function generateTournee(beneficiaireList) {
-    const container = document.getElementById('productsTable');
-    for (i = 0; i < beneficiaireList.length; i++) {
-        console.log(beneficiaireList[i]);
-        products = sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true');
-        console.log(sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true'));
-        container.innerHTML = products;
+function nextBeneficiaire(BeneficiairesList, actual) {
+    const nextButton = document.getElementById('validateBenef');
+    console.log(actual);
+    if (actual > 0) {
+        //Récupérer les produits cochés
+        //Enregistrer ces produits cochés
+        //Editer le PDF (PHP ^)
     }
+
+    //Display products
+    displayProducts();
+
+    if (BeneficiairesList.length > actual) {
+        nextButton.onclick = "nextBeneficiaire(" + BeneficiairesList + "," + (actual + 1) + ")";
+    }
+}
+
+function displayProducts() {
+    const container = document.getElementById('productsTable');
+    let products;
+    products = sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true');
+    console.log(products);
+    container.innerHTML = products;
 }
 
 function sendRequestTournee(script, values) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log(request.responseText);
             return request.responseText;
         }
     };

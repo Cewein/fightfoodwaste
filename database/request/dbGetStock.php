@@ -18,6 +18,14 @@ function getAllProductStocked()
     return ($db->getAll($request));
 }
 
+function getAllProductToDeliver()
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT `id_produit` FROM `livrer`";
+    return ($db->getAll($request));
+}
+
 function getProductByIdList($list)
 {
     $db = DatabaseManager::getManager();
@@ -28,9 +36,10 @@ function getProductByIdList($list)
     return ($db->getAll($request));
 }
 
-function deleteProductById($id){
+function deleteProductById($id)
+{
     $db = DatabaseManager::getManager();
 
     $request = "DELETE FROM `produit` WHERE `identifiant`=?";
-    return ($db->exec($request,[$id]));
+    return ($db->exec($request, [$id]));
 }
