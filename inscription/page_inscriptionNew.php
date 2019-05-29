@@ -43,7 +43,8 @@ $actualDirectory = __DIR__;
                                 besoin.</p>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <button class="btn btn-secondary btn-user btn-block" onclick="visible('particulier')">
+                                    <button class="btn btn-secondary btn-user btn-block"
+                                            onclick="visible('particulier')">
                                         Particulier
                                     </button>
                                 </div>
@@ -54,49 +55,123 @@ $actualDirectory = __DIR__;
                                 </div>
                             </div>
                         </div>
-                        <form class="user" method="POST" id="inscription">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="input_name" name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
-                                    <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                        <div id="form_particulier">
+                            <p>En tant que particulier, vous disposerez d'un dispositif permettant de nous signaler que
+                                vous avez des produits à collecter.</p>
+                            <form class="user" method="POST" id="inscription">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="input_name"
+                                               name="nom" aria-describedby="Nom de famille" placeholder="Votre nom">
+                                        <small id="nameError" class="form-text text-muted">Contient 1-100 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="input_pname"
+                                               name="prenom" aria-describedby="Prenom" placeholder="Votre prénom">
+                                        <small id="PNameError" class="form-text text-muted">Contient 1-100 caractères
+                                        </small>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="input_pname" name="prenom" aria-describedby="Prenom" placeholder="Votre prénom">
-                                    <small id="PNameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="input_email_p"
+                                           name="email" aria-describedby="Adresse Mail"
+                                           placeholder="Votre adresse mail">
+                                    <small id="emailError" class="form-text text-muted">Contient 3-80 caractères</small>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="input_email_p" name="email" aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
-                                <small id="emailError" class="form-text text-muted">Contient 3-80 caractères</small>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" id="input_password_p1" name="pwd" placeholder="Entrez votre mot de passe">
-                                    <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères</small>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="input_password_p1" name="pwd"
+                                               placeholder="Entrez votre mot de passe">
+                                        <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="input_password_p2" placeholder="Confirmez votre mot de passe">
+                                        <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent
+                                            être identiques
+                                        </small>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user" id="input_password_p2" placeholder="Confirmez votre mot de passe">
-                                    <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent être identiques</small>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="input_adresse_p"
+                                           name="adresse" placeholder="Adresse">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="input_adresse_p" name="adresse" placeholder="Adresse">
-                            </div>
 
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="input_ville_p" name="ville" placeholder="Ville">
-                            </div>
-                            <input type="hidden" name="type_inscription" value="particulier">
-                            <button type="submit" class="btn btn-primary">Valider</button>
-                            <hr>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="input_ville_p"
+                                           name="ville" placeholder="Ville">
+                                </div>
+                                <input type="hidden" name="type_inscription" value="particulier">
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <hr>
 
-                        </form>
+                            </form>
+                        </div>
+                        <div id="form_commercant">
+                            <p>En tant que commerçant, nous viendrons collecter vos produit avec un rythme d'une fois
+                                par semaine. Vous aurez la possibilité de nous signaler si vous n'avez rien a collecter
+                                afin de gagner du temps.</p>
+                            <form class="user" method="POST" id="inscription_shop">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="inputNameShop"
+                                               name="nameShop"
+                                               placeholder="Nom du commerce">
+                                        <small id="nameShopError" class="form-text text-muted">Contient 2-100
+                                            caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="inputSiret"
+                                               name="name_shop"
+                                               placeholder="Numero de SIRET">
+                                        <small id="SIRETError" class="form-text text-muted">Contient 11 chiffres</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="inputEmailC"
+                                           name="email"
+                                           aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
+                                    <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera
+                                        transmise a personne.
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="inputPwdC1" name="pwd"
+                                               placeholder="Entrez votre mot de passe">
+                                        <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="inputPwdC2"
+                                               placeholder="Confirmez votre mot de passe">
+                                        <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent
+                                            être
+                                            identiques
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="inputAdressC" name="adresse"
+                                           placeholder="Adresse">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="inputCityC" name="ville"
+                                           placeholder="Ville">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </form>
+                        </div>
                         <hr>
                         <div class="text-center">
                             <a class="small" href="../connection/connection.php">Déjà un compte? Se connecter!</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="../index.php">Forgot Password?</a>
+                            <a class="small" href="../index.php">Retour au menu!</a>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@
     display: none;
 }
 
-#nameError, #PNameError, #emailError, #nameShopError, #emailSetError, #pwd1Error, #pwd2Error{
+#nameError, #PNameError, #emailError, #nameShopError, #emailSetError, #pwd1Error, #pwd2Error, #SIRETError{
     display: none;
     color: rgb(255,0,0);
 }
