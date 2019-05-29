@@ -7,7 +7,13 @@
     display: none;
 }
 
-#nameError, #PNameError, #emailError,#nameShopError,#emailSetError{
+#nameError, #PNameError, #emailError, #nameShopError, #emailSetError, #pwd1Error, #pwd2Error{
     display: none;
     color: rgb(255,0,0);
+}
+
+.btn-user{
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: .75rem 1rem;
 }

@@ -61,10 +61,13 @@ require_once __DIR__ . '/../includes.php';
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <a class="small" href="#">Mot de passe oublié?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
+                                    <a class="small" href="../inscription/page_inscription.php">Créer un compte!</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="../index.php">Retour à l'accueil...</a>
                                 </div>
                             </div>
                         </div>

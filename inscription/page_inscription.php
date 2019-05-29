@@ -67,7 +67,7 @@ $actualDirectory=__DIR__;
                        <small id="pwd1Error" class="form-text text-muted">Contient 8-50 caractères</small>
                    </div>
                    <div class="form-group">
-                       <label for="input_password1">Vérifiez votre mot de passe</label>
+                       <label for="input_password1">Confirmez votre mot de passe</label>
                        <input type="password" class="form-control" id="input_password_p2" placeholder="Password">
                        <small id="pwd2Error" class="form-text text-muted">Les mots de passe doivent être identiques</small>
                    </div>
