@@ -18,8 +18,6 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         i++;
     }
 
-    console.log(beneficiairesChecked);
-
     if (j === 0) { // = No beneficiaire checked
         check = false;
         //Afficher les vérifications & messages d'erreur
@@ -33,7 +31,6 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         nextBeneficiaire(beneficiairesChecked, 0);
 
     }
-
 
 });
 
@@ -49,25 +46,27 @@ function nextBeneficiaire(BeneficiairesList, actual) {
     //Display products
     displayProducts();
 
+    console.log(BeneficiairesList.length);
+    console.log(nextButton);
     if (BeneficiairesList.length > actual) {
-        nextButton.onclick = "nextBeneficiaire(" + BeneficiairesList + "," + (actual + 1) + ")";
+        nextButton.onclick = 'nextBeneficiaire(' + BeneficiairesList + ',' + (actual + 1) + ')';
+        console.log(nextButton);
     }
 }
 
 function displayProducts() {
     const container = document.getElementById('productsTable');
     let products;
-    products = sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true');
-    console.log(products);
-    container.innerHTML = products;
+    sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true', function (response) {
+        container.innerHTML=response;
+    });
 }
 
-function sendRequestTournee(script, values) {
+function sendRequestTournee(script, values, response) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log(request.responseText);
-            return request.responseText;
+            response(request.responseText);
         }
     };
     request.open('POST', script);
