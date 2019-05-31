@@ -38,8 +38,21 @@ function nextBeneficiaire(BeneficiairesList, actual) {
     const nextButton = document.getElementById('validateBenef');
     console.log(actual);
     if (actual > 0) {
+        const allProducts = document.getElementsByClassName('selectButton');
+        let productsSelected;
+
         //Récupérer les produits cochés
+        j=0;
+        for(i=0;i<allProducts.length;i++){
+            if(allProducts[i].checked===true){
+                productsSelected[j]=allProducts.id;
+                j++;
+            }
+        }
+        console.log(productsSelected);
+
         //Enregistrer ces produits cochés
+        sendRequestTournee('../backoffice/tournees/deliverCreate', '', )
         //Editer le PDF (PHP ^)
     }
 
@@ -47,6 +60,7 @@ function nextBeneficiaire(BeneficiairesList, actual) {
     displayProducts();
 
     console.log(BeneficiairesList.length);
+    console.log(actual);
     console.log(nextButton);
     if (BeneficiairesList.length > actual) {
         nextButton.onclick = 'nextBeneficiaire(' + BeneficiairesList + ',' + (actual + 1) + ')';
@@ -56,7 +70,6 @@ function nextBeneficiaire(BeneficiairesList, actual) {
 
 function displayProducts() {
     const container = document.getElementById('productsTable');
-    let products;
     sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true', function (response) {
         container.innerHTML=response;
     });
