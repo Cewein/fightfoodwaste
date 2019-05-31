@@ -36,46 +36,48 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
 
 function nextBeneficiaire(BeneficiairesList, actual) {
     const nextButton = document.getElementById('validateBenef');
-    console.log(actual);
+
     if (actual > 0) {
         const allProducts = document.getElementsByClassName('selectButton');
-        let productsSelected;
+        let productsSelected = [];
 
         //Récupérer les produits cochés
-        j=0;
-        for(i=0;i<allProducts.length;i++){
-            if(allProducts[i].checked===true){
-                productsSelected[j]=allProducts.id;
+        j = 0;
+        for (i = 0; i < allProducts.length; i++) {
+            if (allProducts[i].checked === true) {
+                productsSelected[j] = allProducts[i].value;
                 j++;
             }
         }
         console.log(productsSelected);
 
         //Enregistrer ces produits cochés
-        sendRequestTournee('../backoffice/tournees/deliverCreate', '', )
+        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}`, function (res) {
+            console.log(res);
+        })
         //Editer le PDF (PHP ^)
     }
 
     //Display products
     displayProducts();
 
-    console.log(BeneficiairesList.length);
-    console.log(actual);
-    console.log(nextButton);
     if (BeneficiairesList.length > actual) {
-        nextButton.onclick = 'nextBeneficiaire(' + BeneficiairesList + ',' + (actual + 1) + ')';
-        console.log(nextButton);
+        nextButton.onclick = function () {
+            nextBeneficiaire(BeneficiairesList, actual + 1);
+        };
+
     }
 }
 
 function displayProducts() {
     const container = document.getElementById('productsTable');
     sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true', function (response) {
-        container.innerHTML=response;
+        container.innerHTML = response;
     });
 }
 
-function sendRequestTournee(script, values, response) {
+function sendRequestTournee(script, values, response = function () {
+}) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {

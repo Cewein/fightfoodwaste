@@ -6,5 +6,5 @@ function getLastTourneeNb()
 
     $request = "SELECT MAX(`n_livraison`) FROM `livrer` ";
 
-    $db->findOne($request, []);
+    return ($db->findOne($request, []));
 }

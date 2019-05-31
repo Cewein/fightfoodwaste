@@ -54,7 +54,7 @@ function buttons($id, $num)
 }
 
 function select($id){
-    $checkbox = "<input class=\"selectButton\" id='$id' type='checkbox'>";
+    $checkbox = "<input class=\"selectButton\" value='$id' type='checkbox'>";
     return $checkbox;
 }
 

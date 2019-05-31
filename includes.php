@@ -30,7 +30,7 @@ require_once __DIR__ . '/database/request/dbInteractions.php';
 require_once __DIR__."/database/request/dbBeneficiaires.php";
 
     /*Tournees Requests */
-require_once __DIR__."database/request/dbTournee.php";
+require_once __DIR__."/database/request/dbTournee.php";
 
 require_once __DIR__ . '/database/request/dbGetConnection.php'; 
 
