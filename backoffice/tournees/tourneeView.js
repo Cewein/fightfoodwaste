@@ -28,20 +28,26 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         form.style.display = 'none';
         productsTable.style.display = 'block';
 
-        nextBeneficiaire(beneficiairesChecked, 0);
+        //Set id for the new deliver
+        sendRequestTournee('../backoffice/tournees/setIdDeliver.php', ``, function (res) {
+            nextBeneficiaire(beneficiairesChecked, -1, res);
+        });
 
     }
 
 });
 
-function nextBeneficiaire(BeneficiairesList, actual) {
+function nextBeneficiaire(BeneficiairesList, actual, idDeliver) {
     const nextButton = document.getElementById('validateBenef');
 
-    if (actual > 0) {
+    if (actual >= 0) {
         const allProducts = document.getElementsByClassName('selectButton');
         let productsSelected = [];
 
-        //Récupérer les produits cochés
+        //Get Beneficiaire id
+        const idBeneficiaire=BeneficiairesList[actual];
+
+        //Get checked products
         j = 0;
         for (i = 0; i < allProducts.length; i++) {
             if (allProducts[i].checked === true) {
@@ -51,8 +57,9 @@ function nextBeneficiaire(BeneficiairesList, actual) {
         }
         console.log(productsSelected);
 
+
         //Enregistrer ces produits cochés
-        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}`, function (res) {
+        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&idDeliver=${idDeliver}`, function (res) {
             console.log(res);
         })
         //Editer le PDF (PHP ^)
@@ -63,7 +70,7 @@ function nextBeneficiaire(BeneficiairesList, actual) {
 
     if (BeneficiairesList.length > actual) {
         nextButton.onclick = function () {
-            nextBeneficiaire(BeneficiairesList, actual + 1);
+            nextBeneficiaire(BeneficiairesList, actual + 1, idDeliver);
         };
 
     }

@@ -2,15 +2,16 @@
 require_once __DIR__ . '/../../includes.php';
 require_once __DIR__ . '/../../stock/models/article.php';
 
+$_POST['tournee']=true;
+
 $allProduct = getAllProductStocked();
 if (isset($_POST['tournee']) === true) { //If function was called by tourneeView
     $tournee = true;
-    //Check if the product musn't be deliver || Vérifie si le produit ne doit pas être livré dans une tournée
+    //Check if products musn't be deliver || Vérifie si les produits ne doit pas être livré dans une tournée
     $allProduct = getNotToDeliverProducts($allProduct);
 } else {
     $tournee = false;
 }
-
 
 $allDemande = getAllRequests();
 
@@ -58,11 +59,12 @@ function select($id){
     return $checkbox;
 }
 
-function getNotToDeliverProducts($allProduct)
+function getNotToDeliverProducts($allProducts)
 {
     $allProductToDeliver = getAllProductToDeliver();
+
     $i = 0;
-    foreach ($allProduct as $singleProduct) {
+    foreach ($allProducts as $singleProduct) {
         $toDeliver = false;
         foreach ($allProductToDeliver as $product) {
             if ($singleProduct['identifiant'] === $product) {
@@ -71,6 +73,7 @@ function getNotToDeliverProducts($allProduct)
         }
         if ($toDeliver === false) {
             $allProductTemp[$i] = $singleProduct;
+            $i++;
         }
     }
     return $allProductTemp;

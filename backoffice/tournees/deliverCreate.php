@@ -1,17 +1,19 @@
 <?php
 require_once __DIR__ . "/../../includes.php";
+var_dump($_POST);
+if (isset($_POST['productsSelected']) === true && isset($_POST['idBeneficiaire']) === true && isset($_POST['idDeliver']) === true) {
+    $products = $_POST['productsSelected'];
+    $beneficiaire = $_POST['idBeneficiaire'];
+    $deliver= $_POST['idDeliver'];
 
-$lastIdTournee=getLastTourneeNb();
+    //Ajouter pour chaque produit une ligne dans la table livrer
+    foreach ($products as $product){
+        var_dump($product);
+        setLivrer($product,$beneficiaire,$deliver);
+    }
+    var_dump($products);
+    //Créer un dossier pour la collecte (id Tournee) si non existant + créer le pdf de la livraison
 
-if($lastIdTournee['MAX(`n_livraison`)'] === ''){
-    $idTournee=0;
+} else {
+    echo 'Missing Values';
 }
-else{
-    $idTournee=$lastIdTournee['MAX(`n_livraison`)']+1;
-}
-
-if(isset($_POST['productsSelected'])===true){
-    $products=$_POST['productsSelected'];
-}
-
-echo $idTournee;
