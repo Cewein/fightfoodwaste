@@ -60,6 +60,16 @@ class Tour {
     public function setIdTour($idTour){$this->idTour = (int) $idTour;
     }
 
+
+public function test() {
+    var_dumps(get_object_vars($this)); 
+}
+
+//$test = new tour();
+//var_dump(get_object_vars($test));
+/*
+$test->test(); 
+
     public function __toString() {
         return 
             'IdUser :'.$this->idUser;
@@ -79,4 +89,5 @@ class Tour {
 
     }
 
+}*/
 }

@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . "/../../includes.php";
-require_once ("demandesView.js");
-require_once ("request.php");
-require_once ("requestsStatut.php");
+//require_once ("demandesView.js");
+//require_once ("requestsStatut.php");
+//require_once ("request.php");
 require_once ("../foodCollection/tour.php");
 
 
@@ -29,8 +29,26 @@ if($singleRequest['statut'] == 'checkedTrue') {
     echo "ko"; 
 }
 */
-$requestsStatut = getAllValidatedWonder($_POST['statut']);
+
+    //step 1 : afficher les demandes validées 
+$requestsStatut = getAllValidatedWonder();
 var_dump($requestsStatut);
+
+//step 2 : afficher l'identifiant de l'utilisateur qui a fait la demande validée
+$userValidate = getUserId(); 
+var_dump($userValidate); 
+/*
+    if (isset($_GET['idDemande'])) {
+        if($_GET['idDemande'] == 'checkedTrue') {
+        var_dump($userValidate); 
+        }
+        
+    }*/
+
+
+$test = getAllReferentUsers(); 
+var_dump($test);
+
 
 /*$i = 0;
 $idRequestList = "";
