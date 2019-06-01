@@ -18,13 +18,14 @@ function getAllProductStocked()
     return ($db->getAll($request));
 }
 
-function getAllProductToDeliver()
+function getAllProductsFree()
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT `id_produit` FROM `livrer`";
+    $request = "SELECT * FROM `produit` WHERE `n_stock`!='NULL' AND `id_livraison` IS NULL";
     return ($db->getAll($request));
 }
+
 
 function getProductByIdList($list)
 {

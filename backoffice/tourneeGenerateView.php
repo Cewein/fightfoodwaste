@@ -173,7 +173,7 @@ require_once __DIR__ . '/../includes.php';
                             </tbody>
                         </table>
                     </div>
-                    <input type="submit" class="btn btn-success btn-icon-split" value="Valider ces bénéficiaires">
+                    <input type="submit" class="btn btn-success" value="Valider ces bénéficiaires">
                 </form>
 
                 <div class="table-responsive" id="displayProducts">
@@ -203,6 +203,10 @@ require_once __DIR__ . '/../includes.php';
                         </tbody>
                     </table>
                     <button class="btn btn-primary" id="validateBenef">Valider cette livraison</button>
+                </div>
+
+                <div id="EndGenerate">
+                    <button class="btn btn-info" onclick="finish()">Revenir au menu</button>
                 </div>
 
 

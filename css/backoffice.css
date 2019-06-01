@@ -35,6 +35,6 @@
     display: none;
 }
 
-#displayProducts{
+#displayProducts, #EndGenerate{
     display: none;
 }

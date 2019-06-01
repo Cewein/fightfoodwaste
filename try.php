@@ -10,5 +10,5 @@ require_once __DIR__."/includes.php";
 
 //header('Location: index.php')
 
-require_once __DIR__.'/backoffice/stock/allStock.php';
+var_dump(getAllProductsFree());
 ?>

@@ -4,13 +4,14 @@ require_once __DIR__ . '/../../stock/models/article.php';
 
 $_POST['tournee']=true;
 
-$allProduct = getAllProductStocked();
+
 if (isset($_POST['tournee']) === true) { //If function was called by tourneeView
     $tournee = true;
     //Check if products musn't be deliver || Vérifie si les produits ne doit pas être livré dans une tournée
-    $allProduct = getNotToDeliverProducts($allProduct);
+    $allProduct = getAllProductsFree();
 } else {
     $tournee = false;
+    $allProduct = getAllProductStocked();
 }
 
 $allDemande = getAllRequests();
@@ -57,24 +58,4 @@ function buttons($id, $num)
 function select($id){
     $checkbox = "<input class=\"selectButton\" value='$id' type='checkbox'>";
     return $checkbox;
-}
-
-function getNotToDeliverProducts($allProducts)
-{
-    $allProductToDeliver = getAllProductToDeliver();
-
-    $i = 0;
-    foreach ($allProducts as $singleProduct) {
-        $toDeliver = false;
-        foreach ($allProductToDeliver as $product) {
-            if ($singleProduct['identifiant'] === $product) {
-                $toDeliver = true;
-            }
-        }
-        if ($toDeliver === false) {
-            $allProductTemp[$i] = $singleProduct;
-            $i++;
-        }
-    }
-    return $allProductTemp;
 }

@@ -28,16 +28,15 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         form.style.display = 'none';
         productsTable.style.display = 'block';
 
-        //Set id for the new deliver
-        sendRequestTournee('../backoffice/tournees/setIdDeliver.php', ``, function (res) {
-            nextBeneficiaire(beneficiairesChecked, -1, res);
-        });
+
+        nextBeneficiaire(beneficiairesChecked, -1);
+
 
     }
 
 });
 
-function nextBeneficiaire(BeneficiairesList, actual, idDeliver) {
+function nextBeneficiaire(BeneficiairesList, actual) {
     const nextButton = document.getElementById('validateBenef');
 
     if (actual >= 0) {
@@ -45,7 +44,7 @@ function nextBeneficiaire(BeneficiairesList, actual, idDeliver) {
         let productsSelected = [];
 
         //Get Beneficiaire id
-        const idBeneficiaire=BeneficiairesList[actual];
+        const idBeneficiaire = BeneficiairesList[actual];
 
         //Get checked products
         j = 0;
@@ -57,9 +56,8 @@ function nextBeneficiaire(BeneficiairesList, actual, idDeliver) {
         }
         console.log(productsSelected);
 
-
         //Enregistrer ces produits cochés
-        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&idDeliver=${idDeliver}`, function (res) {
+        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}`, function (res) {
             console.log(res);
         })
         //Editer le PDF (PHP ^)
@@ -68,11 +66,19 @@ function nextBeneficiaire(BeneficiairesList, actual, idDeliver) {
     //Display products
     displayProducts();
 
-    if (BeneficiairesList.length > actual) {
+    if (BeneficiairesList.length > actual + 1) {
         nextButton.onclick = function () {
-            nextBeneficiaire(BeneficiairesList, actual + 1, idDeliver);
+            nextBeneficiaire(BeneficiairesList, actual + 1);
         };
 
+    } else {
+        const displayProducts = document.getElementById('displayProducts');
+        const EndGenerate = document.getElementById('EndGenerate');
+        const stepTitle = document.getElementById('stepTitle');
+
+        displayProducts.style.display = 'none';
+        EndGenerate.style.display = 'block';
+        stepTitle.innerText = "Tournées enregistrées !";
     }
 }
 
@@ -81,6 +87,10 @@ function displayProducts() {
     sendRequestTournee('../backoffice/stock/allStock.php', 'tournee=true', function (response) {
         container.innerHTML = response;
     });
+}
+
+function finish() {
+    window.location.replace("tourneeHome.php");
 }
 
 function sendRequestTournee(script, values, response = function () {

@@ -1,19 +1,28 @@
 <?php
 
-function getLastTourneeNb()
+function getLastLivraisonNb()
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT MAX(`n_livraison`) FROM `livrer` ";
+    $request = "SELECT MAX(`identifiant`) FROM `livraison`";
 
     return ($db->findOne($request, []));
 }
 
-function setLivrer($id_produit, $id_beneficiaire, $n_livraison)
+function setLivraison($idBeneficiaire)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "INSERT INTO `livrer`(`id_produit`, `id_beneficiaire`, `n_livraison`) VALUES  (?, ?, ?)";
+    $request = "INSERT INTO `livraison`(`id_beneficiaire`, `etat`) VALUES  (?, 'preparation')";
 
-    $db->exec($request, [$id_produit, $id_beneficiaire, $n_livraison]);
+    $db->exec($request, [$idBeneficiaire]);
+}
+
+function updateProductSetLivraison($idProduct, $idLivraison)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `produit` SET `id_livraison`=? WHERE `identifiant`=?";
+
+    $db->exec($request, [$idLivraison, $idProduct]);
 }
