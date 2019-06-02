@@ -28,15 +28,17 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         form.style.display = 'none';
         productsTable.style.display = 'block';
 
-
-        nextBeneficiaire(beneficiairesChecked, -1);
+        sendRequestTournee('../backoffice/tournees/setIdDeliver.php', ``, function (res) {
+            console.log(res);
+            nextBeneficiaire(beneficiairesChecked, -1, res);
+        });
 
 
     }
 
 });
 
-function nextBeneficiaire(BeneficiairesList, actual) {
+function nextBeneficiaire(BeneficiairesList, actual, idTournee) {
     const nextButton = document.getElementById('validateBenef');
 
     if (actual >= 0) {
@@ -54,11 +56,11 @@ function nextBeneficiaire(BeneficiairesList, actual) {
                 j++;
             }
         }
-        console.log(productsSelected);
+        console.log(idTournee);
 
         //Enregistrer ces produits cochés
-        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}`, function (res) {
-            console.log(res);
+        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&idTournee=${idTournee}`, function (res) {
+
         })
         //Editer le PDF (PHP ^)
     }
@@ -68,7 +70,7 @@ function nextBeneficiaire(BeneficiairesList, actual) {
 
     if (BeneficiairesList.length > actual + 1) {
         nextButton.onclick = function () {
-            nextBeneficiaire(BeneficiairesList, actual + 1);
+            nextBeneficiaire(BeneficiairesList, actual + 1, idTournee);
         };
 
     } else {

@@ -33,7 +33,7 @@ require_once __DIR__ . '/../includes.php';
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
-
+    <link href="../css/backoffice.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -137,51 +137,18 @@ require_once __DIR__ . '/../includes.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des tournées</h1>
+                <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
                 <p class="mb-4">
 
                 </p>
 
-                <div class="col-lg-6">
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Création d'une tournée</h6>
-                        </div>
-                        <div class="card-body">
-                            Menu permettant d'accèder à la génération d'une tournée, avec selection des bénéficiaires et
-                            des produits qu'ils recevront. <a href="tourneeGenerateView.php">Générer une tournée</a>
-                        </div>
-                    </div>
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Gérer l'itinéraire d'une tournée</h6>
-                        </div>
-                        <div class="card-body">
-                            Menu permettant d'accèder à la gestion du parcours d'une tourné <a
-                                    href="tourneeParcoursView.php">Parcours d'une tournée</a>
-                        </div>
-                    </div>
-
-                    <!-- Collapsable Card Example -->
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Accordion -->
-                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                           role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                            <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                        </a>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse show" id="collapseCardExample">
-                            <div class="card-body">
-                                This is a collapsable card example using Bootstrap's built in collapse functionality.
-                                <strong>Click on the card header</strong> to see the card body collapse and expand!
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="list-group" id="displayTournees">
+                    <?php require_once __DIR__ . '/tournees/displayTournees.php' ?>
                 </div>
-                <!-- /.container-fluid -->
+
+                <div id="map">
+                    <iframe name="map" id="frame" src="../tourner/map.php" width="100%" height="800px"></iframe>
+                </div>
 
 
             </div>
@@ -232,6 +199,10 @@ require_once __DIR__ . '/../includes.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Map Scripts -->
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+
     <!-- Core plugin JavaScript-->
     <script src="../css/BackOffice/jquery.easing.min.js"></script>
 
@@ -244,6 +215,8 @@ require_once __DIR__ . '/../includes.php';
 
     <!-- Page level custom scripts -->
     <script src="../css/BackOffice/datatables-demo.js"></script>
+    <script src="tournees/tourneeView.js"></script>
+    <script src="tournees/tourneeParcoursView.js"></script>
 
 </body>
 
