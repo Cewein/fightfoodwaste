@@ -49,5 +49,5 @@ function getAddressesLivraisonByIdTournee($idTournee){
 
     $request = "SELECT * FROM `livraison` INNER JOIN `beneficiaire` ON livraison.id_beneficiaire = beneficiaire.identifiant WHERE `n_tournee`=? ";
 
-    return ($db->findOne($request, [$idTournee]));
+    return ($db->getAll($request, [$idTournee]));
 }

@@ -138,7 +138,7 @@ require_once __DIR__ . '/../includes.php';
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
-                <p class="mb-4">
+                <p class="mb-4" id="infosTournee">
 
                 </p>
 
@@ -215,7 +215,6 @@ require_once __DIR__ . '/../includes.php';
 
     <!-- Page level custom scripts -->
     <script src="../css/BackOffice/datatables-demo.js"></script>
-    <script src="tournees/tourneeView.js"></script>
     <script src="tournees/tourneeParcoursView.js"></script>
 
 </body>
