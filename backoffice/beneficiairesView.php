@@ -207,19 +207,28 @@ require_once __DIR__ . '/../includes.php';
                                     <input type="text" class="form-control" id="inputNom"
                                            aria-describedby="nom"
                                            placeholder="Nom">
-                                    <small id="nomError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <small id="nameError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="inputAdress"
                                            aria-describedby="adresse"
                                            placeholder="Adresse">
-                                    <small id="adressError" class="form-text text-muted">Nombre entier</small>
+                                    <small id="adressError" class="form-text text-muted">Adresse erronée</small>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="inputCity"
                                            aria-describedby="ville"
                                            placeholder="Ville">
-                                    <small id="cityError" class="form-text text-muted">Date déjà passée</small>
+                                    <small id="cityError" class="form-text text-muted">Ville trop éloignée</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputType">Coordonnées GPS</label>
+                                    <input type="text" class="form-control" id="inputLat" placeholder="Latitude">
+                                    <small id="LatError" class="form-text text-muted">Décimale a .8</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="inputLong" placeholder="Longitude">
+                                    <small id="LongError" class="form-text text-muted">Décimale a .8</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputType">Type Bénéficiaire</label>

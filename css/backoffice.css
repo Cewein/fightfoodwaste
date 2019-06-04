@@ -31,11 +31,16 @@
     color: dodgerblue;
 }
 
-#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError{
+/*Replace all #id display:none*/
+.text-muted{
     display: none;
 }
 
-#displayProducts, #EndGenerate{
+/*#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError, #cityError, #adressError, #nameError, #displayProducts{*/
+/*    display: none;*/
+/*}*/
+
+#EndGenerate{
     display: none;
 }
 
