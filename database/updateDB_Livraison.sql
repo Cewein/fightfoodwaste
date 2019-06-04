@@ -21,3 +21,5 @@ ALTER TABLE `produit`
 COMMIT;
 
 DROP TABLE `livrer`;
+
+ALTER TABLE `beneficiaire` ADD `Latitude` DECIMAL NOT NULL AFTER `ville`, ADD `Longitude` DECIMAL NOT NULL AFTER `Latitude`;

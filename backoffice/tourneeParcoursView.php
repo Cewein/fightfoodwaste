@@ -30,6 +30,12 @@ require_once __DIR__ . '/../includes.php';
     <!-- Custom styles for this template -->
     <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom Style for Map -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'/>
+    <link rel='stylesheet'
+          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
+          type='text/css'/>
+
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
@@ -138,9 +144,7 @@ require_once __DIR__ . '/../includes.php';
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
-                <p class="mb-4" id="infosTournee">
-
-                </p>
+                <p class="mb-4" id="infosTournee"> </p>
 
                 <div class="list-group" id="displayTournees">
                     <?php require_once __DIR__ . '/tournees/displayTournees.php' ?>
@@ -148,6 +152,7 @@ require_once __DIR__ . '/../includes.php';
 
                 <div id="map">
                     <iframe name="map" id="frame" src="../tourner/map.php" width="100%" height="800px"></iframe>
+                    <div id="containerButtons"></div>
                 </div>
 
 
@@ -195,12 +200,13 @@ require_once __DIR__ . '/../includes.php';
         </div>
     </div>
 
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Map Scripts -->
-    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
 
     <!-- Core plugin JavaScript-->

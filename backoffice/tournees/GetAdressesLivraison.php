@@ -6,8 +6,9 @@ if (isset($_POST['idTournee']) === true) {
     $allLivraisons = getAddressesLivraisonByIdTournee($idTournee);
 
     $beneficiaires = " ";
+
     foreach ($allLivraisons as $livraison) {
-        $beneficiaires .= $livraison['nom'] . "," . $livraison['adresse'] . "," . $livraison['ville'] . ";";
+        $beneficiaires .= $livraison['nom'] . "," . $livraison['adresse'] . "," . $livraison['ville'] . "," . $livraison['Latitude'] ."," . $livraison['Longitude'] . ";";
     }
     echo $beneficiaires;
 
