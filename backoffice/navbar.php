@@ -90,8 +90,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Collectes</h6>
-                <a class="collapse-item" href="/request/displayUsers.php">Gérer les collectes</a>
-                <a class="collapse-item" href="utilities-border.html">Afficher les collects prévues</a>
+                <a class="collapse-item" href="displayUsers.php">Gérer les collectes</a>
+                <a class="collapse-item" href="utilities-border.html">Afficher les collectes prévues</a>
                 <a class="collapse-item" href="utilities-animation.html">Afficher les collectes passées</a>
             </div>
         </div>
