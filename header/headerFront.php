@@ -110,10 +110,9 @@ if (isset($allUsersRoles) === true) {
                             <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
                         </li>
                     <?php } ?>
-                    <div id="ytWidget"></div>
                 </ul>
             </div>
         </nav>
     </div>
-    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=hu&widgetTheme=light&autoMode=false" type="text/javascript"></script>
+   
 </header>
