@@ -2,8 +2,6 @@
 require_once __DIR__ . '/../../includes.php';
 require_once __DIR__ . '/../../stock/models/article.php';
 
-$_POST['tournee']=true;
-
 
 if (isset($_POST['tournee']) === true) { //If function was called by tourneeView
     $tournee = true;

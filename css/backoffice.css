@@ -36,11 +36,15 @@
     display: none;
 }
 
-/*#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError, #cityError, #adressError, #nameError, #displayProducts{*/
+/*#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError,  #cityError, #adressError, #nameError{*/
 /*    display: none;*/
 /*}*/
 
-#EndGenerate{
+#beneficiaireError{
+    color: red;
+}
+
+#EndGenerate, #beneficiaireError, #displayProducts{
     display: none;
 }
 

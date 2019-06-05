@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__ . "/../../includes.php";
 
-if (isset($_POST['productsSelected']) === true && isset($_POST['idBeneficiaire']) === true && isset($_POST['idTournee']) === true) {
+if (isset($_POST['productsSelected']) === true && isset($_POST['idBeneficiaire']) === true && isset($_POST['dateTournee']) === true && isset($_POST['idTournee']) === true) {
     $products = explode(',', $_POST['productsSelected']); //String => array
     $beneficiaire = $_POST['idBeneficiaire'];
+    $dateTournee = $_POST['dateTournee'];
     $idTournee = $_POST['idTournee'];
-
-    setLivraison($beneficiaire, $idTournee);
+var_dump($dateTournee);
+    setLivraison($beneficiaire, $dateTournee, $idTournee);
 
     $lastIdLivraison = getLastLivraisonNb();
 

@@ -142,10 +142,16 @@ require_once __DIR__ . '/../includes.php';
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Création d'une tournée</h1>
                 <p class="mb-4" id="stepTitle">
-                    Sélection des bénéficiaires
+                    Choix de la date, puis sélection des bénéficiaires
                 </p>
                 <p id="beneficiaireError">Aucun bénéficiaire sélectionné !</p>
                 <form id="select_beneficiaires">
+                    <div class="form-group col-6">
+                        <label for="dateTournee" class="col">Date de la tournée :</label>
+                        <input name="dateTournee" type="date" id="dateTournee" class="form-control">
+                        <small class="text-muted" id="dateError">Date incorrecte !</small>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>

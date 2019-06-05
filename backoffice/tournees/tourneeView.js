@@ -1,8 +1,10 @@
 document.getElementById('select_beneficiaires').addEventListener('submit', function (e) {
     e.preventDefault();
     const beneficiaires = document.getElementsByClassName('inputBeneficiaire');
+    const dateTournee = document.getElementById('dateTournee');
 
     const beneficiaireError = document.getElementById('beneficiaireError');
+    const dateError = document.getElementById('dateError');
 
     let check = true;
 
@@ -18,10 +20,22 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         i++;
     }
 
-    if (j === 0) { // = No beneficiaire checked
+    if (beneficiairesChecked.length === 0) { // = No beneficiaire checked
         check = false;
-        //Afficher les vérifications & messages d'erreur
+        beneficiaireError.style.display = 'block';
     } else {
+        beneficiaireError.style.display = 'none';
+    }
+
+    if (checkDate(dateTournee.value) === false) {
+        dateError.style.display = 'block';
+        check = false;
+    } else {
+        dateError.style.display = 'none';
+    }
+
+
+    if (check === true) {
         const form = document.getElementById('select_beneficiaires');
         const productsTable = document.getElementById('displayProducts');
 
@@ -29,16 +43,14 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
         productsTable.style.display = 'block';
 
         sendRequestTournee('../backoffice/tournees/setIdDeliver.php', ``, function (res) {
-            console.log(res);
-            nextBeneficiaire(beneficiairesChecked, -1, res);
+            nextBeneficiaire(beneficiairesChecked, -1, dateTournee.value, res);
         });
-
 
     }
 
 });
 
-function nextBeneficiaire(BeneficiairesList, actual, idTournee) {
+function nextBeneficiaire(BeneficiairesList, actual, dateTournee, idTournee) {
     const nextButton = document.getElementById('validateBenef');
 
     if (actual >= 0) {
@@ -49,28 +61,26 @@ function nextBeneficiaire(BeneficiairesList, actual, idTournee) {
         const idBeneficiaire = BeneficiairesList[actual];
 
         //Get checked products
-        j = 0;
+        let i, j = 0;
         for (i = 0; i < allProducts.length; i++) {
             if (allProducts[i].checked === true) {
                 productsSelected[j] = allProducts[i].value;
                 j++;
             }
         }
-        console.log(idTournee);
 
         //Enregistrer ces produits cochés
-        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&idTournee=${idTournee}`, function (res) {
+        sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&dateTournee=${dateTournee}&idTournee=${idTournee}`, function (res) {
 
         })
         //Editer le PDF (PHP ^)
     }
 
-    //Display products
     displayProducts();
 
     if (BeneficiairesList.length > actual + 1) {
         nextButton.onclick = function () {
-            nextBeneficiaire(BeneficiairesList, actual + 1, idTournee);
+            nextBeneficiaire(BeneficiairesList, actual + 1, dateTournee, idTournee);
         };
 
     } else {
@@ -93,6 +103,13 @@ function displayProducts() {
 
 function finish() {
     window.location.replace("tourneeHome.php");
+}
+
+function checkDate(dateString) {//date send like string
+    const date = Date.parse(dateString);
+    const dateNow = Date.now();
+
+    return date >= dateNow;
 }
 
 function sendRequestTournee(script, values, response = function () {

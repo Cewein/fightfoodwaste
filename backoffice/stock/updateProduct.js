@@ -53,12 +53,6 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
 
     let check = true;
 
-
-    if (barcode.value.length < 3) {
-        barcodeError.style.display = "block";
-        check = false;
-    }
-
     if (quantity.value > 0 && quantity.value <= 50) {
 
     } else {
@@ -83,6 +77,7 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
 
                 const alert = document.createElement("p");
                 alert.innerHTML = request.responseText;
+                alert.class='message';
                 container.appendChild(alert);
 
                 form.style.display = "none";
@@ -110,11 +105,6 @@ document.getElementById('update_product').addEventListener('submit', function (e
 
     let check = true;
 
-
-    if (barcode.value.length < 3) {
-        barcodeError.style.display = "block";
-        check = false;
-    }
 
     if (quantity.value > 0 && quantity.value <= 50) {
 
@@ -159,10 +149,12 @@ function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau pr
     const quantity = document.getElementById('inputQuantity');
     const DLC = document.getElementById('inputDLC');
     const stock = document.getElementById('inputNStock');
+    const message=document.getElementsByClassName('message');
 
     barcode.value = "";
     quantity.value = "";
     DLC.value = "";
     stock.value = "";
 
+    message.style.display='none';
 }

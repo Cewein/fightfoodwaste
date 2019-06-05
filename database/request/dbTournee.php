@@ -18,13 +18,13 @@ function getLastTourneeNb()
     return ($db->findOne($request, []));
 }
 
-function setLivraison($idBeneficiaire, $idTournee)
+function setLivraison($idBeneficiaire, $dateTournee, $idTournee)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "INSERT INTO `livraison`(`id_beneficiaire`, `etat`, `n_tournee`) VALUES  (?, 'preparation', ?)";
+    $request = "INSERT INTO `livraison`(`id_beneficiaire`, `date_livraison`, `etat`, `n_tournee`) VALUES  (?,?, 'preparation', ?)";
 
-    $db->exec($request, [$idBeneficiaire, $idTournee]);
+    $db->exec($request, [$idBeneficiaire, $dateTournee, $idTournee]);
 }
 
 function updateProductSetLivraison($idProduct, $idLivraison)
@@ -36,7 +36,8 @@ function updateProductSetLivraison($idProduct, $idLivraison)
     $db->exec($request, [$idLivraison, $idProduct]);
 }
 
-function getTourneeEtatPreparation(){
+function getTourneeEtatPreparation()
+{
     $db = DatabaseManager::getManager();
 
     $request = "SELECT `n_tournee` FROM `livraison` WHERE `etat`='preparation' AND `n_tournee`>0";
@@ -44,7 +45,8 @@ function getTourneeEtatPreparation(){
     return ($db->getAll($request));
 }
 
-function getAddressesLivraisonByIdTournee($idTournee){
+function getAddressesLivraisonByIdTournee($idTournee)
+{
     $db = DatabaseManager::getManager();
 
     $request = "SELECT * FROM `livraison` INNER JOIN `beneficiaire` ON livraison.id_beneficiaire = beneficiaire.identifiant WHERE `n_tournee`=? ";
