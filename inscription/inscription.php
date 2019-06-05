@@ -84,7 +84,7 @@ if (isset($_POST['particulier']) === true) {
 
             if (isset($_POST['connection']) === false) {
                 $id = getUserIdByMail($email);
-                setUsersSession($id, $nameShop, $email, '2', "null");
+                setUsersSession($id, $nameShop, $email, '2');
             }
 
         } else {
@@ -123,9 +123,8 @@ if (isset($_POST['particulier']) === true) {
 
             if (isset($_POST['connection']) === false) {
                 $id = getUserIdByMail($email);
-                setUsersSession($id, $name, $email, '3', "null");
+                setUsersSession($id, $name, $email, '3');
             }
-
             echo "Variables set";
         } else {
             http_response_code(400);

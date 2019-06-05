@@ -122,7 +122,6 @@ document.getElementById('inscription_shop').addEventListener('submit', function 
 });
 
 function sendRequest(textRequest, script, type = false) {
-    console.log(textRequest);
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
@@ -133,9 +132,8 @@ function sendRequest(textRequest, script, type = false) {
                 if (request.responseText === "mail already set") {
                     errorEmailPrint.style.display = "block";
                     emailInput.style.borderColor="red";
-
                 } else {
-                    finishInscription(email,type);
+                    finishInscription(type);
                 }
             }
 

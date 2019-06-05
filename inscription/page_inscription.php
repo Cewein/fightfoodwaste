@@ -55,6 +55,7 @@ $actualDirectory = __DIR__;
                                 </div>
                             </div>
                         </div>
+                        <p id="emailSetError">Cette adresse email est déjà utilisée</p>
                         <div id="form_particulier">
                             <p>En tant que particulier, vous disposerez d'un dispositif permettant de nous signaler que
                                 vous avez des produits à collecter.</p>
