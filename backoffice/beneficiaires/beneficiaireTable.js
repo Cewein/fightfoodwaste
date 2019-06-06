@@ -5,9 +5,8 @@ function updateBeneficiaire(id) {
 function deleteBeneficiaire(id){
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        console.log(request.readyState);
         if (request.readyState === 4) {
-            console.log(request.responseText);
+
         }
     };
     request.open('POST', '../backoffice/beneficiaires/updateBeneficiaire.php');

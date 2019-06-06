@@ -114,7 +114,6 @@ document.getElementById('inscription_shop').addEventListener('submit', function 
     //Check if email is unknown
     sendRequest(`email=${email.value}`, 'checkEmail');
 
-
     if (check === true) {
         sendRequest(`name=${nameShopChecked}&Siret=${SiretChecked}&email=${emailChecked}&pwd=${pwdChecked}&adress=${adress}&city=${city}&commercant='commercant'`, 'inscription.php', 'commercant');
     }
@@ -136,7 +135,6 @@ function sendRequest(textRequest, script, type = false) {
                     finishInscription(type);
                 }
             }
-
         }
     };
     request.open('POST', script);

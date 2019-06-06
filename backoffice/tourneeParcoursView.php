@@ -151,7 +151,7 @@ require_once __DIR__ . '/../includes.php';
                 </div>
 
                 <div id="map">
-                    <iframe name="map" id="frame" src="../tourner/map.php" width="100%" height="800px"></iframe>
+                    <iframe name="map" id="frame" src="tournees/map/map.php" width="100%" height="800px"></iframe>
                     <div id="containerButtons"></div>
                 </div>
 
