@@ -149,7 +149,7 @@ require_once __DIR__ . '/../includes.php';
                     <div class="form-group col-6">
                         <label for="dateTournee" class="col">Date de la tournée :</label>
                         <input name="dateTournee" type="date" id="dateTournee" class="form-control">
-                        <small class="text-muted" id="dateError">Date incorrecte !</small>
+                        <small  id="dateError">Date incorrecte !</small>
                     </div>
 
                     <div class="table-responsive">

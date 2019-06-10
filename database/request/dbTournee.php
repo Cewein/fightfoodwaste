@@ -53,3 +53,12 @@ function getAddressesLivraisonByIdTournee($idTournee)
 
     return ($db->getAll($request, [$idTournee]));
 }
+
+function getLivraisonByIdTournee($idTournee)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `livraison` WHERE `n_tournee`=? ";
+
+    return ($db->getAll($request, [$idTournee]));
+}

@@ -155,7 +155,6 @@ require_once __DIR__ . '/../includes.php';
                     <div id="containerButtons"></div>
                 </div>
 
-
             </div>
             <!-- End of Main Content -->
 
