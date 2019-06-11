@@ -1,13 +1,16 @@
 <?php
 require_once __DIR__ . "/../../includes.php";
 
-require_once __DIR__ . "/../../fpdf/fpdf.php";
+require_once __DIR__ . "/../../fpdf/tfpdf.php";
 
 
+if(isset($_POST['dateLivraison'])===true&&isset($_POST['beneficiaire'])===true&&isset($_POST['adress'])===true&&isset($_POST['city'])===true){
+    $namePDF = $_POST['beneficiaire'] . "_" . $_POST['dateLivraison'] .".pdf";
+    $beneficiaire= $_POST['beneficiaire'];
+    $date=$_POST['dateLivraison'];
+}
 
-//$_POST['beneficiaire'] = 'Beneficiaire4';
-//$_POST['date'] = '2019-06-13';
-$namePDF = $_POST['beneficiaire'] . "_" . $_POST['date'];
+
 
 class PDF extends FPDF
 {
@@ -15,10 +18,10 @@ class PDF extends FPDF
     function Header()
     {
         //Define text
-        $titre = 'Livraison ' . $_POST['beneficiaire'] . ' du ' . $_POST['date'];
+        $titre = 'Livraison ' . $_POST['beneficiaire'] . ' du ' . $_POST['dateLivraison'];
 
         // Logo
-        $this->Image('pictures/Logo_fight_food_waste.png', 10, 6, 30);
+        $this->Image('../../pictures/Logo_fight_food_waste.png', 10, 6, 30);
         // Police Arial gras 15
         $this->SetFont('Arial', 'B', 15);
         // Décalage à droite
@@ -42,9 +45,9 @@ class PDF extends FPDF
 }
 
 // Instanciation de la classe dérivée
-$pdf = new PDF();
+$pdf = new tFPDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times', '', 12);
 
-$pdf->Output('D', $namePDF, true);
+$pdf->Output('D', $namePDF);
