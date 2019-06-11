@@ -16,18 +16,28 @@ foreach ($allTournees as $tournee) {
                   <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
 
         foreach ($livraisons as $livraison) {
+            $produits = getProductByLivraisonId($livraison['identifiant_livraison']);
             $row .= "<form method='POST' action='tournees/createPDF.php'>
                         <input type='hidden' name='idLivraison' value='" . $livraison['identifiant_livraison'] . "'>
+                        
                         <input type='hidden' name='beneficiaire' value='" . $livraison['nom'] . "'>
                         <input type='hidden' name='idBeneficiaire' value='" . $livraison['id_beneficiaire'] . "'>
+                        
                         <input type='hidden' name='adress' value='" . $livraison['adresse'] . "'>
                         <input type='hidden' name='city' value='" . $livraison['ville'] . "'>
-                        <input type='hidden' name='dateLivraison' value='" . $livraison['date_livraison'] . "'>
-                        <input type='submit' name='adresse' value='Livraison n°".$livraison['identifiant_livraison'] . "' class='dropdown-item'>
+                        <input type='hidden' name='dateLivraison' value='" . $livraison['date_livraison'] . "'>";
+
+            $i = 0;
+            foreach ($produits as $produit) {
+                $row .= "<input type='hidden' name='" . $i . "' value='" . $produit['identifiant'] . "," . $produit['code_barre'] . "," . $produit['quantite'] . "'>";
+                $i++;
+            }
+
+            $row .= "   <input type='submit' name='adresse' value='Livraison n°" . $livraison['identifiant_livraison'] . "' class='dropdown-item'>
 
                     </form>";
 
-            }
+        }
 
         $row .= "    </div>
                 </div>";
