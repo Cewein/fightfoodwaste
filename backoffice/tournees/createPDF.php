@@ -4,15 +4,16 @@ require_once __DIR__ . "/../../includes.php";
 require_once __DIR__ . "/../../fpdf/tfpdf.php";
 
 
-if(isset($_POST['dateLivraison'])===true&&isset($_POST['beneficiaire'])===true&&isset($_POST['adress'])===true&&isset($_POST['city'])===true){
-    $namePDF = $_POST['beneficiaire'] . "_" . $_POST['dateLivraison'] .".pdf";
-    $beneficiaire= $_POST['beneficiaire'];
-    $date=$_POST['dateLivraison'];
+if (isset($_POST['dateLivraison']) === true && isset($_POST['beneficiaire']) === true && isset($_POST['idBeneficiaire']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true) {
+    $namePDF = $_POST['beneficiaire'] . "_" . $_POST['dateLivraison'] . ".pdf";
+    $beneficiaire = $_POST['beneficiaire'];
+    $date = $_POST['dateLivraison'];
+    $adress=$_POST['adress'];
+    $city=$_POST['city'];
 }
 
 
-
-class PDF extends FPDF
+class PDF extends tFPDF
 {
 // En-tête
     function Header()
@@ -42,6 +43,14 @@ class PDF extends FPDF
         // Numéro de page
         $this->Cell(0, 10, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
     }
+
+    function EnteteLivraison($adress,$city,$date,$beneficiaire){
+        $this->SetFont('Arial','',12);
+        $this->Cell(0,6,"Destinataire : $beneficiaire",0,1,'L',true);
+        $this->Cell(0,6,"Adresse : $adress",0,1,'L',true);
+        $this->Cell(0,6,"Ville : $city",0,1,'L',true);
+        $this->Cell(0,6,"Date de livraison : $date",0,1,'L',true);
+    }
 }
 
 // Instanciation de la classe dérivée
@@ -50,4 +59,4 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times', '', 12);
 
-$pdf->Output('D', $namePDF);
+$pdf->Output($namePDF, 'D');

@@ -19,6 +19,7 @@ foreach ($allTournees as $tournee) {
             $row .= "<form method='POST' action='tournees/createPDF.php'>
                         <input type='hidden' name='idLivraison' value='" . $livraison['identifiant_livraison'] . "'>
                         <input type='hidden' name='beneficiaire' value='" . $livraison['nom'] . "'>
+                        <input type='hidden' name='idBeneficiaire' value='" . $livraison['id_beneficiaire'] . "'>
                         <input type='hidden' name='adress' value='" . $livraison['adresse'] . "'>
                         <input type='hidden' name='city' value='" . $livraison['ville'] . "'>
                         <input type='hidden' name='dateLivraison' value='" . $livraison['date_livraison'] . "'>
