@@ -10,7 +10,7 @@ include_once(__DIR__.'/portfolio.php');
 include_once(__DIR__.'/about.php');
 include_once(__DIR__.'/team.php');
 include_once(__DIR__.'/client.php');
-include_once(__DIR__.'/contact.php');
+//include_once(__DIR__.'/contact.php');
 include_once(__DIR__.'/footer.php');
 include_once(__DIR__.'/portfolio-modal.php');
 

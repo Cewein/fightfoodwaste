@@ -6,9 +6,14 @@
  * Time: 23:19
  */
 
+
 require_once __DIR__.'/includes.php';
+header('Location: front/index.php');
 $actualDirectory=__DIR__;
+
+
 ?>
+
 
 
 <!DOCTYPE html>
