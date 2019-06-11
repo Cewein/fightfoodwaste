@@ -71,7 +71,7 @@ document.getElementById('inscription_shop').addEventListener('submit', function 
 
     //Récupération des champs d'erreur
     const nameShopError = document.getElementById("nameError");
-    const SiretError = document.getElementById("PNameError");
+    const SiretError = document.getElementById("SIRETError");
     const emailError = document.getElementById("emailError");
     const pwd1Error = document.getElementById("pwd1Error");
     const pwd2Error = document.getElementById("pwd2Error");
@@ -111,9 +111,6 @@ document.getElementById('inscription_shop').addEventListener('submit', function 
         check = false;
     }
 
-    //Check if email is unknown
-    sendRequest(`email=${email.value}`, 'checkEmail');
-
     if (check === true) {
         sendRequest(`name=${nameShopChecked}&Siret=${SiretChecked}&email=${emailChecked}&pwd=${pwdChecked}&adress=${adress}&city=${city}&commercant='commercant'`, 'inscription.php', 'commercant');
     }
@@ -124,6 +121,7 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log(request.responseText);
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 type === 'particulier' ? inputName = 'input_email_p' : inputName = "inputEmailC";

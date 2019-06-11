@@ -136,9 +136,6 @@ $actualDirectory = __DIR__;
                                     <input type="email" class="form-control form-control-user" id="inputEmailC"
                                            name="email"
                                            aria-describedby="Adresse Mail" placeholder="Votre adresse mail">
-                                    <small id="emailHelp" class="form-text text-muted">Votre adresse mail ne sera
-                                        transmise a personne.
-                                    </small>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
