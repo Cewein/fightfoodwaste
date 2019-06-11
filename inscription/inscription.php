@@ -37,9 +37,8 @@ if (isset($_POST['particulier']) === true) {
 
             if (isset($_POST['connection']) === false) {
                 $id = getUserIdByMail($email);
-                setUsersSession($id, $name, $email, '1', "null");
+                setUsersSession($id, $name, $email, '1');
             }
-
 
             echo "Variables set";
         } else {

@@ -1,7 +1,7 @@
 <?php
 
-require_once ('../../includes.php');
-require_once ('tour.php');
+require_once __DIR__.'/../../includes.php';
+require_once __DIR__.'/tour.php';
 
 
     $validatedWonder = getAllValidatedWonder();
@@ -43,5 +43,3 @@ require_once ('tour.php');
     } else {
         echo "Il n'y a aucune collecte à effectuer";
     }
-     
-

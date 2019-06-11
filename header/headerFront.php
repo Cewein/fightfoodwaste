@@ -62,7 +62,7 @@ if (isset($allUsersRoles) === true) {
                 break;
             case 'salary':
                 $linkName = "Espace de travail";
-                $path = "#";
+                $path = "profile/profile_salary.php";
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
