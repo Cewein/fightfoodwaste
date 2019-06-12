@@ -6,21 +6,14 @@ function getAllValidatedWonder() {
 
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT `identifiant` FROM `demande` WHERE `statut`='checkedTrue'"; 
+    $request = "SELECT * FROM demande INNER JOIN interagir ON `interagir.id_demande`=`demande.identifiant` WHERE  statut='checkedTrue'"; 
 
     return($db -> getAll($request,[])); 
 
 }  
 
 
-function getUserId() {
 
-    $db = DatabaseManager::getManager();
-
-    $request = "SELECT 'id_utilisateur','identifiant','statut','id_collecte' FROM `demande` INNER JOIN `interagir` ON 'demande.identifiant'='interagir.id_demande'"; 
-    
-    return ($db->getAll($request, [])); 
-}
 
 function getAllReferentUsers() {
    

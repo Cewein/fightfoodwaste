@@ -1,7 +1,7 @@
 <?php
 
 
-require_once __DIR__ . '/includes.php';
+require_once('../includes.php');
 
 if (isset($_GET['id']) and $_GET['id'] > 0) {
    $getid = intval($_GET['id']);
@@ -35,7 +35,7 @@ if (isset($_GET['id']) and $_GET['id'] > 0) {
          <?php } ?>
          Adresse mail : <?= $userinfo['mail']; ?>
          <br />
-         Mot de passe : <?= htmlspecialchars(hash($userinfo['pwd']))?>
+         Mot de passe : <?= password_hash($userinfo['pwd'], PASSWORD_DEFAULT) ?>
          <br />
          Adresse postale : <?= $userinfo['address']; ?>
          <br />
@@ -47,9 +47,10 @@ if (isset($_GET['id']) and $_GET['id'] > 0) {
          if (isset($_SESSION['id']) and $userinfo['id'] == $_SESSION['id']) {
             ?>
             <br />
-            <a href="editionprofil.php">Editer mon profil</a>
-            <a href="index.php">Retour à la page d'accueil</a>
-            <a href="deconnection.php">Se déconnecter</a>
+            <a href="editionprofil.php">Modifier mon profil</a>
+            <a href="deleteAccount.php">Supprimer mon compte</a>
+            <a href="../index.php">Retour à la page d'accueil</a>
+            <a href="../connection/deconnection.php">Se déconnecter</a>
          <?php
       }
       ?>

@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . "/../includes.php";
-require_once "foodCollection/validatedRequestList.php";
 
 
 ?>
@@ -163,10 +162,14 @@ require_once "foodCollection/validatedRequestList.php";
                                             <th>Ville</th>
                                         </tr>
                                     </thead>
-
+                                    <?php
+                                    include ("foodCollection/validatedRequestList.php");
+                                    ?>
                                     <tbody>
 
                                     </tbody>
+
+
                                 </table>
                             </div>
                         </div>
