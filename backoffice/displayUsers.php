@@ -5,43 +5,43 @@ require_once __DIR__ . "/../includes.php";
 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
+    <!DOCTYPE html>
+    <html lang="fr">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
 
-    <title>Administration : Gestion des collectes</title>
+        <title>Administration : Gestion des collectes</title>
 
-    <!-- Custom fonts for this template -->
-    <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
 
-    <!-- Icons Link -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- Icons Link -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+              crossorigin="anonymous">
 
-    <!-- Custom styles for this template -->
-    <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this page -->
-    <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="../css/newHeader.css" rel="stylesheet">
+        <!-- Custom styles for this page -->
+        <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="../css/newHeader.css" rel="stylesheet">
 
-</head>
+    </head>
 
-<body id="page-top">
+    <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
-
-
 
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -64,11 +64,11 @@ require_once __DIR__ . "/../includes.php";
                     </button>
 
 
-
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                   aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -82,14 +82,18 @@ require_once __DIR__ . "/../includes.php";
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                               placeholder="Search for..." aria-label="Search"
+                                               aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -104,12 +108,15 @@ require_once __DIR__ . "/../includes.php";
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <img class="img-profile rounded-circle"
+                                     src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -153,14 +160,14 @@ require_once __DIR__ . "/../includes.php";
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th>Demande_id</th>
-                                            <th>Id de l'utilisateur</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>Adresse</th>
-                                            <th>Ville</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Demande_id</th>
+                                        <th>Id de l'utilisateur</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Adresse</th>
+                                        <th>Ville</th>
+                                    </tr>
                                     </thead>
                                     <?php
                                     include ("foodCollection/validatedRequestList.php");
@@ -203,7 +210,8 @@ require_once __DIR__ . "/../includes.php";
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -238,10 +246,9 @@ require_once __DIR__ . "/../includes.php";
     <!-- Page level custom scripts -->
     <script src="../css/BackOffice/datatables-demo.js"></script>
 
-</body>
+    </body>
 
-</html>
-
+    </html>
 
 
 <?php
@@ -290,84 +297,84 @@ foreach ($requestsStatut as $singleRequest) {
 
    $validatedWonder = $_POST['statut'];
     $allValidatedWonder = getAllValidatedWonder($statut); */
-     
-  /* echo "ouf";
 
- } else {
-    echo "not ok"; 
-    var_dump($requests);
+/* echo "ouf";
+
+} else {
+  echo "not ok";
+  var_dump($requests);
 }
 
 /*
-    if(isset($_POST['demande'])) {
-        echo('ok pour la condition'); 
-       $requestsStatut = getRequestsByStatut($_POST['type']);
-       
-       
-        echo ('ok');
-        
-        if(isset($idDemande)) {
+  if(isset($_POST['demande'])) {
+      echo('ok pour la condition');
+     $requestsStatut = getRequestsByStatut($_POST['type']);
 
-        }
-    
 
-    $row = "Aucune demande n\'a été validée"; 
+      echo ('ok');
 
-    foreach($allUser as $user) {
-        $viewLine = new Tour ($id, 
-                             $fName,
-                             $lName,
-                             $siren,
-                             $addr, 
-                             $city, 
-                             $idTour)
-                            ;
+      if(isset($idDemande)) {
 
-        $row = "<tr><th scope=\"row\">" . $viewLine->getUserId(). "</th>";
-        $row .= "<td>" . $viewLine->getLastName() . "</td>";
-        $row .= "<td>" .  $viewLine->geTfirstName() . "</td>";
-        $row .= "<td>" .  $viewLine->getSirenNumber() . "</td>";
-        $row .= "<td>" .  $viewLine->getAddress() . "</td>";
-        $row .= "<td>" .  $viewLine->getCity() . "</td>";
-        $row .= "<td>" .  $viewLine->getIdTour() . "</td>"; 
-       
-        $row .= "</tr>";
-    }
-    echo $row;
+      }
 
-        
-}    
+
+  $row = "Aucune demande n\'a été validée";
+
+  foreach($allUser as $user) {
+      $viewLine = new Tour ($id,
+                           $fName,
+                           $lName,
+                           $siren,
+                           $addr,
+                           $city,
+                           $idTour)
+                          ;
+
+      $row = "<tr><th scope=\"row\">" . $viewLine->getUserId(). "</th>";
+      $row .= "<td>" . $viewLine->getLastName() . "</td>";
+      $row .= "<td>" .  $viewLine->geTfirstName() . "</td>";
+      $row .= "<td>" .  $viewLine->getSirenNumber() . "</td>";
+      $row .= "<td>" .  $viewLine->getAddress() . "</td>";
+      $row .= "<td>" .  $viewLine->getCity() . "</td>";
+      $row .= "<td>" .  $viewLine->getIdTour() . "</td>";
+
+      $row .= "</tr>";
+  }
+  echo $row;
+
+
+}
 
 
 
 /*
 
 if( isset($_POST['type'])) {
-    $requestsStatut = getRequestsByStatut($_POST['type']);
-    echo ('ok'); 
+  $requestsStatut = getRequestsByStatut($_POST['type']);
+  echo ('ok');
 }
 $i = 0;
 $idRequestList = "";
 
 foreach ($requestsStatut as $singleRequest) {
-    $requests[$i] = new Request($singleRequest['identifiant'], $singleRequest['statut'], $singleRequest['id_collecte']);
-    $idRequestList .= $requests[$i]->getId();
-    if (isset($requestsStatut[$i + 1]) === true) {
-        $idRequestList .= ",";
-    }
-    $i++;
+  $requests[$i] = new Request($singleRequest['identifiant'], $singleRequest['statut'], $singleRequest['id_collecte']);
+  $idRequestList .= $requests[$i]->getId();
+  if (isset($requestsStatut[$i + 1]) === true) {
+      $idRequestList .= ",";
+  }
+  $i++;
 }
 echo $idRequestList;
-   
+
 /*
-    $name = $_POST['name']; 
-    $pname = $_POST['pname'];
-    $adress = $_POST['adresse'];
-    $city = $_POST['city']; 
-    $userId = getAllReferentUsers($idDemande, $name, $pname, $adress, $city);
- 
-    
-  // echo $userId; */
+  $name = $_POST['name'];
+  $pname = $_POST['pname'];
+  $adress = $_POST['adresse'];
+  $city = $_POST['city'];
+  $userId = getAllReferentUsers($idDemande, $name, $pname, $adress, $city);
+
+
+// echo $userId; */
 /*
 $requestsStatut = getRequestsByStatut($_POST['type']);
 

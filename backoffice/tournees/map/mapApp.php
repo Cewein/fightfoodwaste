@@ -9,14 +9,14 @@
         <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-        <link href="../css/general.css" rel="stylesheet">
-        <link href="../css/header.css" rel="stylesheet">
-        <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/general.css" rel="stylesheet">
+        <link href="../../../css/header.css" rel="stylesheet">
+        <link href="../../../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
 
     <?php
-        require_once(__DIR__.'/../header/adaptHeader.php');
+        require_once(__DIR__ . '/../header/adaptHeader.php');
     ?>
 
     <body>

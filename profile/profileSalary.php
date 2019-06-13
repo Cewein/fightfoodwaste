@@ -4,32 +4,32 @@
 require_once('../includes.php');
 
 if (isset($_GET['id']) and $_GET['id'] > 0) {
-   $getid = intval($_GET['id']);
-   $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
-   $requser->execute(array($getid));
-   $userinfo = $requser->fetch();
-   ?>
-   <html>
+    $getid = intval($_GET['id']);
+    $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+    ?>
+    <html lang="fr">
 
-   <head>
-      <title>Page de profil utilisateur</title>
-      <meta charset="utf-8">
-   </head>
+    <head>
+        <title>Page de profil utilisateur</title>
+        <meta charset="utf-8">
+    </head>
 
-   <body>
-      <div align="center">
-         <?php if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'particulier') { ?>
+    <body>
+    <div align="center">
+        <?php if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'particulier') { ?>
             <h2>Profil de <?= $userinfo['name'] . ' ' . $userinfo['pname']; ?></h2>
-            <br /><br />
+            <br/><br/>
             Nom : <?= $userinfo['name']; ?>
-            <br />
+            <br/>
             Prénom : <?= $userinfo['pname']; ?>
-            <br />
-         <?php } else if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'commercant') { ?>
+            <br/>
+        <?php } else if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'commercant') { ?>
             <h2>Profil de <?= $userinfo['nameShop'] ?></h2>
-            <br /><br />
+            <br/><br/>
             Nom du commerce : <?= $userinfo['nameShop']; ?>
-            <br />
+            <br/>
             Numéro de SIRET : <?= $userinfo['SIRET']; ?>
             <br />
          <?php } ?>
@@ -57,7 +57,7 @@ if (isset($_GET['id']) and $_GET['id'] > 0) {
       </div>
    </body>
 
-   </html>
-<?php
+    </html>
+    <?php
 }
 ?>

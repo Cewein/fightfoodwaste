@@ -29,6 +29,7 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
 
     if (checkDate(dateTournee.value) === false) {
         dateError.style.display = 'block';
+        dateError.style.color = "red";
         check = false;
     } else {
         dateError.style.display = 'none';
@@ -73,7 +74,6 @@ function nextBeneficiaire(BeneficiairesList, actual, dateTournee, idTournee) {
         sendRequestTournee('../backoffice/tournees/deliverCreate.php', `productsSelected=${productsSelected}&idBeneficiaire=${idBeneficiaire}&dateTournee=${dateTournee}&idTournee=${idTournee}`, function (res) {
 
         })
-        //Editer le PDF (PHP ^)
     }
 
     displayProducts();

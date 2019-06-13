@@ -40,11 +40,11 @@
 /*    display: none;*/
 /*}*/
 
-#beneficiaireError{
+#beneficiaireError, #dateError{
     color: red;
 }
 
-#EndGenerate, #beneficiaireError, #displayProducts{
+#EndGenerate, #beneficiaireError, #displayProducts, #dateError{
     display: none;
 }
 

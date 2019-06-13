@@ -43,5 +43,3 @@ require_once ('tour.php');
     } else {
         echo "Il n'y a aucune collecte à effectuer";
     }
-     
-

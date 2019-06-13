@@ -37,9 +37,8 @@ if (isset($_POST['particulier']) === true) {
 
             if (isset($_POST['connection']) === false) {
                 $id = getUserIdByMail($email);
-                setUsersSession($id, $name, $email, '1', "null");
+                setUsersSession($id, $name, $email, '1');
             }
-
 
             echo "Variables set";
         } else {
@@ -74,7 +73,8 @@ if (isset($_POST['particulier']) === true) {
 
         //Email unicity check
         $result = getUserIdByMail($email);
-        if ($result !== [0]) {
+        if ($result !== []) {
+            $error = "mail already set";
             $verif = false;
         }
 
@@ -89,7 +89,11 @@ if (isset($_POST['particulier']) === true) {
 
         } else {
             http_response_code(400);
-            echo("Error : Verification Error");
+            if (isset($error) === true) {
+                echo $error;
+            } else {
+                echo("Error : Verification Error");
+            }
         }
     } else {
         echo "Error : Variables not set";

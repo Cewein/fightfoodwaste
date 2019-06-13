@@ -73,8 +73,6 @@ function updateUser(id) {
     city.value = userInfos[5].innerHTML;
     userId.value = id;
 
-    console.log(user);
-    console.log(userInfos);
 
 }
 
@@ -86,7 +84,7 @@ function sendRequestUser(id, type) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            //console.log(request.responseText);//Réponse à afficher
+
         }
     };
     request.open('POST', '../backoffice/users/updateUsers.php');
@@ -234,7 +232,7 @@ function sendRequest(textRequest, script, type = false) {
                 }
             }
             else{
-                console.log(request.responseText);
+                
             }
 
         }

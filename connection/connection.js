@@ -6,21 +6,17 @@
     }
 } */
 
-
-
 document.getElementById('connection').addEventListener('submit', function (e) {
     e.preventDefault();
 
     //Récupération des champs
     const mail = document.getElementById('mail');
     const pwd = document.getElementById('pwd');
-    
 
     //Récupération des champs d'erreur
    
     const mailError = document.getElementById("mailError");
     const pwdError = document.getElementById("pwdError");
-    
 
     //Déclaration des variables
     let mail_checked;
@@ -48,7 +44,6 @@ document.getElementById('connection').addEventListener('submit', function (e) {
 
 
 function sendRequest(textRequest, script, type = false) {
-    console.log(textRequest);
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
@@ -73,7 +68,6 @@ function sendRequest(textRequest, script, type = false) {
 }
 
 
-
 function checkPassword(pwd1, pwd2, pwd1Error, pwd2Error) {
     if (pwd1.value === pwd2.value) {
         if (pwd1.value.length < 8 || pwd1.value.length > 50) {
@@ -83,11 +77,8 @@ function checkPassword(pwd1, pwd2, pwd1Error, pwd2Error) {
             return true;
         }
     }
-    
 }
-
 
 function finishConnection($mail,$type) {
     document.location.href = "/../index.php"
-
 }
