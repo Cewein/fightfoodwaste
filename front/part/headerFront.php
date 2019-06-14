@@ -5,6 +5,7 @@
  * Date: 02/04/2019 et 08/04/2019
  * Time: 16:00 et 1:10
  */
+require_once __DIR__ . '/../../includes.php';
 
 $path = explode('\\', $actualDirectory);
 
@@ -23,7 +24,7 @@ if ($pathEnd === DIR_HOME) {
 } else {
     $pathIndex = $directory . 'index.php';
     $pathImg = $directory . 'pictures/users.png';
-    $pathAdmin = $directory . "/backoffice/BackHome.php";
+    $pathAdmin = $directory . "backoffice/BackHome.php";
 }
 if ($pathEnd === 'inscription') {
     $pathInscription = "";
@@ -72,7 +73,7 @@ if (isset($allUsersRoles) === true) {
                 break;
             case 'salary':
                 $linkName = "Espace de travail";
-                $path = "profile/profile_salary.php";
+                $path = $directory."profile/profileSalary.php";
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
@@ -97,10 +98,10 @@ if (isset($allUsersRoles) === true) {
 
 <header id="headerFront">
     <div class="row header">
-        <div class="col-md-1"></div>
-        <h1 class="nav-bar brand col-md-4">Fight Food Waste</h1>
-
-        <nav class="navbar navbar-expand-lg navbar-light col-md-6">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="col-md-1"></div>
+            <h1 class="nav-bar brand col-md-4">Fight Food Waste</h1>
+            <div class="col-md-1"></div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href=<?php echo $pathIndex ?>>Accueil</a></li>
@@ -115,16 +116,9 @@ if (isset($allUsersRoles) === true) {
                     <?php } else { ?>
 
                         <?php echo $roleLinks ?>
-                        <div class="dropdown">
-                            <li class="nav-item">
-                                <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="../profile/profile_member.php">Mon compte</a>
-                                    </li>
-
-                            </li>
-                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
+                        </li>
                     <?php } ?>
                 </ul>
             </div>
