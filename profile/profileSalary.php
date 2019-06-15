@@ -1,63 +1,73 @@
 <?php
 
-
 require_once('../includes.php');
+$actualDirectory=__DIR__;
 
-if (isset($_GET['id']) and $_GET['id'] > 0) {
-    $getid = intval($_GET['id']);
-    $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
-    $requser->execute(array($getid));
-    $userinfo = $requser->fetch();
+if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
+    $userinfo=getUserById($_SESSION['id']);
+
+    $name=$userinfo['nom'];
+    $pname=$userinfo['prenom'];
+    $email=$userinfo['adresse_mail'];
+    $password=$userinfo['password'];
+    $adress=$userinfo['adresse'];
+    $city=$userinfo['ville'];
+
     ?>
     <html lang="fr">
 
     <head>
-        <title>Page de profil utilisateur</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Page de profil Salarié</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet"
+              type="text/css">
+
+        <!-- Custom styles for this template -->
+<!--        <link href="css/agency.min.css" rel="stylesheet">-->
+        <link href="../css/header.css" rel="stylesheet">
+
     </head>
 
     <body>
+    <?php require_once __DIR__.'/../front/part/headerFront.php'; ?>
     <div align="center">
-        <?php if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'particulier') { ?>
-            <h2>Profil de <?= $userinfo['name'] . ' ' . $userinfo['pname']; ?></h2>
-            <br/><br/>
-            Nom : <?= $userinfo['name']; ?>
-            <br/>
-            Prénom : <?= $userinfo['pname']; ?>
-            <br/>
-        <?php } else if (isset($_SESSION['id']) and isset($_SESSION['type']) == 'commercant') { ?>
-            <h2>Profil de <?= $userinfo['nameShop'] ?></h2>
-            <br/><br/>
-            Nom du commerce : <?= $userinfo['nameShop']; ?>
-            <br/>
-            Numéro de SIRET : <?= $userinfo['SIRET']; ?>
-            <br />
-         <?php } ?>
-         Adresse mail : <?= $userinfo['mail']; ?>
-         <br />
-         Mot de passe : <?= password_hash($userinfo['pwd'], PASSWORD_DEFAULT) ?>
-         <br />
-         Adresse postale : <?= $userinfo['address']; ?>
-         <br />
-         Ville : <?= $userinfo['city']; ?>
-         <br />
-         Etat du compte ou compte actif ou inactif? : <?= $userinfo['state']; ?>
-         <br />
-         <?php
-         if (isset($_SESSION['id']) and $userinfo['id'] == $_SESSION['id']) {
-            ?>
-            <br />
-            <a href="editionprofil.php">Modifier mon profil</a>
-            <a href="deleteAccount.php">Supprimer mon compte</a>
-            <a href="../index.php">Retour à la page d'accueil</a>
-            <a href="../connection/deconnection.php">Se déconnecter</a>
-         <?php
-      }
-      ?>
-      </div>
-   </body>
+
+        <h2>Profil de <?= $name . ' ' . $pname; ?></h2>
+        <br/><br/>
+        Nom : <?= $name; ?>
+        <br/>
+        Prénom : <?= $pname; ?>
+        <br/>
+        Adresse mail : <?= $email; ?>
+        <br/>
+        Mot de passe : <?= password_hash($password, PASSWORD_DEFAULT) ?>
+        <br/>
+        Adresse postale : <?= $adress; ?>
+        <br/>
+        Ville : <?= $city; ?>
+        <br/>
+        <br/>
+        <a href="editionprofil.php">Modifier mon profil</a>
+        <a href="deleteAccount.php">Supprimer mon compte</a>
+        <a href="../index.php">Retour à la page d'accueil</a>
+        <a href="../connection/disconnection.php">Se déconnecter</a>
+
+    </div>
+    </body>
 
     </html>
     <?php
+} else {
+    header('Location: ../front/index.php');
+    exit();
 }
 ?>

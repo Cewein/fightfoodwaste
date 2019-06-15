@@ -73,7 +73,7 @@ if (isset($allUsersRoles) === true) {
                 break;
             case 'salary':
                 $linkName = "Espace de travail";
-                $path = $directory."profile/profileSalary.php";
+                $path = $directory . "profile/profileSalary.php";
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
@@ -124,5 +124,4 @@ if (isset($allUsersRoles) === true) {
             </div>
         </nav>
     </div>
-
 </header>

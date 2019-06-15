@@ -16,6 +16,14 @@ function getUserIdByMail($mail)
     return ($db->findOne($request, [$mail]));
 }
 
+function getUserById($id)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `utilisateur` WHERE `identifiant`= ?";
+    return ($db->findOne($request, [$id]));
+}
+
 function getAllUsers()
 {
     $db = DatabaseManager::getManager();
