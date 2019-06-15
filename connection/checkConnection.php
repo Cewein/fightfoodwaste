@@ -25,19 +25,22 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
         if ($checkConnect == true) {
 
             $user = getConnection($mailAddress);
-            var_dump($password);
+
             //Check password
-            if (isset($user) === true && password_verify($password, $user['password']) === true) { 
+            if (isset($user) === true && password_verify($password, $user['password']) === true) {
                 $id = $user['identifiant'];
                 $name = $user['nom'];
+                $pname = $user['prenom'];
+
                 //Définition des rôles
                 $allRoles = getRoleByUserId($id);
-                $i=0;
-                foreach ($allRoles as $uniqueRole){
-                    $roles[$i]=$uniqueRole['id_role'];
+                $i = 0;
+                foreach ($allRoles as $uniqueRole) {
+                    $roles[$i] = $uniqueRole['id_role'];
                     $i++;
                 }
-                setUsersSession($id, $name, $mailAddress, $roles);
+
+                setUsersSession($id, $name, $mailAddress, $roles, $pname);
                 header('Location: /../../fightfoodwaste/index.php');
                 exit;
             } else {
