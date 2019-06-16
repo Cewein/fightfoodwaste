@@ -6,23 +6,39 @@ function getAllValidatedWonder() {
 
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM demande INNER JOIN interagir ON `interagir.id_demande`=`demande.identifiant` WHERE  statut='checkedTrue'"; 
+    $request = "SELECT * FROM interagir INNER JOIN utilisateur ON interagir.id_utilisateur=utilisateur.identifiant WHERE `action`='creation'";
+ //   $request = "SELECT * FROM utilisateur INNER JOIN interagir ON `interagir.id_utilisateur`=`utilisateur.identifiant` WHERE  `action`='checkedTrue'"; 
 
-    return($db -> getAll($request,[])); 
+    return ($db -> getAll($request,[])); 
 
 }  
 
 
+function getStateFoodCollection() {
+    $db = DatabaseManager::getManager();
 
+    $request = "SELECT * FROM collecte WHERE status!='finie'";
 
-function getAllReferentUsers() {
-   
-    $db = DatabaseManager::getManager(); 
-
-    $request = "SELECT 'id_demande','nom','prenom','adresse','ville' FROM `utilisateur` INNER JOIN `interagir` ON 'utilisateur.identifiant' = 'interagir.id_utilisateur' ";
-
-    return ($db->getAll($request, []));
+    return ($db -> getAll($request)); 
 }
 
 
+function getOldStateFoodCollection()
+{
+    $db = DatabaseManager::getManager();
 
+    $request = "SELECT * FROM collecte WHERE status='finie'";
+
+    return ($db->getAll($request));
+}
+
+
+function getNbFoodCollection() {
+
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT `identifiant` FROM collecte WHERE status!='finie'";
+
+    return ($db->getAll($request)); 
+
+}

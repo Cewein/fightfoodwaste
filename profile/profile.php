@@ -1,5 +1,5 @@
 <?php
-require_once('../includes.php');
+require_once ('../includes.php');
 
 
 
@@ -12,7 +12,7 @@ require_once('../includes.php');
 
 <body>
     <div align="center">
-        <?php if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'commercant') {
+        <?php if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || isset($_SESSION['roles']) == 'salary' ||  isset($_SESSION['roles']) == 'particulier') {
             $id = ($_SESSION['id']);
             $userInfo = readUser($id);
 
@@ -54,7 +54,7 @@ require_once('../includes.php');
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4>Profil de <?php echo  $userInfo['nom']; ?></h4>
+                                        <h4>Profil de <?php echo  $userInfo['nom'] . ' ' . $userInfo['prenom']; ?></h4>
                                         <br>
                                         <img alt='avatar par défaut' src="../pictures/user.png">
                                         <hr>
@@ -70,12 +70,12 @@ require_once('../includes.php');
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th>Nom du commerce</th>
+                                                    <th>Nom</th>
                                                     <td><?php echo $userInfo['nom']; ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Numéro de SIREN</th>
-                                                    <td><?php echo $userInfo['n_SIREN']; ?></td>
+                                                    <th>Prénom</th>
+                                                    <td><?php echo $userInfo['prenom']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Adresse mail</th>

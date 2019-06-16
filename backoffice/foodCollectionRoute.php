@@ -1,7 +1,6 @@
 <?php
 
-require_once ("../includes.php");
-
+require_once __DIR__ . '/../includes.php';
 
 ?>
 
@@ -17,7 +16,7 @@ require_once ("../includes.php");
     <meta name="author" content="">
 
 
-    <title>Administration : Gestion des collectes</title>
+    <title>Administration : Collectes</title>
 
     <!-- Custom fonts for this template -->
     <link href="../css/BackOffice/all.min.css" rel="stylesheet" type="text/css">
@@ -29,10 +28,14 @@ require_once ("../includes.php");
     <!-- Custom styles for this template -->
     <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom Style for Map -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
+
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
-
+    <link href="../css/backoffice.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -40,11 +43,7 @@ require_once ("../includes.php");
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <?php include('navbar.php'); ?>
-
-        <!-- End of Sidebar -->
+        <?php require_once __DIR__ . "/navbar.php"; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -59,7 +58,6 @@ require_once ("../includes.php");
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
 
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -102,7 +100,6 @@ require_once ("../includes.php");
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -135,110 +132,84 @@ require_once ("../includes.php");
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">Introduction au tableau</p>
+                    <h1 class="h3 mb-2 text-gray-800">Trajet de chaque collecte</h1>
+                    <p class="mb-4" id="infosTournee"> </p>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" onclick="usersRequests('checkedTrue');">
-                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Demande_id</th>
-                                            <th>Id de l'utilisateur</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>N° de SIREN</th>
-                                            <th>Adresse</th>
-                                            <th>Ville</th>
-                                        </tr>
-                                    </thead>
+                    <div class="list-group" id="displayFoodCollection">
+                        <?php require_once __DIR__ . '/foodCollection/displayFoodCollection.php' ?>
+                    </div>
 
-                                    <tbody>
-                                        <?php
-                                        require_once __DIR__ . '/foodCollection/validatedRequestList.php';
-                                        ?>
-                                    </tbody>
-
-
-                                </table>
-                            </div>
-                        </div>
+                    <div id="map">
+                        <iframe name="map" id="frame" src="tournees/map/map.php" width="100%" height="800px"></iframe>
+                        <div id="containerButtons"></div>
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; FightFoodWaste 2019</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- End of Content Wrapper -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; FightFoodWaste 2019</span>
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../css/BackOffice/jquery.easing.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../css/BackOffice/sb-admin-2.min.js"></script>
+        <!-- Map Scripts -->
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
 
-    <!-- Page level plugins -->
-    <script src="../css/BackOffice/jquery.dataTables.min.js"></script>
-    <script src="../css/BackOffice/dataTables.bootstrap4.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../css/BackOffice/jquery.easing.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../css/BackOffice/datatables-demo.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../css/BackOffice/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="../css/BackOffice/jquery.dataTables.min.js"></script>
+        <script src="../css/BackOffice/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="../css/BackOffice/datatables-demo.js"></script>
+        <script src="tournees/tourneeParcoursView.js"></script>
 
 </body>
 
 </html>
-
-
-<?php
-

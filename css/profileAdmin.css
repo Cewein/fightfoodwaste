@@ -1,0 +1,51 @@
+body {
+    box-sizing: border-box; 
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px; 
+}
+
+.card
+
+tr {
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+ tr:first-child {
+    border-top: 0;
+}
+
+ td {
+    border-top: 0;
+}
+
+.form-group row{
+    display: inline-block;
+    padding: auto; 
+}
+/*
+.profile-user-info {
+    display: table;
+    width: 98%;
+    width: calc(100% - 24px);
+    margin: 0 auto
+}
+
+.profile-info-row {
+    display: table-row
+}
+
+.profile-info-name {
+     display: table-cell;
+    border-top: 1px dotted #D5E4F1;
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    color: #667E99;
+    background-color: transparent;
+    width: 110px;
+    vertical-align: middle
+}

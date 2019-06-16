@@ -1,10 +1,10 @@
 <?php
 
 require_once ("../includes.php"); 
+include ("../connection/connectionSession.php");
 
-$checkConnection = setUsersSession($id, $name, $email, $roles); 
 
-if (isset($checkConnection)) {
+
 
     switch($SESSION['role']) {
         case '1' : header('Location : profileAdherent.php'); 
@@ -16,14 +16,13 @@ if (isset($checkConnection)) {
         case '3' : header('Location : profileSalary.php');
 
 
-        case '4' : header('Location : profileAdmin.php');  //nom à changer car c'est pour les admins 
+        case '4' : header('Location : profileAdmin.php'); 
              break; 
 
         default : header('Location : profileAdherent.php');
             break; 
     }
 
-}
 
 
 
