@@ -115,16 +115,11 @@ if (isset($allUsersRoles) === true) {
                     <?php } else { ?>
 
                         <?php echo $roleLinks ?>
-                        <div class="dropdown">
-                            <li class="nav-item">
-                                <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="../profile/profile_member.php">Mon compte</a>
-                                    </li>
 
-                            </li>
-                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
+                        </li>
+
                     <?php } ?>
                 </ul>
             </div>

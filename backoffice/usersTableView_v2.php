@@ -1,11 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sandrine
- * Date: 14/05/2019
- * Time: 15:56
- */
-require_once __DIR__. "/../includes.php";
+
+require_once __DIR__ . "/../includes.php";
+require_once __DIR__ . '/checkSalary.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +15,6 @@ require_once __DIR__. "/../includes.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
 
     <title>Administration : Utilisateurs</title>
 
@@ -56,58 +52,13 @@ require_once __DIR__. "/../includes.php";
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
-
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Search for..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['name'] . " " . $_SESSION['pname'] ?></span>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -127,13 +78,11 @@ require_once __DIR__. "/../includes.php";
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
+                                Déconnexion
                             </a>
                         </div>
                     </li>
-
                 </ul>
-
             </nav>
             <!-- End of Topbar -->
 
@@ -142,11 +91,14 @@ require_once __DIR__. "/../includes.php";
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
-                <p class="mb-4"><!--Navbar Infos Users -->
+                <!--Navbar Infos Users -->
                 <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs" onclick="allUsers()">
-                    <input class="btn btn-secondary" type="button" value="Afficher particuliers" onclick="users('particulier')">
-                    <input class="btn btn-secondary" type="button" value="Afficher commercants" onclick="users('commercant')">
+                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs"
+                           onclick="allUsers()">
+                    <input class="btn btn-secondary" type="button" value="Afficher particuliers"
+                           onclick="users('particulier')">
+                    <input class="btn btn-secondary" type="button" value="Afficher commercants"
+                           onclick="users('commercant')">
                     <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
                 </div>
 
@@ -154,8 +106,6 @@ require_once __DIR__. "/../includes.php";
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
                     Inscrire un utilisateur
                 </button>
-
-                </p>
 
                 <!-- Users table -->
                 <div class="card shadow mb-4">
@@ -190,7 +140,7 @@ require_once __DIR__. "/../includes.php";
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
-                                <?php require_once __DIR__.'/users/allUsers.php'; ?>
+                                <?php require_once __DIR__ . '/users/allUsers.php'; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -215,7 +165,7 @@ require_once __DIR__. "/../includes.php";
                             <form method="POST" id="add_user">
                                 <label id="emailSetError">Cette adresse email est déjà utilisée</label>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Type utilisateur</label>
+                                    <label for="typeUser">Type utilisateur</label>
                                     <select class="form-control" id="typeUser">
                                         <option>Particulier</option>
                                         <option>Commerçant</option>
@@ -223,35 +173,38 @@ require_once __DIR__. "/../includes.php";
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Nom</label>
+                                    <label for="inputName">Nom</label>
                                     <input type="text" class="form-control" id="inputName" aria-describedby="nom"
                                            placeholder="Nom / Nom commerce">
                                     <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
+                                    <label for="inputPname">Prénom (non obligatoire pour les commerçants)</label>
                                     <input type="text" class="form-control" id="inputPname" aria-describedby="prenom"
                                            placeholder="Prenom">
-                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputEmail1">Adresse Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                    <label for="inputEmail">Adresse Email</label>
+                                    <input type="email" class="form-control" id="inputEmail"
+                                           aria-describedby="emailHelp"
                                            placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputPassword1">Password</label>
+                                    <label for="inputPwd">Password</label>
                                     <input type="password" class="form-control" id="inputPwd" placeholder="Password">
                                     <small id="pwdError" class="form-text text-muted">Contient 1-100 caractères</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Adresse</label>
+                                    <label for="inputAdress">Adresse</label>
                                     <input type="text" class="form-control" id="inputAdress" aria-describedby="adress"
                                            placeholder="Adresse">
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Ville</label>
+                                    <label for="inputCity">Ville</label>
                                     <input type="text" class="form-control" id="inputCity" aria-describedby="city"
                                            placeholder="Ville">
                                 </div>
@@ -280,7 +233,7 @@ require_once __DIR__. "/../includes.php";
                             <form method="POST" id="update_user">
                                 <label id="emailSetError">Cette adresse email est déjà utilisée</label>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Type utilisateur</label>
+                                    <label for="modiftypeUser">Type utilisateur</label>
                                     <select class="form-control" id="modiftypeUser">
                                         <option>Particulier</option>
                                         <option>Commerçant</option>
@@ -288,30 +241,33 @@ require_once __DIR__. "/../includes.php";
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Nom</label>
+                                    <label for="modifName">Nom</label>
                                     <input type="text" class="form-control" id="modifName" aria-describedby="nom"
                                            placeholder="Nom / Nom commerce">
                                     <small id="nameError" class="form-text text-muted">Contient 1-100 caractères</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Prénom (non obligatoire pour les commerçants)</label>
+                                    <label for="modifPname">Prénom (non obligatoire pour les commerçants)</label>
                                     <input type="text" class="form-control" id="modifPname" aria-describedby="prenom"
                                            placeholder="Prenom">
-                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputEmail1">Adresse Email</label>
-                                    <input type="email" class="form-control" id="modifEmail" aria-describedby="emailHelp"
+                                    <label for="modifEmail">Adresse Email</label>
+                                    <input type="email" class="form-control" id="modifEmail"
+                                           aria-describedby="emailHelp"
                                            placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères</small>
+                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères
+                                    </small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Adresse</label>
+                                    <label for="modifAdress">Adresse</label>
                                     <input type="text" class="form-control" id="modifAdress" aria-describedby="adress"
                                            placeholder="Adresse">
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputNom">Ville</label>
+                                    <label for="modifCity">Ville</label>
                                     <input type="text" class="form-control" id="modifCity" aria-describedby="city"
                                            placeholder="Ville">
                                 </div>
@@ -350,25 +306,7 @@ require_once __DIR__. "/../includes.php";
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php require_once __DIR__ . "/logoutModal.php" ?>
 
 <!-- Script to display users-->
 <script src="users/usersTable.js"></script>

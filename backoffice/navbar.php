@@ -46,7 +46,6 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions :</h6>
                 <a class="collapse-item" href="usersTableView_v2.php">Affichage des utilisateurs</a>
-                <a class="collapse-item" href="usersTableView_v2.php">Ajout d'un utilisateur</a>
             </div>
         </div>
     </li>
@@ -64,6 +63,10 @@
             </div>
         </div>
     </li>
+
+    <div class="sidebar-heading">
+        Catégorie 2
+    </div>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">

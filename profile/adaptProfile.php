@@ -1,7 +1,10 @@
 <?php
 
+
 require_once ("../includes.php"); 
 include ("../connection/connectionSession.php");
+
+
 
 
 
@@ -21,6 +24,8 @@ include ("../connection/connectionSession.php");
 
         default : header('Location : profileAdherent.php');
             break; 
+
+
     }
 
 

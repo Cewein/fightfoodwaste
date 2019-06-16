@@ -6,6 +6,6 @@ function getConnection($mail)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT `identifiant`,`nom`,`adresse_mail`,`password` FROM `utilisateur` WHERE `adresse_mail`= ?";
+    $request = "SELECT `identifiant`,`nom`,`prenom`,`adresse_mail`,`password` FROM `utilisateur` WHERE `adresse_mail`= ?";
     return ($db->findOne($request, [$mail]));
 }

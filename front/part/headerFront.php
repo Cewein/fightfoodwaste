@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm and SublimeText
- * User: Sandrine et Rebecca
- * Date: 02/04/2019 et 08/04/2019
- * Time: 16:00 et 1:10
- */
+
 require_once __DIR__ . '/../../includes.php';
 
 $path = explode('\\', $actualDirectory);
-
 $pathEnd = $path[count($path) - 1];
 
 if ($pathEnd !== DIR_HOME) {
@@ -72,26 +66,33 @@ if (isset($allUsersRoles) === true) {
                 $path = "#";
                 break;
             case 'salary':
-                $linkName = "Espace de travail";
-                $path = $directory."profile/profileSalary.php";
+                $linkName = "Espace Personnel";
+                $path = $directory . "profile/profileSalary.php";
+                $roleLinks .= "<li class=\"nav-item\">
+                                    <a class=\"nav-link \" href=" . $pathAdmin . ">
+                                        <p class=\"fas fa-user-circle\"></p>Administration
+                                    </a>
+                                </li>";
+                break;
+            case 'administrateur':
+                $linkName = '';
+                $path = '';
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
                 $path = "#";
                 break;
-            case 'administrateur':
-                $linkName = "Administration";
-                $path = $pathAdmin;
-                break;
             default:
                 break;
         }
 
-        $roleLinks .= "<li class=\"nav-item\">
+        if (isset($linkName) === true && $linkName != '') {
+            $roleLinks .= "<li class=\"nav-item\">
                         <a class=\"nav-link \" href=" . $path . ">
                             <p class=\"fas fa-user-circle\"></p>    " . $linkName .
-            "</a>
-                  </li>";
+                "</a>
+                       </li>";
+        }
     }
 }
 ?>
@@ -117,12 +118,11 @@ if (isset($allUsersRoles) === true) {
 
                         <?php echo $roleLinks ?>
                         <li class="nav-item">
-                            <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Déconnexion</a>
                         </li>
                     <?php } ?>
                 </ul>
             </div>
         </nav>
     </div>
-
 </header>
