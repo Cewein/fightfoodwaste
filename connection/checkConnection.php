@@ -1,22 +1,16 @@
 <?php
-/**
- * Created by Rebecca.
- * User: Rebecca
- * Date: 08/04/2019
- * Time: 23:01
- */
 
 require_once __DIR__ . '/../includes.php';
 
 //verification de l'envoi du form
-if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === true && isset($_POST['password']) === true && $_POST['mailAddress'] !== '') {
-    $mailAddress = htmlspecialchars($_POST['mailAddress']);
+if (isset($_POST['mailAdress']) === true && isset($_POST['password']) === true && $_POST['mailAdress'] !== '') {
+    $mailAddress = htmlspecialchars($_POST['mailAdress']);
 
     $checkConnect = true;
 
     $password = htmlspecialchars($_POST['password'], PASSWORD_DEFAULT);
     if ($password === false) {
-        echo "Mauvais password";
+        echo false;
         $verif = false;
     }
 
@@ -27,7 +21,7 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
             $user = getConnection($mailAddress);
 
             //Check password
-            if (isset($user) === true && password_verify($password, $user['password']) === true) {
+            if (isset($user['nom']) === true && password_verify($password, $user['password']) === true) {
                 $id = $user['identifiant'];
                 $name = $user['nom'];
                 $pname = $user['prenom'];
@@ -41,10 +35,9 @@ if (isset($_POST['connexionForm']) === true && isset($_POST['mailAddress']) === 
                 }
 
                 setUsersSession($id, $name, $mailAddress, $roles, $pname);
-                header('Location: /../../fightfoodwaste/index.php');
-                exit;
+                echo 'Done';
             } else {
-                echo "Erreur, mot de passe incorrect";
+                echo "Adresse mail ou mot de passe invalide";
             }
         }
     } else {

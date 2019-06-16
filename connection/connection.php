@@ -22,6 +22,7 @@ require_once __DIR__ . '/../includes.php';
 
     <!-- Custom styles for this template-->
     <link href="../css/BackOffice/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/connection.css" rel="stylesheet">
 
 </head>
 
@@ -44,10 +45,11 @@ require_once __DIR__ . '/../includes.php';
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Soyez les bienvenus !</h1>
                                 </div>
-                                <form class="user" method="POST" action="checkConnection.php" id="connection" enctype="application/x-www-form-urlencoded">
+                                <form class="user" method="POST" action="" id="connection" enctype="application/x-www-form-urlencoded">
+                                    <p id="error">Adresse mail ou mot de passe invalide</p>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                               id="mail" aria-describedby="email" name="mailAddress"
+                                               id="mail" aria-describedby="email" name="mailAdress"
                                                placeholder="Adresse email">
                                     </div>
                                     <div class="form-group">
@@ -90,6 +92,7 @@ require_once __DIR__ . '/../includes.php';
 
 <!-- Custom scripts for all pages-->
 <script src="../css/BackOffice/sb-admin-2.min.js"></script>
+<script src="connection.js"></script>
 
 </body>
 

@@ -13,12 +13,11 @@ h1 {
 	text-align: center; 
 }
 
-fieldset {
-	font-family: 'TeachersStudent'; 
-	src: url('TeachersStudent.ttf') format('truetype'); 
-	color: white; 
-}
-
 form {
 	position: relative; 
+}
+
+#error{
+	display: none;
+	color: red;
 }
