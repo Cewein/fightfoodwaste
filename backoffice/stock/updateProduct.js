@@ -51,16 +51,17 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
 
     let check = true;
 
-    if (quantity.value > 0 && quantity.value <= 50) {
+    if (barcode.value < 0) {
+        barcodeError.style.display = "block";
+        check = false;
+    }
 
-    } else {
+    if (quantity.value <= 0 || quantity.value > 50) {
         quantityError.style.display = "block";
         check = false;
     }
 
-    if (stock.value >= 0 && stock.value <= 10) {
-
-    } else {
+    if (stock.value < 0 || stock.value > 10) {
         stockError.style.display = "block";
         check = false;
     }
@@ -74,8 +75,11 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
                 const container = document.getElementById('modal-body');
 
                 const alert = document.createElement("p");
+
+                //container.removeChild(alert);
                 alert.innerHTML = request.responseText;
-                alert.class='message';
+                alert.class = 'message';
+                alert.id = 'message';
                 container.appendChild(alert);
 
                 form.style.display = "none";
@@ -103,17 +107,17 @@ document.getElementById('update_product').addEventListener('submit', function (e
 
     let check = true;
 
+    if (barcode.value < 0) {
+        barcodeError.style.display = "block";
+        check = false;
+    }
 
-    if (quantity.value > 0 && quantity.value <= 50) {
-
-    } else {
+    if (quantity.value <= 0 || quantity.value > 50) {
         quantityError.style.display = "block";
         check = false;
     }
 
-    if (stock.value >= 0 && stock.value <= 10) {
-
-    } else {
+    if (stock.value < 0 || stock.value > 10) {
         stockError.style.display = "block";
         check = false;
     }
@@ -147,12 +151,12 @@ function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau pr
     const quantity = document.getElementById('inputQuantity');
     const DLC = document.getElementById('inputDLC');
     const stock = document.getElementById('inputNStock');
-    const message=document.getElementsByClassName('message');
+    const message = document.getElementById('message');
 
     barcode.value = "";
     quantity.value = "";
     DLC.value = "";
     stock.value = "";
 
-    message.style.display='none';
+    message.remove();
 }
