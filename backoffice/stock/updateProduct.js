@@ -1,5 +1,6 @@
 function updateProduct(id, number) { //Modify a existing product
     //Display modal with product infos
+    const form = document.getElementById('update_product');
     const modifBarcode = document.getElementById('modifBarcode');
     const modifQuantity = document.getElementById('modifQuantity');
     const modifDLC = document.getElementById('modifDLC');
@@ -14,6 +15,7 @@ function updateProduct(id, number) { //Modify a existing product
     modifDLC.value = productInfos[4].innerHTML;
     modifNStock.value = productInfos[5].innerHTML;
     productId.value = id;
+    form.style.display="block";
 
 }
 
@@ -134,9 +136,19 @@ document.getElementById('update_product').addEventListener('submit', function (e
                 container.appendChild(alert);
 
                 form.style.display = "none";
+
+                //Modify table with new values
+                const productRow=document.getElementById(productId.value);
+                let childRow=productRow.childNodes;
+                console.log(childRow[4].firstChild.data);
+                childRow[0].firstChild.data=barcode.value;
+                childRow[3].firstChild.data=quantity.value;
+                childRow[4].firstChild.data=DLC.value;
+                childRow[5].firstChild.data=stock.value;
+
             }
         };
-        request.open('POST', '../backoffice/stock/updateProduct.php');
+        request.open('POST','../backoffice/stock/updateProduct.php');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send(`barcode=${barcode.value}&quantity=${quantity.value}&DLC=${DLC.value}&stock=${stock.value}&id=${productId.value}&type=update`);
     }
@@ -157,6 +169,6 @@ function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau pr
     quantity.value = "";
     DLC.value = "";
     stock.value = "";
-
-    message.remove();
+console.log('miam');
+    //message.remove();
 }
