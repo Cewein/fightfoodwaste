@@ -38,17 +38,16 @@ if (isset($type) === true) {
         if (empty($allTournees) !== true) {
             foreach ($allTournees as $tournee) {
 
-                //$buttons = buttons($tournee['n_tournee']);
+                $buttons = buttons($tournee['n_tournee']);
                 $row = "<tr id=" . $tournee['n_tournee'] . "><th scope=\"row\">" . $tournee['n_tournee'] . "</th>";
                 $row .= "<th>" . $tournee['etat'] . "</th>";
                 $row .= "<th>" . $tournee['date'] . "</th>";
-                //$row .= "<th>" . $buttons . "</th>";
+                $row .= "<th>" . $buttons . "</th>";
                 $row .= "</tr>";
 
                 echo $row;
             }
         }
-
     }
 } else {
     $allTournees = getTourneeEtatPreparation();
@@ -59,16 +58,15 @@ if (isset($type) === true) {
 
             echo $row;
         }
-
         $lastid = $tournee['n_tournee'];
     }
 }
 
 function buttons($idTournee)
 {
-    $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteLivraisonFromTournee($id," . $num . ")' ></button>";
-    $buttonUpdate = "<button class=\"btn fas fa-hammer\" onclick='updateLivraison($id," . $num . ")' data-toggle=\"modal\" data-target=\"#updateModal\"></button>";
-    $buttons = $buttonUpdate . " " . $buttonDelete;
+    $buttonDelete = "<button class=\"btn fas fa-times\" onclick='deleteTournee(" . $idTournee . ")' ></button>";
+    $buttonDisplay = "<button class=\"btn fas fa-list-ul\" onclick='displayLivraisons(" . $idTournee . ")' data-toggle=\"modal\" data-target=\"#LivraisonsModal\"></button>";
+    $buttons = $buttonDisplay . " " . $buttonDelete;
     return $buttons;
 }
 

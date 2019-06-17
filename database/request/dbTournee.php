@@ -58,7 +58,7 @@ function getLivraisonByIdTournee($idTournee)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `livraison` WHERE `n_tournee`=? ";
+    $request = "SELECT * FROM `livraison` WHERE `n_tournee`=? AND `etat`!='canceled'";
 
     return ($db->getAll($request, [$idTournee]));
 }
@@ -79,4 +79,12 @@ function getAllLivraisonByEtat($etat)
     $request = "SELECT * FROM `livraison` WHERE `etat`=? AND `n_tournee`>0";
 
     return ($db->getAll($request, [$etat]));
+}
+
+function setLivraisonEtat($idLivraison,$etat){
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `livraison` SET `etat`=? WHERE `identifiant_livraison`=?";
+
+    $db->exec($request, [$etat, $idLivraison]);
 }

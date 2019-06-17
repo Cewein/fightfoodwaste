@@ -166,14 +166,14 @@ require_once __DIR__ . '/checkSalary.php';
 
 <?php require_once __DIR__ . "/logoutModal.php" ?>
 
-<!-- Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct"
+<!-- Modal Display Livraisons -->
+<div class="modal fade" id="LivraisonsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLivraison"
      aria-hidden="true">
     <div class="modal-dialog .modal-dialog-centered" role="document">
         <div class="modal-content" id="body">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
-                <h5 class="modal-title" id="demandeId"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Livraisons de la Tournée n°</h5>
+                <h5 class="modal-title" id="tourneeId"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -184,21 +184,16 @@ require_once __DIR__ . '/checkSalary.php';
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th scope="col">Code Barre</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">DLC</th>
-                            <th scope="col">Quantité</th>
+                            <th scope="col">Identifiant</th>
+                            <th scope="col">Beneficiaire</th>
+                            <th scope="col">Etat</th>
+                            <th scope="col">Actions</th>
                         </tr>
                         </thead>
-                        <tbody id="productBody">
+                        <tbody id="livraisonBody">
 
                         </tbody>
                     </table>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-success" id="buttonValidate" data-dismiss="modal">Valider
-                    </button>
-                    <button type="button" class="btn btn-danger" id="buttonRefuse" data-dismiss="modal">Refuser</button>
                 </div>
             </div>
             <div class="modal-footer">
@@ -208,8 +203,35 @@ require_once __DIR__ . '/checkSalary.php';
     </div>
 </div>
 
+
+<!-- Modal Confirm Cancel Livraison -->
+<div class="modal fade" id="cancelConfirmation" tabindex="-1" role="dialog" aria-labelledby="ModalLivraison"
+     aria-hidden="true">
+    <div class="modal-dialog .modal-dialog-centered" role="document">
+        <div class="modal-content" id="body">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Annuler la Livraison n°</h5>
+                <h5 class="modal-title" id="livraisonId"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Annuler la livraison signifie également la retirer de sa tournée
+                <button class="btn btn-success" id="valid" data-dismiss="modal" onclick="cancelLivraison()">Confirmer</button>
+                <button class="btn btn-danger">Annuler</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <!-- Script to display requests-->
-<script src="request/demandesView.js"></script>
+<script src="tournees/tourneesDisplay.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
