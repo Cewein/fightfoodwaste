@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a9565a9-9188-4236-a0fc-5364a1107299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/header/adaptHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backoffice/allStockView.php" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice/allStockView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backoffice/usersTableView.php" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice/usersTableView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/conf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headerBack.php" beforeDir="false" afterPath="$PROJECT_DIR$/header/headerBack.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headerFront.php" beforeDir="false" afterPath="$PROJECT_DIR$/header/headerFront.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inscription/page_inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/inscription/page_inscription.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backoffice/tournees/deliverCreate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/request/dbTournee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backoffice/stock/allStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice/stock/allStock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backoffice/tournees/tourneeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice/tournees/tourneeView.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,26 +20,89 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/stock/addProduct.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backoffice/stock/updateProduct.js">
+        <entry file="file://$PROJECT_DIR$/backoffice/tourneeGenerateView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+            <state relative-caret-position="517">
+              <caret line="204" column="70" selection-start-line="204" selection-start-column="70" selection-end-line="204" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/request/dbUpdateUser.php">
+        <entry file="file://$PROJECT_DIR$/backoffice/stock/allStock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+            <state relative-caret-position="76">
+              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/request/requestsStatut.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/tournees/tourneeView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/tournees/deliverCreate.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/request/dbTournee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/request/dbRoles.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="8" selection-end-line="15" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/beneficiaires/allBeneficiairesTournee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/beneficiairesView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5712">
+              <caret line="341" selection-start-line="340" selection-end-line="341" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/BackHome.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -63,6 +122,10 @@
       <find>$prenom</find>
       <find>con</find>
       <find>console</find>
+      <find>btn-icon-split</find>
+      <find>bg-login-image</find>
+      <find>bg-gradient-primary</find>
+      <find>bg-register-image</find>
     </findStrings>
     <replaceStrings>
       <replace>$name</replace>
@@ -76,23 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fightfoodwaste/header.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/back-office/usersTable.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/back-office/usersTableView.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/css/general.css" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/inscription/checkEmail.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/database/request/dbGetUser.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/inscription/page_inscription.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/database/database.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/database/Roles.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/headerFront.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/connection/php/connection.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/connection/js/connection.js" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/css/header.css" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/css/inscription.css" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/css/backoffice.css" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/backoffice/UpdateButtons.php" />
-        <option value="$PROJECT_DIR$/fightfoodwaste/backoffice/UpdateUsers.php" />
         <option value="$PROJECT_DIR$/fightfoodwaste/database/request/dbUpdateUser.php" />
         <option value="$PROJECT_DIR$/fightfoodwaste/database/request/dbRoles.php" />
         <option value="$PROJECT_DIR$/fightfoodwaste/backoffice/updateUsers.php" />
@@ -117,7 +163,6 @@
         <option value="$PROJECT_DIR$/fightfoodwaste/database/conf.php" />
         <option value="$PROJECT_DIR$/includes.php" />
         <option value="$PROJECT_DIR$/database/conf.php" />
-        <option value="$PROJECT_DIR$/inscription/page_inscription.php" />
         <option value="$PROJECT_DIR$/backoffice/usersTableView.php" />
         <option value="$PROJECT_DIR$/backoffice/allStockView.php" />
         <option value="$PROJECT_DIR$/header/adaptHeader.php" />
@@ -127,6 +172,24 @@
         <option value="$PROJECT_DIR$/backoffice/users/updateUsers.php" />
         <option value="$PROJECT_DIR$/backoffice/users/usersTable.js" />
         <option value="$PROJECT_DIR$/backoffice/stock/updateProduct.js" />
+        <option value="$PROJECT_DIR$/backoffice/BackHome.php" />
+        <option value="$PROJECT_DIR$/backoffice/navbar.php" />
+        <option value="$PROJECT_DIR$/backoffice/tourneeHome.php" />
+        <option value="$PROJECT_DIR$/backoffice/beneficiaires/allBeneficiairesTournee.php" />
+        <option value="$PROJECT_DIR$/css/backoffice.css" />
+        <option value="$PROJECT_DIR$/backoffice/allStockView_v2.php" />
+        <option value="$PROJECT_DIR$/connection/connectionView.php" />
+        <option value="$PROJECT_DIR$/connection/connection.php" />
+        <option value="$PROJECT_DIR$/inscription/inscriptionNew.php" />
+        <option value="$PROJECT_DIR$/css/inscription.css" />
+        <option value="$PROJECT_DIR$/inscription/page_inscriptionNew.php" />
+        <option value="$PROJECT_DIR$/inscription/page_inscription.php" />
+        <option value="$PROJECT_DIR$/css/BackOffice/sb-admin-2.min.css" />
+        <option value="$PROJECT_DIR$/database/request/dbGetStock.php" />
+        <option value="$PROJECT_DIR$/backoffice/tourneeGenerateView.php" />
+        <option value="$PROJECT_DIR$/backoffice/stock/allStock.php" />
+        <option value="$PROJECT_DIR$/backoffice/tournees/tourneeView.js" />
+        <option value="$PROJECT_DIR$/database/request/dbTournee.php" />
       </list>
     </option>
   </component>
@@ -137,8 +200,8 @@
     </servers>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="170" />
-    <option name="y" value="91" />
+    <option name="x" value="-29" />
+    <option name="y" value="-22" />
     <option name="width" value="1026" />
     <option name="height" value="546" />
   </component>
@@ -150,6 +213,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,13 +230,24 @@
               <item name="fightfoodwaste" type="b2602c69:ProjectViewProjectNode" />
               <item name="fightfoodwaste" type="462c0819:PsiDirectoryNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fightfoodwaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fightfoodwaste" type="462c0819:PsiDirectoryNode" />
+              <item name="backoffice" type="462c0819:PsiDirectoryNode" />
               <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fightfoodwaste" type="b2602c69:ProjectViewProjectNode" />
               <item name="fightfoodwaste" type="462c0819:PsiDirectoryNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="tournees" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fightfoodwaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fightfoodwaste" type="462c0819:PsiDirectoryNode" />
+              <item name="connection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fightfoodwaste" type="b2602c69:ProjectViewProjectNode" />
@@ -189,13 +264,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -263,12 +337,19 @@
       <workItem from="1555487563729" duration="8238000" />
       <workItem from="1558890693558" duration="5169000" />
       <workItem from="1558904021551" duration="904000" />
-      <workItem from="1558942980431" duration="6184000" />
+      <workItem from="1558942980431" duration="6462000" />
+      <workItem from="1558960548345" duration="5016000" />
+      <workItem from="1559034626195" duration="4442000" />
+      <workItem from="1559060866008" duration="7738000" />
+      <workItem from="1559114871819" duration="9402000" />
+      <workItem from="1559156277552" duration="8886000" />
+      <workItem from="1559248799621" duration="2581000" />
+      <workItem from="1559289714234" duration="3371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166660000" />
+    <option name="totallyTimeSpent" value="208374000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -283,11 +364,11 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19062027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1913767" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.22749591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -304,61 +385,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28317153" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.22749591" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.3289689" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/connection/php/connection.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/connection/js/connection.js" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/checkEmail/checkEmailPage.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/css/header.css" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/css/inscription.css" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/inscription/page_inscription.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/css/backoffice.css" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/dbUpdateUser.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/dbRoles.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/headerBack.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/db_set_user.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/database.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/stock/models/article.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/updateProduct.js" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/UpdateButtons.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/allUsers.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/allStockView.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/allStock.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/updateProduct.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/dbGetStock.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/sendEmail.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/inscription/page_inscription.js" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/headerFront.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/dbGetUser.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/usersType.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/database/request/dbUserConnection.php" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/inscription/inscription.js" />
-    <entry file="file://$PROJECT_DIR$/fightfoodwaste/connection/php/connectionSession.php" />
     <entry file="file://$PROJECT_DIR$/fightfoodwaste/index.php" />
     <entry file="file://$PROJECT_DIR$/fightfoodwaste/try.php" />
     <entry file="file://$PROJECT_DIR$/fightfoodwaste/backoffice/updateUsers.php" />
@@ -390,14 +421,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/header/adaptHeader.php" />
-    <entry file="file://$PROJECT_DIR$/header/headerFront.php" />
-    <entry file="file://$PROJECT_DIR$/inscription/page_inscription.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -410,13 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/request/dbUpdateUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -437,10 +453,223 @@
     <entry file="file://$PROJECT_DIR$/backoffice/stock/addProduct.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/request/dbUpdateUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../index.php" />
+    <entry file="file://$PROJECT_DIR$/backoffice/users/allUsers.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/beneficiaires/allBeneficiaires.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="76" column="62" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/tourneeHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="153" column="30" lean-forward="true" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/request/allRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/beneficiaires/beneficiaireTable.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/request/validatedRequestList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/backoffice.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/allStockView_v2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2958">
+          <caret line="174" column="36" lean-forward="true" selection-start-line="174" selection-start-column="36" selection-end-line="181" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/BackOffice/sb-admin-2.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="174962" selection-start-line="9" selection-start-column="174962" selection-end-line="9" selection-end-column="174962" />
+          <folding>
+            <element signature="e#29793#30027#2" expanded="true" />
+            <element signature="e#30884#31037#1" expanded="true" />
+            <element signature="e#31077#31311#1" expanded="true" />
+            <element signature="e#34476#34752#2" expanded="true" />
+            <element signature="e#35635#35788#1" expanded="true" />
+            <element signature="e#35828#36104#1" expanded="true" />
+            <element signature="e#68658#68845#2" expanded="true" />
+            <element signature="e#69074#69210#2" expanded="true" />
+            <element signature="e#69615#69748#2" expanded="true" />
+            <element signature="e#71454#71607#1" expanded="true" />
+            <element signature="e#86522#86752#2" expanded="true" />
+            <element signature="e#87619#87855#2" expanded="true" />
+            <element signature="e#120268#120445#2" expanded="true" />
+            <element signature="e#120491#120668#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header/headerFront.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connection/connectionOld.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="32" column="116" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connection/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="996">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscription/page_inscriptionOld.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="40" column="36" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscription/page_inscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/inscription.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="105" selection-start-line="9" selection-start-column="105" selection-end-line="9" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/request/dbInteractions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/stock/updateProduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+        <state relative-caret-position="-294">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/request/demandesView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/request/dbGetStock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/request/requestsStatut.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/beneficiaires/allBeneficiairesTournee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/beneficiairesView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5712">
+          <caret line="341" selection-start-line="340" selection-end-line="341" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/BackHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/tourneeGenerateView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="204" column="70" selection-start-line="204" selection-start-column="70" selection-end-line="204" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/stock/allStock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/tournees/tourneeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/tournees/deliverCreate.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/request/dbRoles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="8" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/request/dbTournee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>

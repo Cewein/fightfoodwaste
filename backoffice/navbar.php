@@ -38,7 +38,8 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+           aria-controls="collapseTwo">
             <i class="fas fa-address-card"></i>
             <span>Utilisateurs</span>
         </a>
@@ -46,13 +47,13 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions :</h6>
                 <a class="collapse-item" href="usersTableView_v2.php">Affichage des utilisateurs</a>
-                <a class="collapse-item" href="usersTableView_v2.php">Ajout d'un utilisateur</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+           aria-controls="collapseThree">
             <i class="fas fa-box-open"></i>
             <span>Stock</span>
         </a>
@@ -65,9 +66,14 @@
         </div>
     </li>
 
+    <div class="sidebar-heading">
+        Catégorie 2
+    </div>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Tournées</span>
         </a>
@@ -75,24 +81,27 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Tournées</h6>
                 <a class="collapse-item" href="tourneeHome.php">Gérer les tournées</a>
-                <a class="collapse-item" href="utilities-border.html">Tournées prévues</a>
-                <a class="collapse-item" href="utilities-animation.html">Tournées passées</a>
+                <a class="collapse-item" href="tourneeDisplay.php?type=preparation">Tournées prévues</a>
+                <a class="collapse-item" href="tourneeDisplay.php?type=ready">Tournées préparées</a>
+                <a class="collapse-item" href="tourneeDisplay.php?type=done">Tournées Réalisées</a>
                 <a class="collapse-item" href="beneficiairesView.php">Liste des bénéficiaires</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true"
+           aria-controls="collapseFour">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Collectes</span>
         </a>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Collectes</h6>
-                <a class="collapse-item" href="/request/displayUsers.php">Gérer les collectes</a>
-                <a class="collapse-item" href="utilities-border.html">Afficher les collects prévues</a>
-                <a class="collapse-item" href="utilities-animation.html">Afficher les collectes passées</a>
+                <a class="collapse-item" href="foodCollectionHome.php">Gérer les collectes</a>
+                <a class="collapse-item" href="activFoodCollection.php">Afficher les collectes prévues</a>
+                <a class="collapse-item" href="pastFoodCollection.php">Afficher les collectes passées</a>
+                <a class="collapse-item" href="displayUsers.php">Liste des demandes validées</a>
             </div>
         </div>
     </li>

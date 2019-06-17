@@ -14,12 +14,12 @@ function getAllBeneficiaires()
     return ($db->getAll($request));
 }
 
-function addBeneficiaire($name, $adress, $city, $type)
+function addBeneficiaire($name, $adress, $city, $lat, $long, $type)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "INSERT INTO `beneficiaire`(nom,adresse,ville,type_beneficiaire) VALUES (?,?,?,?)";
-    $db->exec($request, [$name, $adress, $city, $type]);
+    $request = "INSERT INTO `beneficiaire`(nom,adresse,ville,Latitude, Longitude,type_beneficiaire) VALUES (?,?,?,?,?,?)";
+    $db->exec($request, [$name, $adress, $city, $lat, $long, $type]);
 }
 
 function deleteBeneficiaireById($id)

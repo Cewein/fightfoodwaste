@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sandrine
- * Date: 22/05/2019
- * Time: 22:49
- */
 
 require_once __DIR__ . '/../includes.php';
+require_once __DIR__ . '/checkSalary.php';
 ?>
 
 <!DOCTYPE html>
@@ -58,58 +53,15 @@ require_once __DIR__ . '/../includes.php';
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
-
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Search for..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['name'] . " " . $_SESSION['pname'] ?></span>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -129,7 +81,7 @@ require_once __DIR__ . '/../includes.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
+                                Déconnexion
                             </a>
                         </div>
                     </li>
@@ -158,7 +110,7 @@ require_once __DIR__ . '/../includes.php';
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -204,33 +156,48 @@ require_once __DIR__ . '/../includes.php';
                         <div class="modal-body" id="modal-body">
                             <form method="POST" id="add_beneficiaire">
                                 <div class="form-group">
+                                    <label for="inputNom">Nom bénéficiaire</label>
                                     <input type="text" class="form-control" id="inputNom"
                                            aria-describedby="nom"
                                            placeholder="Nom">
-                                    <small id="nomError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <small id="nameError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputAdress">Adresse</label>
                                     <input type="text" class="form-control" id="inputAdress"
                                            aria-describedby="adresse"
                                            placeholder="Adresse">
-                                    <small id="adressError" class="form-text text-muted">Nombre entier</small>
+                                    <small id="adressError" class="form-text text-muted">Adresse erronée</small>
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputCity">Ville</label>
                                     <input type="text" class="form-control" id="inputCity"
                                            aria-describedby="ville"
                                            placeholder="Ville">
-                                    <small id="cityError" class="form-text text-muted">Date déjà passée</small>
+                                    <small id="cityError" class="form-text text-muted">Ville trop éloignée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputType">Type Bénéficiaire</label>
-                                    <input type="text" class="form-control" id="inputType" placeholder="Type bénéficiaire">
+                                    <label for="inputLat">Coordonnées GPS</label>
+                                    <input type="text" class="form-control" id="inputLat" placeholder="Latitude">
+                                    <small id="LatError" class="form-text text-muted">Décimale a .8</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="inputLong" placeholder="Longitude">
+                                    <small id="LongError" class="form-text text-muted">Décimale a .8</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputType">Type Bénéficiaire</label>
+                                    <input type="text" class="form-control" id="inputType"
+                                           placeholder="Type bénéficiaire">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="reloadModal()">Close
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -253,7 +220,8 @@ require_once __DIR__ . '/../includes.php';
                                     <input type="text" class="form-control" id="modifNom"
                                            aria-describedby="nom"
                                            placeholder="Nom">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires
+                                    </small>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="modifAdress"
@@ -268,7 +236,8 @@ require_once __DIR__ . '/../includes.php';
                                     <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifType" placeholder="Type bénéficiaire">
+                                    <input type="text" class="form-control" id="modifType"
+                                           placeholder="Type bénéficiaire">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
                                 <input type="hidden" class="form-control" id="beneficiaireId" value="">
@@ -276,7 +245,9 @@ require_once __DIR__ . '/../includes.php';
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="reloadModal()">Close
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -307,25 +278,7 @@ require_once __DIR__ . '/../includes.php';
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php require_once __DIR__ . "/logoutModal.php" ?>
 
 <!-- Script to display users-->
 <script src="beneficiaires/beneficiaireTable.js"></script>

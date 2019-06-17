@@ -2,41 +2,43 @@
 
 class Tour {
     //liste des attributs
+    private $idWonder;
     private $idUser; 
     private $lastName; 
     private $firstName; 
     private $sirenNumber; 
     private $address; 
     private $city; 
-    private $idTour; //identifiant pour la collecte ou la tournée 
+
 
     //constructeur
-    public function __construct (int $id,
-                                 string $lName,
-                                 string $fName,
-                                 int $siren,
-                                 string $addr,
-                                 string $city,
-                                 int $idTour) {
-        
-        $this->idUser = $id; 
-        $this->lastName = $lName; 
-        $this->firstName = $fName; 
-        $this->sirenNumber = $siren; 
-        $this->address = $addr; 
+    public function __construct ($idWonder,
+                                 $idUser,
+                                 $lastName,
+                                 $firstName,
+                                 $sirenNumber,
+                                 $address,
+                                 $city) {
+
+        $this->idWonder = $idWonder; 
+        $this->idUser = $idUser; 
+        $this->lastName = $lastName; 
+        $this->firstName = $firstName; 
+        $this->sirenNumber = $sirenNumber; 
+        $this->address = $address; 
         $this->city = $city; 
-        $this->idTour + $idTour; 
-                                 }  
+                                 }
 
 
     //getters
-    public function getIdUser(): int { return $this->idUser; }
-    public function getLastName(): string { return $this->lastName; }
-    public function getFirstName(): string { return $this->firstName; }
-    public function getSirenNumber(): int { return $this->sirenNumber; }
-    public function getAddress(): string { return $this->address; }
-    public function getCity(): string { return $this->city; }
-    public function getIdTour(): int { return $this->idTour; }
+    public function getIdWonder() { return $this->idWonder; }
+    public function getIdUser() { return $this->idUser; }
+    public function getLastName() { return $this->lastName; }
+    public function getFirstName() { return $this->firstName; }
+    public function getSirenNumber() { return $this->sirenNumber; }
+    public function getAddress() { return $this->address; }
+    public function getCity() { return $this->city; }
+   
 
     //setters
     public function setIdUser($id) {$this->idUser = (int) $id; }
@@ -57,8 +59,17 @@ class Tour {
     public function setSirenNumber($siren) {$this->sirenNumber = (int) $siren; }
     public function setAddr($address) {$this->addr = (string) $address; }    
     public function setCity($city) {$this->city = (string) $city; }
-    public function setIdTour($idTour){$this->idTour = (int) $idTour;
-    }
+  
+
+
+public function test() {
+    var_dumps(get_object_vars($this)); 
+}
+
+//$test = new tour();
+//var_dump(get_object_vars($test));
+/*
+$test->test(); 
 
     public function __toString() {
         return 
@@ -79,4 +90,5 @@ class Tour {
 
     }
 
+}*/
 }

@@ -15,13 +15,13 @@
             <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="#about">à propos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="../connection/connection.php">Connexion</a>
           </li>
         </ul>
       </div>

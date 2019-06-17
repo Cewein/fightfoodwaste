@@ -18,6 +18,15 @@ function getAllProductStocked()
     return ($db->getAll($request));
 }
 
+function getAllProductsFree()
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `produit` WHERE `n_stock`!='NULL' AND `id_livraison` IS NULL";
+    return ($db->getAll($request));
+}
+
+
 function getProductByIdList($list)
 {
     $db = DatabaseManager::getManager();
@@ -28,9 +37,18 @@ function getProductByIdList($list)
     return ($db->getAll($request));
 }
 
-function deleteProductById($id){
+function deleteProductById($id)
+{
     $db = DatabaseManager::getManager();
 
     $request = "DELETE FROM `produit` WHERE `identifiant`=?";
-    return ($db->exec($request,[$id]));
+    return ($db->exec($request, [$id]));
+}
+
+function getAllProductsDLC($date)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `produit` WHERE `DLC`<=?";
+    return ($db->getAll($request, [$date]));
 }

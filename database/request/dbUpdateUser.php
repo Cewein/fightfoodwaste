@@ -21,3 +21,20 @@ function updateUser($id, $name, $pname, $email, $adress, $city)
     $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse_mail`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
     $db->exec($request, [$name, $pname, $email, $adress, $city, $id]);
 }
+
+
+function updatePassword($id,$password) {
+
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `utilisateur` SET `password`=? WHERE `identifiant`=?";
+    $db->exec($request, [$id,$password]);
+}
+
+
+function inactivateUser($id) {
+    $db = DatabaseManager::getManager(); 
+
+    $request = "UPDATE `utilisateur` SET `etat_compte`= '2' WHERE `identifiant`=?"; 
+    $db->exec($request, [$id]);
+}

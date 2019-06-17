@@ -5,9 +5,8 @@ function updateBeneficiaire(id) {
 function deleteBeneficiaire(id){
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        console.log(request.readyState);
         if (request.readyState === 4) {
-            console.log(request.responseText);
+
         }
     };
     request.open('POST', '../backoffice/beneficiaires/updateBeneficiaire.php');
@@ -23,10 +22,14 @@ document.getElementById('add_beneficiaire').addEventListener('submit', function 
     const adress = document.getElementById('inputAdress');
     const city = document.getElementById('inputCity');
     const type = document.getElementById('inputType');
+    const latitude = document.getElementById('inputLat');
+    const longitude = document.getElementById('inputLong');
 
-    const nomError = document.getElementById('nomError');
+    const nomError = document.getElementById('nameError');
     const adressError = document.getElementById('adressError');
     const cityError = document.getElementById('cityError');
+    const LatError = document.getElementById('LatError');
+    const LongError = document.getElementById('LongError');
 
     let check = true;
 
@@ -43,12 +46,17 @@ document.getElementById('add_beneficiaire').addEventListener('submit', function 
         check = false;
     }
 
-
     if (city.value.length > 0 && city.value.length <= 100) {
 
     } else {
         cityError.style.display = "block";
         check = false;
+    }
+
+    if(latitude.value.length > 9 || longitude.value.length > 9){
+        check= false;
+        LatError.style.display='block';
+        LongError.style.display='block';
     }
 
     if (check === true) {
@@ -69,7 +77,7 @@ document.getElementById('add_beneficiaire').addEventListener('submit', function 
         };
         request.open('POST', '../backoffice/beneficiaires/addBeneficiaire.php');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send(`nom=${nom.value}&adress=${adress.value}&city=${city.value}&type=${type.value}`);
+        request.send(`nom=${nom.value}&adress=${adress.value}&city=${city.value}&lat=${latitude.value}&long=${longitude.value}&type=${type.value}`);
     }
 
 });

@@ -1,5 +1,6 @@
 function updateProduct(id, number) { //Modify a existing product
     //Display modal with product infos
+    const form = document.getElementById('update_product');
     const modifBarcode = document.getElementById('modifBarcode');
     const modifQuantity = document.getElementById('modifQuantity');
     const modifDLC = document.getElementById('modifDLC');
@@ -14,8 +15,7 @@ function updateProduct(id, number) { //Modify a existing product
     modifDLC.value = productInfos[4].innerHTML;
     modifNStock.value = productInfos[5].innerHTML;
     productId.value = id;
-
-    console.log(product.childNodes);
+    form.style.display="block";
 
 }
 
@@ -28,7 +28,7 @@ function sendRequestProduct(id, type) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log(request.responseText);//Réponse à afficher
+
         }
     };
     request.open('POST', 'updateProduct.php');
@@ -53,22 +53,17 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
 
     let check = true;
 
-
-    if (barcode.value.length < 3) {
+    if (barcode.value < 0) {
         barcodeError.style.display = "block";
         check = false;
     }
 
-    if (quantity.value > 0 && quantity.value <= 50) {
-
-    } else {
+    if (quantity.value <= 0 || quantity.value > 50) {
         quantityError.style.display = "block";
         check = false;
     }
 
-    if (stock.value >= 0 && stock.value <= 10) {
-
-    } else {
+    if (stock.value < 0 || stock.value > 10) {
         stockError.style.display = "block";
         check = false;
     }
@@ -82,7 +77,11 @@ document.getElementById('add_product').addEventListener('submit', function (e) {
                 const container = document.getElementById('modal-body');
 
                 const alert = document.createElement("p");
+
+                //container.removeChild(alert);
                 alert.innerHTML = request.responseText;
+                alert.class = 'message';
+                alert.id = 'message';
                 container.appendChild(alert);
 
                 form.style.display = "none";
@@ -110,22 +109,17 @@ document.getElementById('update_product').addEventListener('submit', function (e
 
     let check = true;
 
-
-    if (barcode.value.length < 3) {
+    if (barcode.value < 0) {
         barcodeError.style.display = "block";
         check = false;
     }
 
-    if (quantity.value > 0 && quantity.value <= 50) {
-
-    } else {
+    if (quantity.value <= 0 || quantity.value > 50) {
         quantityError.style.display = "block";
         check = false;
     }
 
-    if (stock.value >= 0 && stock.value <= 10) {
-
-    } else {
+    if (stock.value < 0 || stock.value > 10) {
         stockError.style.display = "block";
         check = false;
     }
@@ -142,9 +136,18 @@ document.getElementById('update_product').addEventListener('submit', function (e
                 container.appendChild(alert);
 
                 form.style.display = "none";
+
+                //Modify table with new values
+                const productRow=document.getElementById(productId.value);
+                let childRow=productRow.childNodes;
+                childRow[0].firstChild.data=barcode.value;
+                childRow[3].firstChild.data=quantity.value;
+                childRow[4].firstChild.data=DLC.value;
+                childRow[5].firstChild.data=stock.value;
+
             }
         };
-        request.open('POST', '../backoffice/stock/updateProduct.php');
+        request.open('POST','../backoffice/stock/updateProduct.php');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send(`barcode=${barcode.value}&quantity=${quantity.value}&DLC=${DLC.value}&stock=${stock.value}&id=${productId.value}&type=update`);
     }
@@ -159,6 +162,7 @@ function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau pr
     const quantity = document.getElementById('inputQuantity');
     const DLC = document.getElementById('inputDLC');
     const stock = document.getElementById('inputNStock');
+    const message = document.getElementById('message');
 
     barcode.value = "";
     quantity.value = "";

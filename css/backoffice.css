@@ -31,6 +31,23 @@
     color: dodgerblue;
 }
 
-#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError, #beneficiaireError{
+/*Replace all #id display:none*/
+.text-muted{
+    display: none;
+}
+
+/*#barcodeError, #quantityError, #DLCError, #stockError, #emailSetError,  #cityError, #adressError, #nameError{*/
+/*    display: none;*/
+/*}*/
+
+#beneficiaireError, #dateError{
+    color: red;
+}
+
+#EndGenerate, #beneficiaireError, #displayProducts, #dateError{
+    display: none;
+}
+
+#map{
     display: none;
 }

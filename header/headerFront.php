@@ -6,6 +6,16 @@
  * Time: 16:00 et 1:10
  */
 
+$path = explode('\\', $actualDirectory);
+
+$pathEnd = $path[count($path) - 1];
+
+if ($pathEnd !== DIR_HOME) {
+    $directory = "../";
+} else {
+    $directory = "";
+}
+
 if ($pathEnd === DIR_HOME) {
     $pathIndex = "";
     $pathImg = "pictures/user.png";
@@ -62,7 +72,7 @@ if (isset($allUsersRoles) === true) {
                 break;
             case 'salary':
                 $linkName = "Espace de travail";
-                $path = "#";
+                $path = "profile/profile_salary.php";
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
@@ -109,11 +119,11 @@ if (isset($allUsersRoles) === true) {
                         <li class="nav-item">
                             <a class="nav-link" href=<?php echo $pathDisconnection ?>>Déconnexion</a>
                         </li>
+
                     <?php } ?>
-                    <div id="ytWidget"></div>
                 </ul>
             </div>
         </nav>
     </div>
-    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=hu&widgetTheme=light&autoMode=false" type="text/javascript"></script>
+
 </header>

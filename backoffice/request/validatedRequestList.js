@@ -16,24 +16,3 @@ function printInformation() {
 
     console.log("ok js");
 }
-/*    
-   
-
-function defineCollection(id_collecte) {
-    var n = 0; 
-    function basicTable() {
-        for (var i = 0; i < rows; i++) {
-            if(rows >= 13){
-                id_collecte = n++; 
-            }
-        
-    }
-}
-
-/* printValidatedRequest(idDemande) {
-    var container = document.getElementById("validatedRequest"); 
-    demandeId.innerHTML = " " + idDemande;
-    message.innerHTML = "";
-
-   
-*/
