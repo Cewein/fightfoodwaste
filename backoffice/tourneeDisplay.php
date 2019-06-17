@@ -94,72 +94,14 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Demandes utilisateur</h1>
+                <h1 class="h3 mb-2 text-gray-800">Tournées prévues</h1>
 
-                <!--Navbar Infos Users -->
-                <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Toutes les demandes"
-                           onclick="allUsersRequests()">
-                    <input class="btn btn-secondary" type="button" value="Demandes à valider"
-                           onclick="usersRequests('tocheck')">
-                    <input class="btn btn-secondary" type="button" value="Demandes validées"
-                           onclick="usersRequests('checkedTrue')">
-                    <input class="btn btn-secondary" type="button" value="Demandes refusées"
-                           onclick="usersRequests('checkedFalse')">
-                    <input class="btn btn-secondary" type="button" value="Demandes Terminées"
-                           onclick="usersRequests('completed')">
-                </div>
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct"
-                     aria-hidden="true">
-                    <div class="modal-dialog .modal-dialog-centered" role="document">
-                        <div class="modal-content" id="body">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
-                                <h5 class="modal-title" id="demandeId"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="modal-body"></div>
-                                <div class="table">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">Code Barre</th>
-                                            <th scope="col">Nom</th>
-                                            <th scope="col">DLC</th>
-                                            <th scope="col">Quantité</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="productBody">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div>
-                                    <button type="button" class="btn btn-success" id="buttonValidate"
-                                            data-dismiss="modal">Valider
-                                    </button>
-                                    <button type="button" class="btn btn-danger" id="buttonRefuse" data-dismiss="modal">
-                                        Refuser
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Toutes les demandes</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">
+                            Tournees <?= $_GET['type'] ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -167,23 +109,28 @@ require_once __DIR__ . '/checkSalary.php';
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Createur</th>
-                                    <th id="pname">Statut</th>
-                                    <th>ID collecte</th>
-                                    <th>Actions</th>
+                                    <th>Etat</th>
+                                    <th>Date de Livraison</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Createur</th>
-                                    <th id="pname">Statut</th>
-                                    <th>ID collecte</th>
-                                    <th>Actions</th>
+                                    <th>Etat</th>
+                                    <th>Date de Livraison</th>
+                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
-                                <?php require_once __DIR__ . '/request/allRequests.php'; ?>
+                                <?php //Display differents tournees
+                                if (isset($_GET['type']) === true && ($_GET['type'] === 'preparation' || $_GET['type'] === 'ready' || $_GET['type'] === 'done')) {
+                                    $type = $_GET['type'];
+                                    require_once __DIR__ . '/tournees/displayTournees.php';
+                                } else {
+                                    echo 'No Infos';
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -218,6 +165,48 @@ require_once __DIR__ . '/checkSalary.php';
 </a>
 
 <?php require_once __DIR__ . "/logoutModal.php" ?>
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalProduct"
+     aria-hidden="true">
+    <div class="modal-dialog .modal-dialog-centered" role="document">
+        <div class="modal-content" id="body">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
+                <h5 class="modal-title" id="demandeId"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body"></div>
+                <div class="table">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Code Barre</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">DLC</th>
+                            <th scope="col">Quantité</th>
+                        </tr>
+                        </thead>
+                        <tbody id="productBody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success" id="buttonValidate" data-dismiss="modal">Valider
+                    </button>
+                    <button type="button" class="btn btn-danger" id="buttonRefuse" data-dismiss="modal">Refuser</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Script to display requests-->
 <script src="request/demandesView.js"></script>

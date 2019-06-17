@@ -63,10 +63,20 @@ function getLivraisonByIdTournee($idTournee)
     return ($db->getAll($request, [$idTournee]));
 }
 
-function getProductByLivraisonId($idLivraison){
+function getProductByLivraisonId($idLivraison)
+{
     $db = DatabaseManager::getManager();
 
     $request = "SELECT * FROM `produit` WHERE `id_livraison`=? ";
 
     return ($db->getAll($request, [$idLivraison]));
+}
+
+function getAllLivraisonByEtat($etat)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `livraison` WHERE `etat`=? AND `n_tournee`>0";
+
+    return ($db->getAll($request, [$etat]));
 }
