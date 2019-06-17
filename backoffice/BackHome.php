@@ -58,7 +58,7 @@ require_once __DIR__ . '/checkSalary.php';
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['name']. " " . $_SESSION['pname'] ?></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['name'] . " " . $_SESSION['pname'] ?></span>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -97,32 +97,37 @@ require_once __DIR__ . '/checkSalary.php';
 
                 </p>
 
-                <div class="col-lg-6">
 
-                    <!-- Default Card Example -->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            Default Card Example
-                        </div>
-                        <div class="card-body">
-                            This card uses Bootstrap's default styling with no utility classes added. Global styles are
-                            the only things modifying the look and feel of this default card example.
-                        </div>
+                <!-- Card DLC -->
+                <div class="card shadow mb-6">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Dates limite de consommation dépassées</h6>
                     </div>
-
-                    <!-- Basic Card Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
-                        </div>
-                        <div class="card-body">
-                            The styling for this basic card example is created by using default Bootstrap utility
-                            classes. By using utility classes, the style of the card component can be easily modified
-                            with no need for any custom CSS!
-                        </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Code barre</th>
+                                <th>Nom</th>
+                                <th>DLC</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Code barre</th>
+                                <th>Nom</th>
+                                <th>DLC</th>
+                                <th>Actions</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <?php require_once __DIR__ . "/alerts/alertDLC.php" ?>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
+
 
                 <div class="col-lg-6">
 
@@ -198,7 +203,7 @@ require_once __DIR__ . '/checkSalary.php';
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <?php require_once __DIR__."/logoutModal.php" ?>
+    <?php require_once __DIR__ . "/logoutModal.php" ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

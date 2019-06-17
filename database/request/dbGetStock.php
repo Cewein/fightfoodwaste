@@ -44,3 +44,11 @@ function deleteProductById($id)
     $request = "DELETE FROM `produit` WHERE `identifiant`=?";
     return ($db->exec($request, [$id]));
 }
+
+function getAllProductsDLC($date)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "SELECT * FROM `produit` WHERE `DLC`<=?";
+    return ($db->getAll($request, [$date]));
+}

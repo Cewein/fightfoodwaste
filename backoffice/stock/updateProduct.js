@@ -140,7 +140,6 @@ document.getElementById('update_product').addEventListener('submit', function (e
                 //Modify table with new values
                 const productRow=document.getElementById(productId.value);
                 let childRow=productRow.childNodes;
-                console.log(childRow[4].firstChild.data);
                 childRow[0].firstChild.data=barcode.value;
                 childRow[3].firstChild.data=quantity.value;
                 childRow[4].firstChild.data=DLC.value;
@@ -169,6 +168,5 @@ function reloadModal() { //Réaffiche le modal propre pour ajouter un nouveau pr
     quantity.value = "";
     DLC.value = "";
     stock.value = "";
-console.log('miam');
-    //message.remove();
+
 }
