@@ -107,18 +107,18 @@ require_once __DIR__ . '/checkSalary.php';
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Code barre</th>
-                                <th>Nom</th>
-                                <th>DLC</th>
-                                <th>Actions</th>
+                                <th><?= $barcode?></th>
+                                <th><?= $name?></th>
+                                <th><?= $dlc?></th>
+                                <th><?= $actions?></th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Code barre</th>
-                                <th>Nom</th>
-                                <th>DLC</th>
-                                <th>Actions</th>
+                                <th><?= $barcode?></th>
+                                <th><?= $name?></th>
+                                <th><?= $dlc?></th>
+                                <th><?= $actions?></th>
                             </tr>
                             </tfoot>
                             <tbody>

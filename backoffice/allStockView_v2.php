@@ -99,44 +99,44 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion du stock</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $stock_management ?></h1>
                 <p class="mb-4">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                        Ajouter un produit
+                        <?= $add_product ?>
                     </button>
                 </p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Contenu du Stock</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay"><?= $stock_content ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" >
+                            <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Code barre</th>
-                                    <th>Nom</th>
-                                    <th>Description</th>
-                                    <th>Quantite</th>
-                                    <th>DLC</th>
-                                    <th>Stock</th>
-                                    <th>ID demande</th>
-                                    <th>Actions</th>
+                                    <th><?= $barcode ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $description ?></th>
+                                    <th><?= $quantity ?></th>
+                                    <th><?= $dlc ?></th>
+                                    <th><?= $stock ?></th>
+                                    <th><?= $iddemande ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Code barre</th>
-                                    <th>Nom</th>
-                                    <th>Description</th>
-                                    <th>Quantite</th>
-                                    <th>DLC</th>
-                                    <th>Stock</th>
-                                    <th>ID demande</th>
-                                    <th>Actions</th>
+                                    <th><?= $barcode ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $description ?></th>
+                                    <th><?= $quantity ?></th>
+                                    <th><?= $dlc ?></th>
+                                    <th><?= $stock ?></th>
+                                    <th><?= $iddemande ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -156,7 +156,7 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabel">Ajouter un produit</h5>
+                            <h5 class="modal-title" id="ModalLabel"><?= $add_product ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -164,36 +164,39 @@ require_once __DIR__ . '/checkSalary.php';
                         <div class="modal-body" id="modal-body">
                             <form method="POST" id="add_product">
                                 <div class="form-group">
-                                    <label for="inputBarcode">Code Barre</label>
+                                    <label for="inputBarcode"><?= $barcode ?></label>
                                     <input type="text" class="form-control" id="inputBarcode"
                                            aria-describedby="code-barre"
                                            placeholder="Code Barre">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires
+                                    </small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputQuantity">Quantité</label>
+                                    <label for="inputQuantity"><?= $quantity ?></label>
                                     <input type="text" class="form-control" id="inputQuantity"
                                            aria-describedby="quantite"
                                            placeholder="Quantité">
                                     <small id="quantityError" class="form-text text-muted">Nombre entier</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputDLC">Date Limite de Consommation</label>
+                                    <label for="inputDLC"><?= $DLC ?></label>
                                     <input type="date" class="form-control" id="inputDLC"
                                            aria-describedby="emailHelp"
                                            placeholder="">
                                     <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputNStock">Stock</label>
+                                    <label for="inputNStock"><?= $stock ?></label>
                                     <input type="text" class="form-control" id="inputNStock" placeholder="Stock">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <button type="submit" class="btn btn-primary"><?= $validate ?></button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadModal()">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="reloadModal()"><?= $close ?>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +220,8 @@ require_once __DIR__ . '/checkSalary.php';
                                     <input type="text" class="form-control" id="modifBarcode"
                                            aria-describedby="code-barre"
                                            placeholder="Code Barre">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires</small>
+                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires
+                                    </small>
                                 </div>
                                 <div class="form-group">
                                     <label for="modifQuantity">Quantité</label>

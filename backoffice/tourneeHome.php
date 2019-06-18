@@ -80,7 +80,7 @@ require_once __DIR__ . '/checkSalary.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -94,7 +94,7 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des tournées</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $tournee_management ?>Gestion des tournées</h1>
                 <p class="mb-4">
 
                 </p>
@@ -103,31 +103,31 @@ require_once __DIR__ . '/checkSalary.php';
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
-                            <h6 class="m-0 font-weight-bold text-gray-900">Création d'une tournée</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-900"><?= $tournee_create ?></h6>
                         </div>
                         <div class="card-body">
-                            Menu permettant d'accèder à la génération d'une tournée, avec selection des bénéficiaires et
-                            des produits qu'ils recevront: <a href="tourneeGenerateView.php">Générer une tournée</a>
+                            <?= $tournee_create_chitchat ?><a
+                                    href="tourneeGenerateView.php"><?= $tournee_generate ?></a>
                         </div>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
-                            <h6 class="m-0 font-weight-bold text-gray-900">Gérer l'itinéraire d'une tournée</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-900"><?= $tour_itinerary_manage ?></h6>
                         </div>
                         <div class="card-body">
-                            Menu permettant d'accèder à la gestion du parcours d'une tournée: <a
-                                    href="tourneeParcoursView.php">Parcours d'une tournée</a>
+                            <?= $tour_itinerary_manage_chitchat ?><a
+                                    href="tourneeParcoursView.php"><?= $path_tour ?></a>
                         </div>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
-                            <h6 class="m-0 font-weight-bold text-gray-900">Générer les listes de livraison</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-900"><?= $deliver_list_generate ?></h6>
                         </div>
                         <div class="card-body">
-                            Menu permettant de générer les listes de produits a remettre aux bénéficiaires: <a
-                                    href="tourneePDFView.php">Générer les listes</a>
+                            <?= $deliver_list_generate_chitchat ?><a
+                                    href="tourneePDFView.php"><?= $list_generate ?></a>
                         </div>
                     </div>
 

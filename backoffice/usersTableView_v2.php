@@ -78,7 +78,7 @@ require_once __DIR__ . '/checkSalary.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -90,27 +90,28 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $users ?></h1>
                 <!--Navbar Infos Users -->
                 <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs"
+                    <input class="btn btn-secondary" type="button" value="<?= $displayallusers ?>"
                            onclick="allUsers()">
-                    <input class="btn btn-secondary" type="button" value="Afficher particuliers"
+                    <input class="btn btn-secondary" type="button" value="<?= $displayindividuals ?>"
                            onclick="users('particulier')">
-                    <input class="btn btn-secondary" type="button" value="Afficher commercants"
+                    <input class="btn btn-secondary" type="button" value="<?= $displaystorekeepers ?>"
                            onclick="users('commercant')">
-                    <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
+                    <input class="btn btn-secondary" type="button" value="<?= $displaysalary ?>"
+                           onclick="users('salary')">
                 </div>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                    Inscrire un utilisateur
+                    <?= $registeruser ?>
                 </button>
 
                 <!-- Users table -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay"><?= $allUsers ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -118,13 +119,13 @@ require_once __DIR__ . '/checkSalary.php';
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th id="userName">Nom</th>
-                                    <th id="pname">Prenom</th>
-                                    <th>Adresse Email</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th id="userName"><?= $name ?></th>
+                                    <th id="pname"><?= $firstname ?></th>
+                                    <th><?= $email ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $role ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -132,11 +133,11 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th>#</th>
                                     <th id="userNameBot">Nom</th>
                                     <th id="pnameBot">Prenom</th>
-                                    <th>Adresse Email</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th><?= $email ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $role ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
@@ -156,7 +157,7 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><?= $registeruser ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -208,11 +209,11 @@ require_once __DIR__ . '/checkSalary.php';
                                     <input type="text" class="form-control" id="inputCity" aria-describedby="city"
                                            placeholder="Ville">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary"><?= $validate ?></button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= $close ?></button>
                         </div>
                     </div>
                 </div>
