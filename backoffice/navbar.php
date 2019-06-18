@@ -94,9 +94,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Collectes</h6>
                 <a class="collapse-item" href="foodCollectionHome.php">Gérer les collectes</a>
-                <a class="collapse-item" href="activFoodCollection.php">Afficher les collectes prévues</a>
-                <a class="collapse-item" href="pastFoodCollection.php">Afficher les collectes passées</a>
-                <a class="collapse-item" href="displayUsers.php">Liste des demandes validées</a>
+                <a class="collapse-item" href="activFoodCollection.php">Collectes prévues</a>
+                <a class="collapse-item" href="pastFoodCollection.php">Collectes effectuées</a>
+                <a class="collapse-item" href="displayUsers.php">Demandes validées</a>
             </div>
         </div>
     </li>

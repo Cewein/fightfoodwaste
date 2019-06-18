@@ -4,23 +4,41 @@ require_once ("../includes.php");
 
 if(isset($_SESSION['id'])) {
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['save'])) {
+
+      /*  if (isset($_POST['username']) === true && isset($_POST['firstname']) === true && isset($_POST['']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true && isset($_POST['type']) === true) {
+            $name = htmlspecialchars($_POST['name']);
+
+            $pname = htmlspecialchars($_POST['pname']);
+            echo strlen($pname);
+            echo $pname;
+            $email = htmlspecialchars($_POST['email']);
+            $adress = htmlspecialchars($_POST['adress']);
+            $city = htmlspecialchars($_POST['city']);
+            updateUser($id, $name, $pname, $email, $adress, $city);  */
+
         $checkUpdates = "true";
-        if (isset($_POST['nom']) && !empty($_POST['nom']) && !$userInfo['nom']) {
-            $_SESSION['name'] = htmlspecialchars($_POST['nom']);
+
+        if ($_SESSION['id']==$id) {
+            $userInfo = readUser($id);
+        }
+       
+
+        if (isset($_POST[ 'newNamenewName']) && !empty($_POST['newName']) && !$userInfo['nom']) {
+            $_SESSION['name'] = htmlspecialchars($_POST[ 'newName']);
             $checkUpdates = "true";
         }
 
-        if (isset($_POST['prenom']) && !empty($_POST['prenom']) && !$userInfo['prenom']) {
-            $newPName = htmlspecialchars($_POST['prenom']);
+        if (isset($_POST['newFirstName']) && !empty($_POST['newFirstName']) && !$userInfo['prenom']) {
+            $newPName = htmlspecialchars($_POST[ 'newFirstName']);
             $checkUpdates = "true";
         }
 
-        if (isset($_POST['adresse_mail']) && !empty($_POST['adresse_mail']) && !$userInfo['adresse_mail']) {
+        if (isset($_POST['newEmail']) && !empty($_POST['newEmail']) && !$userInfo['adresse_mail']) {
             $checkMail = getUserIdByMail($email);
-            if (strlen($_POST['adresse_mail']) < 2 || strlen($_POST['adresse_mail']) < 80 && !$checkMail) {
-                if (filter_var($_POST['adresse_mail'])) {
-                    $_SESSION['email'] = htmlspecialchars($_POST['adresse_mail']);
+            if (strlen($_POST['newEmail']) < 2 || strlen($_POST[ 'newEmail']) < 80 && !$checkMail) {
+                if (filter_var($_POST['newEmail'])) {
+                    $_SESSION['email'] = htmlspecialchars($_POST['newEmail']);
                     $checkUpdates = "true";
                 } else {
                     $errorMail = "Cette adresse mail n'est pas valide";
@@ -32,25 +50,31 @@ if(isset($_SESSION['id'])) {
             }
         }
 
-        if (isset($_POST['adresse']) && !empty($_POST['adresse']) && !$userInfo['adresse']) {
-            $newAdress = htmlspecialchars($_POST['adresse']);
+        if (isset($_POST['newPPAdress']) && !empty($_POST['newPPAdress']) && !$userInfo['newPPAdress']) {
+            $newAdress = htmlspecialchars($_POST['newPPAdress']);
             $checkUpdates = "true";
         }
-        if (isset($_POST['ville']) && !empty($_POST['ville']) && !$userInfo['ville']) {
-            $newCity = htmlspecialchars($_POST['ville']);
+        if (isset($_POST['newCity']) && !empty($_POST['newCity']) && !$userInfo['newCity']) {
+            $newCity = htmlspecialchars($_POST['newCity']);
             $checkUpdates = "true";
         }
         if($checkUpdates = "true") {
-            $updateIdentity = updateUser($_SESSION['id'],$_SESSION['email'],$newPName,$_SESSION['email'],$newCity); 
+            $updateIdentity = updateUser($_SESSION['id'],$_SESSION['email'], $_SESSION['name'],$newPName,$_SESSION['email'],$newCity); 
             var_dump($updateIdentity);
         }
       
     } else 
     if (isset($_POST['ignore'])) {
-        header("Location: profileAdmin.php");
+        if (isset($_SESSION['role']) && $_SESSION['role'] == "commercant" ) {
+            header("Location: profileMerchant.php?id='$id'");
+        } else {
+            header("Location: profile.php?id='$id'");
+        }
+        
     }
 
 }
+
 
 
 

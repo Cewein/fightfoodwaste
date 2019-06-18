@@ -134,6 +134,6 @@ include "profileCheck.php";
     header('Location: ../connection/connection.php');
     exit();
 }
+        }
 ?>
 
-    

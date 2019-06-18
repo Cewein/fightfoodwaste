@@ -135,7 +135,7 @@ require_once ("../includes.php");
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <h1 class="h3 mb-2 text-gray-800"> Liste des demandes validées</h1>
                     <p class="mb-4">Introduction au tableau</p>
 
                     <!-- DataTales Example -->
@@ -150,8 +150,7 @@ require_once ("../includes.php");
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Demande_id</th>
-                                            <th>Id de l'utilisateur</th>
+                                            <th>Demande n°</th>
                                             <th>Nom</th>
                                             <th>Prénom</th>
                                             <th>N° de SIREN</th>

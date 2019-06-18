@@ -16,7 +16,7 @@
     </head>
 
     <?php
-        require_once(__DIR__ . '/../header/adaptHeader.php');
+        require_once  ('../../../header/adaptHeader.php');
     ?>
 
     <body>

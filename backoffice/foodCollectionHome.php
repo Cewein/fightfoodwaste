@@ -149,14 +149,14 @@ require_once __DIR__ . '/../includes.php';
                             <h6 class="m-0 font-weight-bold text-gray-900">Création d'une collecte</h6>
                         </div>
                         <div class="card-body">
-                            Menu permettant d'accèder à la génération d'une tournée, avec selection des bénéficiaires et
+                            Menu permettant d'accèder à la génération d'une collecte, avec selection des bénéficiaires et
                             des produits qu'ils recevront: <a href="displayUsers.php">Générer une collecte</a>
                         </div>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
-                            <h6 class="m-0 font-weight-bold text-gray-900">Gérer l'itinéraire d'une tournée</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-900">Gérer l'itinéraire d'une collecte</h>
                         </div>
                         <div class="card-body">
                             Menu permettant d'accèder à la gestion du parcours d'une collecte: <a
