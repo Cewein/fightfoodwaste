@@ -80,7 +80,7 @@ require_once __DIR__ . '/checkSalary.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -94,32 +94,32 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Tournées prévues</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $prev_tournee ?></h1>
 
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">
-                            Tournees <?= $_GET['type'] ?></h6>
+                            <?= $tournee ?> <?= $_GET['type'] ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Etat</th>
-                                    <th>Date de Livraison</th>
-                                    <th>Action</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $condition ?></th>
+                                    <th><?= $deliverydate ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Etat</th>
-                                    <th>Date de Livraison</th>
-                                    <th>Action</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $condition ?></th>
+                                    <th><?= $deliverydate ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
@@ -184,10 +184,10 @@ require_once __DIR__ . '/checkSalary.php';
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th scope="col">Identifiant</th>
-                            <th scope="col">Beneficiaire</th>
-                            <th scope="col">Etat</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col"><?= $id ?></th>
+                            <th scope="col"><?= $beneficiaire ?></th>
+                            <th scope="col"><?= $condition ?></th>
+                            <th scope="col"><?= $actions ?></th>
                         </tr>
                         </thead>
                         <tbody id="livraisonBody">

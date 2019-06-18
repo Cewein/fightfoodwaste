@@ -31,6 +31,7 @@ $ncollection='N° of the collection';
 $dateofcollection='Date of the collection';
 $userid='User ID';
 $nsiren='N° of SIREN';
+$beneficiaire='beneficiary';
 
 //Modal deconnection
 $realdeconnection='Do you really want to disconnect ?';
@@ -105,3 +106,35 @@ $deliver_list_generate='Generate the delivers list';
 $deliver_list_generate_chitchat='Menu allowing to generate the list of the products to be given to the beneficiaries';
 $list_generate='Generate the lists';
 
+//tourneeGenerateView
+$tour_creation='Creation of a tour';
+$tour_creation_chitchat='Selection of a date, then beneficiaries selection';
+$date_tour='Date of the tour';
+$beneficiaries_validate='Validate beneficiaries';
+$delivery_validate='Validate this delivery';
+$tour_saved='Tour saved !';
+$back_menu='Back to menu';
+
+
+//tourneeParcoursView + tourneePDFView
+$itinerary_management='Itinerarie\'s management';
+
+//tourneeDisplay
+$prev_tournee='Previewed tour';
+$prep_tour='Tour preparation';
+$ready_tour='Tour previewed';
+$done_tour='Tour done';
+$tournee='Tour';
+
+//beneficiairesView
+$beneficiaries_management='Management of the beneficiaries';
+$benef_add='Add a beneficiary';
+$benef_modify='Modify a beneficiary';
+$list_benef='List of the beneficiaries';
+$benef_name='Name of the beneficiary';
+$benef_adr='Address';
+$benef_city='City';
+$benef_coord='GPS coordinates';
+$benef_Lat='Latitude';
+$benef_Long='Longitude';
+$benef_type='Type of the beneficiary';

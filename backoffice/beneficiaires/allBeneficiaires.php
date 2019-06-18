@@ -21,7 +21,7 @@ if (count($allBeneficiaires) > 0) {
 
     foreach ($beneficiaires as $beneficiaire) {
 
-        $row = "<tr id=\"" . $beneficiaire->getId() . " \"><th scope=\"row\">" . $beneficiaire->getId() . "</th>";
+        $row = "<tr id=\"" . $beneficiaire->getId() . "\"><th scope=\"row\">" . $beneficiaire->getId() . "</th>";
         $row .= "<td>" . $beneficiaire->getName() . "</td>";
         $row .= "<td>" . $beneficiaire->getAdress() . "</td>";
         $row .= "<td>" . $beneficiaire->getCity() . "</td>";

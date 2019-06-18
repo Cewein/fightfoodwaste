@@ -31,17 +31,22 @@ $ncollection = 'N° de la collecte';
 $dateofcollection = 'Date du ramassage';
 $userid = 'ID de l\'utilisateur';
 $nsiren = 'N° de SIREN';
+$beneficiaire='Bénéficiaire';
 
+//Modal deconnection
+$realdeconnection='Voulez vous vraiment vous déconnecter ?';
+$cancel='Annuler';
+$disconnect='Se déconnecter';
 
 //Boutons
-$validate = 'Valider';
-$close = 'Fermer';
-
+$validate='Valider';
+$close='Fermer';
+$refuse='Refuser';
 
 //Display Users
-//title
+    //title
 $allUsers = 'Tous les utilisateurs';
-//buttons
+    //buttons
 $displayallusers = 'Afficher tous les utilisateurs';
 $displayindividuals = 'Afficher particuliers';
 $displaystorekeepers = 'Afficher commerçants';
@@ -106,6 +111,26 @@ $list_generate = 'Générer les listes';
 
 //tourneeParcoursView + tourneePDFView
 $itinerary_management='Gestion des parcours';
+
+//tourneeDisplay
+$prev_tournee='Tournées prévues';
+$prep_tour='Tournées préparation';
+$ready_tour='Tournées préparées';
+$done_tour='Tournées réalisées';
+$tournee='Tournee ';
+
+//beneficiairesView
+$beneficiaries_management='Gestion des bénéficiaires';
+$benef_add='Ajouter un bénéficiaire';
+$benef_modify='Modifier un bénéficiaire';
+$list_benef='Liste des bénéficiaires';
+$benef_name='Nom du bénéficiaire';
+$benef_adr='Adresse';
+$benef_city='Ville';
+$benef_coord='Coordonnées GPS';
+$benef_Lat='Latitude';
+$benef_Long='Longitude';
+$benef_type='Type du bénéficiaire';
 
 
 

@@ -95,40 +95,40 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des bénéficiaires</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $beneficiaries_management ?></h1>
                 <p class="mb-4">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                        Ajouter un bénéficiaire
+                        <?= $benef_add ?>
                     </button>
                 </p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Liste des bénéficiaires</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay"><?= $list_benef ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>Type bénéficaire</th>
-                                    <th>Actions</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $typeofbeneficiary ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>type bénéficaire</th>
-                                    <th>Actions</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $typeofbeneficiary ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -148,7 +148,7 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabel">Ajouter un bénéficiaire</h5>
+                            <h5 class="modal-title" id="ModalLabel"><?= $benef_add ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -156,47 +156,49 @@ require_once __DIR__ . '/checkSalary.php';
                         <div class="modal-body" id="modal-body">
                             <form method="POST" id="add_beneficiaire">
                                 <div class="form-group">
-                                    <label for="inputNom">Nom bénéficiaire</label>
+                                    <label for="inputNom"><?= $benef_name ?></label>
                                     <input type="text" class="form-control" id="inputNom"
                                            aria-describedby="nom"
-                                           placeholder="Nom">
+                                           placeholder="<?= $benef_name ?>">
                                     <small id="nameError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputAdress">Adresse</label>
+                                    <label for="inputAdress"><?= $benef_adr ?></label>
                                     <input type="text" class="form-control" id="inputAdress"
                                            aria-describedby="adresse"
-                                           placeholder="Adresse">
+                                           placeholder="<?= $benef_adr ?>">
                                     <small id="adressError" class="form-text text-muted">Adresse erronée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputCity">Ville</label>
+                                    <label for="inputCity"><?= $benef_city ?></label>
                                     <input type="text" class="form-control" id="inputCity"
                                            aria-describedby="ville"
-                                           placeholder="Ville">
+                                           placeholder="<?= $benef_city ?>">
                                     <small id="cityError" class="form-text text-muted">Ville trop éloignée</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputLat">Coordonnées GPS</label>
-                                    <input type="text" class="form-control" id="inputLat" placeholder="Latitude">
+                                    <label for="inputLat"><?= $benef_coord ?></label>
+                                    <input type="text" class="form-control" id="inputLat"
+                                           placeholder="<?= $benef_Lat ?>">
                                     <small id="LatError" class="form-text text-muted">Décimale a .8</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="inputLong" placeholder="Longitude">
+                                    <input type="text" class="form-control" id="inputLong"
+                                           placeholder="<?= $benef_Long ?>">
                                     <small id="LongError" class="form-text text-muted">Décimale a .8</small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputType">Type Bénéficiaire</label>
+                                    <label for="inputType"><?= $benef_type ?></label>
                                     <input type="text" class="form-control" id="inputType"
-                                           placeholder="Type bénéficiaire">
+                                           placeholder="<?= $benef_type ?>">
                                     <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <button type="submit" class="btn btn-primary"><?= $validate ?></button>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                    onclick="reloadModal()">Close
+                                    onclick="reloadModal()"><?= $close ?>
                             </button>
                         </div>
                     </div>
@@ -209,44 +211,58 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalLabelUpdate">Modifier un produit</h5>
+                            <h5 class="modal-title" id="ModalLabelUpdate"><?= $benef_modify ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body" id="modal-body">
-                            <form method="POST" id="update_product">
+                            <form method="POST" id="modify_beneficiaire">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifNom"
+                                    <label for="modifyNom"><?= $benef_name ?></label>
+                                    <input type="text" class="form-control" id="modifyNom"
                                            aria-describedby="nom"
-                                           placeholder="Nom">
-                                    <small id="barcodeError" class="form-text text-muted">14 caractères nécessaires
-                                    </small>
+                                           placeholder="<?= $benef_name ?>">
+                                    <small id="modifyNameError" class="form-text text-muted">14 caractères nécessaires</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifAdress"
+                                    <label for="modifyAdress"><?= $benef_adr ?></label>
+                                    <input type="text" class="form-control" id="modifyAdress"
                                            aria-describedby="adresse"
-                                           placeholder="Adresse">
-                                    <small id="quantityError" class="form-text text-muted">Nombre entier</small>
+                                           placeholder="<?= $benef_adr ?>">
+                                    <small id="modifyAdressError" class="form-text text-muted">Adresse erronée</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" id="modifCity"
-                                           aria-describedby="Ville"
-                                           placeholder="Ville">
-                                    <small id="DLCError" class="form-text text-muted">Date déjà passée</small>
+                                    <label for="modifyCity"><?= $benef_city ?></label>
+                                    <input type="text" class="form-control" id="modifyCity"
+                                           aria-describedby="ville"
+                                           placeholder="<?= $benef_city ?>">
+                                    <small id="modifyCityError" class="form-text text-muted">Ville trop éloignée</small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="modifType"
-                                           placeholder="Type bénéficiaire">
-                                    <small id="stockError" class="form-text text-muted">Entre 0 et 10</small>
+                                    <label for="modifyLat"><?= $benef_coord ?></label>
+                                    <input type="text" class="form-control" id="modifyLat"
+                                           placeholder="<?= $benef_Lat ?>">
+                                    <small id="modifyLatError" class="form-text text-muted">Décimale a .8</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="modifyLong"
+                                           placeholder="<?= $benef_Long ?>">
+                                    <small id="modifyLongError" class="form-text text-muted">Décimale a .8</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputType"><?= $benef_type ?></label>
+                                    <input type="text" class="form-control" id="modifyType"
+                                           placeholder="<?= $benef_type ?>">
+                                    <small id="typeError" class="form-text text-muted">Entre 0 et 10</small>
                                 </div>
                                 <input type="hidden" class="form-control" id="beneficiaireId" value="">
-                                <button type="submit" class="btn btn-primary">Valider</button>
+                                <button type="submit" class="btn btn-primary"><?= $validate ?></button>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                    onclick="reloadModal()">Close
+                                    onclick="reloadModal()"><?= $close ?>
                             </button>
                         </div>
                     </div>
