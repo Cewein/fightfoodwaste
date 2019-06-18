@@ -8,6 +8,22 @@
 
 session_start();
 
+//Set the language
+if(isset($_GET['lang'])===true){
+    if($_GET['lang']==='fr'){
+        require_once __DIR__.'/lang/fr.php';
+    }
+    elseif ($_GET['lang']==='eng'){
+        require_once __DIR__.'/lang/eng.php';
+    }
+    else{
+        require_once __DIR__.'/lang/eng.php';
+    }
+}
+else{
+    require_once __DIR__.'/lang/fr.php';
+}
+
 //Get th connection
 require_once __DIR__.'/database/database.php';
 

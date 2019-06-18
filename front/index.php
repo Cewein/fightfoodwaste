@@ -36,8 +36,7 @@ $actualDirectory=__DIR__;
 
 <body id="page-top">
 
-<?php require_once(__DIR__ . '/part/include.php');
-?>
+<?php require_once(__DIR__ . '/part/include.php'); ?>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

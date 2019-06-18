@@ -218,7 +218,8 @@ require_once __DIR__ . '/checkSalary.php';
             </div>
             <div class="modal-body">
                 Annuler la livraison signifie également la retirer de sa tournée
-                <button class="btn btn-success" id="valid" data-dismiss="modal" onclick="cancelLivraison()">Confirmer</button>
+                <button class="btn btn-success" id="valid" data-dismiss="modal" onclick="cancelLivraison()">Confirmer
+                </button>
                 <button class="btn btn-danger">Annuler</button>
             </div>
             <div class="modal-footer">
@@ -227,7 +228,6 @@ require_once __DIR__ . '/checkSalary.php';
         </div>
     </div>
 </div>
-
 
 
 <!-- Script to display requests-->

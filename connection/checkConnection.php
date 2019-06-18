@@ -19,7 +19,7 @@ if (isset($_POST['mailAdress']) === true && isset($_POST['password']) === true &
         if ($checkConnect == true) {
 
             $user = getConnection($mailAddress);
-            //var_dump($password);
+
             //Check password
             if (isset($user['nom']) === true && password_verify($password, $user['password']) === true) {
                 $id = $user['identifiant'];

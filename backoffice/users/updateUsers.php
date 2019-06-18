@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../includes.php';
 if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     $type = htmlspecialchars($_POST['type']);
     $id = htmlspecialchars($_POST['id']);
-    var_dump($type);
+
     if ($type === 'delete') {
         $role = getRoleByUserId($id);
 

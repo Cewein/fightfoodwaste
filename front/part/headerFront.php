@@ -105,20 +105,20 @@ if (isset($allUsersRoles) === true) {
             <div class="col-md-1"></div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href=<?php echo $pathIndex ?>>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href=<?= $pathIndex ?>><?= $home ?></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                     <!-- Personnalisation de la barre de navigation en fonction du rôle -->
                     <?php if (isset($_SESSION["id"]) === false) { ?>
-                        <li class="nav-item"><a class="nav-link" href=<?php echo $pathInscription ?>>Inscription</a>
+                        <li class="nav-item"><a class="nav-link" href=<?= $pathInscription ?>><?= $register?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=<?php echo $pathConnection ?>>Connexion</a>
+                            <a class="nav-link" href=<?= $pathConnection ?>><?= $login ?></a>
                         </li>
                     <?php } else { ?>
 
-                        <?php echo $roleLinks ?>
+                        <?= $roleLinks ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Déconnexion</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal"><?= $logout?></a>
                         </li>
                     <?php } ?>
                 </ul>

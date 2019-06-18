@@ -1,5 +1,4 @@
 function loadPDF(idLivraison, beneficiaire, dateLivraison) {
-    // console.log('miam');
     sendRequestPDF('../backoffice/tournees/createPDF.php',`beneficiaire=${beneficiaire}&dateLivraison=${dateLivraison}`, function (res) {
         console.log(res);
     } )
