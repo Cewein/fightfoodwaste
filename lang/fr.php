@@ -32,6 +32,7 @@ $dateofcollection = 'Date du ramassage';
 $userid = 'ID de l\'utilisateur';
 $nsiren = 'N° de SIREN';
 $beneficiaire='Bénéficiaire';
+$selection = 'Sélection';
 
 //Modal deconnection
 $realdeconnection='Voulez vous vraiment vous déconnecter ?';
@@ -112,7 +113,19 @@ $list_generate = 'Générer les listes';
 //tourneeParcoursView + tourneePDFView
 $itinerary_management='Gestion des parcours';
 
+//tourneeGenerateView
+$tour_creation='Creation d\'une tournée';
+$tour_creation_chitchat='Sélection d\'une date puis des bénéficiaires';
+$date_tour='Date de la tournée';
+$no_benef_selected='Aucun bénéficiaire sélectionné !';
+$beneficiaries_validate='Valider les bénéficiaire';
+$delivery_validate='Valider cette livraison';
+$tour_saved='Tournée sauvegardée !';
+$back_menu='Retour au menu';
+
+
 //tourneeDisplay
+$deliverListTournee='Livraisons de la Tournée n°';
 $prev_tournee='Tournées prévues';
 $prep_tour='Tournées préparation';
 $ready_tour='Tournées préparées';

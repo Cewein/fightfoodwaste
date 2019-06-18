@@ -273,15 +273,7 @@ require_once __DIR__ . '/checkSalary.php';
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; FightFoodWaste 2019</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+        <?php require_once __DIR__ . '/footer.php' ?>
 
     </div>
     <!-- End of Content Wrapper -->

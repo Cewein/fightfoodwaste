@@ -32,6 +32,7 @@ $dateofcollection='Date of the collection';
 $userid='User ID';
 $nsiren='N° of SIREN';
 $beneficiaire='beneficiary';
+$selection = 'Selection';
 
 //Modal deconnection
 $realdeconnection='Do you really want to disconnect ?';
@@ -110,6 +111,7 @@ $list_generate='Generate the lists';
 $tour_creation='Creation of a tour';
 $tour_creation_chitchat='Selection of a date, then beneficiaries selection';
 $date_tour='Date of the tour';
+$no_benef_selected='No Beneficiary selected !';
 $beneficiaries_validate='Validate beneficiaries';
 $delivery_validate='Validate this delivery';
 $tour_saved='Tour saved !';
@@ -120,6 +122,7 @@ $back_menu='Back to menu';
 $itinerary_management='Itinerarie\'s management';
 
 //tourneeDisplay
+$deliverListTournee='Delivers from tour n°';
 $prev_tournee='Previewed tour';
 $prep_tour='Tour preparation';
 $ready_tour='Tour previewed';
