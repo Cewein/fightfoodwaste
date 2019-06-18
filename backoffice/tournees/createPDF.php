@@ -13,16 +13,17 @@ if (isset($_POST['dateLivraison']) === true && isset($_POST['beneficiaire']) ===
 }
 
 $i = 0;
+$produits=[];
 while (isset($_POST[$i]) === true) {
     $produits[$i] = explode(',', $_POST[$i]);
     $i++;
 }
 
-//$namePDF = "bénéficiairex_xx-xx-xxxx.pdf";
-//$beneficiaire = "bénéficiairex";
-//$date = "xx-xx-xxxx";
-//$adress="adress";
-//$city="city";
+/*$namePDF = "bénéficiairex_xx-xx-xxxx.pdf";
+$beneficiaire = "bénéficiairex";
+$date = "xx-xx-xxxx";
+$adress="adress";
+$city="city";*/
 
 class PDF extends tFPDF
 {
@@ -87,16 +88,23 @@ class PDF extends tFPDF
     }
 }
 
-//header Array
-$header=array('id Produit', 'Code Barre', 'Quantité');
+if(count($produits) >0){
+    //header Array
+    $header=array('id Produit', 'Code Barre', 'Quantité');
 
 // Instanciation de la classe dérivée
-$pdf = new PDF();
-$pdf->AliasNbPages();
-$pdf->AddPage();
-$pdf->EnteteLivraison($adress, $city, $date, $beneficiaire);
-$pdf->ArrayProducts($header, $produits);
-$pdf->AddFont('DejaVu', '', 'DejaVuSansCondensed.ttf', true);
-$pdf->SetFont('DejaVu', '', 12);
+    $pdf = new PDF();
+    $pdf->AliasNbPages();
+    $pdf->AddPage();
+    $pdf->EnteteLivraison($adress, $city, $date, $beneficiaire);
+    $pdf->ArrayProducts($header, $produits);
+    $pdf->AddFont('DejaVu', '', 'DejaVuSansCondensed.ttf', true);
+    $pdf->SetFont('DejaVu', '', 12);
 
-$pdf->Output($namePDF, 'D');
+    $pdf->Output($namePDF, 'D');
+}
+else{
+    header('Location: ../tourneePDFView.php');
+}
+
+
