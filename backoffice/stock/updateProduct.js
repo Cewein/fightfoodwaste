@@ -28,7 +28,10 @@ function sendRequestProduct(id, type) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-
+            if(type==='delete'){
+                const container = document.getElementById(id);
+                hide(container);
+            }
         }
     };
     request.open('POST', 'updateProduct.php');

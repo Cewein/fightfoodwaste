@@ -15,7 +15,7 @@ $firstname = 'Prénom';
 $email = 'Adresse Email';
 $address = 'Adresse';
 $city = 'Ville';
-$role = 'Rôle(s)';
+$roleType = 'Rôle(s)';
 $description = 'Description';
 $quantity = 'Quantité';
 $stock = 'Stock';
@@ -31,23 +31,23 @@ $ncollection = 'N° de la collecte';
 $dateofcollection = 'Date du ramassage';
 $userid = 'ID de l\'utilisateur';
 $nsiren = 'N° de SIREN';
-$beneficiaire='Bénéficiaire';
+$beneficiaire = 'Bénéficiaire';
 $selection = 'Sélection';
 
 //Modal deconnection
-$realdeconnection='Voulez vous vraiment vous déconnecter ?';
-$cancel='Annuler';
-$disconnect='Se déconnecter';
+$realdeconnection = 'Voulez vous vraiment vous déconnecter ?';
+$cancel = 'Annuler';
+$disconnect = 'Se déconnecter';
 
 //Boutons
-$validate='Valider';
-$close='Fermer';
-$refuse='Refuser';
+$validate = 'Valider';
+$close = 'Fermer';
+$refuse = 'Refuser';
 
 //Display Users
-    //title
+//title
 $allUsers = 'Tous les utilisateurs';
-    //buttons
+//buttons
 $displayallusers = 'Afficher tous les utilisateurs';
 $displayindividuals = 'Afficher particuliers';
 $displaystorekeepers = 'Afficher commerçants';
@@ -111,39 +111,39 @@ $deliver_list_generate_chitchat = 'Menu permettant de générer les listes de pr
 $list_generate = 'Générer les listes';
 
 //tourneeParcoursView + tourneePDFView
-$itinerary_management='Gestion des parcours';
+$itinerary_management = 'Gestion des parcours';
 
 //tourneeGenerateView
-$tour_creation='Creation d\'une tournée';
-$tour_creation_chitchat='Sélection d\'une date puis des bénéficiaires';
-$date_tour='Date de la tournée';
-$no_benef_selected='Aucun bénéficiaire sélectionné !';
-$beneficiaries_validate='Valider les bénéficiaire';
-$delivery_validate='Valider cette livraison';
-$tour_saved='Tournée sauvegardée !';
-$back_menu='Retour au menu';
+$tour_creation = 'Creation d\'une tournée';
+$tour_creation_chitchat = 'Sélection d\'une date puis des bénéficiaires';
+$date_tour = 'Date de la tournée';
+$no_benef_selected = 'Aucun bénéficiaire sélectionné !';
+$beneficiaries_validate = 'Valider les bénéficiaire';
+$delivery_validate = 'Valider cette livraison';
+$tour_saved = 'Tournée sauvegardée !';
+$back_menu = 'Retour au menu';
 
 
 //tourneeDisplay
-$deliverListTournee='Livraisons de la Tournée n°';
-$prev_tournee='Tournées prévues';
-$prep_tour='Tournées préparation';
-$ready_tour='Tournées préparées';
-$done_tour='Tournées réalisées';
-$tournee='Tournee ';
+$deliverListTournee = 'Livraisons de la Tournée n°';
+$prev_tournee = 'Tournées prévues';
+$prep_tour = 'Tournées préparation';
+$ready_tour = 'Tournées préparées';
+$done_tour = 'Tournées réalisées';
+$tournee = 'Tournee ';
 
 //beneficiairesView
-$beneficiaries_management='Gestion des bénéficiaires';
-$benef_add='Ajouter un bénéficiaire';
-$benef_modify='Modifier un bénéficiaire';
-$list_benef='Liste des bénéficiaires';
-$benef_name='Nom du bénéficiaire';
-$benef_adr='Adresse';
-$benef_city='Ville';
-$benef_coord='Coordonnées GPS';
-$benef_Lat='Latitude';
-$benef_Long='Longitude';
-$benef_type='Type du bénéficiaire';
+$beneficiaries_management = 'Gestion des bénéficiaires';
+$benef_add = 'Ajouter un bénéficiaire';
+$benef_modify = 'Modifier un bénéficiaire';
+$list_benef = 'Liste des bénéficiaires';
+$benef_name = 'Nom du bénéficiaire';
+$benef_adr = 'Adresse';
+$benef_city = 'Ville';
+$benef_coord = 'Coordonnées GPS';
+$benef_Lat = 'Latitude';
+$benef_Long = 'Longitude';
+$benef_type = 'Type du bénéficiaire';
 
 
 

@@ -13,10 +13,14 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     $id = htmlspecialchars($_POST['id']);
 
     if ($type === 'delete') {
-        $role = getRoleByUserId($id);
+        $roles = getRoleByUserId($id);
 
         if (count($role) > 0) {
-            deleteRoleByIdUserId($role['id_role'], $id);
+            foreach ($roles as $role) {
+                deleteRoleByIdUserId($role['id_role'], $id);
+            }
+
+
         }
 
         deleteUser($id);
@@ -51,15 +55,15 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     } elseif ($type === 'update') {
 
         if (isset($_POST['name']) === true && isset($_POST['pname']) === true && isset($_POST['email']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true && isset($_POST['type']) === true) {
-            $name=htmlspecialchars($_POST['name']);
+            $name = htmlspecialchars($_POST['name']);
 
-            $pname=htmlspecialchars($_POST['pname']);
+            $pname = htmlspecialchars($_POST['pname']);
             echo strlen($pname);
             echo $pname;
-            $email=htmlspecialchars($_POST['email']);
-            $adress=htmlspecialchars($_POST['adress']);
-            $city=htmlspecialchars($_POST['city']);
-            updateUser($id,$name,$pname,$email,$adress,$city);
+            $email = htmlspecialchars($_POST['email']);
+            $adress = htmlspecialchars($_POST['adress']);
+            $city = htmlspecialchars($_POST['city']);
+            updateUser($id, $name, $pname, $email, $adress, $city);
 
             echo "presque";
         }

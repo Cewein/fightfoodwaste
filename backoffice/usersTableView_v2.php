@@ -115,7 +115,7 @@ require_once __DIR__ . '/checkSalary.php';
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -124,7 +124,7 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th><?= $email ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
-                                    <th><?= $role ?></th>
+                                    <th><?= $roleType ?></th>
                                     <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
@@ -136,7 +136,7 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th><?= $email ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
-                                    <th><?= $role ?></th>
+                                    <th><?= $roleType ?></th>
                                     <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
