@@ -156,7 +156,7 @@ require_once __DIR__ . '/../includes.php';
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
-                            <h6 class="m-0 font-weight-bold text-gray-900">Gérer l'itinéraire d'une collecte</h>
+                            <h6 class="m-0 font-weight-bold text-gray-900">Gérer l'itinéraire d'une collecte</h6>
                         </div>
                         <div class="card-body">
                             Menu permettant d'accèder à la gestion du parcours d'une collecte: <a
