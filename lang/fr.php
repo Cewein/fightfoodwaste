@@ -103,3 +103,9 @@ $path_tour = 'Parcours d\'une tournée';
 $deliver_list_generate = 'Générer les listes de livraison';
 $deliver_list_generate_chitchat = 'Menu permettant de générer les listes de produits a remettre aux bénéficiaires:';
 $list_generate = 'Générer les listes';
+
+//tourneeParcoursView + tourneePDFView
+$itinerary_management='Gestion des parcours';
+
+
+

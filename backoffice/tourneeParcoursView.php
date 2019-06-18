@@ -99,7 +99,7 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $itinerary_management?></h1>
                 <p class="mb-4" id="infosTournee"> </p>
 
                 <div class="list-group" id="displayTournees">

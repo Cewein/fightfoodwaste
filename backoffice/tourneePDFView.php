@@ -83,7 +83,7 @@ require_once __DIR__ . '/checkSalary.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout?>
                             </a>
                         </div>
                     </li>
@@ -97,7 +97,7 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $itinerary_management?></h1>
                 <p class="mb-4" id="infosTournee"></p>
 
                 <div class="list-group" id="displayTournees">
