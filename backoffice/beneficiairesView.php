@@ -117,6 +117,8 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th><?= $name ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
+                                    <th><?= $benef_Lat ?></th>
+                                    <th><?= $benef_Long ?></th>
                                     <th><?= $typeofbeneficiary ?></th>
                                     <th><?= $actions ?></th>
                                 </tr>
@@ -127,6 +129,8 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th><?= $name ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
+                                    <th><?= $benef_Lat ?></th>
+                                    <th><?= $benef_Long ?></th>
                                     <th><?= $typeofbeneficiary ?></th>
                                     <th><?= $actions ?></th>
                                 </tr>
