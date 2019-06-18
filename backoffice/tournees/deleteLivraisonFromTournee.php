@@ -2,15 +2,15 @@
 
 require_once __DIR__ . '/../../includes.php';
 
-if(isset($_POST['idLivraison'])===true){
-    $livraison=$_POST['idLivraison'];
-    setLivraisonEtat($livraison,'canceled');
+if (isset($_POST['idLivraison']) === true) {
+    $livraison = $_POST['idLivraison'];
+    setLivraisonEtat($livraison, 'canceled');
 
-    //unset produit.id_livraison=NULL
-    $productsLivraison=getProductByLivraisonId($livraison);
-    if(empty($productsLivraison)!==true){
-        foreach ($productsLivraison as $product){
-            updateProductSetLivraison('NULL',$livraison);
+    //unset products form Livraison
+    $productsLivraison = getProductByLivraisonId($livraison);
+    if (empty($productsLivraison) !== true) {
+        foreach ($productsLivraison as $product) {
+            updateProductSetLivraison($product['identifiant'], NULL);
         }
     }
 }
