@@ -4,15 +4,15 @@ session_start();
 
 //Set the language
 if (isset($_GET['lang']) === true) {
-    if ($_GET['lang'] === 'fr') {
+    if ($_GET['lang'] == 'fr') {
         setcookie("eng", 1, time() - 4200);
         setcookie("fr", 1, time() + (((3600 * 24) * 30) * 12));
-    } elseif ($_GET['lang'] === 'eng') {
+    } elseif ($_GET['lang'] == 'eng') {
         setcookie("fr", 1, time() - 4200);
         setcookie("eng", 1, time() + (((3600 * 24) * 30) * 12));
     }
 }
-if (isset($_COOKIE['eng']) === true) {
+if (isset($_COOKIE["eng"]) === true) {
     require_once __DIR__ . '/lang/eng.php';
 } else {
     require_once __DIR__ . '/lang/fr.php';
