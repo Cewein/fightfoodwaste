@@ -4,7 +4,7 @@ require_once('../includes.php');
 $actualDirectory=__DIR__;
 
 if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
-    $userinfo=getUserById($_SESSION['id']);
+    $userinfo=readUser($_SESSION['id']);
 
     $name=$userinfo['nom'];
     $pname=$userinfo['prenom'];
@@ -48,8 +48,6 @@ if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
         Prénom : <?= $pname; ?>
         <br/>
         Adresse mail : <?= $email; ?>
-        <br/>
-        Mot de passe : <?= password_hash($password, PASSWORD_DEFAULT) ?>
         <br/>
         Adresse postale : <?= $adress; ?>
         <br/>

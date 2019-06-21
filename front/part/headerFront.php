@@ -59,7 +59,7 @@ if (isset($allUsersRoles) === true) {
         switch ($roleName) {
             case 'particulier':
                 $linkName = "Espace Particulier";
-                $path = "#";
+                $path = "/";
                 break;
             case 'commercant':
                 $linkName = "Espace Commerçant";
