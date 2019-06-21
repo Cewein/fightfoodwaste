@@ -59,15 +59,15 @@ if (isset($allUsersRoles) === true) {
         switch ($roleName) {
             case 'particulier':
                 $linkName = "Espace Particulier";
-                $path = "/";
+                $path = $directory . "profile/profile.php";
                 break;
             case 'commercant':
                 $linkName = "Espace Commerçant";
-                $path = "#";
+                $path = $directory . "profile/profileMerchant.php";
                 break;
             case 'salary':
                 $linkName = "Espace Personnel";
-                $path = $directory . "profile/profileSalary.php";
+                $path = $directory . "profile/profile.php";
                 $roleLinks .= "<li class=\"nav-item\">
                                     <a class=\"nav-link \" href=" . $pathAdmin . ">
                                         <p class=\"fas fa-user-circle\"></p>Administration
@@ -80,7 +80,7 @@ if (isset($allUsersRoles) === true) {
                 break;
             case 'benevole':
                 $linkName = "Espace bénévole";
-                $path = "#";
+                $path = $directory . "profile/profile.php";
                 break;
             default:
                 break;
@@ -109,7 +109,7 @@ if (isset($allUsersRoles) === true) {
                     <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                     <!-- Personnalisation de la barre de navigation en fonction du rôle -->
                     <?php if (isset($_SESSION["id"]) === false) { ?>
-                        <li class="nav-item"><a class="nav-link" href=<?= $pathInscription ?>><?= $register?></a>
+                        <li class="nav-item"><a class="nav-link" href=<?= $pathInscription ?>><?= $register ?></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=<?= $pathConnection ?>><?= $login ?></a>
@@ -118,7 +118,8 @@ if (isset($allUsersRoles) === true) {
 
                         <?= $roleLinks ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal"><?= $logout?></a>
+                            <a class="nav-link" href="#" data-toggle="modal"
+                               data-target="#logoutModal"><?= $logout ?></a>
                         </li>
                     <?php } ?>
                 </ul>

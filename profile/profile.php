@@ -61,59 +61,58 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
                             </div>
 
                             <div class="col-md-6">
-                                <div class="table">
-                                    <table>
-                                        <thead>
-                                        <th>Champs</th>
-                                        <th>Valeur</th>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th><?= $name ?></th>
-                                            <td><?php echo $userInfo['nom']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= $firstname ?></th>
-                                            <td><?php echo $userInfo['prenom']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= $email ?></th>
-                                            <td><?php echo $userInfo['adresse_mail']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Mot de passe</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th><?= $city ?></th>
-                                            <td><?php echo $userInfo['ville']; ?></td>
-                                        </tr>
-                                        </tbody>
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Champs</th>
+                                        <th scope="col">Valeur</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th><?= $name ?></th>
+                                        <td><?php echo $userInfo['nom']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th><?= $firstname ?></th>
+                                        <td><?php echo $userInfo['prenom']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th><?= $email ?></th>
+                                        <td><?php echo $userInfo['adresse_mail']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mot de passe</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th><?= $city ?></th>
+                                        <td><?php echo $userInfo['ville']; ?></td>
+                                    </tr>
+                                    </tbody>
 
-                                    </table>
-                                    <br><br>
-                                    <div class="form-group row">
-                                        <div class="offset-4 col-8">
-                                            <a href="updateProfile.php">
-                                                <input type="submit" class="btn btn-primary" name="update"
-                                                       value="Mettre à jour">
-                                            </a>
-                                        </div>
+                                </table>
+                                <br><br>
+                                <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                        <a href="updateProfile.php">
+                                            <input type="submit" class="btn btn-primary" name="update"
+                                                   value="Mettre à jour">
+                                        </a>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="offset-4 col-8">
-                                            <a href="deleteProfile.php">
-                                                <input type="submit" class="btn btn-primary" name="delete"
-                                                       id="inactivate"
-                                                       value="Supprimer">
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-                                    <a href="../connection/php/disconnection.php">Se déconnecter</a>
-
                                 </div>
+                                <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                        <a href="deleteProfile.php">
+                                            <input type="submit" class="btn btn-primary" name="delete"
+                                                   id="inactivate"
+                                                   value="Supprimer">
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <a href="../connection/php/disconnection.php">Se déconnecter</a>
+
                             </div>
 
                         </div>
