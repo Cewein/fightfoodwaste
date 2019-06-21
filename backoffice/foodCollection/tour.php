@@ -4,8 +4,7 @@ class Tour {
     //liste des attributs
     private $idWonder; 
     private $lastName; 
-    private $firstName; 
-    private $sirenNumber; 
+    private $firstName;  
     private $address; 
     private $city; 
 
@@ -14,14 +13,12 @@ class Tour {
     public function __construct ($idWonder,
                                  $lastName,
                                  $firstName,
-                                 $sirenNumber,
                                  $address,
                                  $city) {
 
         $this->idWonder = $idWonder; 
         $this->lastName = $lastName; 
         $this->firstName = $firstName; 
-        $this->sirenNumber = $sirenNumber; 
         $this->address = $address; 
         $this->city = $city; 
     }
@@ -31,7 +28,6 @@ class Tour {
     public function getIdWonder() { return $this->idWonder; }
     public function getLastName() { return $this->lastName; }
     public function getFirstName() { return $this->firstName; }
-    public function getSirenNumber() { return $this->sirenNumber; }
     public function getAddress() { return $this->address; }
     public function getCity() { return $this->city; }
    
@@ -51,7 +47,6 @@ class Tour {
         }
     }
 
-    public function setSirenNumber($siren) {$this->sirenNumber = (int) $siren; }
     public function setAddr($address) {$this->addr = (string) $address; }    
     public function setCity($city) {$this->city = (string) $city; }
   

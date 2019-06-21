@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../includes.php");
+require_once("../includes.php");
 
 
 ?>
@@ -32,6 +32,9 @@ require_once ("../includes.php");
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
+
+
+
 
 </head>
 
@@ -136,44 +139,44 @@ require_once ("../includes.php");
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800"> Liste des demandes validées</h1>
-                    <p class="mb-4">Introduction au tableau</p>
+
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="#" onclick="usersRequests('checkedTrue');">
-                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Demande n°</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>N° de SIREN</th>
-                                            <th>Adresse</th>
-                                            <th>Ville</th>
-                                        </tr>
-                                    </thead>
+                    <form action="request/createFoodCollection.php" method="post">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <input type="submit" name="submit" id="collectionCreate" value="Créer une nouvelle collecte" onclick="createFoodCollection()" disabled>
+                            </div>
 
-                                    <tbody>
-                                        <?php
-                                        require_once __DIR__ . '/foodCollection/validatedRequestList.php';
-                                        ?>
-                                    </tbody>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Demande n°</th>
+                                                <th>Nom</th>
+                                                <th>Prénom</th>
+                                                <th>Adresse</th>
+                                                <th>Ville</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="body">
+                                            <?php
+                                            require_once __DIR__ . '/foodCollection/validatedRequestList.php';
+                                            ?>
+                                        </tbody>
 
 
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -234,10 +237,9 @@ require_once ("../includes.php");
     <!-- Page level custom scripts -->
     <script src="../css/BackOffice/datatables-demo.js"></script>
 
+    <!-- Custom script to assign adherents'wonders to a collection -->
+    <script src="request/displayUsers.js"></script>
+
 </body>
 
 </html>
-
-
-<?php
-
