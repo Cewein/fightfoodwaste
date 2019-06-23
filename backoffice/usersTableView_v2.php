@@ -170,7 +170,8 @@ require_once __DIR__ . '/checkSalary.php';
                                     <select class="form-control" id="typeUser">
                                         <option>Particulier</option>
                                         <option>Commerçant</option>
-                                        <option>Salarié</option>
+                                        <?php if($isAdmin){?><option>Salarié</option><?php }?>
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">

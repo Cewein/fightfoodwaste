@@ -1,6 +1,7 @@
 <?php
 
 $isAuthorized=false;
+$isAdmin=false;
 if(isset($_SESSION['roles'])===true){
     $allRoles=getAllRoles();
 
@@ -11,9 +12,13 @@ if(isset($_SESSION['roles'])===true){
                 $roleName = $uniqueRole['nom'];
             }
         }
-
-        if ($roleName==='salary' || $roleName==='administrateur'){
+var_dump($roleName);
+        if ($roleName==='salary'){
             $isAuthorized=true;
+        }
+        elseif ($roleName==='administrateur'){
+            $isAuthorized=true;
+            $isAdmin=true;
         }
     }
 
