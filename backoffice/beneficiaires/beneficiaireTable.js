@@ -14,7 +14,9 @@ function updateBeneficiaire(id) {
     name.value = benefInfos[1].innerHTML;
     adress.value = benefInfos[2].innerHTML;
     city.value = benefInfos[3].innerHTML;
-    type.value = benefInfos[4].innerHTML;
+    latitude.value = benefInfos[4].innerHTML;
+    longitude.value = benefInfos[5].innerHTML;
+    type.value = benefInfos[6].innerHTML;
     idBenef.value = id;
 }
 
