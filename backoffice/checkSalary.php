@@ -12,7 +12,7 @@ if(isset($_SESSION['roles'])===true){
                 $roleName = $uniqueRole['nom'];
             }
         }
-var_dump($roleName);
+
         if ($roleName==='salary'){
             $isAuthorized=true;
         }
@@ -23,13 +23,11 @@ var_dump($roleName);
     }
 
     if($isAuthorized===false){
-        echo 'miam';
         header('Location: ../front/index.php');
         exit;
     }
 }
 else{
-    echo 'miambis session kk';
     header('Location: ../front/index.php');
     exit;
 }
