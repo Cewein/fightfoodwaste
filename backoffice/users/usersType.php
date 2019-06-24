@@ -52,6 +52,9 @@ if (isset($role) === true) {
                 if (isset($user['prenom']) === true) {
                     $row .= "<td>" . $user['prenom'] . "</td>";
                 }
+                else{
+                    $row .= "<td>" . $user['n_SIREN'] . "</td>";
+                }
                 $row .= "<td>" . $user['adresse_mail'] . "</td>";
                 $row .= "<td>" . $user['adresse'] . "</td>";
                 $row .= "<td>" . $user['ville'] . "</td>";

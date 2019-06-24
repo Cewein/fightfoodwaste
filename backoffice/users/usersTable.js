@@ -1,6 +1,26 @@
 function allUsers() {
+    //Switch display
+    //title
+    const title = document.getElementById('actualDisplay');
+    title.innerHTML = 'Tous les utilisateurs';
+    //thead
+    const name = document.getElementById('userName');
+    const nameBot = document.getElementById('userNameBot');
+    const pname = document.getElementById('pname');
+    const pnameBot = document.getElementById('pnameBot');
+    const siret = document.getElementById('siret');
+    const siretBot = document.getElementById('siretBot');
+
+    name.innerHTML = 'Nom';
+    nameBot.innerHTML = 'Nom';
+    pname.style.display = "table-cell";
+    pnameBot.style.display = "table-cell";
+    siret.style.display = "table-cell";
+    siretBot.style.display = "table-cell";
+
     const container = document.getElementById('tbody');
     container.innerText = "";
+
     const textRequest = true;
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -14,14 +34,21 @@ function allUsers() {
 }
 
 function users(usersType) {
+    //Switch display
+    //title
+    const title = document.getElementById('actualDisplay');
+    title.innerHTML = 'Utilisateurs : ' + usersType;
+    //thead
     const name = document.getElementById('userName');
     const nameBot = document.getElementById('userNameBot');
     const pname = document.getElementById('pname');
     const pnameBot = document.getElementById('pnameBot');
+    const siret = document.getElementById('siret');
+    const siretBot = document.getElementById('siretBot');
 
     const container = document.getElementById('tbody');
     container.innerText = "";
-    $request = `role=${usersType}`;
+    let $request = `role=${usersType}`;
 
     //Change the thead with right names
     if (usersType === 'commercant') {
@@ -29,12 +56,15 @@ function users(usersType) {
         nameBot.innerHTML = 'Nom commerce';
         pname.style.display = "none";
         pnameBot.style.display = "none";
+        siret.style.display = 'table-cell';
+        siretBot.style.display = 'table-cell';
     } else {
         name.innerHTML = 'Nom';
         nameBot.innerHTML = 'Nom';
-        pname.style.display = "block";
-        pnameBot.style.display = "block";
-
+        pname.style.display = "table-cell";
+        pnameBot.style.display = "table-cell";
+        siret.style.display = "none";
+        siretBot.style.display = "none";
     }
 
     const request = new XMLHttpRequest();
@@ -191,15 +221,14 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
         check = false;
     }
 
-    if(type!=='commercant'){
+    if (type !== 'commercant') {
         if (checkName(pname, pnameError) === true) { //Check pname (=surname)
             pnameChecked = pname.value;
         } else {
             check = false;
         }
-    }
-    else{
-        pnameChecked='null';
+    } else {
+        pnameChecked = 'null';
     }
 
     if (email.value.length < 2 || email.value.length > 80) { //Check email
@@ -220,18 +249,16 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            console.log(request.responseText);
             if (type !== false) {
-                errorEmailPrint = document.getElementById("emailSetError");
-                emailInput = document.getElementById('inputEmail');
+                const errorEmailPrint = document.getElementById("emailSetError");
+                const emailInput = document.getElementById('inputEmail');
                 if (request.responseText === "mail already set") {
                     errorEmailPrint.style.display = "block";
                     emailInput.style.borderColor = "red";
 
                 }
-            }
-            else{
-                
+            } else {
+
             }
 
         }

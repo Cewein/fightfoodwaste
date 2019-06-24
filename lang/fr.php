@@ -30,7 +30,7 @@ $typeofbeneficiary = 'Type bénéficiaire';
 $ncollection = 'N° de la collecte';
 $dateofcollection = 'Date du ramassage';
 $userid = 'ID de l\'utilisateur';
-$nsiren = 'N° de SIREN';
+$nsiren = 'N° SIRET';
 $beneficiaire = 'Bénéficiaire';
 $selection = 'Sélection';
 

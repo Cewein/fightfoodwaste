@@ -33,6 +33,7 @@ require_once __DIR__ . '/checkSalary.php';
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
+    <link href="../css/backoffice.css" rel="stylesheet">
 
 </head>
 
@@ -121,6 +122,7 @@ require_once __DIR__ . '/checkSalary.php';
                                     <th>#</th>
                                     <th id="userName"><?= $name ?></th>
                                     <th id="pname"><?= $firstname ?></th>
+                                    <th id="siret"><?= $nsiren ?></th>
                                     <th><?= $email ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
@@ -131,8 +133,9 @@ require_once __DIR__ . '/checkSalary.php';
                                 <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th id="userNameBot">Nom</th>
-                                    <th id="pnameBot">Prenom</th>
+                                    <th id="userNameBot"><?= $name?></th>
+                                    <th id="pnameBot"><?= $firstname ?></th>
+                                    <th id="siretBot"><?= $nsiren ?></th>
                                     <th><?= $email ?></th>
                                     <th><?= $address ?></th>
                                     <th><?= $city ?></th>
@@ -170,7 +173,8 @@ require_once __DIR__ . '/checkSalary.php';
                                     <select class="form-control" id="typeUser">
                                         <option>Particulier</option>
                                         <option>Commerçant</option>
-                                        <?php if($isAdmin){?><option>Salarié</option><?php }?>
+                                        <?php if ($isAdmin) { ?>
+                                            <option>Salarié</option><?php } ?>
                                         ?>
                                     </select>
                                 </div>
