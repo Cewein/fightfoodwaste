@@ -78,7 +78,7 @@ require_once __DIR__ . '/checkSalary.php';
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                <?= $logout?>
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -99,32 +99,36 @@ require_once __DIR__ . '/checkSalary.php';
 
 
                 <!-- Card DLC -->
-                <div class="card shadow mb-6">
+                <div class="card shadow mb-5">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Dates limite de consommation dépassées</h6>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th><?= $barcode?></th>
-                                <th><?= $name?></th>
-                                <th><?= $dlc?></th>
-                                <th><?= $actions?></th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th><?= $barcode?></th>
-                                <th><?= $name?></th>
-                                <th><?= $dlc?></th>
-                                <th><?= $actions?></th>
-                            </tr>
-                            </tfoot>
-                            <tbody>
-                            <?php require_once __DIR__ . "/alerts/alertDLC.php" ?>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th><?= $id ?></th>
+                                    <th><?= $barcode ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $dlc ?></th>
+                                    <th><?= $actions ?></th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th><?= $id ?></th>
+                                    <th><?= $barcode ?></th>
+                                    <th><?= $name ?></th>
+                                    <th><?= $dlc ?></th>
+                                    <th><?= $actions ?></th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                <?php require_once __DIR__ . "/alerts/alertDLC.php" ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -174,10 +178,7 @@ require_once __DIR__ . '/checkSalary.php';
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
 
             </div>
             <!-- End of Main Content -->
@@ -195,6 +196,7 @@ require_once __DIR__ . '/checkSalary.php';
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Logout Modal   -->
     <?php require_once __DIR__ . "/logoutModal.php" ?>
 
     <!-- Bootstrap core JavaScript-->
