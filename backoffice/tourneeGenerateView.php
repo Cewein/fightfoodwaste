@@ -190,7 +190,7 @@ require_once __DIR__ . '/checkSalary.php';
         <?php require_once __DIR__ . "/logoutModal.php" ?>
 
         <!-- Page custom Javascript-->
-        <script src="tournees/tourneeView.js"></script>
+        <script src="tournees/tourneeGenerateView.js"></script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -8,7 +8,7 @@ function updateBeneficiaire(id) {
     const idBenef = document.getElementById('beneficiaireId');
 
     const benef = document.getElementById(id);
-    console.log(benef);
+
     const benefInfos = benef.childNodes;
 
     name.value = benefInfos[1].innerHTML;
