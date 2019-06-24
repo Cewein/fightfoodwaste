@@ -72,8 +72,6 @@ function updateUser(id) {
     adress.value = userInfos[4].innerHTML;
     city.value = userInfos[5].innerHTML;
     userId.value = id;
-
-
 }
 
 function deleteUser(id) {
@@ -151,7 +149,7 @@ document.getElementById('add_user').addEventListener('submit', function (e) {
     }
 
     if (check === true) {
-        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&connection=false`, '../../inscription/inscription.php', type);
+        sendRequest(`nom=${nameChecked}&prenom=${pnameChecked}&email=${emailChecked}&pwd=${pwdChecked}&adresse=${adress}&ville=${city}&${type}=${type}&connection=false`, '../inscription/inscription.php', type);
     }
 
 
@@ -222,6 +220,7 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log(request.responseText);
             if (type !== false) {
                 errorEmailPrint = document.getElementById("emailSetError");
                 emailInput = document.getElementById('inputEmail');
