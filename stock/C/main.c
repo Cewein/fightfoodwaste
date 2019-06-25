@@ -59,5 +59,6 @@ int main(void)
 		}
 	}
 	logInFile("\t-- Application exited --", "system", 0);
+	system("timeout 10 && exit");
 	return 0;
 }
