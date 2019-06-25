@@ -58,7 +58,7 @@ function getLivraisonByIdTournee($idTournee)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `livraison` WHERE `n_tournee`=? AND `etat`!='canceled'";
+    $request = "SELECT * FROM `livraison` INNER JOIN `beneficiaire` ON livraison.id_beneficiaire=beneficiaire.identifiant WHERE `n_tournee`=? AND `etat`!='canceled'";
 
     return ($db->getAll($request, [$idTournee]));
 }

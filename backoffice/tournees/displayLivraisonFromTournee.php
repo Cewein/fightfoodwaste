@@ -9,7 +9,7 @@ if (isset($_POST['idTournee']) === true) {
     foreach ($allLivraison as $livraison) {
         $buttons = buttons($livraison['identifiant_livraison'], $livraison['etat']);
         $row = "<tr id=" . $livraison['identifiant_livraison'] . "><th scope=\"row\">" . $livraison['identifiant_livraison'] . "</th>";
-        $row .= "<th>" . $livraison['id_beneficiaire'] . "</th>";
+        $row .= "<th>" . $livraison['nom'] . "</th>";
         $row .= "<th>" . $livraison['etat'] . "</th>";
         $row .= "<th>" . $buttons . "</th>";
         $row .= "</tr>";
