@@ -54,14 +54,18 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
         }
     } elseif ($type === 'update') {
 
-        if (isset($_POST['name']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true) {
+        if (isset($_POST['name']) === true && isset($_POST['pname']) === true && isset($_POST['email']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true && isset($_POST['type']) === true) {
             $name = htmlspecialchars($_POST['name']);
+
             $pname = htmlspecialchars($_POST['pname']);
+            echo strlen($pname);
+            echo $pname;
+            $email = htmlspecialchars($_POST['email']);
             $adress = htmlspecialchars($_POST['adress']);
             $city = htmlspecialchars($_POST['city']);
-            updateUser($id, $name, $pname, $adress, $city);
+            updateUser($id, $name, $pname, $email, $adress, $city);
 
-            echo "User Updated";
+            echo "presque";
         }
     } else {
         echo "Error: there's no roles";

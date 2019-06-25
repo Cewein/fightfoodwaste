@@ -238,6 +238,14 @@ require_once __DIR__ . '/checkSalary.php';
                         <div class="modal-body">
                             <form method="POST" id="update_user">
                                 <div class="form-group">
+                                    <label for="modiftypeUser">Type utilisateur</label>
+                                    <select class="form-control" id="modiftypeUser">
+                                        <option>Particulier</option>
+                                        <option>Commerçant</option>
+                                        <option>Salarié</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="modifName">Nom</label>
                                     <input type="text" class="form-control" id="modifName" aria-describedby="nom"
                                            placeholder="Nom / Nom commerce">
