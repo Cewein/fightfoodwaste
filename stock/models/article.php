@@ -57,9 +57,6 @@ class Article
     {
         echo $this->name;
         echo "\n";
-        if($this->description != null)
         echo $this->description;
-        else
-        echo "sans description";
     }
 }

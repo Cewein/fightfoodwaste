@@ -4,7 +4,6 @@
 
 int main(void)
 {
-	logInFile("\t-- Application entered --", "system", 0);
 	int idUser;
 	struct Article * list = NULL;
 	int loop = 0;
@@ -51,13 +50,15 @@ int main(void)
 			char * json = listToJson(list,idUser);
 			performPost(json);
 			system("cls");
-			printf("votre liste a ete envoyer, vous pouvez fermer l'application.\n\n");
+			printf("votre liste a été envoyer, vous pouvez fermer l'application.\n\n");
 			idUser = 0;
 		}
 		if (loop == 0) {
 			idUser = 0;
 		}
 	}
-	logInFile("\t-- Application exited --", "system", 0);
+	system("pause");
+	CLEAN_STDIN
+	logInFile("-- Application exited --", "system", 0);
 	return 0;
 }
