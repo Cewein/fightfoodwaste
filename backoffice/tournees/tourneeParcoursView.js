@@ -62,3 +62,8 @@ function sendRequestParcoursTournee(script, values, response = function () {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(values);
 }
+
+function reload()
+{
+    window.map.location.reload(true);
+}

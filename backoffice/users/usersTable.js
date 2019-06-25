@@ -84,6 +84,8 @@ function updateAdmin(id) {
 }
 
 function updateUser(id) {
+    const typeUpdate = document.getElementById('actualDisplay').innerHTML;
+
     //Display modal with users infos
     const userId = document.getElementById('userId');
     const name = document.getElementById('modifName');
@@ -97,7 +99,10 @@ function updateUser(id) {
     const userInfos = user.childNodes;
 
     name.value = userInfos[1].innerHTML;
-    pname.value = userInfos[2].innerHTML;
+    if (typeUpdate === "Utilisateurs : particulier" || typeUpdate === "Utilisateurs : salary"){
+        pname.value = userInfos[2].innerHTML;
+    }
+
     email.value = userInfos[3].innerHTML;
     adress.value = userInfos[4].innerHTML;
     city.value = userInfos[5].innerHTML;

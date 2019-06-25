@@ -108,7 +108,10 @@ require_once __DIR__ . '/checkSalary.php';
 
                 <div id="map">
                     <iframe name="map" id="frame" src="tournees/map/map.php" width="100%" height="800px"></iframe>
-                    <div id="containerButtons"></div>
+                    <div id="containerButtons">
+                        <button type="button" class="btn btn-outline-warning" onclick="reload()">reload</button>
+                    </div>
+
                 </div>
 
             </div>

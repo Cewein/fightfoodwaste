@@ -143,6 +143,7 @@ require_once __DIR__ . '/checkSalary.php';
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                         <tr>
+                            <th><?= $id ?></th>
                             <th><?= $barcode ?></th>
                             <th><?= $name ?></th>
                             <th><?= $quantity ?></th>
@@ -153,6 +154,7 @@ require_once __DIR__ . '/checkSalary.php';
                         </thead>
                         <tfoot>
                         <tr>
+                            <th><?= $id ?></th>
                             <th><?= $barcode ?></th>
                             <th><?= $name ?></th>
                             <th><?= $quantity ?></th>
