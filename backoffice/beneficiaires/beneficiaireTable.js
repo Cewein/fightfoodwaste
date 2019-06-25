@@ -11,12 +11,12 @@ function updateBeneficiaire(id) {
 
     const benefInfos = benef.childNodes;
 
-    name.value = benefInfos[1].innerHTML;
-    adress.value = benefInfos[2].innerHTML;
-    city.value = benefInfos[3].innerHTML;
-    latitude.value = benefInfos[4].innerHTML;
-    longitude.value = benefInfos[5].innerHTML;
-    type.value = benefInfos[6].innerHTML;
+    name.value = benefInfos[1].innerText;
+    adress.value = benefInfos[2].innerText;
+    city.value = benefInfos[3].innerText;
+    latitude.value = benefInfos[4].innerText;
+    longitude.value = benefInfos[5].innerText;
+    type.value = benefInfos[6].innerText;
     idBenef.value = id;
 }
 
@@ -86,7 +86,7 @@ document.getElementById('add_beneficiaire').addEventListener('submit', function 
                 const container = document.getElementById('modal-body');
 
                 const alert = document.createElement("p");
-                alert.innerHTML = request.responseText;
+                alert.innerText = request.responseText;
                 container.appendChild(alert);
 
                 form.style.display = "none";
@@ -154,7 +154,7 @@ document.getElementById('modify_beneficiaire').addEventListener('submit', functi
                 const container = document.getElementById('modal-body');
 
                 const alert = document.createElement("p");
-                alert.innerHTML = request.responseText;
+                alert.innerText = request.responseText;
                 container.appendChild(alert);
 
                 form.style.display = "none";
