@@ -1,4 +1,9 @@
-function usersRequests(type) {
+function usersRequests(type, button) {
+    //Switch title
+    const buttons = document.getElementById('buttonsUsers').childNodes;
+    const title = document.getElementById('actualDisplay');
+    title.innerText = buttons[button].value;
+
     const container = document.getElementById('tbody');
     container.innerText = "";
     const request = new XMLHttpRequest();
@@ -13,6 +18,11 @@ function usersRequests(type) {
 }
 
 function allUsersRequests() {
+    //Switch title
+    const buttons = document.getElementById('buttonsUsers').childNodes;
+    const title = document.getElementById('actualDisplay');
+    title.innerText = buttons[1].value;
+
     const container = document.getElementById('tbody');
     container.innerText = "";
     const textRequest = true;
@@ -44,7 +54,7 @@ function displayProducts(idDemande) {
         return false;
     };
     demandeId.innerHTML = " " + idDemande;
-    message.innerHTML ="";
+    message.innerHTML = "";
 
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -63,7 +73,7 @@ function changeStatutRequest(statut, idDemande) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            container.innerText= request.responseText;
+            container.innerText = request.responseText;
         }
     };
     request.open('POST', '../backoffice/request/changeStatut.php');

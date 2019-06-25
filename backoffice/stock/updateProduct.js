@@ -10,10 +10,10 @@ function updateProduct(id, number) { //Modify a existing product
     const product = document.getElementById(number);
     const productInfos = product.childNodes;
 
-    modifBarcode.value = productInfos[0].textContent;
-    modifQuantity.value = productInfos[3].innerHTML;
-    modifDLC.value = productInfos[4].innerHTML;
-    modifNStock.value = productInfos[5].innerHTML;
+    modifBarcode.value = productInfos[1].textContent;
+    modifQuantity.value = productInfos[4].innerHTML;
+    modifDLC.value = productInfos[5].innerHTML;
+    modifNStock.value = productInfos[6].innerHTML;
     productId.value = id;
     form.style.display="block";
 

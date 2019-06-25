@@ -230,14 +230,13 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Modifier un utilisateur</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form method="POST" id="update_user">
-                                <label id="emailSetError">Cette adresse email est déjà utilisée</label>
                                 <div class="form-group">
                                     <label for="modiftypeUser">Type utilisateur</label>
                                     <select class="form-control" id="modiftypeUser">
@@ -257,14 +256,6 @@ require_once __DIR__ . '/checkSalary.php';
                                     <input type="text" class="form-control" id="modifPname" aria-describedby="prenom"
                                            placeholder="Prenom">
                                     <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères
-                                    </small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modifEmail">Adresse Email</label>
-                                    <input type="email" class="form-control" id="modifEmail"
-                                           aria-describedby="emailHelp"
-                                           placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères
                                     </small>
                                 </div>
                                 <div class="form-group">

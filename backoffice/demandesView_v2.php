@@ -101,13 +101,13 @@ require_once __DIR__ . '/checkSalary.php';
                     <input class="btn btn-secondary" type="button" value="<?= $all_request ?>"
                            onclick="allUsersRequests()">
                     <input class="btn btn-secondary" type="button" value="<?= $tb_valid_request ?>"
-                           onclick="usersRequests('tocheck')">
+                           onclick="usersRequests('tocheck',3)">
                     <input class="btn btn-secondary" type="button" value="<?= $valid_request ?>"
-                           onclick="usersRequests('checkedTrue')">
+                           onclick="usersRequests('checkedTrue',5)">
                     <input class="btn btn-secondary" type="button" value="<?= $refused_request ?>"
-                           onclick="usersRequests('checkedFalse')">
+                           onclick="usersRequests('checkedFalse',7)">
                     <input class="btn btn-secondary" type="button" value="<?= $closed_request ?>"
-                           onclick="usersRequests('done')">
+                           onclick="usersRequests('done',9)">
                 </div>
 
 
@@ -150,7 +150,7 @@ require_once __DIR__ . '/checkSalary.php';
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= $close ?></button>
                             </div>
                         </div>
                     </div>
