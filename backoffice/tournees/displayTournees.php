@@ -54,7 +54,7 @@ if (isset($type) === true) {
     $lastid = -1;
     foreach ($allTournees as $tournee) {
         if ($tournee['n_tournee'] !== $lastid) {
-            $row = "<button type='button' class='list-group-item list-group-item-action' onclick='displayMap(" . $tournee['n_tournee'] . ")'> Tournée " . $tournee['n_tournee'] . "</button>";
+            $row = "<button type='button' class='list-group-item list-group-item-action' onclick=\"displayMap(" . $tournee['n_tournee'] . ",'" . $tournee['date_livraison'] . "')\"> Tournée " . $tournee['n_tournee'] . "</button>";
 
             echo $row;
         }

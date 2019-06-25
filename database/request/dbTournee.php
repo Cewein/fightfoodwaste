@@ -40,7 +40,7 @@ function getTourneeEtatPreparation()
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT `n_tournee` FROM `livraison` WHERE `etat`='preparation' AND `n_tournee`>0";
+    $request = "SELECT `n_tournee`,`date_livraison` FROM `livraison` WHERE `etat`='preparation' AND `n_tournee`>0";
 
     return ($db->getAll($request));
 }

@@ -99,8 +99,8 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800"><?= $itinerary_management?></h1>
-                <p class="mb-4" id="infosTournee"> </p>
+                <h1 class="h3 mb-2 text-gray-800"><?= $itinerary_management ?></h1>
+                <p class="mb-4" id="infosTournee"></p>
 
                 <div class="list-group" id="displayTournees">
                     <?php require_once __DIR__ . '/tournees/displayTournees.php' ?>
@@ -112,6 +112,9 @@ require_once __DIR__ . '/checkSalary.php';
                         <button type="button" class="btn btn-outline-warning" onclick="reload()">reload</button>
                     </div>
 
+                    <form id="listBenef" action="tournees/createPDFLivreur.php" method="POST">
+                        <input class="btn btn-success" type="submit" value="Valider le trajet" onclick="generatePDF()">
+                    </form>
                 </div>
 
             </div>
