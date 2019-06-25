@@ -47,7 +47,7 @@ void logInFile(char * description, char * name, int type)
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
 
-	fprintf(fp, " - %d-%d-%d %d:%d:%d - %s : %s\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, name, description);
+	fprintf(fp, " - %d-%d-%d %d:%d:%d \t- %s : %s\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, name, description);
 	fclose(fp);
 }
 

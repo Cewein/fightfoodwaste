@@ -1,4 +1,5 @@
 #pragma warning(disable : 4996)
+#define ONLINE 1
 #include "data.h"
 
 const unsigned int WriteMemoryCallback(void *contents, unsigned int size, unsigned int nmemb, void *userp)
@@ -38,7 +39,11 @@ char * setUrl()
 	printf("Rentrez un code barre : \n");
 	char buffer[60];
 	memset(url, '\0', sizeof(url));
+#if ONLINE == 0
 	strcpy(url, "http://localhost/fightfoodwaste/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
+#else
+	strcpy(url, "http://vps664303.ovh.net/stock/services/getArticle.php/?barcode="); //if you have trouble with the setUrl change the address here
+#endif
 	fgets(buffer, 60, stdin);
 	strtok(buffer, "\n");
 	strcat(url, buffer);
@@ -62,7 +67,7 @@ MemoryStruct performCurl(char * url)
 	curl = curl_easy_init();
 
 	//perform curl
-	logInFile("starting the curl of the article", "curl", 1);
+	logInFile("starting the curl", "curl", 1);
 	if (curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 
@@ -100,8 +105,11 @@ int performPost(char * data)
 	logInFile("sending info to server", "post", 1);
 	curl = curl_easy_init();
 	if (curl) {
-
+#if ONLINE == 0
 		curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/fightfoodwaste/stock/services/putListe.php");
+#else
+		curl_easy_setopt(curl, CURLOPT_URL, "http://vps664303.ovh.net/stock/services/putListe.php");
+#endif
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 
 		res = curl_easy_perform(curl);
@@ -252,28 +260,30 @@ int connection() {
 	int data;
 	char * email;
 	email = malloc(sizeof(char) * 80);
+	logInFile("Connection started", "Login", 1);
 	if (email != NULL)
 	{
 		char * password;
 		password = malloc(sizeof(char) * 255);
 		if (password != NULL) {
-			printf("Connexion à un compte: \n Email : ");
+			logInFile("Enterring email", "USER", 1);
+			printf("Connexion a un compte: \nEmail : ");
 			fgets(email, 81, stdin);
 			if (email[strlen(email) - 1] == '\n') {
 				email[strlen(email) - 1] = '\0';
 			}
+			logInFile("Enterring password", "USER", 1);
 			printf("\nMot de passe: ");
 			fgets(password, 255, stdin);
 			if (password[strlen(password) - 1] == '\n') {
 				password[strlen(password) - 1] = '\0';
 			}
-
 			char * urlConnection = setConnectionUrl(email,password);
 			MemoryStruct response = performCurl(urlConnection);
 			char * dataString = strtok(response.memory, "\n");
 			
 			data = atoi(dataString);
-			
+			logInFile("Checking responce", "Login", 1);
 			if (strcmp(dataString, "<br >") == 0) {
 				check = 0;
 			}
@@ -298,7 +308,11 @@ char * setConnectionUrl(char * email, char * passwd)
 	char * url = calloc(150, sizeof(char));
 
 	memset(url, '\0', sizeof(url));
+#if ONLINE == 0
 	strcpy(url, "http://localhost/fightfoodwaste/connection/checkConnectionAppli.php/?email="); //if you have trouble with the setUrl change the address here
+#else
+	strcpy(url, "http://vps664303.ovh.net/connection/checkConnectionAppli.php/?email="); //if you have trouble with the setUrl change the address here
+#endif
 	strcat(url, email);
 	strcat(url, "&passwd=");
 	strcat(url, passwd);
