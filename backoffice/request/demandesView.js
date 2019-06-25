@@ -9,7 +9,7 @@ function usersRequests(type, button) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            container.innerHTML = request.responseText;//Réponse à afficher
+            container.innerText = request.responseText;//Réponse à afficher
         }
     };
     request.open('POST', '../backoffice/request/requestsStatut.php');
@@ -29,7 +29,7 @@ function allUsersRequests() {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            container.innerHTML = request.responseText;//Réponse à afficher
+            container.innerText = request.responseText;//Réponse à afficher
         }
     };
     request.open('POST', '../backoffice/request/allRequests.php');
@@ -53,14 +53,14 @@ function displayProducts(idDemande) {
         changeStatutRequest("checkedFalse", idDemande);
         return false;
     };
-    demandeId.innerHTML = " " + idDemande;
-    message.innerHTML = "";
+    demandeId.innerText = " " + idDemande;
+    message.innerText = "";
 
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             //Display Products
-            container.innerHTML = request.responseText;
+            container.innerText = request.responseText;
         }
     };
     request.open('POST', '../backoffice/request/displayProducts.php');

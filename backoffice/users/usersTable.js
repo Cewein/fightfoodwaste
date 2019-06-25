@@ -2,7 +2,7 @@ function allUsers() {
     //Switch display
     //title
     const title = document.getElementById('actualDisplay');
-    title.innerHTML = 'Tous les utilisateurs';
+    title.innerText = 'Tous les utilisateurs';
     //thead
     const name = document.getElementById('userName');
     const nameBot = document.getElementById('userNameBot');
@@ -11,8 +11,8 @@ function allUsers() {
     const siret = document.getElementById('siret');
     const siretBot = document.getElementById('siretBot');
 
-    name.innerHTML = 'Nom';
-    nameBot.innerHTML = 'Nom';
+    name.innerText = 'Nom';
+    nameBot.innerText = 'Nom';
     pname.style.display = "table-cell";
     pnameBot.style.display = "table-cell";
     siret.style.display = "table-cell";
@@ -37,7 +37,7 @@ function users(usersType) {
     //Switch display
     //title
     const title = document.getElementById('actualDisplay');
-    title.innerHTML = 'Utilisateurs : ' + usersType;
+    title.innerText = 'Utilisateurs : ' + usersType;
     //thead
     const name = document.getElementById('userName');
     const nameBot = document.getElementById('userNameBot');
@@ -48,19 +48,18 @@ function users(usersType) {
 
     const container = document.getElementById('tbody');
     container.innerText = "";
-    let $request = `role=${usersType}`;
 
     //Change the thead with right names
     if (usersType === 'commercant') {
-        name.innerHTML = 'Nom commerce';
-        nameBot.innerHTML = 'Nom commerce';
+        name.innerText = 'Nom commerce';
+        nameBot.innerText = 'Nom commerce';
         pname.style.display = "none";
         pnameBot.style.display = "none";
         siret.style.display = 'table-cell';
         siretBot.style.display = 'table-cell';
     } else {
-        name.innerHTML = 'Nom';
-        nameBot.innerHTML = 'Nom';
+        name.innerText = 'Nom';
+        nameBot.innerText = 'Nom';
         pname.style.display = "table-cell";
         pnameBot.style.display = "table-cell";
         siret.style.display = "none";
@@ -84,28 +83,24 @@ function updateAdmin(id) {
 }
 
 function updateUser(id) {
-    const typeUpdate = document.getElementById('actualDisplay').innerHTML;
+    const typeUpdate = document.getElementById('actualDisplay').innerText;
 
     //Display modal with users infos
     const userId = document.getElementById('userId');
     const name = document.getElementById('modifName');
     const pname = document.getElementById('modifPname');
-    const email = document.getElementById('modifEmail');
-    let type = document.getElementById('modiftypeUser');
     const adress = document.getElementById('modifAdress');
     const city = document.getElementById('modifCity');
 
     const user = document.getElementById(id);
     const userInfos = user.childNodes;
 
-    name.value = userInfos[1].innerHTML;
+    name.value = userInfos[1].innerText;
     if (typeUpdate === "Utilisateurs : particulier" || typeUpdate === "Utilisateurs : salary"){
-        pname.value = userInfos[2].innerHTML;
+        pname.value = userInfos[2].innerText;
     }
-
-    email.value = userInfos[3].innerHTML;
-    adress.value = userInfos[4].innerHTML;
-    city.value = userInfos[5].innerHTML;
+    adress.value = userInfos[4].innerText;
+    city.value = userInfos[5].innerText;
     userId.value = id;
 }
 
@@ -195,8 +190,6 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
     e.preventDefault();
     const name = document.getElementById('modifName');
     const pname = document.getElementById('modifPname');
-    const email = document.getElementById('modifEmail');
-    let type = document.getElementById('modiftypeUser').value;
     const adress = document.getElementById('modifAdress').value;
     const city = document.getElementById('modifCity').value;
     const userId = document.getElementById('userId').value;
@@ -204,22 +197,14 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
     //Récupération des champs d'erreur
     const nameError = document.getElementById("nameError");
     const pnameError = document.getElementById("pnameError");
-    const emailError = document.getElementById("emailError");
 
     //Déclaration des variables
     let nameChecked;
     let pnameChecked;
-    let emailChecked;
 
     let check = true;
 
-    //Vérification des inputs
-    if (type === 'Particulier') {
-        type = 'particulier';
-    } else {
-        type = (type === 'Commerçant' ? 'commercant' : 'salary');
-    }
-
+    //Check inputs
     if (checkName(name, nameError) === true) { //Check name
         nameChecked = name.value;
     } else {
@@ -236,17 +221,9 @@ document.getElementById('update_user').addEventListener('submit', function (e) {
         pnameChecked = 'null';
     }
 
-    if (email.value.length < 2 || email.value.length > 80) { //Check email
-        check = unvalid_info(email, emailError);
-    } else {
-        valid_input(email, emailError);
-        emailChecked = email.value;
-    }
-
     if (check === true) {
-        sendRequest(`name=${nameChecked}&pname=${pnameChecked}&email=${emailChecked}&adress=${adress}&city=${city}&role=${type}&id=${userId}&type=update`, '../backoffice/users/updateUsers.php');
+        sendRequest(`name=${nameChecked}&pname=${pnameChecked}&adress=${adress}&city=${city}&id=${userId}&type=update`, '../backoffice/users/updateUsers.php');
     }
-
 
 });
 
@@ -254,6 +231,7 @@ function sendRequest(textRequest, script, type = false) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
+            console.log(request.responseText);
             if (type !== false) {
                 const errorEmailPrint = document.getElementById("emailSetError");
                 const emailInput = document.getElementById('inputEmail');
@@ -265,7 +243,6 @@ function sendRequest(textRequest, script, type = false) {
             } else {
 
             }
-
         }
     };
     request.open('POST', script);

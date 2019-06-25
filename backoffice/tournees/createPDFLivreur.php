@@ -86,7 +86,6 @@ class PDF extends tFPDF
                 }
                 $i++;
             }
-
             $this->Ln();
         }
     }
