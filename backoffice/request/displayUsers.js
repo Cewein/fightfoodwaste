@@ -28,3 +28,7 @@ function getCheckedBoxes(chkboxName) {
     return checkboxesChecked.length > 0 ? checkboxesChecked : null;
 }
 
+function selectcheckedWonder() {
+    
+}
+

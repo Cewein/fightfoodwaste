@@ -21,7 +21,8 @@ if(isset($_SESSION['id'])) {
 
         if ($_SESSION['id']==$id) {
             $userInfo = readUser($id);
-        }
+        echo "ok";
+      
        
 
         if (isset($_POST[ 'newNamenewName']) && !empty($_POST['newName']) && !$userInfo['nom']) {
@@ -73,6 +74,7 @@ if(isset($_SESSION['id'])) {
         
     }
 
+}
 }
 
 
