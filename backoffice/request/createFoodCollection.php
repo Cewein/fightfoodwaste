@@ -7,9 +7,7 @@ if(isset($_POST['submit'])) {
  
    
     $lastId = selectLastIdCollection();
-    var_dump($lastId);
 
     $updateWonderTable = updateStatedWonder(); 
-    var_dump($updateWonderTable);  
-   
+   header('Location: /../displayUsers.php');
 } 
