@@ -144,7 +144,7 @@ if (isset($_SESSION['id'])) {
                                     </div>
                                     <div class=" form-group row">
                                         <div class="offset-4 col-8">
-                                            <a href="updateProfile.php">
+                                            <a href="newProfile.php">
                                                 <input type="submit" class="btn btn-primary" name="save"
                                                        value="Enregistrer">
                                             </a>

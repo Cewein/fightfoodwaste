@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
     $lastId = selectLastIdCollection();
     var_dump($lastId);
 
-    $updateWonderTable = updateStatedWonder(); 
+    $updateWonderTable = updateStatedWonder($insertCollection,$identifiant); 
     var_dump($updateWonderTable);  
    
 } 
