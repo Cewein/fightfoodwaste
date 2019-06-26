@@ -18,8 +18,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
     <div align="center">
 
 
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
 
         <br><br>
@@ -28,22 +26,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="list-group ">
-                        <a href="../backoffice/BackHome.php"
-                           class="list-group-item list-group-item-action active">Accueil
-                            - Back office</a>
+                        <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front
+                            office</a>
                         <a href="#" class="list-group-item list-group-item-action"><?= $collecte ?></a>
                         <a href="#" class="list-group-item list-group-item-action">Tournées</a>
                         <a href="#" class="list-group-item list-group-item-action">Services</a>
                         <a href="#" class="list-group-item list-group-item-action">Contact</a>
-                        <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front
-                            office</a>
-                        <a href="#" class="list-group-item list-group-item-action">Media</a>
-                        <a href="#" class="list-group-item list-group-item-action">Post</a>
-                        <a href="#" class="list-group-item list-group-item-action">Category</a>
-                        <a href="#" class="list-group-item list-group-item-action">New</a>
-                        <a href="#" class="list-group-item list-group-item-action">Comments</a>
-                        <a href="#" class="list-group-item list-group-item-action">Appearance</a>
-                        <a href="#" class="list-group-item list-group-item-action">Reports</a>
 
 
                     </div>
@@ -103,11 +91,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
                                 </div>
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
-                                        <a href="deleteProfile.php">
-                                            <input type="submit" class="btn btn-primary" name="delete"
-                                                   id="inactivate"
-                                                   value="Supprimer">
-                                        </a>
+                                        <button class="btn btn-primary" id="inactivate" data-toggle="modal"
+                                                data-target="#confirmModal">Supprimer
+                                        </button>
                                     </div>
                                 </div>
 
@@ -124,6 +110,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
     <script src="deleteProfile.js"></script>
     </body>
 
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><?= $confirmDelete ?></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"><?= $cancel ?></button>
+                    <a class="btn btn-primary" href="../connection/disconnection.php" onclick="inactivate(<?= $_SESSION['id'] ?>)"><?= $confirm ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <?php
 } else {
