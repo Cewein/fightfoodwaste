@@ -74,6 +74,8 @@ function changeStatutRequest(statut, idDemande) {
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             container.innerHTML = request.responseText;
+            console.log(document.getElementById(idDemande));
+            console.log(idDemande);
             hide(document.getElementById(idDemande));
         }
     };
@@ -83,5 +85,6 @@ function changeStatutRequest(statut, idDemande) {
 }
 
 function hide(element) {
+    console.log(element);
     element.style.display = 'none';
 }

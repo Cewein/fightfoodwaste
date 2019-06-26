@@ -37,7 +37,7 @@ foreach ($requests as $request){
         $request->setCreator("No Info");
     }
 
-    $row = "<tr id=\"" . $request->getId() . " \"><th scope=\"row\">" . $request->getId() . "</th>";
+    $row = "<tr id=\"" . $request->getId() . "\"><th scope=\"row\">" . $request->getId() . "</th>";
     $row .= "<td>" . $request->getCreator() . "</td>";
     $row .= "<td>" . $request->getStatut() . "</td>";
     $row .= "<td>" . $request->getCollecte() . "</td>";
