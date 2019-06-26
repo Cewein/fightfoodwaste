@@ -27,7 +27,7 @@ function getAllUsers()
 {
     $db = DatabaseManager::getManager();
 
-    $request = "SELECT * FROM `utilisateur`";
+    $request = "SELECT * FROM `utilisateur` WHERE `etat_compte`=1";
     return ($db->getAll($request));
 }
 

@@ -15,12 +15,10 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     if ($type === 'delete') {
         $roles = getRoleByUserId($id);
 
-        if (count($role) > 0) {
+        if (count($roles) > 0) {
             foreach ($roles as $role) {
                 deleteRoleByIdUserId($role['id_role'], $id);
             }
-
-
         }
 
         inactivateUser($id);
