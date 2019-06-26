@@ -74,9 +74,14 @@ function changeStatutRequest(statut, idDemande) {
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             container.innerHTML = request.responseText;
+            hide(document.getElementById(idDemande));
         }
     };
     request.open('POST', '../backoffice/request/changeStatut.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(`newStatut=${statut}&idDemande=${idDemande}`);
+}
+
+function hide(element) {
+    element.style.display = 'none';
 }

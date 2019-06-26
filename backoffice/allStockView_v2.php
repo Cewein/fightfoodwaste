@@ -216,7 +216,7 @@ require_once __DIR__ . '/checkSalary.php';
 
 <?php require_once __DIR__ . "/logoutModal.php" ?>
 
-<!-- Script to display users-->
+<!-- Script to display products-->
 <script src="stock/updateProduct.js"></script>
 
 <!-- Bootstrap core JavaScript-->
