@@ -8,6 +8,9 @@ if(isset($_POST['submit'])) {
    
     $lastId = selectLastIdCollection();
 
+
     $updateWonderTable = updateStatedWonder(); 
-   header('Location: /../displayUsers.php');
 } 
+
+header('Location: http://vps664303.ovh.net/backoffice/displayUsers.php');
+

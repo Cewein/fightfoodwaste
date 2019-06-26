@@ -136,8 +136,7 @@ if (isset($_SESSION['id'])) {
                                     </div>
                                     <div class=" form-group row">
                                         <div class="offset-4 col-8">
-                                            <input type="submit" class="btn btn-primary" name="save"
-                                                   value="Enregistrer">
+
                                         </div>
                                     </div>
                                     <div class="form-group row">
