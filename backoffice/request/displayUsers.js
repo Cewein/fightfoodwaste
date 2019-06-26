@@ -5,7 +5,7 @@ function checkNbDemande() {
     let i = 0;
 
     var checkedBoxes = getCheckedBoxes("checkbox[]");
-    if(checkedBoxes.length >= 10) {
+    if(checkedBoxes.length >= 1) {
         button.removeAttribute("disabled");
     } else {
         button.setAttribute("disabled", "");
