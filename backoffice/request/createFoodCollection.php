@@ -11,4 +11,4 @@ if(isset($_POST['submit'])) {
     $updateWonderTable = updateStatedWonder(); 
 } 
 
-header('Location: /../displayUsers.php');
+header('Location: ../displayUsers.php');
