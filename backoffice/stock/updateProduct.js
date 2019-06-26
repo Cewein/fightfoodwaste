@@ -31,7 +31,7 @@ function sendRequestProduct(id, type) {
 
         }
     };
-    request.open('POST', '/stock/updateProduct.php');
+    request.open('POST', 'stock/updateProduct.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(`type=${type}&id=${id}`);
 }

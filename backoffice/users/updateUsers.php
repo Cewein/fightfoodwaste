@@ -23,7 +23,7 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
 
         }
 
-        deleteUser($id);
+        inactivateUser($id);
         echo 'User deleted';
 
     } elseif ($type === 'admin') {
