@@ -7,9 +7,10 @@ if(isset($_POST['submit'])) {
  
    
     $lastId = selectLastIdCollection();
-    var_dump($lastId);
 
-    $updateWonderTable = updateStatedWonder($insertCollection,$identifiant); 
-    var_dump($updateWonderTable);  
-   
+
+    $updateWonderTable = updateStatedWonder(); 
 } 
+
+header('Location: http://vps664303.ovh.net/backoffice/displayUsers.php');
+

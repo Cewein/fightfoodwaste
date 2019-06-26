@@ -145,5 +145,6 @@ $benef_Lat = 'Latitude';
 $benef_Long = 'Longitude';
 $benef_type = 'Type du bénéficiaire';
 
-
-
+//Delete user
+$confirmDelete='Voulez vous vraiment désactiver votre compte?';
+$confirm='Confirmer';

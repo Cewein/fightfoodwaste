@@ -31,21 +31,11 @@ require_once('../includes.php');
                 <div class="row">
                     <div class="col-md-3 ">
                         <div class="list-group ">
-                            <a href="../backoffice/usersTableView_v2.php" class="list-group-item list-group-item-action active">Accueil - Back office</a>
+                            <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front office</a>
                             <a href="#" class="list-group-item list-group-item-action">Collectes</a>
                             <a href="#" class="list-group-item list-group-item-action">Tournées</a>
                             <a href="#" class="list-group-item list-group-item-action">Services</a>
                             <a href="#" class="list-group-item list-group-item-action">Contact</a>
-                            <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front office</a>
-                            <a href="#" class="list-group-item list-group-item-action">Media</a>
-                            <a href="#" class="list-group-item list-group-item-action">Post</a>
-                            <a href="#" class="list-group-item list-group-item-action">Category</a>
-                            <a href="#" class="list-group-item list-group-item-action">New</a>
-                            <a href="#" class="list-group-item list-group-item-action">Comments</a>
-                            <a href="#" class="list-group-item list-group-item-action">Appearance</a>
-                            <a href="#" class="list-group-item list-group-item-action">Reports</a>
-
-
 
                         </div>
                     </div>
