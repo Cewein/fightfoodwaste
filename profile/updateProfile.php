@@ -9,7 +9,7 @@ if (isset($_SESSION['id'])) {
     $id = ($_SESSION['id']);
     $userInfo = readUser($id);
     ?>
-    <html>
+    <html lang="fr">
 
 <head>
     <title>Page de profil utilisateur</title>
@@ -21,9 +21,6 @@ if (isset($_SESSION['id'])) {
 <body>
 <div align="center">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
 
     <br><br>
 
@@ -31,20 +28,12 @@ if (isset($_SESSION['id'])) {
         <div class="row">
             <div class="col-md-3 ">
                 <div class="list-group ">
-                    <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">User Management</a>
-                    <a href="#" class="list-group-item list-group-item-action">Used</a>
-                    <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
-                    <a href="#" class="list-group-item list-group-item-action">Dealer</a>
-                    <a href="#" class="list-group-item list-group-item-action">Media</a>
-                    <a href="#" class="list-group-item list-group-item-action">Post</a>
-                    <a href="#" class="list-group-item list-group-item-action">Category</a>
-                    <a href="#" class="list-group-item list-group-item-action">New</a>
-                    <a href="#" class="list-group-item list-group-item-action">Comments</a>
-                    <a href="#" class="list-group-item list-group-item-action">Appearance</a>
-                    <a href="#" class="list-group-item list-group-item-action">Reports</a>
-                    <a href="#" class="list-group-item list-group-item-action">Settings</a>
-
+                    <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front
+                        office</a>
+                    <a href="#" class="list-group-item list-group-item-action"><?= $collecte ?></a>
+                    <a href="#" class="list-group-item list-group-item-action">Tournées</a>
+                    <a href="#" class="list-group-item list-group-item-action">Services</a>
+                    <a href="#" class="list-group-item list-group-item-action">Contact</a>
 
                 </div>
             </div>
@@ -61,10 +50,11 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="" method="POST">
+                                <form action="updateProfile.php" method="POST">
                                     <?php if (isset($_SESSION['roles']) == 'administrateur' || isset($_SESSION['roles']) == 'salary' || isset($_SESSION['roles']) == 'particulier') { ?>
                                         <div class="form-group row">
-                                            <label for="newName" id="nom" class="col-4 col-form-label"><?= $name?></label>
+                                            <label for="newName" id="nom"
+                                                   class="col-4 col-form-label"><?= $name ?></label>
                                             <div class="col-8">
                                                 <input id="newName" name="newName" placeholder="Nom"
                                                        class="form-control here" value="<?= $userInfo['nom']; ?>"
@@ -72,7 +62,8 @@ if (isset($_SESSION['id'])) {
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="pname" id="prenom" class="col-4 col-form-label"><?= $firstname?></label>
+                                            <label for="pname" id="prenom"
+                                                   class="col-4 col-form-label"><?= $firstname ?></label>
                                             <div class="col-8">
                                                 <input id="firstname" name="newFirstName" placeholder="firstname"
                                                        class="form-control here" value="<?= $userInfo['prenom']; ?>"
@@ -100,7 +91,8 @@ if (isset($_SESSION['id'])) {
                                         </div>
                                     <?php } ?>
                                     <div class="form-group row ">
-                                        <label for="email" id="mailAddress" class="col-4 col-form-label"><?= $email?></label>
+                                        <label for="email" id="mailAddress"
+                                               class="col-4 col-form-label"><?= $email ?></label>
                                         <div class="col-8">
                                             <input id="email" name="newEmail" placeholder="Email"
                                                    class="form-control here"
@@ -144,10 +136,8 @@ if (isset($_SESSION['id'])) {
                                     </div>
                                     <div class=" form-group row">
                                         <div class="offset-4 col-8">
-                                            <a href="updateProfile.php">
-                                                <input type="submit" class="btn btn-primary" name="save"
-                                                       value="Enregistrer">
-                                            </a>
+                                            <input type="submit" class="btn btn-primary" name="save"
+                                                   value="Enregistrer">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -173,6 +163,8 @@ if (isset($_SESSION['id'])) {
     echo $error;
 } ?>
 <script src="deleteProfile.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 

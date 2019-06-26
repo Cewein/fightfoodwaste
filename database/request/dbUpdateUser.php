@@ -14,12 +14,20 @@ function deleteUser($id)
     $db->exec($request, [$id]);
 }
 
-function updateUser($id, $name, $pname, $adress, $city, $email='')
+function updateUser($id, $name, $pname, $email, $adress, $city)
 {
     $db = DatabaseManager::getManager();
 
     $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse_mail`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
     $db->exec($request, [$name, $pname, $email, $adress, $city, $id]);
+}
+
+function updateUserWithoutEmail($id, $name, $pname, $adress, $city)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
+    $db->exec($request, [$name, $pname, $adress, $city, $id]);
 }
 
 

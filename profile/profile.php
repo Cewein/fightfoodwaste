@@ -81,14 +81,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
 
                                 </table>
                                 <br><br>
-                                <div class="form-group row">
-                                    <div class="offset-4 col-8">
-                                        <a href="updateProfile.php">
-                                            <input type="submit" class="btn btn-primary" name="update"
-                                                   value="Mettre à jour">
-                                        </a>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
                                         <button class="btn btn-primary" id="inactivate" data-toggle="modal"

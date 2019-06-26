@@ -7,7 +7,7 @@
  */
 require_once __DIR__ . '/../../includes.php';
 
-var_dump($_POST);
+
 if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     $type = htmlspecialchars($_POST['type']);
     $id = htmlspecialchars($_POST['id']);
@@ -57,7 +57,7 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
             $pname = htmlspecialchars($_POST['pname']);
             $adress = htmlspecialchars($_POST['adress']);
             $city = htmlspecialchars($_POST['city']);
-            updateUser($id, $name, $pname, $adress, $city);
+            updateUserWithoutEmail($id, $name, $pname, $adress, $city);
 
             echo "User Updated";
         }
