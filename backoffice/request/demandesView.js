@@ -2,10 +2,10 @@ function usersRequests(type, button) {
     //Switch title
     const buttons = document.getElementById('buttonsUsers').childNodes;
     const title = document.getElementById('actualDisplay');
-    title.innerText = buttons[button].value;
+    title.innerHTML = buttons[button].value;
 
     const container = document.getElementById('tbody');
-    container.innerText = "";
+    container.innerHTML = "";
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
@@ -21,10 +21,10 @@ function allUsersRequests() {
     //Switch title
     const buttons = document.getElementById('buttonsUsers').childNodes;
     const title = document.getElementById('actualDisplay');
-    title.innerText = buttons[1].value;
+    title.innerHTML = buttons[1].value;
 
     const container = document.getElementById('tbody');
-    container.innerText = "";
+    container.innerHTML = "";
     const textRequest = true;
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -53,14 +53,14 @@ function displayProducts(idDemande) {
         changeStatutRequest("checkedFalse", idDemande);
         return false;
     };
-    demandeId.innerHTML = " " + idDemande;
-    message.innerHTML = "";
+    demandeId.innerText = " " + idDemande;
+    message.innerText = "";
 
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             //Display Products
-            container.innerHTML = request.responseText;
+            container.innerHTML= request.responseText;
         }
     };
     request.open('POST', '../backoffice/request/displayProducts.php');
@@ -73,7 +73,7 @@ function changeStatutRequest(statut, idDemande) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            container.innerText = request.responseText;
+            container.innerHTML = request.responseText;
         }
     };
     request.open('POST', '../backoffice/request/changeStatut.php');

@@ -28,7 +28,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="list-group ">
-                        <a href="../backoffice/usersTableView_v2.php"
+                        <a href="../backoffice/BackHome.php"
                            class="list-group-item list-group-item-action active">Accueil
                             - Back office</a>
                         <a href="#" class="list-group-item list-group-item-action"><?= $collecte ?></a>

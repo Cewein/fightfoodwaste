@@ -6,8 +6,8 @@
 include_once(__DIR__.'/headerFront.php');
 include_once(__DIR__.'/header.php');
 include_once(__DIR__.'/service.php');
-include_once(__DIR__.'/portfolio.php');
-include_once(__DIR__.'/about.php');
+//include_once(__DIR__.'/portfolio.php');
+//include_once(__DIR__.'/about.php');
 //include_once(__DIR__.'/team.php');
 //include_once(__DIR__.'/client.php');
 //include_once(__DIR__.'/contact.php');
