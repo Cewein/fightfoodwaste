@@ -106,6 +106,11 @@ function updateUser(id) {
 
 function deleteUser(id) {
     sendRequestUser(id, 'delete');
+    hide(document.getElementById(id));
+}
+
+function hide(element) {
+    element.style.display = 'none';
 }
 
 function sendRequestUser(id, type) {

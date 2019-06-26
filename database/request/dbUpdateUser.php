@@ -33,6 +33,7 @@ function updatePassword($id,$password) {
 
 
 function inactivateUser($id) {
+
     $db = DatabaseManager::getManager(); 
 
     $request = "UPDATE `utilisateur` SET `etat_compte`= 0 WHERE `identifiant`=?"; 
