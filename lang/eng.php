@@ -141,3 +141,7 @@ $benef_coord = 'GPS coordinates';
 $benef_Lat = 'Latitude';
 $benef_Long = 'Longitude';
 $benef_type = 'Type of the beneficiary';
+
+//Delete user
+$confirmDelete='Would you really delete your account ?';
+$confirm='Confirm';
