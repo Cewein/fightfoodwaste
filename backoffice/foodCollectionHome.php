@@ -164,7 +164,7 @@ require_once __DIR__ . '/../includes.php';
                         </div>
                     </div> -->
 
-                    <div class="card shadow mb-4">
+                    <!-- <div class="card shadow mb-4">
                         <div class="card-header py-3 bg-gray-500">
                             <h6 class="m-0 font-weight-bold text-gray-900">Générer les listes de ramassage</h6>
                         </div>
@@ -172,7 +172,7 @@ require_once __DIR__ . '/../includes.php';
                             Menu permettant de générer les listes de produits à récupérer chez les particuliers et les commerçants: <a
                                     href="tourneePDFView.php">Générer les listes</a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <!-- /.container-fluid -->
