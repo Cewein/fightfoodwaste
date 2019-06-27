@@ -20,10 +20,12 @@ foreach ($allProduct as $product) {
     $article = new Article($product['code_barre']);
     $article->setQuantity($product['quantite']);
     $article->setDLC($product['DLC']);
+    $article->setId($product['identifiant']);
 
     $buttons = buttons($product['identifiant'], $number);
 
-    $row = "<tr id=" . $number . "><th scope=\"row\">" . $product['code_barre'] . "</th>";
+    $row = "<tr id=" . $number . "><th scope=\"row\">" . $article->getId() . "</th>";
+    $row .= "<td>" . $product['code_barre'] . "</td>";
     $row .= "<td>" . $article->getName() . "</td>";
     if ($tournee !== true) {
         $row .= "<td>" . $article->getDescription() . "</td>";
@@ -34,8 +36,7 @@ foreach ($allProduct as $product) {
     if ($tournee !== true) {
         $row .= "<td>" . $product['id_demande'] . "</td>";
         $row .= "<td>" . $buttons . "</td>";
-    }
-    else{
+    } else {
         $row .= "<td>" . select($product['identifiant']) . "</td>";
     }
     $row .= "</tr>";
@@ -53,7 +54,8 @@ function buttons($id, $num)
     return $buttons;
 }
 
-function select($id){
+function select($id)
+{
     $checkbox = "<input class=\"selectButton\" value='$id' type='checkbox'>";
     return $checkbox;
 }

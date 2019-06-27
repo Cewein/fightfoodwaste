@@ -1,4 +1,19 @@
-function displayMap(idTournee) {
+function displayMap(idTournee,dateTournee) {
+
+    const form = document.getElementById('listBenef');
+    const benef = document.createElement('input');
+    benef.type='hidden';
+    benef.value=idTournee;
+    benef.name="idTournee";
+    form.appendChild(benef);
+
+    const date = document.createElement('input');
+    date.type='hidden';
+    date.value=dateTournee;
+    date.name="dateTournee";
+    form.appendChild(date);
+
+
     const map = document.getElementById('map');
     const tourneelist = document.getElementById('displayTournees');
     const infosTournee = document.getElementById('infosTournee');
@@ -14,30 +29,30 @@ function displayMap(idTournee) {
         //String to array
         beneficiaires = res.split(';');
 
-        for (i = 0; i < beneficiaires.length - 1; i++) {
+        for (let i = 0; i < beneficiaires.length - 1; i++) {
             let button = document.createElement("button");
 
             if (beneficiaires !== '') {
                 beneficiaire = beneficiaires[i].split(',');
 
                 //Create the button to add the marker
-                button.class = 'btn btn-outline-primary';
+                button.classList.add("btn");
+                button.classList.add("btn-outline-primary");
                 button.innerHTML = beneficiaire[0];
                 button.onclick = function () {
-                    testAddPoint(beneficiaire[3], beneficiaire[4]);
+                    AddPoint(beneficiaire[3], beneficiaire[4]);
+                    addInput(beneficiaires[i],i);
                     return false;
                 };
 
                 containerButtons.appendChild(button);
             }
-
         }
 
     })
-
 }
 
-function testAddPoint(lat, long) { //Create marker on the map
+function AddPoint(lat, long) { //Create marker on the map
     var coords = {
         // lng: 2.161420,
         // lat: 48.434416
@@ -48,6 +63,23 @@ function testAddPoint(lat, long) { //Create marker on the map
     let frame = window.map;
 
     frame.newDropoff(coords);
+}
+
+function addInput(beneficiaire,i) {
+    if(checkExist(i)===false){
+        const form = document.getElementById('listBenef');
+        const benef = document.createElement('input');
+        benef.name=i;
+        benef.type='hidden';
+        benef.value=beneficiaire;
+        form.appendChild(benef);
+    }
+}
+
+function checkExist(id) {
+    const element = document.getElementById(id);
+    return element !== null; // if element exist
+
 }
 
 function sendRequestParcoursTournee(script, values, response = function () {
@@ -61,4 +93,9 @@ function sendRequestParcoursTournee(script, values, response = function () {
     request.open('POST', script);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(values);
+}
+
+function reload()
+{
+    window.map.location.reload(true);
 }

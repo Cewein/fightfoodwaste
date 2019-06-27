@@ -70,18 +70,7 @@ require_once __DIR__ . '/checkSalary.php';
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -99,8 +88,8 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestion des parcours</h1>
-                <p class="mb-4" id="infosTournee"> </p>
+                <h1 class="h3 mb-2 text-gray-800"><?= $itinerary_management ?></h1>
+                <p class="mb-4" id="infosTournee"></p>
 
                 <div class="list-group" id="displayTournees">
                     <?php require_once __DIR__ . '/tournees/displayTournees.php' ?>
@@ -108,21 +97,19 @@ require_once __DIR__ . '/checkSalary.php';
 
                 <div id="map">
                     <iframe name="map" id="frame" src="tournees/map/map.php" width="100%" height="800px"></iframe>
-                    <div id="containerButtons"></div>
+                    <div id="containerButtons">
+                        <button type="button" class="btn btn-outline-warning" onclick="reload()">reload</button>
+                    </div>
+
+                    <form id="listBenef" action="tournees/createPDFLivreur.php" method="POST">
+                        <input class="btn btn-success" type="submit" value="Valider le trajet" onclick="generatePDF()">
+                    </form>
                 </div>
 
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; FightFoodWaste 2019</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <?php require_once __DIR__ . '/footer.php' ?>
 
         </div>
         <!-- End of Content Wrapper -->

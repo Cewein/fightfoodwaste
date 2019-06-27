@@ -33,6 +33,7 @@ require_once __DIR__ . '/checkSalary.php';
     <!-- Custom styles for this page -->
     <link href="../css/BackOffice/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/newHeader.css" rel="stylesheet">
+    <link href="../css/backoffice.css" rel="stylesheet">
 
 </head>
 
@@ -63,22 +64,11 @@ require_once __DIR__ . '/checkSalary.php';
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -90,53 +80,56 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $users ?></h1>
                 <!--Navbar Infos Users -->
                 <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Afficher tous les utilisateurs"
+                    <input class="btn btn-secondary" type="button" value="<?= $displayallusers ?>"
                            onclick="allUsers()">
-                    <input class="btn btn-secondary" type="button" value="Afficher particuliers"
+                    <input class="btn btn-secondary" type="button" value="<?= $displayindividuals ?>"
                            onclick="users('particulier')">
-                    <input class="btn btn-secondary" type="button" value="Afficher commercants"
+                    <input class="btn btn-secondary" type="button" value="<?= $displaystorekeepers ?>"
                            onclick="users('commercant')">
-                    <input class="btn btn-secondary" type="button" value="Afficher salariés" onclick="users('salary')">
+                    <input class="btn btn-secondary" type="button" value="<?= $displaysalary ?>"
+                           onclick="users('salary')">
                 </div>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">
-                    Inscrire un utilisateur
+                    <?= $registeruser ?>
                 </button>
 
                 <!-- Users table -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Tous les utilisateurs</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay"><?= $allUsers ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th id="userName">Nom</th>
-                                    <th id="pname">Prenom</th>
-                                    <th>Adresse Email</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th id="userName"><?= $name ?></th>
+                                    <th id="pname"><?= $firstname ?></th>
+                                    <th id="siret"><?= $nsiren ?></th>
+                                    <th><?= $email ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $roleType ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th id="userNameBot">Nom</th>
-                                    <th id="pnameBot">Prenom</th>
-                                    <th>Adresse Email</th>
-                                    <th>Adresse</th>
-                                    <th>Ville</th>
-                                    <th>Role(s)</th>
-                                    <th>Actions</th>
+                                    <th id="userNameBot"><?= $name?></th>
+                                    <th id="pnameBot"><?= $firstname ?></th>
+                                    <th id="siretBot"><?= $nsiren ?></th>
+                                    <th><?= $email ?></th>
+                                    <th><?= $address ?></th>
+                                    <th><?= $city ?></th>
+                                    <th><?= $roleType ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
@@ -156,7 +149,7 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><?= $registeruser ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -169,7 +162,9 @@ require_once __DIR__ . '/checkSalary.php';
                                     <select class="form-control" id="typeUser">
                                         <option>Particulier</option>
                                         <option>Commerçant</option>
-                                        <option>Salarié</option>
+                                        <?php if ($isAdmin) { ?>
+                                            <option>Salarié</option><?php } ?>
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -208,11 +203,11 @@ require_once __DIR__ . '/checkSalary.php';
                                     <input type="text" class="form-control" id="inputCity" aria-describedby="city"
                                            placeholder="Ville">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary"><?= $validate ?></button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= $close ?></button>
                         </div>
                     </div>
                 </div>
@@ -224,22 +219,13 @@ require_once __DIR__ . '/checkSalary.php';
                 <div class="modal-dialog .modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Modifier un utilisateur</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form method="POST" id="update_user">
-                                <label id="emailSetError">Cette adresse email est déjà utilisée</label>
-                                <div class="form-group">
-                                    <label for="modiftypeUser">Type utilisateur</label>
-                                    <select class="form-control" id="modiftypeUser">
-                                        <option>Particulier</option>
-                                        <option>Commerçant</option>
-                                        <option>Salarié</option>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="modifName">Nom</label>
                                     <input type="text" class="form-control" id="modifName" aria-describedby="nom"
@@ -251,14 +237,6 @@ require_once __DIR__ . '/checkSalary.php';
                                     <input type="text" class="form-control" id="modifPname" aria-describedby="prenom"
                                            placeholder="Prenom">
                                     <small id="pnameError" class="form-text text-muted">Contient 1-100 caractères
-                                    </small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modifEmail">Adresse Email</label>
-                                    <input type="email" class="form-control" id="modifEmail"
-                                           aria-describedby="emailHelp"
-                                           placeholder="Enter email">
-                                    <small id="emailError" class="form-text text-muted">Contient 1-100 caractères
                                     </small>
                                 </div>
                                 <div class="form-group">
@@ -285,15 +263,7 @@ require_once __DIR__ . '/checkSalary.php';
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; FightFoodWaste 2019</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+        <?php require_once __DIR__ . '/footer.php' ?>
 
     </div>
     <!-- End of Content Wrapper -->

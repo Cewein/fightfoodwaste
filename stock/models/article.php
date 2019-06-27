@@ -5,6 +5,7 @@ require_once(__DIR__.'/barcode.php');
 class Article
 {
     //variable
+    private $id;
     private $barcode;
     private $name;
     private $description;
@@ -41,10 +42,12 @@ class Article
     public function getPicture() { return $this->getPicture;}
     public function getNumber() { return $this->number; }
     public function getQuantity() { return $this->quantity; }
+    public function getId(){ return $this->id; }
 
     //setter
     public function setQuantity($quantity) { $this->quantity=$quantity;}
     public function setDLC($DLC) { $this->DLC=$DLC;}
+    public function setId($id){$this->id=$id;}
 
     public function toString()
     {
@@ -57,6 +60,9 @@ class Article
     {
         echo $this->name;
         echo "\n";
+        if($this->description != null)
         echo $this->description;
+        else
+        echo "sans description";
     }
 }

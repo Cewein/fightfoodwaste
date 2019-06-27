@@ -27,6 +27,7 @@ foreach ($allUsers as $user) {
     $row = "<tr id=".$user['identifiant']."><th scope=\"row\">" . $user['identifiant'] . "</th>";
     $row .= "<td>" . $user['nom'] . "</td>";
     $row .= "<td>" . $user['prenom'] . "</td>";
+    $row .= "<td>" . $user['n_SIREN'] . "</td>";
     $row .= "<td>" . $user['adresse_mail'] . "</td>";
     $row .= "<td>" . $user['adresse'] . "</td>";
     $row .= "<td>" . $user['ville'] . "</td>";

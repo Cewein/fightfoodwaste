@@ -6,7 +6,7 @@ if (isset($_POST['productsSelected']) === true && isset($_POST['idBeneficiaire']
     $beneficiaire = $_POST['idBeneficiaire'];
     $dateTournee = $_POST['dateTournee'];
     $idTournee = $_POST['idTournee'];
-var_dump($dateTournee);
+
     setLivraison($beneficiaire, $dateTournee, $idTournee);
 
     $lastIdLivraison = getLastLivraisonNb();

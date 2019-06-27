@@ -29,3 +29,11 @@ function deleteBeneficiaireById($id)
     $request = "DELETE FROM `beneficiaire` WHERE `identifiant`=?";
     return ($db->exec($request, [$id]));
 }
+
+function updateBeneficiaire($name, $adress, $city, $lat, $long, $type, $id)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `beneficiaire` SET `nom`=?, `adresse`=?, `ville`=?, `Latitude`=?, `Longitude`=?,`type_beneficiaire`=? WHERE `identifiant`=?";
+    $db->exec($request, [$name, $adress, $city, $lat, $long, $type,$id]);
+}

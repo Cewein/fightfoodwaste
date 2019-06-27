@@ -2,50 +2,50 @@
 
 require_once __DIR__ . "/../../includes.php";
 require_once ('tour.php');
-require_once __DIR__ . "/../UpdateButtons.php";
 
 
-    $validatedWonder = getRequestsByStatut('creation');
-    //var_dump($validatedWonder);
-    
-    if(isset($validatedWonder)) {
-        $userInfos = getAllValidatedWonder();
-   // var_dump($userInfos); 
-    }
 
-    $contacts=[];
-  
-    if (count($userInfos) > 0) {
-        for ($i = 0; $i<count($userInfos); $i++) {
+$validatedWonder = getRequestsByStatut('checkedTrue');
 
 
-            $contacts[$i] = new tour (
-            
+if (isset($validatedWonder)) {
+    $userInfos = getAllValidatedWonder();
+}
+
+$contacts = [];
+
+if (count($userInfos) > 0) {
+    for ($i = 0; $i < count($userInfos); $i++) {
+
+
+        $contacts[$i] = new tour(
+
             $userInfos[$i]['id_demande'],
-            $userInfos[$i]['identifiant'],
             $userInfos[$i]['nom'],
             $userInfos[$i]['prenom'],
-            $userInfos[$i]['n_SIREN'],
             $userInfos[$i]['adresse'],
             $userInfos[$i]['ville']
-            );
-        
-        } 
-
-    // $idCollection = 0;
-            foreach ($contacts as $contact) {
-                $defaultRow = "<tr id=\"" . $contact->getIdWonder() . " \"><th scope=\"row\">" . $contact->getIdWonder() . "</th>";
-                $defaultRow .= "<td>" . $contact->getIdUser() . "</td>";
-                $defaultRow .= "<td>" . $contact->getLastName() . "</td>";
-                $defaultRow .= "<td>" . $contact->getFirstName() . "</td>";
-                $defaultRow .= "<td>" . $contact->getSirenNumber() . "</td>";
-                $defaultRow .= "<td>" . $contact->getAddress() . "</td>";
-                $defaultRow .= "<td>" . $contact->getCity() . "</td>";
-                $defaultRow .= "</tr>";
-                
-               // $idCollection++;
-
-                 echo $defaultRow; 
+        );
     }
-}         
 
+    foreach ($contacts as $contact) {
+        ob_start(); ?>
+
+        <tr id=" <?= $contact->getIdWonder() ?>">
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" name="checkbox[]" type="checkbox" value="" id="<?= $contact->getIdWonder() ?>" onclick="checkNbDemande()">
+                </div>
+            </td>
+            <td class="font-weight-bold" name="idWonder" scope="row"> <?= $contact->getIdWonder() ?> </td>
+            <td> <?= $contact->getLastName() ?> </td>
+            <td> <?= $contact->getFirstName() ?> </td>
+            <td> <?= $contact->getAddress() ?> </td>
+            <td> <?= $contact->getCity() ?> </td>
+
+        </tr>
+        <?php
+        $defaultRow = ob_get_clean();
+        echo $defaultRow;
+    }
+}

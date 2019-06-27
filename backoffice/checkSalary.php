@@ -1,6 +1,7 @@
 <?php
 
 $isAuthorized=false;
+$isAdmin=false;
 if(isset($_SESSION['roles'])===true){
     $allRoles=getAllRoles();
 
@@ -12,19 +13,21 @@ if(isset($_SESSION['roles'])===true){
             }
         }
 
-        if ($roleName==='salary' || $roleName==='administrateur'){
+        if ($roleName==='salary'){
             $isAuthorized=true;
+        }
+        elseif ($roleName==='administrateur'){
+            $isAuthorized=true;
+            $isAdmin=true;
         }
     }
 
     if($isAuthorized===false){
-        echo 'miam';
         header('Location: ../front/index.php');
         exit;
     }
 }
 else{
-    echo 'miambis session kk';
     header('Location: ../front/index.php');
     exit;
 }

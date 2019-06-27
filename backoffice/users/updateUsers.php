@@ -11,15 +11,17 @@ require_once __DIR__ . '/../../includes.php';
 if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
     $type = htmlspecialchars($_POST['type']);
     $id = htmlspecialchars($_POST['id']);
-    var_dump($type);
-    if ($type === 'delete') {
-        $role = getRoleByUserId($id);
 
-        if (count($role) > 0) {
-            deleteRoleByIdUserId($role['id_role'], $id);
+    if ($type === 'delete') {
+        $roles = getRoleByUserId($id);
+
+        if (count($roles) > 0) {
+            foreach ($roles as $role) {
+                deleteRoleByIdUserId($role['id_role'], $id);
+            }
         }
 
-        deleteUser($id);
+        inactivateUser($id);
         echo 'User deleted';
 
     } elseif ($type === 'admin') {
@@ -50,18 +52,14 @@ if (isset($_POST['type']) === true && isset($_POST['id']) === true) {
         }
     } elseif ($type === 'update') {
 
-        if (isset($_POST['name']) === true && isset($_POST['pname']) === true && isset($_POST['email']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true && isset($_POST['type']) === true) {
-            $name=htmlspecialchars($_POST['name']);
+        if (isset($_POST['name']) === true && isset($_POST['adress']) === true && isset($_POST['city']) === true) {
+            $name = htmlspecialchars($_POST['name']);
+            $pname = htmlspecialchars($_POST['pname']);
+            $adress = htmlspecialchars($_POST['adress']);
+            $city = htmlspecialchars($_POST['city']);
+            updateUserWithoutEmail($id, $name, $pname, $adress, $city);
 
-            $pname=htmlspecialchars($_POST['pname']);
-            echo strlen($pname);
-            echo $pname;
-            $email=htmlspecialchars($_POST['email']);
-            $adress=htmlspecialchars($_POST['adress']);
-            $city=htmlspecialchars($_POST['city']);
-            updateUser($id,$name,$pname,$email,$adress,$city);
-
-            echo "presque";
+            echo "User Updated";
         }
     } else {
         echo "Error: there's no roles";

@@ -65,22 +65,11 @@ require_once __DIR__ . '/checkSalary.php';
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -94,20 +83,20 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Demandes utilisateur</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $user_request ?></h1>
 
                 <!--Navbar Infos Users -->
                 <div class="btn-group btn-group-toggle" id="buttonsUsers" data-toggle="buttons">
-                    <input class="btn btn-secondary" type="button" value="Toutes les demandes"
+                    <input class="btn btn-secondary" type="button" value="<?= $all_request ?>"
                            onclick="allUsersRequests()">
-                    <input class="btn btn-secondary" type="button" value="Demandes à valider"
-                           onclick="usersRequests('tocheck')">
-                    <input class="btn btn-secondary" type="button" value="Demandes validées"
-                           onclick="usersRequests('checkedTrue')">
-                    <input class="btn btn-secondary" type="button" value="Demandes refusées"
-                           onclick="usersRequests('checkedFalse')">
-                    <input class="btn btn-secondary" type="button" value="Demandes Terminées"
-                           onclick="usersRequests('completed')">
+                    <input class="btn btn-secondary" type="button" value="<?= $tb_valid_request ?>"
+                           onclick="usersRequests('tocheck',3)">
+                    <input class="btn btn-secondary" type="button" value="<?= $valid_request ?>"
+                           onclick="usersRequests('checkedTrue',5)">
+                    <input class="btn btn-secondary" type="button" value="<?= $refused_request ?>"
+                           onclick="usersRequests('checkedFalse',7)">
+                    <input class="btn btn-secondary" type="button" value="<?= $closed_request ?>"
+                           onclick="usersRequests('done',9)">
                 </div>
 
 
@@ -117,7 +106,7 @@ require_once __DIR__ . '/checkSalary.php';
                     <div class="modal-dialog .modal-dialog-centered" role="document">
                         <div class="modal-content" id="body">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Produits de la demande n°</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"><?= $product_request ?></h5>
                                 <h5 class="modal-title" id="demandeId"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -129,10 +118,10 @@ require_once __DIR__ . '/checkSalary.php';
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th scope="col">Code Barre</th>
-                                            <th scope="col">Nom</th>
-                                            <th scope="col">DLC</th>
-                                            <th scope="col">Quantité</th>
+                                            <th scope="col"><?= $barcode ?></th>
+                                            <th scope="col"><?= $name ?></th>
+                                            <th scope="col"><?= $dlc ?></th>
+                                            <th scope="col"><?= $quantity ?></th>
                                         </tr>
                                         </thead>
                                         <tbody id="productBody">
@@ -142,15 +131,15 @@ require_once __DIR__ . '/checkSalary.php';
                                 </div>
                                 <div>
                                     <button type="button" class="btn btn-success" id="buttonValidate"
-                                            data-dismiss="modal">Valider
+                                            data-dismiss="modal"><?= $validate ?>
                                     </button>
                                     <button type="button" class="btn btn-danger" id="buttonRefuse" data-dismiss="modal">
-                                        Refuser
+                                        <?= $close ?>
                                     </button>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= $close ?></button>
                             </div>
                         </div>
                     </div>
@@ -159,27 +148,27 @@ require_once __DIR__ . '/checkSalary.php';
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay">Toutes les demandes</h6>
+                        <h6 class="m-0 font-weight-bold text-primary" id="actualDisplay"><?= $all_request ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Createur</th>
-                                    <th id="pname">Statut</th>
-                                    <th>ID collecte</th>
-                                    <th>Actions</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $creator ?></th>
+                                    <th id="pname"><?= $status ?></th>
+                                    <th><?= $idcollect ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Createur</th>
-                                    <th id="pname">Statut</th>
-                                    <th>ID collecte</th>
-                                    <th>Actions</th>
+                                    <th><?= $id ?></th>
+                                    <th><?= $creator ?></th>
+                                    <th id="pname"><?= $status ?></th>
+                                    <th><?= $idcollect ?></th>
+                                    <th><?= $actions ?></th>
                                 </tr>
                                 </tfoot>
                                 <tbody id="tbody">
@@ -196,15 +185,7 @@ require_once __DIR__ . '/checkSalary.php';
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; FightFoodWaste 2019</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+        <?php require_once __DIR__ . '/footer.php' ?>
 
     </div>
     <!-- End of Content Wrapper -->

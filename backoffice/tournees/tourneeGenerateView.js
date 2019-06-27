@@ -10,11 +10,15 @@ document.getElementById('select_beneficiaires').addEventListener('submit', funct
 
     let i = 0;
     let j = 0;
-    const beneficiairesChecked = [];
+    let beneficiairesChecked = [];
 
     while (typeof beneficiaires[i] !== 'undefined') {
         if (beneficiaires[i].checked === true) {
-            beneficiairesChecked[j] = beneficiaires[i].value;
+            benefInfos = document.getElementById(beneficiaires[i].value).childNodes;
+            
+            beneficiairesChecked[j]=[];
+            beneficiairesChecked[j]['id'] = beneficiaires[i].value;
+            beneficiairesChecked[j]['name'] = benefInfos[1].innerHTML;
             j++;
         }
         i++;
@@ -59,7 +63,7 @@ function nextBeneficiaire(BeneficiairesList, actual, dateTournee, idTournee) {
         let productsSelected = [];
 
         //Get Beneficiaire id
-        const idBeneficiaire = BeneficiairesList[actual];
+        const idBeneficiaire = BeneficiairesList[actual]['id'];
 
         //Get checked products
         let i, j = 0;
@@ -77,8 +81,10 @@ function nextBeneficiaire(BeneficiairesList, actual, dateTournee, idTournee) {
     }
 
     displayProducts();
-
+    console.log(BeneficiairesList);
     if (BeneficiairesList.length > actual + 1) {
+        const infoBenef = document.getElementById('stepTitle');
+        infoBenef.innerText = BeneficiairesList[actual + 1]['name'];
         nextButton.onclick = function () {
             nextBeneficiaire(BeneficiairesList, actual + 1, dateTournee, idTournee);
         };

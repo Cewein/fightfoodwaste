@@ -68,22 +68,11 @@ require_once __DIR__ . '/checkSalary.php';
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Déconnexion
+                                <?= $logout ?>
                             </a>
                         </div>
                     </li>
@@ -97,38 +86,38 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Création d'une tournée</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $tour_creation ?></h1>
                 <p class="mb-4" id="stepTitle">
-                    Choix de la date, puis sélection des bénéficiaires
+                    <?= $tour_creation_chitchat ?>
                 </p>
-                <p id="beneficiaireError">Aucun bénéficiaire sélectionné !</p>
+                <p id="beneficiaireError"><?= $no_benef_selected ?></p>
                 <form id="select_beneficiaires">
                     <div class="form-group col-6">
-                        <label for="dateTournee" class="col">Date de la tournée :</label>
+                        <label for="dateTournee" class="col"><?= $date_tour ?></label>
                         <input name="dateTournee" type="date" id="dateTournee" class="form-control">
-                        <small  id="dateError">Date incorrecte !</small>
+                        <small id="dateError">Date incorrecte !</small>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nom</th>
-                                <th>Adresse</th>
-                                <th>Ville</th>
-                                <th>Type bénéficaire</th>
-                                <th>Selection</th>
+                                <th><?= $id ?></th>
+                                <th><?= $name ?></th>
+                                <th><?= $address ?></th>
+                                <th><?= $city ?></th>
+                                <th><?= $typeofbeneficiary ?></th>
+                                <th><?= $selection ?></th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Nom</th>
-                                <th>Adresse</th>
-                                <th>Ville</th>
-                                <th>type bénéficaire</th>
-                                <th>Selection</th>
+                                <th><?= $id ?></th>
+                                <th><?= $name ?></th>
+                                <th><?= $address ?></th>
+                                <th><?= $city ?></th>
+                                <th><?= $typeofbeneficiary ?></th>
+                                <th><?= $selection ?></th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -136,54 +125,47 @@ require_once __DIR__ . '/checkSalary.php';
                             </tbody>
                         </table>
                     </div>
-                    <input type="submit" class="btn btn-success" value="Valider ces bénéficiaires">
+                    <input type="submit" class="btn btn-success" value="<?= $beneficiaries_validate ?>">
                 </form>
 
                 <div class="table-responsive" id="displayProducts">
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                         <tr>
-                            <th>Code barre</th>
-                            <th>Nom</th>
-                            <th>Quantite</th>
-                            <th>DLC</th>
-                            <th>Stock</th>
-                            <th>Selection</th>
+                            <th><?= $id ?></th>
+                            <th><?= $barcode ?></th>
+                            <th><?= $name ?></th>
+                            <th><?= $quantity ?></th>
+                            <th><?= $dlc ?></th>
+                            <th><?= $stock ?></th>
+                            <th><?= $selection ?></th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Code barre</th>
-                            <th>Nom</th>
-                            <th>Quantite</th>
-                            <th>DLC</th>
-                            <th>Stock</th>
-                            <th>Selection</th>
+                            <th><?= $id ?></th>
+                            <th><?= $barcode ?></th>
+                            <th><?= $name ?></th>
+                            <th><?= $quantity ?></th>
+                            <th><?= $dlc ?></th>
+                            <th><?= $stock ?></th>
+                            <th><?= $selection ?></th>
                         </tr>
                         </tfoot>
                         <tbody id="productsTable">
 
                         </tbody>
                     </table>
-                    <button class="btn btn-primary" id="validateBenef">Valider cette livraison</button>
+                    <button class="btn btn-primary" id="validateBenef"><?= $delivery_validate ?></button>
                 </div>
 
                 <div id="EndGenerate">
-                    <button class="btn btn-info" onclick="finish()">Revenir au menu</button>
+                    <button class="btn btn-info" onclick="finish()"><?= $back_menu ?></button>
                 </div>
-
 
                 <!-- End of Main Content -->
 
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; FightFoodWaste 2019</span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
+                <?php require_once __DIR__ . '/footer.php' ?>
 
             </div>
             <!-- End of Content Wrapper -->
@@ -199,7 +181,7 @@ require_once __DIR__ . '/checkSalary.php';
         <?php require_once __DIR__ . "/logoutModal.php" ?>
 
         <!-- Page custom Javascript-->
-        <script src="tournees/tourneeView.js"></script>
+        <script src="tournees/tourneeGenerateView.js"></script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

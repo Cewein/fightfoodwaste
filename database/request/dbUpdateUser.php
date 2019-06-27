@@ -10,7 +10,7 @@ function deleteUser($id)
 {
     $db = DatabaseManager::getManager();
 
-    $request = "DELETE FROM `utilisateur` WHERE `identifiant`=?";
+    $request = "UPDATE `utilisateur` SET `etat_compte`=-1 WHERE `identifiant`=?";
     $db->exec($request, [$id]);
 }
 
@@ -20,6 +20,14 @@ function updateUser($id, $name, $pname, $email, $adress, $city)
 
     $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse_mail`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
     $db->exec($request, [$name, $pname, $email, $adress, $city, $id]);
+}
+
+function updateUserWithoutEmail($id, $name, $pname, $adress, $city)
+{
+    $db = DatabaseManager::getManager();
+
+    $request = "UPDATE `utilisateur` SET `nom`=?,`prenom`=?,`adresse`=?,`ville`=? WHERE `identifiant`=?";
+    $db->exec($request, [$name, $pname, $adress, $city, $id]);
 }
 
 
@@ -33,8 +41,9 @@ function updatePassword($id,$password) {
 
 
 function inactivateUser($id) {
+
     $db = DatabaseManager::getManager(); 
 
-    $request = "UPDATE `utilisateur` SET `etat_compte`= '2' WHERE `identifiant`=?"; 
+    $request = "UPDATE `utilisateur` SET `etat_compte`= 0 WHERE `identifiant`=?"; 
     $db->exec($request, [$id]);
 }
