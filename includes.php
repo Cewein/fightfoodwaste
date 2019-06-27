@@ -12,7 +12,8 @@ if (isset($_GET['lang']) === true) {
         setcookie("eng", 1, time() + (((3600 * 24) * 30) * 12));
     }
 }
-if (isset($_COOKIE["eng"]) === true) {
+
+if (isset($_COOKIE["eng"]) === true || $_GET['lang'] == "'eng'") {
     require_once __DIR__ . '/lang/eng.php';
 } else {
     require_once __DIR__ . '/lang/fr.php';
