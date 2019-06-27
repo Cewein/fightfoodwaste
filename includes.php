@@ -13,7 +13,7 @@ if (isset($_GET['lang']) === true) {
     }
 }
 
-if (isset($_COOKIE["eng"]) === true || $_GET['lang'] == "'eng'") {
+if (isset($_COOKIE["eng"]) === true || (isset($_GET['lang']) === true && $_GET['lang'] == "'eng'")) {
     require_once __DIR__ . '/lang/eng.php';
 } else {
     require_once __DIR__ . '/lang/fr.php';

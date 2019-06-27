@@ -2,6 +2,7 @@
 
 // HomePage Menu
 $home = 'Accueil';
+$personnalSpace='Espace Personnel';
 $register = 'Inscription';
 $login = 'Connexion';
 $logout = 'Déconnexion';
@@ -45,15 +46,16 @@ $close = 'Fermer';
 $refuse = 'Refuser';
 
 //Display Users
-//title
-$allUsers = 'Tous les utilisateurs';
-//buttons
+v
 $displayallusers = 'Afficher tous les utilisateurs';
 $displayindividuals = 'Afficher particuliers';
 $displaystorekeepers = 'Afficher commerçants';
 $displaysalary = 'Afficher salariés';
 $registeruser = 'Inscrire un utilisateur';
 
+//BackHome
+$titleHome="Accueil Administration";
+$tableDLC="Dates limite de consommation dépassées";
 
 //BackHome barre gauche
 $backoffhome = 'Accueil Back-Office';
@@ -151,3 +153,5 @@ $confirm='Confirmer';
 
 //Collectes
 $date_collect='Date de la collecte';
+
+//

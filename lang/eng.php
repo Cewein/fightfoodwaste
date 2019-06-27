@@ -2,6 +2,7 @@
 
 // HomePage Menu
 $home = 'Home';
+$personnalSpace='Personnal Space';
 $register = 'Register';
 $login = 'Connection';
 $logout = 'Deconnection';
@@ -45,11 +46,18 @@ $close = 'Close';
 $refuse = 'Refuse';
 
 //Display Users
+//title
+$allUsers = 'All Users';
+//buttons
 $displayallusers = 'Display all users';
 $displayindividuals = 'Display individuals';
 $displaystorekeepers = 'Display storkeepers';
 $displaysalary = 'Display salary';
 $registeruser = 'Register User';
+
+//BackHome
+$titleHome="Administration Home";
+$tableDLC="Deadlines for consumption exceeded";
 
 //navbar backoffice
 $backoffhome = 'Back-Office Home';

@@ -58,15 +58,15 @@ if (isset($allUsersRoles) === true) {
 
         switch ($roleName) {
             case 'particulier':
-                $linkName = "Espace Particulier";
+                $linkName = $personnalSpace;
                 $path = $directory . "profile/profile.php";
                 break;
             case 'commercant':
-                $linkName = "Espace Commerçant";
+                $linkName = $personnalSpace;
                 $path = $directory . "profile/profileMerchant.php";
                 break;
             case 'salary':
-                $linkName = "Espace Personnel";
+                $linkName = $personnalSpace;
                 $path = $directory . "profile/profile.php";
                 $roleLinks .= "<li class=\"nav-item\">
                                     <a class=\"nav-link \" href=" . $pathAdmin . ">
@@ -106,7 +106,6 @@ if (isset($allUsersRoles) === true) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href=<?= $pathIndex ?>><?= $home ?></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                     <!-- Personnalisation de la barre de navigation en fonction du rôle -->
                     <?php if (isset($_SESSION["id"]) === false) { ?>
                         <li class="nav-item"><a class="nav-link" href=<?= $pathInscription ?>><?= $register ?></a>

@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 require_once __DIR__ . '/checkSalary.php';
+var_dump($_COOKIE);
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +82,7 @@ require_once __DIR__ . '/checkSalary.php';
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Accueil Administration</h1>
+                <h1 class="h3 mb-2 text-gray-800"><?= $titleHome?></h1>
                 <p class="mb-4">
 
                 </p>
@@ -90,7 +91,7 @@ require_once __DIR__ . '/checkSalary.php';
                 <!-- Card DLC -->
                 <div class="card shadow mb-5">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Dates limite de consommation dépassées</h6>
+                        <h6 class="m-0 font-weight-bold text-primary"><?= $tableDLC?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
