@@ -28,8 +28,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
                     <div class="list-group ">
                         <a href="../front/index.php" class="list-group-item list-group-item-action">Accueil - Front
                             office</a>
-                        <a href="#" class="list-group-item list-group-item-action"><?= $collecte ?></a>
-                        <a href="#" class="list-group-item list-group-item-action">Tournées</a>
+                        <a href="profileRequestUser.php" class="list-group-item list-group-item-action">Suivi des demandes</a>
                         <a href="#" class="list-group-item list-group-item-action">Services</a>
                         <a href="#" class="list-group-item list-group-item-action">Contact</a>
 

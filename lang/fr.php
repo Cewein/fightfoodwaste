@@ -148,3 +148,6 @@ $benef_type = 'Type du bénéficiaire';
 //Delete user
 $confirmDelete='Voulez vous vraiment désactiver votre compte?';
 $confirm='Confirmer';
+
+//Collectes
+$date_collect='Date de la collecte';

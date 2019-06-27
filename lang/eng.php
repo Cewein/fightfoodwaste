@@ -145,3 +145,6 @@ $benef_type = 'Type of the beneficiary';
 //Delete user
 $confirmDelete='Would you really delete your account ?';
 $confirm='Confirm';
+
+//Collectes
+$date_collect='Collect Date';
