@@ -46,7 +46,9 @@ $close = 'Fermer';
 $refuse = 'Refuser';
 
 //Display Users
-v
+//title
+$allUsers = 'Tous les utilisateurs';
+//buttons
 $displayallusers = 'Afficher tous les utilisateurs';
 $displayindividuals = 'Afficher particuliers';
 $displaystorekeepers = 'Afficher commerçants';
