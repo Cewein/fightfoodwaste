@@ -89,7 +89,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
                                     </div>
                                 </div>
 
-                                <a href="../connection/php/disconnection.php">Se déconnecter</a>
+                                <a href="../connection/disconnection.php">Se déconnecter</a>
 
                             </div>
 

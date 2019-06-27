@@ -35,7 +35,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['roles']) == 'administrateur' || i
 
                     </div>
                 </div>
+
                 <div class="col-5">
+                    <div class="card-header">Résumé des demandes</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable">
